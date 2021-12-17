@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import {
 	Table,
 	TableBody,
@@ -8,12 +7,9 @@ import {
 	TableRow,
 	Paper,
 } from '@mui/material';
-import { CarContext } from '../../contexts/car-context';
 import { Link } from 'react-router-dom';
 
-const CarTable = () => {
-	const { cars } = useContext(CarContext);
-
+const CarTable = ({ cars }) => {
 	const rows = cars.map(({ id, brand, model, year, price }) => (
 		<TableRow key={id}>
 			<TableCell>{id}</TableCell>

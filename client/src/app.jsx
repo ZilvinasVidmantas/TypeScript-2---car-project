@@ -4,7 +4,6 @@ import {
 	Routes,
 	Route,
 } from 'react-router-dom';
-import { CarProvider } from './contexts/car-context';
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { lightTheme } from './styles/theme';
@@ -15,20 +14,18 @@ import Navbar from './components/partials/navbar';
 
 const App = () => {
 	return (
-		<CarProvider>
-			<ThemeProvider theme={lightTheme}>
-				<CssBaseline>
-					<RouterProvider>
-						<Navbar />
-						<Routes>
-							<Route path="/" element={<HomePage />} />
-							<Route path="/search" element={<CarSearch />} />
-							<Route path="/car/:id" element={<CarPage />} />
-						</Routes>
-					</RouterProvider>
-				</CssBaseline>
-			</ThemeProvider>
-		</CarProvider>
+		<ThemeProvider theme={lightTheme}>
+			<CssBaseline>
+				<RouterProvider>
+					<Navbar />
+					<Routes>
+						<Route path="/" element={<HomePage />} />
+						<Route path="/search" element={<CarSearch />} />
+						<Route path="/car/:id" element={<CarPage />} />
+					</Routes>
+				</RouterProvider>
+			</CssBaseline>
+		</ThemeProvider>
 	);
 };
 

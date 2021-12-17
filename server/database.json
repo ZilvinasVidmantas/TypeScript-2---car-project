@@ -2,7 +2,7 @@
   "cars": [
     {
       "id": "6",
-      "brand": "Opel",
+      "brandId": "1",
       "model": "Zefyra",
       "price": 9000,
       "year": 2016,
@@ -20,7 +20,7 @@
     },
     {
       "id": "32",
-      "brand": "Jaguar",
+      "brandId": "2",
       "model": "E-Type",
       "price": 165000,
       "year": 1961,
@@ -38,7 +38,7 @@
     },
     {
       "id": "33",
-      "brand": "Chevrolet",
+      "brandId": "3",
       "model": "Corvette",
       "price": 91000,
       "year": 1963,
@@ -56,7 +56,7 @@
     },
     {
       "id": "34",
-      "brand": "Acura",
+      "brandId": "4",
       "model": "NSX",
       "price": 72900,
       "year": 1990,
@@ -74,7 +74,7 @@
     },
     {
       "id": "35",
-      "brand": "Volvo",
+      "brandId": "5",
       "model": "P1800",
       "price": 28000,
       "year": 1966,
@@ -92,7 +92,7 @@
     },
     {
       "id": "36",
-      "brand": "De Tomaso",
+      "brandId": "6",
       "model": "Pantera",
       "price": 68000,
       "year": 1973,
@@ -110,7 +110,7 @@
     },
     {
       "id": "77",
-      "brand": "Bentley",
+      "brandId": "7",
       "model": "Flying Spur V8",
       "price": 196000,
       "year": 2021,
@@ -128,7 +128,7 @@
     },
     {
       "id": "78",
-      "brand": "Ford",
+      "brandId": "8",
       "model": "Puma",
       "price": 29000,
       "year": 2021,
@@ -146,7 +146,7 @@
     },
     {
       "id": "79",
-      "brand": "Lexus",
+      "brandId": "9",
       "model": "LQ",
       "price": 100000,
       "year": 2022,
@@ -164,7 +164,7 @@
     },
     {
       "id": "80",
-      "brand": "Subaru",
+      "brandId": "10",
       "model": "Forester Wilderness",
       "price": 40000,
       "year": 2022,
@@ -182,7 +182,7 @@
     },
     {
       "id": "81",
-      "brand": "Mercedes",
+      "brandId": "11",
       "model": "AMG GLE 53",
       "price": 78000,
       "year": 2021,
@@ -200,7 +200,7 @@
     },
     {
       "id": "27",
-      "brand": "BMW",
+      "brandId": "12",
       "model": "Isetta",
       "price": 15000,
       "year": 1956,
@@ -218,7 +218,7 @@
     },
     {
       "id": "28",
-      "brand": "Peel",
+      "brandId": "13",
       "model": "P50",
       "price": 2500,
       "year": 1962,
@@ -236,7 +236,7 @@
     },
     {
       "id": "29",
-      "brand": "Reliant",
+      "brandId": "14",
       "model": "Robin",
       "price": 3100,
       "year": 1973,
@@ -254,7 +254,7 @@
     },
     {
       "id": "30",
-      "brand": "Fiat",
+      "brandId": "15",
       "model": "Multipla",
       "price": 1200,
       "year": 1999,
@@ -272,7 +272,7 @@
     },
     {
       "id": "31",
-      "brand": "Ferrari ",
+      "brandId": "16",
       "model": "512 S Modulo",
       "price": 32000,
       "year": 1970,
@@ -290,7 +290,7 @@
     },
     {
       "id": "12",
-      "brand": "Ford",
+      "brandId": "8",
       "model": "T",
       "price": 25000,
       "year": 1925,
@@ -308,7 +308,7 @@
     },
     {
       "id": "13",
-      "brand": "Cadilac",
+      "brandId": "17",
       "model": "V-16 Roadster",
       "price": 47000,
       "year": 1930,
@@ -326,7 +326,7 @@
     },
     {
       "id": "14",
-      "brand": "Chrystler",
+      "brandId": "18",
       "model": "Airflow",
       "price": 64000,
       "year": 1934,
@@ -344,7 +344,7 @@
     },
     {
       "id": "15",
-      "brand": "Lincoln",
+      "brandId": "19",
       "model": "Continental",
       "price": 65000,
       "year": 1965,
@@ -362,7 +362,7 @@
     },
     {
       "id": "16",
-      "brand": "Plymouth",
+      "brandId": "20",
       "model": "Fury",
       "price": 32000,
       "year": 1958,
@@ -380,7 +380,7 @@
     },
     {
       "id": "57",
-      "brand": "Mercedes-Benz",
+      "brandId": "11",
       "model": "A180",
       "price": 7900,
       "year": 2014,
@@ -398,7 +398,7 @@
     },
     {
       "id": "58",
-      "brand": "Lexus",
+      "brandId": "9",
       "model": "CT 200h",
       "price": 9250,
       "year": 2011,
@@ -416,7 +416,7 @@
     },
     {
       "id": "59",
-      "brand": "BMW",
+      "brandId": "12",
       "model": "325",
       "price": 19555,
       "year": 1989,
@@ -434,7 +434,7 @@
     },
     {
       "id": "60",
-      "brand": "Lada",
+      "brandId": "21",
       "model": "21011",
       "price": 3800,
       "year": 1979,
@@ -452,7 +452,7 @@
     },
     {
       "id": "61",
-      "brand": "Ford",
+      "brandId": "8",
       "model": "Mustang",
       "price": 17500,
       "year": 2013,
@@ -470,7 +470,7 @@
     },
     {
       "id": "62",
-      "brand": "Fiat",
+      "brandId": "15",
       "model": "Multipla",
       "price": 500,
       "year": 1999,
@@ -488,7 +488,7 @@
     },
     {
       "id": "63",
-      "brand": "Ligier",
+      "brandId": "22",
       "model": "Be Sun",
       "price": 5550,
       "year": 2013,
@@ -506,7 +506,7 @@
     },
     {
       "id": "64",
-      "brand": "Citroen",
+      "brandId": "23",
       "model": "C4 Cactus",
       "price": 7240,
       "year": 2014,
@@ -524,7 +524,7 @@
     },
     {
       "id": "65",
-      "brand": "Lada",
+      "brandId": "21",
       "model": "Niva",
       "price": 5500,
       "year": 2007,
@@ -542,7 +542,7 @@
     },
     {
       "id": "66",
-      "brand": "Renault",
+      "brandId": "24",
       "model": "Twizy",
       "price": 5900,
       "year": 2012,
@@ -560,7 +560,7 @@
     },
     {
       "id": "72",
-      "brand": "Dodge",
+      "brandId": "24",
       "model": "Charger",
       "price": 50000,
       "year": 1970,
@@ -578,7 +578,7 @@
     },
     {
       "id": "52",
-      "brand": "Lada ",
+      "brandId": "21",
       "model": "2101",
       "price": 700,
       "year": 1985,
@@ -596,7 +596,7 @@
     },
     {
       "id": "53",
-      "brand": "Tesla",
+      "brandId": "26",
       "model": "Model 3",
       "price": 33950,
       "year": 2018,
@@ -614,7 +614,7 @@
     },
     {
       "id": "82",
-      "brand": "Fiat",
+      "brandId": "15",
       "model": "Multipla",
       "price": 900,
       "year": 1999,
@@ -632,7 +632,7 @@
     },
     {
       "id": "83",
-      "brand": "Volkswagen",
+      "brandId": "27",
       "model": "Beetle",
       "price": 1950,
       "year": 2004,
@@ -650,7 +650,7 @@
     },
     {
       "id": "84",
-      "brand": "Audi",
+      "brandId": "28",
       "model": "100",
       "price": 1700,
       "year": 1986,
@@ -668,7 +668,7 @@
     },
     {
       "id": "85",
-      "brand": "Opel",
+      "brandId": "1",
       "model": "Ascona",
       "price": 800,
       "year": 1984,
@@ -686,7 +686,7 @@
     },
     {
       "id": "86",
-      "brand": "Mercedes-Benz",
+      "brandId": "11",
       "model": "230",
       "price": 1750,
       "year": 1983,
@@ -704,7 +704,7 @@
     },
     {
       "id": "54",
-      "brand": "BMW",
+      "brandId": "12",
       "model": "535",
       "price": 14999,
       "year": 2014,
@@ -722,7 +722,7 @@
     },
     {
       "id": "55",
-      "brand": "Toyota ",
+      "brandId": "29",
       "model": "GT 86",
       "price": 13450,
       "year": 2015,
@@ -740,7 +740,7 @@
     },
     {
       "id": "56",
-      "brand": "Alfa Romeo",
+      "brandId": "30",
       "model": "Spider",
       "price": 16950,
       "year": 1987,
@@ -758,7 +758,7 @@
     },
     {
       "id": "73",
-      "brand": "Mazda",
+      "brandId": "31",
       "model": "RX-7",
       "price": 30000,
       "year": 1993,
@@ -776,7 +776,7 @@
     },
     {
       "id": "74",
-      "brand": "Mitsubishi",
+      "brandId": "32",
       "model": "Eclipse",
       "price": 25500,
       "year": 1995,
@@ -794,7 +794,7 @@
     },
     {
       "id": "75",
-      "brand": "Subaru",
+      "brandId": "10",
       "model": "WRX STI",
       "price": 45000,
       "year": 2021,
@@ -812,7 +812,7 @@
     },
     {
       "id": "76",
-      "brand": "Mitsubishi",
+      "brandId": "32",
       "model": "Lancer Evolution X",
       "price": 35000,
       "year": 2011,
@@ -830,7 +830,7 @@
     },
     {
       "id": "7",
-      "brand": "Toyota",
+      "brandId": "29",
       "model": "AE86",
       "price": 23000,
       "year": 1986,
@@ -848,7 +848,7 @@
     },
     {
       "id": "8",
-      "brand": "Mazda",
+      "brandId": "31",
       "model": "RX-7",
       "price": 25000,
       "year": 1990,
@@ -866,7 +866,7 @@
     },
     {
       "id": "9",
-      "brand": "Mitsubishi",
+      "brandId": "32",
       "model": "Lancer Evolution III GSR",
       "price": 25000,
       "year": 1995,
@@ -884,7 +884,7 @@
     },
     {
       "id": "10",
-      "brand": "Nissan",
+      "brandId": "33",
       "model": "180SX",
       "price": 19000,
       "year": 1991,
@@ -902,7 +902,7 @@
     },
     {
       "id": "11",
-      "brand": "Toyota",
+      "brandId": "29",
       "model": "MR2",
       "price": 22000,
       "year": 1996,
@@ -920,7 +920,7 @@
     },
     {
       "id": "42",
-      "brand": "Mercedes-Benz",
+      "brandId": "11",
       "model": "GLE53 AMG",
       "price": 147070,
       "year": 2021,
@@ -938,7 +938,7 @@
     },
     {
       "id": "22",
-      "brand": "Mini",
+      "brandId": "34",
       "model": "R50",
       "price": 2000,
       "year": 2010,
@@ -956,7 +956,7 @@
     },
     {
       "id": "23",
-      "brand": "Mini ",
+      "brandId": "34",
       "model": "R52",
       "price": 3500,
       "year": 2008,
@@ -974,7 +974,7 @@
     },
     {
       "id": "24",
-      "brand": "Mini ",
+      "brandId": "34",
       "model": "F56",
       "price": "7000",
       "year": 2012,
@@ -992,7 +992,7 @@
     },
     {
       "id": "25",
-      "brand": "Mini",
+      "brandId": "34",
       "model": "F60",
       "price": 12000,
       "year": 2017,
@@ -1010,7 +1010,7 @@
     },
     {
       "id": "26",
-      "brand": "Mini",
+      "brandId": "34",
       "model": "R59",
       "price": 20000,
       "year": 2021,
@@ -1028,7 +1028,7 @@
     },
     {
       "id": "43",
-      "brand": "Mercedes-Benz",
+      "brandId": "11",
       "model": "A180",
       "price": 7900,
       "year": 2014,
@@ -1046,7 +1046,7 @@
     },
     {
       "id": "44",
-      "brand": "Land Rover",
+      "brandId": "35",
       "model": "Range Rover Sport",
       "price": 26850,
       "year": 2014,
@@ -1064,7 +1064,7 @@
     },
     {
       "id": "45",
-      "brand": "Lexus",
+      "brandId": "9",
       "model": "CT 200h",
       "price": 9250,
       "year": 2011,
@@ -1082,7 +1082,7 @@
     },
     {
       "id": "46",
-      "brand": "Toyota",
+      "brandId": "29",
       "model": "Camry",
       "price": 26300,
       "year": 2019,
@@ -1100,7 +1100,7 @@
     },
     {
       "id": "47",
-      "brand": "Bmw",
+      "brandId": "12",
       "model": "5 series",
       "price": 7700,
       "year": 2008,
@@ -1118,7 +1118,7 @@
     },
     {
       "id": "48",
-      "brand": "Reliant",
+      "brandId": "14",
       "model": "Robin",
       "price": 50,
       "year": 1991,
@@ -1137,7 +1137,7 @@
     },
     {
       "id": "49",
-      "brand": "Lada",
+      "brandId": "21",
       "model": "Niva",
       "price": 1200,
       "year": 2000,
@@ -1155,7 +1155,7 @@
     },
     {
       "id": "50",
-      "brand": "Smart",
+      "brandId": "36",
       "model": "ForTwo",
       "price": 2000,
       "year": 2002,
@@ -1173,7 +1173,7 @@
     },
     {
       "id": "51",
-      "brand": "Mini",
+      "brandId": "34",
       "model": "Cooper",
       "price": 7000,
       "year": 2018,
@@ -1191,7 +1191,7 @@
     },
     {
       "id": "87",
-      "brand": "Marussia",
+      "brandId": "37",
       "model": "B2",
       "price": 500000,
       "year": 2009,
@@ -1209,7 +1209,7 @@
     },
     {
       "id": "88",
-      "brand": "Maybach",
+      "brandId": "38",
       "model": "Maybach 62",
       "price": 1500000,
       "year": 2010,
@@ -1227,7 +1227,7 @@
     },
     {
       "id": "89",
-      "brand": "Koenigsegg Agera",
+      "brandId": "39",
       "model": "910 AG",
       "price": 1500000,
       "year": 2010,
@@ -1245,8 +1245,8 @@
     },
     {
       "id": "90",
-      "brand": "Bugatti Veyron",
-      "model": "16.4 Super Sport",
+      "brandId": "40",
+      "model": "Veyron 16.4 Super Sport",
       "price": 2500000,
       "year": 2012,
       "images": [
@@ -1263,7 +1263,7 @@
     },
     {
       "id": "91",
-      "brand": "Ferrari",
+      "brandId": "16",
       "model": "SA Aperta",
       "price": 520000,
       "year": 2012,
@@ -1406,6 +1406,168 @@
       "surname": "Clarkson",
       "email": "jeremy@topgear.com",
       "mobile": "+1 917 6666666"
+    }
+  ],
+  "brands": [
+    {
+      "id": "1",
+      "title": "Opel"
+    },
+    {
+      "id": "2",
+      "title": "Jaguar"
+    },
+    {
+      "id": "3",
+      "title": "Chevrolet"
+    },
+    {
+      "id": "4",
+      "title": "Acura"
+    },
+    {
+      "id": "5",
+      "title": "Volvo"
+    },
+    {
+      "id": "6",
+      "title": "De Tomaso"
+    },
+    {
+      "id": "7",
+      "title": "Bentley"
+    },
+    {
+      "id": "8",
+      "title": "Ford"
+    },
+    {
+      "id": "9",
+      "title": "Lexus"
+    },
+    {
+      "id": "10",
+      "title": "Subaru"
+    },
+    {
+      "id": "11",
+      "title": "Mercedes-Benz"
+    },
+    {
+      "id": "12",
+      "title": "BMW"
+    },
+    {
+      "id": "13",
+      "title": "Peel"
+    },
+    {
+      "id": "14",
+      "title": "Reliant"
+    },
+    {
+      "id": "15",
+      "title": "Fiat"
+    },
+    {
+      "id": "16",
+      "title": "Ferrari"
+    },
+    {
+      "id": "17",
+      "title": "Cadilac"
+    },
+    {
+      "id": "18",
+      "title": "Chrystler"
+    },
+    {
+      "id": "19",
+      "title": "Lincoln"
+    },
+    {
+      "id": "20",
+      "title": "Plymouth"
+    },
+    {
+      "id": "21",
+      "title": "Lada"
+    },
+    {
+      "id": "22",
+      "title": "Ligier"
+    },
+    {
+      "id": "23",
+      "title": "Citroen"
+    },
+    {
+      "id": "24",
+      "title": "Dodge"
+    },
+    {
+      "id": "25",
+      "title": "Renault"
+    },
+    {
+      "id": "26",
+      "title": "Tesla"
+    },
+    {
+      "id": "27",
+      "title": "Volkswagen"
+    },
+    {
+      "id": "28",
+      "title": "Audi"
+    },
+    {
+      "id": "29",
+      "title": "Toyota"
+    },
+    {
+      "id": "30",
+      "title": "Alfa Romeo"
+    },
+    {
+      "id": "31",
+      "title": "Mazda"
+    },
+    {
+      "id": "32",
+      "title": "Mitsubishi"
+    },
+    {
+      "id": "33",
+      "title": "Nissan"
+    },
+    {
+      "id": "34",
+      "title": "Mini"
+    },
+    {
+      "id": "35",
+      "title": "Land Rover"
+    },
+    {
+      "id": "36",
+      "title": "Smart"
+    },
+    {
+      "id": "37",
+      "title": "Marussia"
+    },
+    {
+      "id": "38",
+      "title": "Maybach"
+    },
+    {
+      "id": "39",
+      "title": "Koenigsegg Agera"
+    },
+    {
+      "id": "40",
+      "title": "Bugatti"
     }
   ]
 }

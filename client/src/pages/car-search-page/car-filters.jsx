@@ -1,84 +1,51 @@
-import React, { useContext } from 'react';
-import { Typography, Paper } from '@mui/material';
-import { CarContext } from '../../contexts/car-context';
-import CheckboxGroupFilter from '../../components/controls/checkbox-group-filter';
-import RangeFilter from '../../components/controls/range-filter';
+import React, { useState, useEffect } from 'react';
+import { Typography, Paper, Autocomplete, TextField } from '@mui/material';
+// import CheckboxGroupFilter from '../../components/controls/checkbox-group-filter';
+// import RangeFilter from '../../components/controls/range-filter';
 import { useSearchParams } from 'react-router-dom';
-
-const createUrlParamObj = (searchParams, additionParams) => {
-	const paramObj = {};
-	const addParam = (value, key) => {
-		if (!paramObj.hasOwnProperty(key)) {
-			paramObj[key] = [value];
-		} else if (!paramObj[key].includes(value)) {
-			paramObj[key].push(value);
-		}
-	};
-	searchParams.forEach(addParam);
-	if (additionParams) {
-		additionParams.forEach(({ value, key }) => {
-			addParam(value, key);
-		});
-	}
-
-	return paramObj;
-};
+import { createUrlParamObj } from '../../helpers';
+import APIService from '../../services/api-service';
 
 const CarFilters = () => {
-	const { filters } = useContext(CarContext);
 	const [searchParams, setSearchParams] = useSearchParams();
-	console.log(createUrlParamObj(searchParams));
+	const [brands, setBrands] = useState([]);
 
-	const changeFilter = ({ filterName, name, min, max }) => {
-		let newParams;
-		if (name) {
-			const key = filterName;
-			const value = name;
-			newParams = createUrlParamObj(searchParams, [{ key, value }]);
-		} else if (min && max) {
-			newParams = createUrlParamObj(searchParams, [
-				{ key: `${filterName}_min`, value: min },
-				{ key: `${filterName}_max`, value: max },
-			]);
-		}
-
+	const changeUrlFilters = (urlFilters) => {
+		const newParams = createUrlParamObj(searchParams, urlFilters);
 		setSearchParams(newParams);
 	};
 
-	const filterGroups = filters.map(({ name, type, ...filterProps }) => {
-		switch (type) {
-			case 'checkboxGroup':
-				return (
-					<CheckboxGroupFilter
-						key={name}
-						filterName={name}
-						onChange={changeFilter}
-						{...filterProps}
-					/>
-				);
-
-			case 'numberRange':
-				return (
-					<RangeFilter
-						key={name}
-						filterName={name}
-						onChange={changeFilter}
-						{...filterProps}
-					/>
-				);
-			default:
-				throw new Error(
-					'DataFilter Komponente, naudojamas nežinomas filtro tipas',
-				);
+	const handleBrandChange = (_, selectedBrandOption) => {
+		if (selectedBrandOption) {
+			const urlFilter = { key: 'brand', value: selectedBrandOption.id };
+			changeUrlFilters([urlFilter]);
 		}
-	});
+	};
+
+	useEffect(() => {
+		//  Immediatly invoked function expression
+		(async () => {
+			const fetchedBrands = await APIService.fetchBrands();
+			const fetchedBrandslabeled = fetchedBrands.map((x) => ({
+				...x,
+				label: x.title,
+			}));
+			setBrands(fetchedBrandslabeled);
+		})();
+	}, []);
 
 	return (
 		<Paper elevation={4} sx={{ p: 2 }}>
-			<Typography component="h2" variant="h4">
-				Filtrai
-			</Typography>
-			{filterGroups}
+			<Typography component="h2" variant="h4" />
+			<Autocomplete
+				disablePortal
+				id="combo-box-demo"
+				options={brands}
+				renderInput={(params) => (
+					<TextField {...params} label="Markės" size="small" />
+				)}
+				onChange={handleBrandChange}
+			/>
 		</Paper>
 	);
 };

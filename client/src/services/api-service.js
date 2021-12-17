@@ -1,6 +1,17 @@
-const fetchCars = async () => {
+const fetchCars = async (params) => {
 	try {
-		const response = await fetch('http://localhost:5000/cars?_expand=user');
+		let requestUrl = 'http://localhost:5000/cars?_expand=user&_expand=brand';
+
+		console.log(params.brand);
+		if (params.brand) {
+			const brandFilters = params.brand
+				.map((brand) => `brandId=${brand}`)
+				.join('&');
+
+			requestUrl += '&' + brandFilters;
+		}
+
+		const response = await fetch(requestUrl);
 		const data = await response.json();
 		return data;
 	} catch (error) {
@@ -18,9 +29,20 @@ const fetchCar = async (id) => {
 	}
 };
 
+const fetchBrands = async () => {
+	try {
+		const response = await fetch(`http://localhost:5000/brands`);
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		throw new Error('Aprašyta klaida: Serverio klaida');
+	}
+};
+
 const API = {
 	fetchCars,
 	fetchCar,
+	fetchBrands,
 };
 
 export default API;

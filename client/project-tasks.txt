@@ -1,3 +1,11 @@
+-----------------------------------------------------------------------------
+Komanda C
+  Justas
+  Mindaugas
+  Arturas
+  Viktorija
+  Maxim
+
 car-search-page
   * įgalinti atvaizdavimą lentele arba gridu su mašinų nuotraukomis
     * nuotraukos turi būti kvadratinės
@@ -44,6 +52,12 @@ car-search-page
         * https://mui.com/components/selects/
 
 --------------------------------------------------------
+Komanda B
+  Migle
+  Juste
+  Ruta
+  Titas
+  Anna
 
 json-server
   * iškelti automobilių brands, models, transsmitions, fuelTypes, ir carFuelTypes į atskiras struktūras
@@ -59,7 +73,19 @@ json-server
 
   * pakeisti visus variklio tūrius skaičiais
 
+  Pritaikyti ./client/src/services/api-service.js užklausas
+    - https://github.com/typicode/json-server
+
+  
+
+
 -------------------------------------------------
+Komanda A
+  Miroslav
+  Aivaras
+  Nojus
+  Greta
+  Vitalius
 
 car-page
   * desktop dizainas
@@ -67,6 +93,6 @@ car-page
       https://swiperjs.com/
     * charakteristikos, turi atsirasti dešniame side-menu
 
--------------------------------------------------
 home-page.jsx
   Sukurti pradinį reprezentacinį puslapį
+

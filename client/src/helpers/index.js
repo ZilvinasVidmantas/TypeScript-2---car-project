@@ -13,3 +13,22 @@ export const getCurrentBreakpoints = (breakpoints) => {
 
 	return sortedBreakpoints.slice(largestBreakpointIndex);
 };
+
+export const createUrlParamObj = (searchParams, additionParams) => {
+	const paramObj = {};
+	const addParam = (value, key) => {
+		if (!paramObj.hasOwnProperty(key)) {
+			paramObj[key] = [value];
+		} else if (!paramObj[key].includes(value)) {
+			paramObj[key].push(value);
+		}
+	};
+	searchParams.forEach(addParam);
+	if (additionParams) {
+		additionParams.forEach(({ value, key }) => {
+			addParam(value, key);
+		});
+	}
+
+	return paramObj;
+};
