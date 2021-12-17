@@ -3,7 +3,7 @@
     {
       "id": "6",
       "brandId": "1",
-      "model": "Zefyra",
+      "modelId": "1",
       "price": 9000,
       "year": 2016,
       "images": [
@@ -21,7 +21,7 @@
     {
       "id": "32",
       "brandId": "2",
-      "model": "E-Type",
+      "modelId": "2",
       "price": 165000,
       "year": 1961,
       "images": [
@@ -39,7 +39,7 @@
     {
       "id": "33",
       "brandId": "3",
-      "model": "Corvette",
+      "modelId": "3",
       "price": 91000,
       "year": 1963,
       "images": [
@@ -57,7 +57,7 @@
     {
       "id": "34",
       "brandId": "4",
-      "model": "NSX",
+      "modelId": "4",
       "price": 72900,
       "year": 1990,
       "images": [
@@ -75,7 +75,7 @@
     {
       "id": "35",
       "brandId": "5",
-      "model": "P1800",
+      "modelId": "5",
       "price": 28000,
       "year": 1966,
       "images": [
@@ -93,7 +93,7 @@
     {
       "id": "36",
       "brandId": "6",
-      "model": "Pantera",
+      "modelId": "6",
       "price": 68000,
       "year": 1973,
       "images": [
@@ -111,7 +111,7 @@
     {
       "id": "77",
       "brandId": "7",
-      "model": "Flying Spur V8",
+      "modelId": "7",
       "price": 196000,
       "year": 2021,
       "images": [
@@ -129,7 +129,7 @@
     {
       "id": "78",
       "brandId": "8",
-      "model": "Puma",
+      "modelId": "8",
       "price": 29000,
       "year": 2021,
       "images": [
@@ -147,7 +147,7 @@
     {
       "id": "79",
       "brandId": "9",
-      "model": "LQ",
+      "modelId": "9",
       "price": 100000,
       "year": 2022,
       "images": [
@@ -165,7 +165,7 @@
     {
       "id": "80",
       "brandId": "10",
-      "model": "Forester Wilderness",
+      "modelId": "10",
       "price": 40000,
       "year": 2022,
       "images": [
@@ -183,7 +183,7 @@
     {
       "id": "81",
       "brandId": "11",
-      "model": "AMG GLE 53",
+      "modelId": "11",
       "price": 78000,
       "year": 2021,
       "images": [
@@ -201,7 +201,7 @@
     {
       "id": "27",
       "brandId": "12",
-      "model": "Isetta",
+      "modelId": "12",
       "price": 15000,
       "year": 1956,
       "images": [
@@ -219,7 +219,7 @@
     {
       "id": "28",
       "brandId": "13",
-      "model": "P50",
+      "modelId": "13",
       "price": 2500,
       "year": 1962,
       "images": [
@@ -237,7 +237,7 @@
     {
       "id": "29",
       "brandId": "14",
-      "model": "Robin",
+      "modelId": "14",
       "price": 3100,
       "year": 1973,
       "images": [
@@ -255,7 +255,7 @@
     {
       "id": "30",
       "brandId": "15",
-      "model": "Multipla",
+      "modelId": "15",
       "price": 1200,
       "year": 1999,
       "images": [
@@ -273,7 +273,7 @@
     {
       "id": "31",
       "brandId": "16",
-      "model": "512 S Modulo",
+      "modelId": "16",
       "price": 32000,
       "year": 1970,
       "images": [
@@ -291,13 +291,13 @@
     {
       "id": "12",
       "brandId": "8",
-      "model": "T",
+      "modelId": "17",
       "price": 25000,
       "year": 1925,
       "images": [
         "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/1925_Ford_Model_T_touring.jpg/1280px-1925_Ford_Model_T_touring.jpg",
-        "https://cdn.dealeraccelerate.com/motorcar/1/278/1575/790x1024/1925-ford-model-t",
-        "https://cdn.dealeraccelerate.com/vcc/1/584/21089/1920x1440/1925-ford-model-t-roadster",
+        "https://cdn.dealeraccelerate.com/motorcar/1/278/1575/790x1024/1925-ford-modelId-t",
+        "https://cdn.dealeraccelerate.com/vcc/1/584/21089/1920x1440/1925-ford-modelId-t-roadster",
         "https://i.pinimg.com/originals/09/f1/bb/09f1bb4389f36d1ef538a081f3ca6c8b.jpg",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCTIx8VvkMiUIBhuuWAT1rzDwSu1YRwKaV55Dwl6wf73XnVvUdK8Efesv4L-HBHNi9mSM&usqp=CAU"
       ],
@@ -309,7 +309,7 @@
     {
       "id": "13",
       "brandId": "17",
-      "model": "V-16 Roadster",
+      "modelId": "18",
       "price": 47000,
       "year": 1930,
       "images": [
@@ -327,7 +327,7 @@
     {
       "id": "14",
       "brandId": "18",
-      "model": "Airflow",
+      "modelId": "19",
       "price": 64000,
       "year": 1934,
       "images": [
@@ -345,7 +345,7 @@
     {
       "id": "15",
       "brandId": "19",
-      "model": "Continental",
+      "modelId": "20",
       "price": 65000,
       "year": 1965,
       "images": [
@@ -363,7 +363,7 @@
     {
       "id": "16",
       "brandId": "20",
-      "model": "Fury",
+      "modelId": "21",
       "price": 32000,
       "year": 1958,
       "images": [
@@ -381,7 +381,7 @@
     {
       "id": "57",
       "brandId": "11",
-      "model": "A180",
+      "modelId": "22",
       "price": 7900,
       "year": 2014,
       "images": [
@@ -399,7 +399,7 @@
     {
       "id": "58",
       "brandId": "9",
-      "model": "CT 200h",
+      "modelId": "23",
       "price": 9250,
       "year": 2011,
       "images": [
@@ -417,7 +417,7 @@
     {
       "id": "59",
       "brandId": "12",
-      "model": "325",
+      "modelId": "24",
       "price": 19555,
       "year": 1989,
       "images": [
@@ -435,7 +435,7 @@
     {
       "id": "60",
       "brandId": "21",
-      "model": "21011",
+      "modelId": "25",
       "price": 3800,
       "year": 1979,
       "images": [
@@ -453,7 +453,7 @@
     {
       "id": "61",
       "brandId": "8",
-      "model": "Mustang",
+      "modelId": "26",
       "price": 17500,
       "year": 2013,
       "images": [
@@ -471,7 +471,7 @@
     {
       "id": "62",
       "brandId": "15",
-      "model": "Multipla",
+      "modelId": "27",
       "price": 500,
       "year": 1999,
       "images": [
@@ -489,7 +489,7 @@
     {
       "id": "63",
       "brandId": "22",
-      "model": "Be Sun",
+      "modelId": "28",
       "price": 5550,
       "year": 2013,
       "images": [
@@ -507,7 +507,7 @@
     {
       "id": "64",
       "brandId": "23",
-      "model": "C4 Cactus",
+      "modelId": "29",
       "price": 7240,
       "year": 2014,
       "images": [
@@ -525,7 +525,7 @@
     {
       "id": "65",
       "brandId": "21",
-      "model": "Niva",
+      "modelId": "30",
       "price": 5500,
       "year": 2007,
       "images": [
@@ -543,7 +543,7 @@
     {
       "id": "66",
       "brandId": "24",
-      "model": "Twizy",
+      "modelId": "31",
       "price": 5900,
       "year": 2012,
       "images": [
@@ -561,7 +561,7 @@
     {
       "id": "72",
       "brandId": "24",
-      "model": "Charger",
+      "modelId": "32",
       "price": 50000,
       "year": 1970,
       "images": [
@@ -579,7 +579,7 @@
     {
       "id": "52",
       "brandId": "21",
-      "model": "2101",
+      "modelId": "25",
       "price": 700,
       "year": 1985,
       "images": [
@@ -597,15 +597,15 @@
     {
       "id": "53",
       "brandId": "26",
-      "model": "Model 3",
+      "modelId": "33",
       "price": 33950,
       "year": 2018,
       "images": [
-        "https://autoplius-img.dgn.lt/ann_2_194660151/tesla-model-3-75-kwh-sedanas-2018-elektra-0.jpg",
-        "https://autoplius-img.dgn.lt/ann_2_194662209/tesla-model-3-75-kwh-sedanas-2018-elektra-1.jpg",
-        "https://autoplius-img.dgn.lt/ann_2_194660177/tesla-model-3-75-kwh-sedanas-2018-elektra-3.jpg",
-        "https://autoplius-img.dgn.lt/ann_2_200991248/tesla-model-3-sedanas-2019-elektra-0.jpg",
-        "https://autoplius-img.dgn.lt/ann_2_200991250/tesla-model-3-sedanas-2019-elektra-1.jpg"
+        "https://autoplius-img.dgn.lt/ann_2_194660151/tesla-modelId-3-75-kwh-sedanas-2018-elektra-0.jpg",
+        "https://autoplius-img.dgn.lt/ann_2_194662209/tesla-modelId-3-75-kwh-sedanas-2018-elektra-1.jpg",
+        "https://autoplius-img.dgn.lt/ann_2_194660177/tesla-modelId-3-75-kwh-sedanas-2018-elektra-3.jpg",
+        "https://autoplius-img.dgn.lt/ann_2_200991248/tesla-modelId-3-sedanas-2019-elektra-0.jpg",
+        "https://autoplius-img.dgn.lt/ann_2_200991250/tesla-modelId-3-sedanas-2019-elektra-1.jpg"
       ],
       "engineVolume": "1.8",
       "fuelType": "petrol/electric",
@@ -615,7 +615,7 @@
     {
       "id": "82",
       "brandId": "15",
-      "model": "Multipla",
+      "modelId": "27",
       "price": 900,
       "year": 1999,
       "images": [
@@ -633,7 +633,7 @@
     {
       "id": "83",
       "brandId": "27",
-      "model": "Beetle",
+      "modelId": "34",
       "price": 1950,
       "year": 2004,
       "images": [
@@ -651,7 +651,7 @@
     {
       "id": "84",
       "brandId": "28",
-      "model": "100",
+      "modelId": "35",
       "price": 1700,
       "year": 1986,
       "images": [
@@ -669,7 +669,7 @@
     {
       "id": "85",
       "brandId": "1",
-      "model": "Ascona",
+      "modelId": "36",
       "price": 800,
       "year": 1984,
       "images": [
@@ -687,7 +687,7 @@
     {
       "id": "86",
       "brandId": "11",
-      "model": "230",
+      "modelId": "37",
       "price": 1750,
       "year": 1983,
       "images": [
@@ -705,7 +705,7 @@
     {
       "id": "54",
       "brandId": "12",
-      "model": "535",
+      "modelId": "38",
       "price": 14999,
       "year": 2014,
       "images": [
@@ -723,7 +723,7 @@
     {
       "id": "55",
       "brandId": "29",
-      "model": "GT 86",
+      "modelId": "39",
       "price": 13450,
       "year": 2015,
       "images": [
@@ -741,7 +741,7 @@
     {
       "id": "56",
       "brandId": "30",
-      "model": "Spider",
+      "modelId": "40",
       "price": 16950,
       "year": 1987,
       "images": [
@@ -759,7 +759,7 @@
     {
       "id": "73",
       "brandId": "31",
-      "model": "RX-7",
+      "modelId": "41",
       "price": 30000,
       "year": 1993,
       "images": [
@@ -777,7 +777,7 @@
     {
       "id": "74",
       "brandId": "32",
-      "model": "Eclipse",
+      "modelId": "42",
       "price": 25500,
       "year": 1995,
       "images": [
@@ -795,7 +795,7 @@
     {
       "id": "75",
       "brandId": "10",
-      "model": "WRX STI",
+      "modelId": "43",
       "price": 45000,
       "year": 2021,
       "images": [
@@ -813,7 +813,7 @@
     {
       "id": "76",
       "brandId": "32",
-      "model": "Lancer Evolution X",
+      "modelId": "44",
       "price": 35000,
       "year": 2011,
       "images": [
@@ -831,7 +831,7 @@
     {
       "id": "7",
       "brandId": "29",
-      "model": "AE86",
+      "modelId": "45",
       "price": 23000,
       "year": 1986,
       "images": [
@@ -849,7 +849,7 @@
     {
       "id": "8",
       "brandId": "31",
-      "model": "RX-7",
+      "modelId": "41",
       "price": 25000,
       "year": 1990,
       "images": [
@@ -867,7 +867,7 @@
     {
       "id": "9",
       "brandId": "32",
-      "model": "Lancer Evolution III GSR",
+      "modelId": "46",
       "price": 25000,
       "year": 1995,
       "images": [
@@ -885,7 +885,7 @@
     {
       "id": "10",
       "brandId": "33",
-      "model": "180SX",
+      "modelId": "47",
       "price": 19000,
       "year": 1991,
       "images": [
@@ -903,7 +903,7 @@
     {
       "id": "11",
       "brandId": "29",
-      "model": "MR2",
+      "modelId": "48",
       "price": 22000,
       "year": 1996,
       "images": [
@@ -921,7 +921,7 @@
     {
       "id": "42",
       "brandId": "11",
-      "model": "GLE53 AMG",
+      "modelId": "49",
       "price": 147070,
       "year": 2021,
       "images": [
@@ -939,7 +939,7 @@
     {
       "id": "22",
       "brandId": "34",
-      "model": "R50",
+      "modelId": "50",
       "price": 2000,
       "year": 2010,
       "images": [
@@ -957,7 +957,7 @@
     {
       "id": "23",
       "brandId": "34",
-      "model": "R52",
+      "modelId": "51",
       "price": 3500,
       "year": 2008,
       "images": [
@@ -975,7 +975,7 @@
     {
       "id": "24",
       "brandId": "34",
-      "model": "F56",
+      "modelId": "52",
       "price": "7000",
       "year": 2012,
       "images": [
@@ -993,7 +993,7 @@
     {
       "id": "25",
       "brandId": "34",
-      "model": "F60",
+      "modelId": "53",
       "price": 12000,
       "year": 2017,
       "images": [
@@ -1011,7 +1011,7 @@
     {
       "id": "26",
       "brandId": "34",
-      "model": "R59",
+      "modelId": "54",
       "price": 20000,
       "year": 2021,
       "images": [
@@ -1029,7 +1029,7 @@
     {
       "id": "43",
       "brandId": "11",
-      "model": "A180",
+      "modelId": "22",
       "price": 7900,
       "year": 2014,
       "images": [
@@ -1047,7 +1047,7 @@
     {
       "id": "44",
       "brandId": "35",
-      "model": "Range Rover Sport",
+      "modelId": "55",
       "price": 26850,
       "year": 2014,
       "images": [
@@ -1065,7 +1065,7 @@
     {
       "id": "45",
       "brandId": "9",
-      "model": "CT 200h",
+      "modelId": "23",
       "price": 9250,
       "year": 2011,
       "images": [
@@ -1083,7 +1083,7 @@
     {
       "id": "46",
       "brandId": "29",
-      "model": "Camry",
+      "modelId": "56",
       "price": 26300,
       "year": 2019,
       "images": [
@@ -1101,7 +1101,7 @@
     {
       "id": "47",
       "brandId": "12",
-      "model": "5 series",
+      "modelId": "57",
       "price": 7700,
       "year": 2008,
       "images": [
@@ -1119,7 +1119,7 @@
     {
       "id": "48",
       "brandId": "14",
-      "model": "Robin",
+      "modelId": "14",
       "price": 50,
       "year": 1991,
       "images": [
@@ -1138,7 +1138,7 @@
     {
       "id": "49",
       "brandId": "21",
-      "model": "Niva",
+      "modelId": "30",
       "price": 1200,
       "year": 2000,
       "images": [
@@ -1156,7 +1156,7 @@
     {
       "id": "50",
       "brandId": "36",
-      "model": "ForTwo",
+      "modelId": "58",
       "price": 2000,
       "year": 2002,
       "images": [
@@ -1174,7 +1174,7 @@
     {
       "id": "51",
       "brandId": "34",
-      "model": "Cooper",
+      "modelId": "59",
       "price": 7000,
       "year": 2018,
       "images": [
@@ -1192,7 +1192,7 @@
     {
       "id": "87",
       "brandId": "37",
-      "model": "B2",
+      "modelId": "60",
       "price": 500000,
       "year": 2009,
       "images": [
@@ -1210,7 +1210,7 @@
     {
       "id": "88",
       "brandId": "38",
-      "model": "Maybach 62",
+      "modelId": "61",
       "price": 1500000,
       "year": 2010,
       "images": [
@@ -1228,7 +1228,7 @@
     {
       "id": "89",
       "brandId": "39",
-      "model": "910 AG",
+      "modelId": "62",
       "price": 1500000,
       "year": 2010,
       "images": [
@@ -1246,7 +1246,7 @@
     {
       "id": "90",
       "brandId": "40",
-      "model": "Veyron 16.4 Super Sport",
+      "modelId": "63",
       "price": 2500000,
       "year": 2012,
       "images": [
@@ -1264,7 +1264,7 @@
     {
       "id": "91",
       "brandId": "16",
-      "model": "SA Aperta",
+      "modelId": "64",
       "price": 520000,
       "year": 2012,
       "images": [
@@ -1568,6 +1568,271 @@
     {
       "id": "40",
       "title": "Bugatti"
+    }
+  ],"models": [
+    {
+      "id": "1",
+      "title": "Zefyra"
+    },
+    {
+      "id": "2",
+      "title": "E-Type"
+    },
+    {
+      "id": "3",
+      "title": "Corvette"
+    },
+    {
+      "id": "4",
+      "title": "NSX"
+    },
+    {
+      "id": "5",
+      "title": "P1800"
+    },
+    {
+      "id": "6",
+      "title": "Pantera"
+    },
+    {
+      "id": "7",
+      "title": "Flying Spur V8"
+    },
+    {
+      "id": "8",
+      "title": "Puma"
+    },
+    {
+      "id": "9",
+      "title": "LQ"
+    },
+    {
+      "id": "10",
+      "title": "Forester Wilderness"
+    },
+    {
+      "id": "11",
+      "title": "AMG GLE 53"
+    },
+    {
+      "id": "12",
+      "title": "Isetta"
+    },
+    {
+      "id": "13",
+      "title": "P50"
+    },
+    {
+      "id": "14",
+      "title": "Robin"
+    },
+    {
+      "id": "15",
+      "title": "Multipla"
+    },
+    {
+      "id": "16",
+      "title": "512 S Modulo"
+    },
+    {
+      "id": "17",
+      "title": "T"
+    },
+    {
+      "id": "18",
+      "title": "V-16 Roadster"
+    },
+    {
+      "id": "19",
+      "title": "Airflow"
+    },
+    {
+      "id": "20",
+      "title": "Continental"
+    },
+    {
+      "id": "21",
+      "title": "Fury"
+    },
+    {
+      "id": "22",
+      "title": "A180"
+    },
+    {
+      "id": "23",
+      "title": "CT 200h"
+    },
+    {
+      "id": "24",
+      "title": "325"
+    },
+    {
+      "id": "25",
+      "title": "2101"
+    },
+    {
+      "id": "26",
+      "title": "Mustang"
+    },
+    {
+      "id": "27",
+      "title": "Multipla"
+    },
+    {
+      "id": "28",
+      "title": "Be Sun"
+    },
+    {
+      "id": "29",
+      "title": "C4 Cactus"
+    },
+    {
+      "id": "30",
+      "title": "Niva"
+    },
+    {
+      "id": "31",
+      "title": "Twizy"
+    },
+    {
+      "id": "32",
+      "title": "Charger"
+    },
+    {
+      "id": "33",
+      "title": "Model 3"
+    },
+    {
+      "id": "34",
+      "title": "Beetle"
+    },
+    {
+      "id": "35",
+      "title": "100"
+    },
+    {
+      "id": "36",
+      "title": "Ascona"
+    },
+    {
+      "id": "37",
+      "title": "230"
+    },
+    {
+      "id": "38",
+      "title": "535"
+    },
+    {
+      "id": "39",
+      "title": "GT 86"
+    },
+    {
+      "id": "40",
+      "title": "Spider"
+    },
+    {
+      "id": "41",
+      "title": "RX-7"
+    },
+    {
+      "id": "42",
+      "title": "Eclipse"
+    },
+    {
+      "id": "43",
+      "title": "WRX STI"
+    },
+    {
+      "id": "44",
+      "title": "Lancer Evolution X"
+    },
+    {
+      "id": "45",
+      "title": "AE86"
+    },
+    {
+      "id": "46",
+      "title": "Lancer Evolution III GSR"
+    },
+    {
+      "id": "47",
+      "title": "180SX"
+    },
+    {
+      "id": "48",
+      "title": "MR2"
+    },
+    {
+      "id": "49",
+      "title": "GLE53 AMG"
+    },
+    {
+      "id": "50",
+      "title": "R50"
+    },
+    {
+      "id": "51",
+      "title": "R52"
+    },
+    {
+      "id": "52",
+      "title": "F56"
+    },
+    {
+      "id": "53",
+      "title": "F60"
+    },
+    {
+      "id": "54",
+      "title": "R59"
+    },
+    {
+      "id": "55",
+      "title": "Range Rover Sport"
+    },
+    {
+      "id": "56",
+      "title": "Camry"
+    },
+    {
+      "id": "57",
+      "title": "5 series"
+    },
+    {
+      "id": "58",
+      "title": "ForTwo"
+    },
+    {
+      "id": "59",
+      "title": "Cooper"
+    },
+    {
+      "id": "60",
+      "title": "B2"
+    },
+    {
+      "id": "61",
+      "title": "Maybach 62"
+    },
+    {
+      "id": "62",
+      "title": "910 AG"
+    },
+    {
+      "id": "63",
+      "title": "Veyron 16.4 Super Sport"
+    },
+    {
+      "id": "64",
+      "title": "SA Aperta"
+    },
+    {
+      "id": "65",
+      "title": "910 AG"
+    },
+    {
+      "id": "66",
+      "title": "910 AG"
     }
   ]
 }
