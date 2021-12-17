@@ -39,10 +39,43 @@ const fetchBrands = async () => {
 	}
 };
 
+const fetchModels = async () => {
+	try {
+		const response = await fetch(`http://localhost:5000/models`);
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		throw new Error('Aprašyta klaida: Serverio klaida');
+	}
+};
+
+const fetchTransmissions = async () => {
+	try {
+		const response = await fetch(`http://localhost:5000/transmissions`);
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		throw new Error('Aprašyta klaida: Serverio klaida');
+	}
+};
+
+const fetchFuels = async () => {
+	try {
+		const response = await fetch(`http://localhost:5000/fuels`);
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		throw new Error('Aprašyta klaida: Serverio klaida');
+	}
+};
+
 const API = {
 	fetchCars,
 	fetchCar,
 	fetchBrands,
+	fetchModels,
+	fetchTransmissions,
+	fetchFuels
 };
 
 export default API;
