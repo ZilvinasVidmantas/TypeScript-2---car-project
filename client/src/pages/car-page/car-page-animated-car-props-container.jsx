@@ -8,7 +8,7 @@ const CarPageAnimatedCarPropsContainer = ({ children, delayProgress}) => {
 	return (
 		<Box ref={containerRef} sx={{ overflow: 'hidden' }}>
 			<SlideOnMount
-				direction={"up"}
+				direction="up"
 				ref={containerRef}
 				progressive={delayProgress}
 			>

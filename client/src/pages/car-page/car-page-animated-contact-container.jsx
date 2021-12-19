@@ -21,7 +21,7 @@ const CarPageAnimatedContactContainer = ({
 			}}
 		>
 			<SlideOnMount
-				direction={"up"}
+				direction="up"
 				ref={containerRef}
 				progressive={delayProgress}
 			>
@@ -41,9 +41,9 @@ const CarPageAnimatedContactContainer = ({
 						<Typography variant="h6">{fullname}</Typography>
 					</Grid>
 					<Grid item xs={6} sm={true}>
-						{actions.map(({ href, type, btnText }) => (
+						{actions.map(({ href, type, btnText }, i) => (
 							<CarPageAction
-								key={href}
+								key={i}
 								href={href}
 								type={type}
 								btnText={btnText}
