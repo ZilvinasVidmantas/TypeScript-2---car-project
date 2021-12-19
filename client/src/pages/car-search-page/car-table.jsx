@@ -6,12 +6,14 @@ import {
 	TableHead,
 	TableRow,
 	Paper,
-	TablePagination
+	TablePagination,
+	Skeleton,
+	Box
 } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
 // import Pagination from './car-table-pagination';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { CarRepairSharp } from '@mui/icons-material';
 
   
@@ -22,6 +24,13 @@ const CarTable = ({ cars }) => {
 	const handleChangePage = (event, newPage) => {
 	  setPage(newPage);
 	};
+	const [loading, setLoading]= useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000);
+    }, [])
   
 	const handleChangeRowsPerPage = event => {
 	  setRowsPerPage(parseInt(event.target.value, 10));
@@ -48,7 +57,14 @@ const CarTable = ({ cars }) => {
 console.log(cars)
 
 	return (
-		<TableContainer component={Paper} elevation={4} square={true}>
+		<>
+		{loading 
+		? <>
+		<Skeleton animation="wave" height={60} /> 
+		<Skeleton animation="wave" height={60}/>
+		<Skeleton animation="wave" height={60}/>
+		</>
+		: <TableContainer component={Paper} elevation={4} square={true}>
 			<Table>
 				<TableHead>
 					<TableRow>
@@ -77,8 +93,9 @@ console.log(cars)
 	  onRowsPerPageChange={handleChangeRowsPerPage}
 	  labelRowsPerPage={"Mašinų skaičius puslapyje:"}
 	/>
-	  </TableContainer>
-	);
-};
+	  </TableContainer>}
+		</>
+);
+	}
 
 export default CarTable;
