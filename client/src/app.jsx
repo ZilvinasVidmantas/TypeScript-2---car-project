@@ -7,7 +7,7 @@ import {
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import { lightTheme } from './styles/theme';
-import HomePage from './pages/home-page';
+import HomePage from './pages/car-home-page/';
 import CarSearch from './pages/car-search-page';
 import CarPage from './pages/car-page';
 import Navbar from './components/partials/navbar';
