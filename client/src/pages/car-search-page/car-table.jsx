@@ -6,12 +6,43 @@ import {
 	TableHead,
 	TableRow,
 	Paper,
+	TablePagination,
+	Skeleton,
+	Box
 } from '@mui/material';
+import React from 'react';
 import { Link } from 'react-router-dom';
+// import Pagination from './car-table-pagination';
+import {useState, useEffect} from 'react'
+import { CarRepairSharp } from '@mui/icons-material';
 
+  
 const CarTable = ({ cars }) => {
-	const rows = cars.map(({ id, brand, model, year, price }) => (
-		<TableRow key={id}>
+	
+	const [page, setPage] = useState(0);
+	const [rowsPerPage, setRowsPerPage] = useState(20);
+	const handleChangePage = (event, newPage) => {
+	  setPage(newPage);
+	};
+	const [loading, setLoading]= useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000);
+    }, [])
+  
+	const handleChangeRowsPerPage = event => {
+	  setRowsPerPage(parseInt(event.target.value, 10));
+	  setPage(0);
+	};
+	const emptyRows =
+    rowsPerPage - Math.min(rowsPerPage, cars.length - page * rowsPerPage);
+
+	const rows = cars
+	.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+	.map(({ id, brand, model, year, price }) => (
+		<TableRow key={id} >
 			<TableCell>{id}</TableCell>
 			<TableCell>{brand}</TableCell>
 			<TableCell>{model}</TableCell>
@@ -23,8 +54,17 @@ const CarTable = ({ cars }) => {
 		</TableRow>
 	));
 
+console.log(cars)
+
 	return (
-		<TableContainer component={Paper} elevation={4} square={true}>
+		<>
+		{loading 
+		? <>
+		<Skeleton animation="wave" height={60} /> 
+		<Skeleton animation="wave" height={60}/>
+		<Skeleton animation="wave" height={60}/>
+		</>
+		: <TableContainer component={Paper} elevation={4} square={true}>
 			<Table>
 				<TableHead>
 					<TableRow>
@@ -36,10 +76,26 @@ const CarTable = ({ cars }) => {
 						<TableCell />
 					</TableRow>
 				</TableHead>
-				<TableBody>{rows}</TableBody>
+				<TableBody>{rows} {emptyRows > 0 && (
+            <TableRow style={{ height: 53 * emptyRows }}>
+              <TableCell colSpan={6} />
+            </TableRow>
+          )}
+		  </TableBody>
 			</Table>
-		</TableContainer>
-	);
-};
+			<TablePagination
+	  rowsPerPageOptions={[10, 20, 25]}
+	  component="div"
+	  count={cars.length}
+	  rowsPerPage={rowsPerPage}
+	  page={page}
+	  onPageChange={handleChangePage}
+	  onRowsPerPageChange={handleChangeRowsPerPage}
+	  labelRowsPerPage={"Mašinų skaičius puslapyje:"}
+	/>
+	  </TableContainer>}
+		</>
+);
+	}
 
 export default CarTable;

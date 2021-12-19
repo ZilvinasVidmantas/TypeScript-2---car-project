@@ -1,14 +1,20 @@
 const fetchCars = async (params) => {
 	try {
-		let requestUrl = 'http://localhost:5000/cars?_expand=user&_expand=brand';
+		let requestUrl = 'http://localhost:5000/cars?_expand=user&_expand=brand&_expand=model&_expand=transmission';
 
-		console.log(params.brand);
 		if (params.brand) {
 			const brandFilters = params.brand
 				.map((brand) => `brandId=${brand}`)
 				.join('&');
 
 			requestUrl += '&' + brandFilters;
+		}
+		if (params.model) {
+			const modelFilters = params.model
+				.map((model) => `modelId=${model}`)
+				.join('&');
+
+			requestUrl += '&' + modelFilters;
 		}
 
 		const response = await fetch(requestUrl);
@@ -21,7 +27,7 @@ const fetchCars = async (params) => {
 
 const fetchCar = async (id) => {
 	try {
-		const response = await fetch(`http://localhost:5000/cars/${id}`);
+		const response = await fetch(`http://localhost:5000/cars/${id}?_expand=user&_expand=brand&_expand=model&_expand=transmission`);
 		const data = await response.json();
 		return data;
 	} catch (error) {
@@ -61,7 +67,7 @@ const fetchTransmissions = async () => {
 
 const fetchFuels = async () => {
 	try {
-		const response = await fetch(`http://localhost:5000/fuels`);
+		const response = await fetch(`http://localhost:5000/fuelTypes`);
 		const data = await response.json();
 		return data;
 	} catch (error) {

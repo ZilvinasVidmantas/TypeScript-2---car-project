@@ -24,7 +24,7 @@ class CarModel {
 	}) {
 		this.id = id;
 		this.brand = brand.title; // brandas turės būti surandamas iš modelio
-		this.model = model; // model.title
+		this.model = model.title; // model.title
 		this.price = price;
 		this.year = year;
 		this.images = images;
