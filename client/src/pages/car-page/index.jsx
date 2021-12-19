@@ -27,12 +27,10 @@ const CarPage = () => {
 	useEffect(() => {
 		(async () => {
 			const fetchedCar = await ApiService.fetchCar(id);
-			console.log(fetchedCar);
 			const singleCar = new CarModel(fetchedCar);
-			console.log(singleCar);
 			setCar(singleCar);
 		})();
-	}, []);
+	}, [id]);
 
 
 	const carProps = [
@@ -82,8 +80,6 @@ const CarPage = () => {
 								objectPosition: 'center',
 							}}
 							slidesPerView={1}
-							onSlideChange={() => console.log('slide change')}
-							onSwiper={(swiper) => console.log(swiper)}
 							navigation={true}
 							pagination={true}
 						>
