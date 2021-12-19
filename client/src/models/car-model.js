@@ -7,7 +7,7 @@ class CarModel {
 	images;
 	engineVolume;
 	fuelType;
-	transition;
+	transmission;
 	user;
 
 	constructor({
@@ -19,7 +19,7 @@ class CarModel {
 		images,
 		engineVolume,
 		fuelType,
-		transition,
+		transmission,
 		user,
 	}) {
 		this.id = id;
@@ -30,7 +30,7 @@ class CarModel {
 		this.images = images;
 		this.engineVolume = engineVolume;
 		this.fuelType = fuelType; // ['a', 'b'] -> [...].join('/')
-		this.transition = transition; // transition.title
+		this.transmission = transmission.title; // transition.title
 		this.user = user;
 	}
 }
