@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 const CarPageTitle = ({ brand, model, year }) => {
 	return (
-		<Box>
+		<Box sx={{ my: { lg: 2 } }}>
 			<Typography component="h1" variant="h4" align="center">
 				{brand} {model}
 			</Typography>

@@ -7,7 +7,7 @@ const CarPageAnimatedContactContainer = ({
 	fullname,
 	userInitials,
 	actions,
-	delayProgress,
+	delayProgress
 }) => {
 	const containerRef = useRef(null);
 	return (
@@ -21,11 +21,11 @@ const CarPageAnimatedContactContainer = ({
 			}}
 		>
 			<SlideOnMount
-				direction="up"
+				direction={"up"}
 				ref={containerRef}
 				progressive={delayProgress}
 			>
-				<Grid container>
+				<Grid container sx={{flexDirection: { lg: 'column'}, alignItems: { lg: 'center'}}}>
 					<Grid
 						item
 						xs={6}
