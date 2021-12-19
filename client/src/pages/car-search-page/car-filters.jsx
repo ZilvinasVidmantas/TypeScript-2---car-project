@@ -1,51 +1,256 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Paper, Autocomplete, TextField } from '@mui/material';
+import {
+	Typography,
+	Paper,
+	Autocomplete,
+	TextField,
+	Checkbox,
+} from '@mui/material';
 // import CheckboxGroupFilter from '../../components/controls/checkbox-group-filter';
 // import RangeFilter from '../../components/controls/range-filter';
 import { useSearchParams } from 'react-router-dom';
 import { createUrlParamObj } from '../../helpers';
 import APIService from '../../services/api-service';
 
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import RangeFilter from '../../components/controls/range-filter';
+import FilterContainer from '../../components/containers/filter-container';
+
+const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
+const checkedIcon = <CheckBoxIcon fontSize="small" />;
+
 const CarFilters = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
-	const [brands, setBrands] = useState([]);
+	const [filters, setFilters] = useState({
+		brands: [],
+		models: [],
+		transmissions: [],
+		fuelTypes: [],
+	});
+	const [showModels, setShowModels] = useState(false);
 
 	const changeUrlFilters = (urlFilters) => {
-		const newParams = createUrlParamObj(searchParams, urlFilters);
+		let newParams = createUrlParamObj(searchParams, urlFilters);
 		setSearchParams(newParams);
 	};
 
-	const handleBrandChange = (_, selectedBrandOption) => {
+	const handleFilterChange = (selectedBrandOption, filter) => {
+		searchParams.delete(filter);
+		if (filter === 'brand' && selectedBrandOption.length > 0) {
+			setShowModels(true);
+		} else if (filter === 'brand' && selectedBrandOption.length <= 0) {
+			setShowModels(false);
+			searchParams.delete('model');
+		}
 		if (selectedBrandOption) {
-			const urlFilter = { key: 'brand', value: selectedBrandOption.id };
-			changeUrlFilters([urlFilter]);
+			const urlFilter = selectedBrandOption.map(({ id }) => ({
+				key: filter,
+				value: id,
+			}));
+			changeUrlFilters(urlFilter);
 		}
 	};
+
+	// Sukuria objekta su visais filtrais ir juos suformatuoja
+	const formatFilters = (filters) => {
+		const formatedFIlters = Object.entries(filters).reduce(
+			(result, [name, values]) => {
+				result[name] = Object.values(values).map((item) => ({
+					...item,
+					label: item.title,
+				}));
+				return result;
+			},
+			{
+				brands: [],
+				models: [],
+				transmissions: [],
+				fuelTypes: [],
+			},
+		);
+		return formatedFIlters;
+	};
+
+	// const setInitialFilterSelection = () => {
+	// 	// console.log('pradz:', searchParams.keys());
+	// 	// searchParams
+	// 	// 	.entries()
+	// 	// 	.forEach(([key, value]) => console.log('key', key, ' value', value));
+	// 	for (var pair of searchParams.entries()) {
+	// 		console.log(pair[0] + ' ' + pair[1]);
+	// 	}
+	// };
 
 	useEffect(() => {
 		//  Immediatly invoked function expression
 		(async () => {
-			const fetchedBrands = await APIService.fetchBrands();
-			const fetchedBrandslabeled = fetchedBrands.map((x) => ({
-				...x,
-				label: x.title,
-			}));
-			setBrands(fetchedBrandslabeled);
+			const filters = {
+				brands: await APIService.fetchBrands(),
+				models: await APIService.fetchModels(),
+				transmissions: await APIService.fetchTransmissions(),
+				fuelTypes: await APIService.fetchFuels(),
+			};
+			const formatedFilters = formatFilters(filters);
+			setFilters(formatedFilters);
 		})();
 	}, []);
 
 	return (
 		<Paper elevation={4} sx={{ p: 2 }}>
-			<Typography component="h2" variant="h4" />
-			<Autocomplete
-				disablePortal
-				id="combo-box-demo"
-				options={brands}
-				renderInput={(params) => (
-					<TextField {...params} label="Markės" size="small" />
-				)}
-				onChange={handleBrandChange}
-			/>
+			<Typography component="h2" variant="h4">
+				Filtrai
+			</Typography>
+			{/* BRAND ------------------------------------------------------------------ */}
+			<FilterContainer title="Markė">
+				<Autocomplete
+					noOptionsText="Tokių filtrų nėra"
+					multiple
+					id="checkboxes-tags-demo"
+					options={filters.brands}
+					disableCloseOnSelect
+					getOptionLabel={(option) => option.title}
+					renderOption={(props, option, { selected }) => (
+						<li {...props}>
+							<Checkbox
+								icon={icon}
+								checkedIcon={checkedIcon}
+								style={{ marginRight: 8 }}
+								checked={selected}
+							/>
+							{option.title}
+						</li>
+					)}
+					renderInput={(params) => (
+						<TextField {...params} placeholder="Pasirinkti" />
+					)}
+					onChange={(_, selectedFilterOptions) =>
+						handleFilterChange(selectedFilterOptions, 'brand')
+					}
+				/>
+			</FilterContainer>
+			{/* BRAND ------------------------------------------------------------------ */}
+
+			{/* MODEL ------------------------------------------------------------------ */}
+			{showModels ? (
+				<FilterContainer title="Modelis">
+					<Autocomplete
+						noOptionsText="Tokių filtrų nėra"
+						multiple
+						id="checkboxes-tags-demo"
+						options={filters.models}
+						disableCloseOnSelect
+						getOptionLabel={(option) => option.title}
+						renderOption={(props, option, { selected }) => (
+							<li {...props}>
+								<Checkbox
+									icon={icon}
+									checkedIcon={checkedIcon}
+									style={{ marginRight: 8 }}
+									checked={selected}
+								/>
+								{option.title}
+							</li>
+						)}
+						// style={{ width: 500 }}
+						renderInput={(params) => (
+							<TextField {...params} placeholder="Pasirinkti" />
+						)}
+						onChange={(_, selectedBrandOption) =>
+							handleFilterChange(selectedBrandOption, 'model')
+						}
+					/>
+				</FilterContainer>
+			) : null}
+			{/* MODEL ------------------------------------------------------------------ */}
+
+			{/* PRICE ------------------------------------------------------------------ */}
+			<FilterContainer title="Kaina">
+				<RangeFilter
+					key="asd"
+					filterName="bablo"
+					onChange={(param) => console.log(param)}
+					selectedMin={0}
+					selectedMax={10}
+					min={0}
+					max={10}
+				/>
+			</FilterContainer>
+			{/* PRICE ------------------------------------------------------------------ */}
+
+			{/* YEAR ------------------------------------------------------------------ */}
+			<FilterContainer title="Metai">
+				<RangeFilter
+					key="asds"
+					filterName="YEAR"
+					onChange={(param) => console.log(param)}
+					selectedMin={2000}
+					selectedMax={2021}
+					min={2000}
+					max={2021}
+				/>
+			</FilterContainer>
+			{/* YEAR ------------------------------------------------------------------ */}
+
+			{/* TRANSMISSION ------------------------------------------------------------------ */}
+			<FilterContainer title="Pavarų dėžė">
+				<Autocomplete
+					noOptionsText="Tokių filtrų nėra"
+					multiple
+					id="checkboxes-tags-demo"
+					options={filters.transmissions}
+					disableCloseOnSelect
+					getOptionLabel={(option) => option.title}
+					renderOption={(props, option, { selected }) => (
+						<li {...props}>
+							<Checkbox
+								icon={icon}
+								checkedIcon={checkedIcon}
+								style={{ marginRight: 8 }}
+								checked={selected}
+							/>
+							{option.title}
+						</li>
+					)}
+					renderInput={(params) => (
+						<TextField {...params} placeholder="Pasirinkti" />
+					)}
+					onChange={(_, selectedFilterOptions) =>
+						handleFilterChange(selectedFilterOptions, 'transmissions')
+					}
+				/>
+			</FilterContainer>
+			{/* TRANSMISSION ------------------------------------------------------------------ */}
+
+			{/* FUELTYPE ------------------------------------------------------------------ */}
+			<FilterContainer title="Kuro tipas">
+				<Autocomplete
+					noOptionsText="Tokių filtrų nėra"
+					multiple
+					id="checkboxes-tags-demo"
+					options={filters.fuelTypes}
+					disableCloseOnSelect
+					getOptionLabel={(option) => option.title}
+					renderOption={(props, option, { selected }) => (
+						<li {...props}>
+							<Checkbox
+								icon={icon}
+								checkedIcon={checkedIcon}
+								style={{ marginRight: 8 }}
+								checked={selected}
+							/>
+							{option.title}
+						</li>
+					)}
+					renderInput={(params) => (
+						<TextField {...params} placeholder="Pasirinkti" />
+					)}
+					onChange={(_, selectedFilterOptions) =>
+						handleFilterChange(selectedFilterOptions, 'fuelTypes')
+					}
+				/>
+			</FilterContainer>
+			{/* FUELTYPE ------------------------------------------------------------------ */}
 		</Paper>
 	);
 };

@@ -13,10 +13,23 @@ const CarSearch = () => {
 	const [cars, setCars] = useState([]);
 	const [carSearchViewType, setCarSearchViewType] = useState('table'); // Atvaizdavimo tipas
 	const [searchParams] = useSearchParams();
+	// const [year, setYear] = useState({ min: 0, max: 0 });
+	// const [price, setPrice] = useState({ min: 0, max: 0 });
 
-	if (cars[0]) {
-		console.table(cars[0].brand);
-	}
+	// if (cars[0]) {
+	// 	console.table(cars[0].brand);
+	// }
+
+	// searchParams.keys((next) => console.log(next));
+
+	// const getMinMax = (from) => {
+	// 	const values = cars?.map((entity) => entity[from]);
+	// 	const uniqValues = values.sort((a, b) => a - b);
+	// 	const min = uniqValues.shift();
+	// 	const max = uniqValues.pop();
+
+	// 	return { min, max };
+	// };
 
 	useEffect(
 		() => {
@@ -26,6 +39,9 @@ const CarSearch = () => {
 				const cars = fetchedCars.map((carData) => new CarModel(carData));
 				setCars(cars);
 			})();
+			// setYear(getMinMax('year'));
+			// setPrice(getMinMax('price'));
+			// console.log(year);
 		},
 		[searchParams],
 	);
