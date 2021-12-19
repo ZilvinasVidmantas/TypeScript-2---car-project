@@ -2,17 +2,17 @@ import React, { useRef } from 'react';
 import { Grid, Box } from '@mui/material';
 import SlideOnMount from '../../components/animations/slide-on-mount';
 
-const CarPageAnimatedCarPropsContainer = ({ children, delayProgress }) => {
+const CarPageAnimatedCarPropsContainer = ({ children, delayProgress}) => {
 	const containerRef = useRef(null);
 
 	return (
 		<Box ref={containerRef} sx={{ overflow: 'hidden' }}>
 			<SlideOnMount
-				direction="up"
+				direction={"up"}
 				ref={containerRef}
 				progressive={delayProgress}
 			>
-				<Grid container rowSpacing={1}>
+				<Grid container rowSpacing={1} sx={{flexDirection: { lg: 'column'}, alignItems: { lg: 'center'}, justifyContent: { lg: 'end'}}}>
 					{children}
 				</Grid>
 			</SlideOnMount>

@@ -1,27 +1,44 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Box, Divider, Grid } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import ImageFluid from '../../components/images/image-fluid';
-import CarContext from '../../contexts/car-context';
 import CarPageTitle from './car-page-title';
+import ApiService from '../../services/api-service';
 import CarPageAnimatedCarPropsContainer from './car-page-animated-car-props-container';
 import CarPageCarProp from './car-page-car-prop';
 import CarPageAnimatedContactContainer from './car-page-animated-contact-container';
+import CarModel from '../../models/car-model';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination } from 'swiper';
+
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.min.css';
 
 const animationDelayProgress = {
 	xs: true,
 	sm: false,
+	lg: true,
 };
 
 const CarPage = () => {
-	const carContext = useContext(CarContext);
+	const [car, setCar] = useState(null);
 	const { id } = useParams();
-	const car = carContext.getCar(id);
-	const mainImageSrc = car?.images[0];
+
+	useEffect(() => {
+		(async () => {
+			const fetchedCar = await ApiService.fetchCar(id);
+			console.log(fetchedCar);
+			const singleCar = new CarModel(fetchedCar);
+			console.log(singleCar);
+			setCar(singleCar);
+		})();
+	}, []);
+
+
 	const carProps = [
 		{ value: `${car?.price}$`, name: 'Kaina' },
 		{ value: car?.fuelType, name: 'Kuro tipas' },
-		{ value: car?.transition, name: 'Pavarų dėžė' },
+		{ value: car?.transmission, name: 'Pavarų dėžė' },
 		{ value: `${car?.engineVolume} l`, name: 'Variklio tūris' },
 	];
 
@@ -33,44 +50,83 @@ const CarPage = () => {
 		{ href: car?.user.email, type: 'mailto', btnText: 'Siųsti el. laišką' },
 	];
 
+	SwiperCore.use([Navigation, Pagination]);
+
+	const mainImageSrc = car?.images.map((pic, i) => (
+		<SwiperSlide className="swiper-slide" style={{ height: '30rem' }}>
+			<ImageFluid
+				key={i + 1}
+				src={pic}
+				width="auto"
+				style={{ objectFit: 'contain', minHeight: '100%' }}
+			/>
+		</SwiperSlide>
+	));
+
 	return (
 		<Box
 			component="main"
 			sx={{
 				bgcolor: { xs: '#eeffee', sm: '#ffeeee', md: '#eeffff', lg: '#ffffee' },
+				minHeight: '90vh',
 			}}
 		>
 			{car !== undefined ? (
-				<>
-					<ImageFluid src={mainImageSrc} />
-					<CarPageTitle brand={car.brand} model={car.model} year={car.year} />
-					<Container>
-						<Grid container sx={{ mt: { sm: 2 } }}>
-							<Grid item xs={12} sm={true}>
-								<CarPageAnimatedCarPropsContainer
-									delayProgress={animationDelayProgress}
-								>
-									{carProps.map(({ name, value }) => (
-										<CarPageCarProp key={name} name={name} value={value} />
-									))}
-								</CarPageAnimatedCarPropsContainer>
-							</Grid>
+				<Grid container sx={{alignItems: {lg: 'center'}, paddingTop: {lg: '120px'}}}>
+					<Grid item xs={12} lg={9}>
+						<Swiper
+							sx={{
+								width: '200px',
+								height: '200px',
+								objectFit: 'cover',
+								objectPosition: 'center',
+							}}
+							slidesPerView={1}
+							onSlideChange={() => console.log('slide change')}
+							onSwiper={(swiper) => console.log(swiper)}
+							navigation={true}
+							pagination={true}
+						>
+							{mainImageSrc}
+						</Swiper>
+					</Grid>
+					<Grid item xs={12} lg={3}>
+						<CarPageTitle
+							brand={car?.brand}
+							model={car?.model}
+							year={car?.year}
+						/>
+						<Container>
+							<Grid
+								container
+								sx={{ mt: { sm: 2 }, flexDirection: { lg: 'column' }}}
+							>
+								<Grid item xs={12} sm={true} sx={{ maxHeight: '250px'}}>
+									<CarPageAnimatedCarPropsContainer
+										delayProgress={animationDelayProgress}
+									>
+										{carProps.map(({ name, value }) => (
+											<CarPageCarProp key={name} name={name} value={value} />
+										))}
+									</CarPageAnimatedCarPropsContainer>
+								</Grid>
 
-							<Grid item xs={12} sx={{ display: { sm: 'none' } }}>
-								<Divider sx={{ my: 2 }} />
-							</Grid>
+								<Grid item xs={12} sx={{ display: { sm: 'none' } }}>
+									<Divider sx={{ my: 2 }} />
+								</Grid>
 
-							<Grid item xs={12} sm={true}>
-								<CarPageAnimatedContactContainer
-									fullname={fullname}
-									userInitials={userInitials}
-									actions={actions}
-									delayProgress={animationDelayProgress}
-								/>
+								<Grid item xs={12} sm={true}>
+									<CarPageAnimatedContactContainer
+										fullname={fullname}
+										userInitials={userInitials}
+										actions={actions}
+										delayProgress={animationDelayProgress}
+									/>
+								</Grid>
 							</Grid>
-						</Grid>
-					</Container>
-				</>
+						</Container>
+					</Grid>
+				</Grid>
 			) : null}
 		</Box>
 	);
