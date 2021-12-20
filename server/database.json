@@ -2,7 +2,6 @@
   "cars": [
     {
       "id": "6",
-      "brandId": "1",
       "modelId": "1",
       "price": 9000,
       "year": 2016,
@@ -14,12 +13,12 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEUXy2VA3cIoITdoRSTogKg7m30rg5MZPb-rUOCQEannOiUwTJ74mPaj_eSe7uvwhqQzE&usqp=CAU"
       ],
       "engineVolume": 1.8,
+      "power": 18,
       "transmissionId": "1",
       "userId": "2"
     },
     {
       "id": "32",
-      "brandId": "2",
       "modelId": "2",
       "price": 165000,
       "year": 1961,
@@ -31,12 +30,12 @@
         "https://d13fy1xtnzm9jo.cloudfront.net/1621438807871/2000x"
       ],
       "engineVolume": 4.2,
+      "power": 42,
       "transmissionId": "2",
       "userId": "10"
     },
     {
       "id": "33",
-      "brandId": "3",
       "modelId": "3",
       "price": 91000,
       "year": 1963,
@@ -48,12 +47,12 @@
         "https://photos.classiccars.com/cc-temp/listing/155/1317/29606663-1963-chevrolet-corvette-std.jpg"
       ],
       "engineVolume": 5.4,
+      "power": 54,
       "transmissionId": "1",
       "userId": "10"
     },
     {
       "id": "34",
-      "brandId": "4",
       "modelId": "4",
       "price": 72900,
       "year": 1990,
@@ -65,12 +64,12 @@
         "https://photos.classiccars.com/cc-temp/listing/154/4058/29181888-1991-acura-nsx-thumb.jpg"
       ],
       "engineVolume": 3.2,
+      "power": 32,
       "transmissionId": "1",
       "userId": "10"
     },
     {
       "id": "35",
-      "brandId": "5",
       "modelId": "5",
       "price": 28000,
       "year": 1966,
@@ -82,12 +81,12 @@
         "https://pict1.reezocar.com/images/autoscout24.de/RZCATSDE3B57C355866A/VOLVO-P-1800-07.jpg"
       ],
       "engineVolume": 2.0,
+      "power": 20,
       "transmissionId": "1",
       "userId": "10"
     },
     {
       "id": "36",
-      "brandId": "6",
       "modelId": "6",
       "price": 68000,
       "year": 1973,
@@ -99,12 +98,12 @@
         "https://cdn.classic-trader.com/I/images/1920_1920_inset/vehicle_ad_standard_image_a6736777fcf8a5147bdf714c7b1c3b43.jpg"
       ],
       "engineVolume": 5.8,
+      "power": 58,
       "transmissionId": "2",
       "userId": "10"
     },
     {
       "id": "77",
-      "brandId": "7",
       "modelId": "7",
       "price": 196000,
       "year": 2021,
@@ -116,12 +115,12 @@
         "https://sf1.autoplus.fr/wp-content/uploads/autoplus/2021/07/flying-spur-hybrid-10.jpg"
       ],
       "engineVolume": 4.0,
+      "power": 40,
       "transmissionId": "1",
       "userId": "19"
     },
     {
       "id": "78",
-      "brandId": "8",
       "modelId": "8",
       "price": 29000,
       "year": 2021,
@@ -133,12 +132,12 @@
         "https://www.topgear.com/sites/default/files/cars-car/carousel/2021/06/14_ford_puma.jpg"
       ],
       "engineVolume": 1.6,
+      "power": 16,
       "transmissionId": "1",
       "userId": "19"
     },
     {
       "id": "79",
-      "brandId": "9",
       "modelId": "9",
       "price": 100000,
       "year": 2022,
@@ -155,7 +154,6 @@
     },
     {
       "id": "80",
-      "brandId": "10",
       "modelId": "10",
       "price": 40000,
       "year": 2022,
@@ -167,12 +165,12 @@
         "https://www.autoguide.com/blog/wp-content/gallery/2022-subaru-forester-wilderness-2021-09-02/2022-Subaru-Forester-Wilderness-17.jpg"
       ],
       "engineVolume": 2.5,
+      "power": 25,
       "transmissionId": "1",
       "userId": "19"
     },
     {
       "id": "81",
-      "brandId": "11",
       "modelId": "11",
       "price": 78000,
       "year": 2021,
@@ -184,12 +182,12 @@
         "https://www.mercedes-benz.lt/passengercars/mercedes-benz-cars/models/gle/coupe-c167/mercedes-amg/interior-design/_jcr_content/par/productinfotabnav/tabnav/productinfotabnavite/tabnavitem/videoimageslider/slides/videoimageslide/image.MQ6.12.20200312093352.jpeg"
       ],
       "engineVolume": 3.0,
+      "power": 30,
       "transmissionId": "1",
       "userId": "19"
     },
     {
       "id": "27",
-      "brandId": "12",
       "modelId": "12",
       "price": 15000,
       "year": 1956,
@@ -201,12 +199,12 @@
         "https://i.ebayimg.com/00/s/NjY3WDEwMDA=/z/-acAAOSwVAlg60ij/$_3.JPG"
       ],
       "engineVolume": 4.8,
+      "power": 48,
       "transmissionId": "2",
       "userId": "9"
     },
     {
       "id": "28",
-      "brandId": "13",
       "modelId": "13",
       "price": 2500,
       "year": 1962,
@@ -218,12 +216,12 @@
         "https://ichef.bbci.co.uk/news/669/cpsprodpb/F936/production/_121989736_whatsubject.jpg"
       ],
       "engineVolume": 9.0,
+      "power": 90,
       "transmissionId": "2",
       "userId": "13"
     },
     {
       "id": "29",
-      "brandId": "14",
       "modelId": "14",
       "price": 3100,
       "year": 1973,
@@ -235,12 +233,12 @@
         "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/London_%28UK%29%2C_Reliant_Robin_--_2010_--_1992.jpg/1200px-London_%28UK%29%2C_Reliant_Robin_--_2010_--_1992.jpg"
       ],
       "engineVolume": 12.0,
+      "power": 120,
       "transmissionId": "2",
       "userId": "8"
     },
     {
       "id": "30",
-      "brandId": "15",
       "modelId": "15",
       "price": 1200,
       "year": 1999,
@@ -252,12 +250,12 @@
         "https://www.manogarazas.lt/img/cars_catalog/1478/5dd1f3c2ee763_1_big.jpg"
       ],
       "engineVolume": 6.5,
+      "power": 65,
       "transmissionId": "1",
       "userId": "5"
     },
     {
       "id": "31",
-      "brandId": "16",
       "modelId": "16",
       "price": 32000,
       "year": 1970,
@@ -269,12 +267,12 @@
         "https://64.media.tumblr.com/6030bba095da10c09db8ee3baa89b6c3/bca03f1d2f247d67-83/s1280x1920/74ae2f4cfc7ef7615698efbe002a2bb8ef809712.jpg"
       ],
       "engineVolume": 0.3,
+      "power": 3,
       "transmissionId": "2",
       "userId": "14"
     },
     {
       "id": "12",
-      "brandId": "8",
       "modelId": "17",
       "price": 25000,
       "year": 1925,
@@ -286,12 +284,12 @@
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCTIx8VvkMiUIBhuuWAT1rzDwSu1YRwKaV55Dwl6wf73XnVvUdK8Efesv4L-HBHNi9mSM&usqp=CAU"
       ],
       "engineVolume": 2.9,
+      "power": 29,
       "transmissionId": "2",
       "userId": "6"
     },
     {
       "id": "13",
-      "brandId": "17",
       "modelId": "18",
       "price": 47000,
       "year": 1930,
@@ -303,12 +301,12 @@
         "https://thumbs.worthpoint.com/zoom/images1/1/0818/10/danbury-mint-1930-cadillac-16_1_86dc332b61cd661559bbfee7f919b2f6.jpg"
       ],
       "engineVolume": 7.4,
+      "power": 74,
       "transmissionId": "1",
       "userId": "6"
     },
     {
       "id": "14",
-      "brandId": "18",
       "modelId": "19",
       "price": 64000,
       "year": 1934,
@@ -320,12 +318,12 @@
         "https://images.squarespace-cdn.com/content/v1/596649e917bffcd672d15ea4/1506499406231-6ZTZ86J2WM8HVOR71CS8/Airflow-Profile.jpg?format=1500w"
       ],
       "engineVolume": 4.9,
+      "power": 49,
       "transmissionId": "2",
       "userId": "6"
     },
     {
       "id": "15",
-      "brandId": "19",
       "modelId": "20",
       "price": 65000,
       "year": 1965,
@@ -337,12 +335,12 @@
         "https://cdn.dealeraccelerate.com/worldwide/1/548/24768/790x1024/1965-lincoln-continental"
       ],
       "engineVolume": 7.0,
+      "power": 70,
       "transmissionId": "1",
       "userId": "6"
     },
     {
       "id": "16",
-      "brandId": "20",
       "modelId": "21",
       "price": 32000,
       "year": 1958,
@@ -354,12 +352,12 @@
         "https://barrettjacksoncdn.azureedge.net/staging/carlist/items/Fullsize/Cars/81936/81936_Front_3-4_Web.JPG"
       ],
       "engineVolume": 5.2,
+      "power": 52,
       "transmissionId": "1",
       "userId": "6"
     },
     {
       "id": "57",
-      "brandId": "11",
       "modelId": "22",
       "price": 7900,
       "year": 2014,
@@ -371,12 +369,12 @@
         "https://autoplius-img.dgn.lt/ann_2_202020074/mercedes-benz-a180-1-5-l-hecbekas-2014-dyzelinas-8.jpg"
       ],
       "engineVolume": 1.5,
+      "power": 15,
       "transmissionId": "2",
       "userId": "15"
     },
     {
       "id": "58",
-      "brandId": "9",
       "modelId": "23",
       "price": 9250,
       "year": 2011,
@@ -388,12 +386,12 @@
         "https://autoplius-img.dgn.lt/ann_2_200183321/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-16.jpg"
       ],
       "engineVolume": 1.8,
+      "power": 18,
       "transmissionId": "1",
       "userId": "4"
     },
     {
       "id": "59",
-      "brandId": "12",
       "modelId": "24",
       "price": 19555,
       "year": 1989,
@@ -405,12 +403,12 @@
         "https://autoplius-img.dgn.lt/ann_2_66269879/bmw-325-2-5-l-kabrioletas-1989-benzinas-10.jpg"
       ],
       "engineVolume": 2.5,
+      "power": 25,
       "transmissionId": "2",
       "userId": "1"
     },
     {
       "id": "60",
-      "brandId": "21",
       "modelId": "25",
       "price": 3800,
       "year": 1979,
@@ -422,12 +420,12 @@
         "https://autoplius-img.dgn.lt/ann_2_196200669/lada-21011-1-3-l-sedanas-1979-benzinas-5.jpg"
       ],
       "engineVolume": 1.3,
+      "power": 13,
       "transmissionId": "2",
       "userId": "2"
     },
     {
       "id": "61",
-      "brandId": "8",
       "modelId": "26",
       "price": 17500,
       "year": 2013,
@@ -439,12 +437,12 @@
         "https://autoplius-img.dgn.lt/ann_2_180118637/ford-mustang-3-7-l-kabrioletas-2013-benzinas-7.jpg"
       ],
       "engineVolume": 3.7,
+      "power": 37,
       "transmissionId": "1",
       "userId": "16"
     },
     {
       "id": "62",
-      "brandId": "15",
       "modelId": "27",
       "price": 500,
       "year": 1999,
@@ -456,12 +454,12 @@
         "https://autoplius-img.dgn.lt/ann_3_200661979/fiat-multipla-1-9-l-vienaturis-1999-dyzelinas-6.jpg"
       ],
       "engineVolume": 1.9,
+      "power": 19,
       "transmissionId": "2",
       "userId": "2"
     },
     {
       "id": "63",
-      "brandId": "22",
       "modelId": "28",
       "price": 5550,
       "year": 2013,
@@ -473,12 +471,12 @@
         "https://autoplius-img.dgn.lt/ann_3_187126865/ligier-kita-0-5-l-universalas-2013-elektra-7.jpg"
       ],
       "engineVolume": 4,
+      "power": 40,
       "transmissionId": "1",
       "userId": "2"
     },
     {
       "id": "64",
-      "brandId": "23",
       "modelId": "29",
       "price": 7240,
       "year": 2014,
@@ -490,12 +488,12 @@
         "https://autoplius-img.dgn.lt/ann_3_194086161/citroen-c4-cactus-1-6-l-hecbekas-2014-dyzelinas-8.jpg"
       ],
       "engineVolume": 1.6,
+      "power": 16,
       "transmissionId": "2",
       "userId": "2"
     },
     {
       "id": "65",
-      "brandId": "21",
       "modelId": "30",
       "price": 5500,
       "year": 2007,
@@ -507,12 +505,12 @@
         "https://autoplius-img.dgn.lt/ann_3_198291933/lada-niva-1-7-l-visureigis-2007-benzinas-9.jpg"
       ],
       "engineVolume": 1.7,
+      "power": 17,
       "transmissionId": "2",
       "userId": "15"
     },
     {
       "id": "66",
-      "brandId": "24",
       "modelId": "31",
       "price": 5900,
       "year": 2012,
@@ -523,13 +521,13 @@
         "https://autoplius-img.dgn.lt/ann_3_191359161/renault-twizy-kupe-coupe-2012-elektra-5.jpg",
         "https://autoplius-img.dgn.lt/ann_3_191359165/renault-twizy-kupe-coupe-2012-elektra-6.jpg"
       ],
-      "engineVolume": 13,
+      "engineVolume": 1.3,
+      "power": 13,
       "transmissionId": "1",
       "userId": "2"
     },
     {
       "id": "72",
-      "brandId": "24",
       "modelId": "32",
       "price": 50000,
       "year": 1970,
@@ -541,12 +539,12 @@
         "https://photos.classiccars.com/cc-temp/listing/124/146/17160150-1970-dodge-charger-thumb.jpg"
       ],
       "engineVolume": 5.6,
+      "power": 56,
       "transmissionId": "2",
       "userId": "18"
     },
     {
       "id": "52",
-      "brandId": "21",
       "modelId": "25",
       "price": 700,
       "year": 1985,
@@ -558,12 +556,12 @@
         "https://autoplius-img.dgn.lt/ann_2_169220641/lada-2101-1-3-l-sedanas-1976-benzinas-7.jpg"
       ],
       "engineVolume": 5.0,
+      "power": 50,
       "transmissionId": "2",
       "userId": "14"
     },
     {
       "id": "53",
-      "brandId": "26",
       "modelId": "33",
       "price": 33950,
       "year": 2018,
@@ -575,12 +573,12 @@
         "https://autoplius-img.dgn.lt/ann_2_200991250/tesla-modelId-3-sedanas-2019-elektra-1.jpg"
       ],
       "engineVolume": 1.8,
+      "power": 18,
       "transmissionId": "1",
       "userId": "2"
     },
     {
       "id": "82",
-      "brandId": "15",
       "modelId": "27",
       "price": 900,
       "year": 1999,
@@ -592,12 +590,12 @@
         "https://autoplius-img.dgn.lt/ann_2_200661979/fiat-multipla-1-9-l-mpv-minivan-1999-diesel-6.jpg"
       ],
       "engineVolume": 1.9,
+      "power": 19,
       "transmissionId": "2",
       "userId": "20"
     },
     {
       "id": "83",
-      "brandId": "27",
       "modelId": "34",
       "price": 1950,
       "year": 2004,
@@ -609,12 +607,12 @@
         "https://autoplius-img.dgn.lt/ann_2_200917278/volkswagen-beetle-1-6-l-hecbekas-2004-benzinas-11.jpg"
       ],
       "engineVolume": 1.6,
+      "power": 16,
       "transmissionId": "2",
       "userId": "20"
     },
     {
       "id": "84",
-      "brandId": "28",
       "modelId": "35",
       "price": 1700,
       "year": 1986,
@@ -626,12 +624,12 @@
         "https://autoplius-img.dgn.lt/ann_2_197781999/audi-100-2-2-l-sedanas-1986-benzinas-7.jpg"
       ],
       "engineVolume": 2.2,
+      "power": 22,
       "transmissionId": "2",
       "userId": "20"
     },
     {
       "id": "85",
-      "brandId": "1",
       "modelId": "36",
       "price": 800,
       "year": 1984,
@@ -643,12 +641,12 @@
         "https://autoplius-img.dgn.lt/ann_2_199131863/opel-ascona-1-6-l-sedanas-1984-benzinas-12.jpg"
       ],
       "engineVolume": 1.6,
+      "power": 16,
       "transmissionId": "2",
       "userId": "20"
     },
     {
       "id": "86",
-      "brandId": "11",
       "modelId": "37",
       "price": 1750,
       "year": 1983,
@@ -660,12 +658,12 @@
         "https://autoplius-img.dgn.lt/ann_2_198275851/mercedes-benz-230-2-3-l-sedanas-1983-benzinas-4.jpg"
       ],
       "engineVolume": 2.3,
+      "power": 23,
       "transmissionId": "2",
       "userId": "20"
     },
     {
       "id": "54",
-      "brandId": "12",
       "modelId": "38",
       "price": 14999,
       "year": 2014,
@@ -677,12 +675,12 @@
         "https://autoplius-img.dgn.lt/ann_2_202031136/bmw-535-3-0-l-universalas-2014-dyzelinas-13.jpg"
       ],
       "engineVolume": 3.0,
+      "power": 30,
       "transmissionId": "1",
       "userId": "2"
     },
     {
       "id": "55",
-      "brandId": "29",
       "modelId": "39",
       "price": 13450,
       "year": 2015,
@@ -694,12 +692,12 @@
         "https://autoplius-img.dgn.lt/ann_2_130809925/toyota-gt-86-2-0-l-kupe-coupe-2015-benzinas-7.jpg"
       ],
       "engineVolume": 2.0,
+      "power": 20,
       "transmissionId": "2",
       "userId": "3"
     },
     {
       "id": "56",
-      "brandId": "30",
       "modelId": "40",
       "price": 16950,
       "year": 1987,
@@ -711,12 +709,12 @@
         "https://autoplius-img.dgn.lt/ann_2_126065241/alfa-romeo-spider-2-0-l-kabrioletas-1987-benzinas-3.jpg"
       ],
       "engineVolume": 2.0,
+      "power": 20,
       "transmissionId": "2",
       "userId": "4"
     },
     {
       "id": "73",
-      "brandId": "31",
       "modelId": "41",
       "price": 30000,
       "year": 1993,
@@ -728,12 +726,12 @@
         "https://bringatrailer.com/wp-content/uploads/2021/04/1993_mazda_rx-7_16216251854ffa83572fda1f6947795A53-77CE-4041-84DC-2DFD05010715.jpeg?w=620&resize=620%2C413"
       ],
       "engineVolume": 1.3,
+      "power": 13,
       "transmissionId": "2",
       "userId": "18"
     },
     {
       "id": "74",
-      "brandId": "32",
       "modelId": "42",
       "price": 25500,
       "year": 1995,
@@ -745,12 +743,12 @@
         "https://pict1.reezocar.com/images/autoscout24.es/RZCATSESF5D63CFAE108/MITSUBISHI-ECLIPSE-06.jpg"
       ],
       "engineVolume": 2.0,
+      "power": 20,
       "transmissionId": "2",
       "userId": "18"
     },
     {
       "id": "75",
-      "brandId": "10",
       "modelId": "43",
       "price": 45000,
       "year": 2021,
@@ -762,12 +760,12 @@
         "https://automology.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2020/03/25123137/new-SUBARU-WRX-STI-2021-3.png"
       ],
       "engineVolume": 2.5,
+      "power": 25,
       "transmissionId": "2",
       "userId": "15"
     },
     {
       "id": "76",
-      "brandId": "32",
       "modelId": "44",
       "price": 35000,
       "year": 2011,
@@ -779,12 +777,12 @@
         "https://pict1.reezocar.com/images/autoscout24.de/RZCATSDE32E75A0D63B3/MITSUBISHI-LANCER-10.jpg"
       ],
       "engineVolume": 2.0,
+      "power": 20,
       "transmissionId": "2",
       "userId": "12"
     },
     {
       "id": "7",
-      "brandId": "29",
       "modelId": "45",
       "price": 23000,
       "year": 1986,
@@ -796,12 +794,12 @@
         "http://pm1.narvii.com/6737/321564bee3828e6fb1176080ac860391c18062fev2_00.jpg"
       ],
       "engineVolume": 1.6,
+      "power": 16,
       "transmissionId": "2",
       "userId": "5"
     },
     {
       "id": "8",
-      "brandId": "31",
       "modelId": "41",
       "price": 25000,
       "year": 1990,
@@ -813,12 +811,12 @@
         "https://image-cdn.beforward.jp/large/202107/2174447/BH642446_f3287f.jpg"
       ],
       "engineVolume": 1.3,
+      "power": 13,
       "transmissionId": "2",
       "userId": "9"
     },
     {
       "id": "9",
-      "brandId": "32",
       "modelId": "46",
       "price": 25000,
       "year": 1995,
@@ -830,12 +828,12 @@
         "https://collectingcars.imgix.net/002394/JSH06636.jpg?fit=fillmax&auto=format,compress&cs=srgb&q=85"
       ],
       "engineVolume": 2.0,
+      "power": 20, 
       "transmissionId": "2",
       "userId": "13"
     },
     {
       "id": "10",
-      "brandId": "33",
       "modelId": "47",
       "price": 19000,
       "year": 1991,
@@ -847,12 +845,12 @@
         "https://www.jdmbuysell.com/wp-content/uploads/2021/04/20180724_175354-750x563.jpg"
       ],
       "engineVolume": 2.0,
+      "power": 20,
       "transmissionId": "2",
       "userId": "8"
     },
     {
       "id": "11",
-      "brandId": "29",
       "modelId": "48",
       "price": 22000,
       "year": 1996,
@@ -864,12 +862,12 @@
         "https://image-cdn.beforward.jp/large/201512/592020/BF485432_53cb6c.jpg"
       ],
       "engineVolume": 2.0,
+      "power": 20,
       "transmissionId": "2",
       "userId": "14"
     },
     {
       "id": "42",
-      "brandId": "11",
       "modelId": "49",
       "price": 147070,
       "year": 2021,
@@ -881,12 +879,12 @@
         "https://autoplius-img.dgn.lt/ann_3_202059700/mercedes-benz-gle53-amg-3-0-l-visureigis-2021-benzinas-6.jpg"
       ],
       "engineVolume": 3.0,
+      "power": 30,
       "transmissionId": "1",
       "userId": "12"
     },
     {
       "id": "22",
-      "brandId": "34",
       "modelId": "50",
       "price": 2000,
       "year": 2010,
@@ -898,12 +896,12 @@
         "https://a.allegroimg.com/original/0385d0/ff8a2c86463a92f272487acfd986/MINI-COOPER-R50-2004-BENZYNA-1-6-KLAPA-TYL"
       ],
       "engineVolume": 1.4,
+      "power": 14,
       "transmissionId": "2",
       "userId": "13"
     },
     {
       "id": "23",
-      "brandId": "34",
       "modelId": "51",
       "price": 3500,
       "year": 2008,
@@ -915,12 +913,12 @@
         "https://angliacarauctions.co.uk/Images/Vehicles/121156/122867/DSC07334.jpg"
       ],
       "engineVolume": 1.6,
+      "power": 16,
       "transmissionId": "1",
       "userId": "8"
     },
     {
       "id": "24",
-      "brandId": "34",
       "modelId": "52",
       "price": "7000",
       "year": 2012,
@@ -932,12 +930,12 @@
         "https://img.drivemag.net/media/default/0001/48/Mulgari-F56-SV-Mini-Cooper-S-0-1220-default-large.jpeg"
       ],
       "engineVolume": 2.0,
+      "power": 20,
       "transmissionId": "1",
       "userId": "14"
     },
     {
       "id": "25",
-      "brandId": "34",
       "modelId": "53",
       "price": 12000,
       "year": 2017,
@@ -949,12 +947,12 @@
         "https://cdn.bmwblog.com/wp-content/uploads/2017/04/MINI-John-Cooper-Works-Countryman-2017-164.jpg"
       ],
       "engineVolume": 2.2,
+      "power": 22,
       "transmissionId": "2",
       "userId": "5"
     },
     {
       "id": "26",
-      "brandId": "34",
       "modelId": "54",
       "price": 20000,
       "year": 2021,
@@ -966,12 +964,12 @@
         "https://media.evo.co.uk/image/private/s--TgeWRDqE--/v1611672892/evo/2021/01/MINI-3-Door-Hatch-Cooper-S-Rooftop-Grey-%2842%29.jpg"
       ],
       "engineVolume": 3.0,
+      "power": 30,
       "transmissionId": "1",
       "userId": "19"
     },
     {
       "id": "43",
-      "brandId": "11",
       "modelId": "22",
       "price": 7900,
       "year": 2014,
@@ -983,12 +981,12 @@
         "https://autoplius-img.dgn.lt/ann_3_202020080/mercedes-benz-a180-1-5-l-hecbekas-2014-dyzelinas-3.jpg"
       ],
       "engineVolume": 1.5,
+      "power": 15,
       "transmissionId": "2",
       "userId": "12"
     },
     {
       "id": "44",
-      "brandId": "35",
       "modelId": "55",
       "price": 26850,
       "year": 2014,
@@ -1000,12 +998,12 @@
         "https://autoplius-img.dgn.lt/ann_3_201298958/land-rover-range-rover-sport-3-0-l-visureigis-2014-dyzelinas-15.jpg"
       ],
       "engineVolume": 3.0,
+      "power": 30,
       "transmissionId": "1",
       "userId": "4"
     },
     {
       "id": "45",
-      "brandId": "9",
       "modelId": "23",
       "price": 9250,
       "year": 2011,
@@ -1017,12 +1015,12 @@
         "https://autoplius-img.dgn.lt/ann_3_200183343/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-18.jpg"
       ],
       "engineVolume": 1.8,
+      "power": 18,
       "transmissionId": "1",
       "userId": "4"
     },
     {
       "id": "46",
-      "brandId": "29",
       "modelId": "56",
       "price": 26300,
       "year": 2019,
@@ -1034,12 +1032,12 @@
         "https://autoplius-img.dgn.lt/ann_3_195551939/toyota-camry-2-5-l-sedanas-2019-benzinas-elektra-7.jpg"
       ],
       "engineVolume": 2.5,
+      "power": 25,
       "transmissionId": "1",
       "userId": "12"
     },
     {
       "id": "47",
-      "brandId": "12",
       "modelId": "57",
       "price": 7700,
       "year": 2008,
@@ -1051,12 +1049,12 @@
         "https://carsbase.com/photo/hamann/hamann-bmw-5-series-e61-touring-mk138-pic30541.jpg"
       ],
       "engineVolume": 3.0,
+      "power": 30,
       "transmissionId": "1",
       "userId": "13"
     },
     {
       "id": "48",
-      "brandId": "14",
       "modelId": "14",
       "price": 50,
       "year": 1991,
@@ -1069,12 +1067,12 @@
         "https://i.ebayimg.com/images/g/ljkAAOSw5itht7d6/s-l1600.jpg"
       ],
       "engineVolume": 0.8,
+      "power": 8,
       "transmissionId": "2",
       "userId": "9"
     },
     {
       "id": "49",
-      "brandId": "21",
       "modelId": "30",
       "price": 1200,
       "year": 2000,
@@ -1086,12 +1084,12 @@
         "https://pict1.reezocar.com/images/mobile.de/RZCMOBDE336255447/LADA-NIVA-04.jpg"
       ],
       "engineVolume": 2.0,
+      "power": 20,
       "transmissionId": "1",
       "userId": "5"
     },
     {
       "id": "50",
-      "brandId": "36",
       "modelId": "58",
       "price": 2000,
       "year": 2002,
@@ -1103,12 +1101,12 @@
         "https://cloud.leparking.fr/2021/11/17/16/32/smart-fortwo-pink-smart-car-rose_8339967429.jpg"
       ],
       "engineVolume": 2.0,
+      "power": 20,
       "transmissionId": "1",
       "userId": "14"
     },
     {
       "id": "51",
-      "brandId": "34",
       "modelId": "59",
       "price": 7000,
       "year": 2018,
@@ -1120,12 +1118,12 @@
         "https://pictures.topspeed.com/IMG/crop_webp/201907/mini-announces-the-a-90_800x0.webp"
       ],
       "engineVolume": 2.0,
+      "power": 20,
       "transmissionId": "1",
       "userId": "8"
     },
     {
       "id": "87",
-      "brandId": "37",
       "modelId": "60",
       "price": 500000,
       "year": 2009,
@@ -1137,12 +1135,12 @@
         "http://cdn.motorpage.ru/Photos/800/Marussia_B2_1.jpg"
       ],
       "engineVolume": 3.0,
+      "power": 30,
       "transmissionId": "1",
       "userId": "21"
     },
     {
       "id": "88",
-      "brandId": "38",
       "modelId": "61",
       "price": 1500000,
       "year": 2010,
@@ -1154,12 +1152,12 @@
         "http://cdn.motorpage.ru/Photos/800/4f8e6afb44d57.jpg"
       ],
       "engineVolume": 5.0,
+      "power": 50,
       "transmissionId": "1",
       "userId": "21"
     },
     {
       "id": "89",
-      "brandId": "39",
       "modelId": "62",
       "price": 1500000,
       "year": 2010,
@@ -1171,12 +1169,12 @@
         "https://www.autobild.lt/wp-content/uploads/2010/03/koenig4.jpg"
       ],
       "engineVolume": 4.7,
+      "power": 47,
       "transmissionId": "1",
       "userId": "21"
     },
     {
       "id": "90",
-      "brandId": "40",
       "modelId": "63",
       "price": 2500000,
       "year": 2012,
@@ -1188,12 +1186,12 @@
         "https://www.bugatti.com/fileadmin/_processed_/sei/p64/se-image-2ee408c2d14826605e073367ca799bd1.webp"
       ],
       "engineVolume": 7.9,
+      "power": 79,
       "transmissionId": "1",
       "userId": "21"
     },
     {
       "id": "91",
-      "brandId": "16",
       "modelId": "64",
       "price": 520000,
       "year": 2012,
@@ -1205,6 +1203,7 @@
         "http://www.seriouswheels.com/pics-2011/def/2011-Ferrari-599-SA-Aperta-Interior-1-2560x1600.jpg"
       ],
       "engineVolume": 7.9,
+      "power": 79,
       "transmissionId": "1",
       "userId": "21"
     }
@@ -1502,725 +1501,411 @@
   "models": [
     {
       "id": "1",
+      "brandId": "1",
       "title": "Zefyra"
     },
     {
       "id": "2",
+      "brandId": "2",
       "title": "E-Type"
     },
     {
       "id": "3",
+      "brandId": "3",
       "title": "Corvette"
     },
     {
       "id": "4",
+      "brandId": "4",
       "title": "NSX"
     },
     {
       "id": "5",
+      "brandId": "5",
       "title": "P1800"
     },
     {
       "id": "6",
+      "brandId": "6",
       "title": "Pantera"
     },
     {
       "id": "7",
+      "brandId": "7",
       "title": "Flying Spur V8"
     },
     {
       "id": "8",
+      "brandId": "8",
       "title": "Puma"
     },
     {
       "id": "9",
+      "brandId": "9",
       "title": "LQ"
     },
     {
       "id": "10",
+      "brandId": "10",
       "title": "Forester Wilderness"
     },
     {
       "id": "11",
+      "brandId": "11",
       "title": "AMG GLE 53"
     },
     {
       "id": "12",
+      "brandId": "12",
       "title": "Isetta"
     },
     {
       "id": "13",
+      "brandId": "13",
       "title": "P50"
     },
     {
       "id": "14",
+      "brandId": "14",
       "title": "Robin"
     },
     {
       "id": "15",
+      "brandId": "15",
       "title": "Multipla"
     },
     {
       "id": "16",
+      "brandId": "16",
       "title": "512 S Modulo"
     },
     {
       "id": "17",
+      "brandId": "8",
       "title": "T"
     },
     {
       "id": "18",
+      "brandId": "17",
       "title": "V-16 Roadster"
     },
     {
       "id": "19",
+      "brandId": "18",
       "title": "Airflow"
     },
     {
       "id": "20",
+      "brandId": "19",
       "title": "Continental"
     },
     {
       "id": "21",
+      "brandId": "20",
       "title": "Fury"
     },
     {
       "id": "22",
+      "brandId": "11",
       "title": "A180"
     },
     {
       "id": "23",
+      "brandId": "9",
       "title": "CT 200h"
     },
     {
       "id": "24",
+      "brandId": "12",
       "title": "325"
     },
     {
       "id": "25",
+      "brandId": "21",
       "title": "2101"
     },
     {
       "id": "26",
+      "brandId": "8",
       "title": "Mustang"
     },
     {
       "id": "27",
+      "brandId": "15",
       "title": "Multipla"
     },
     {
       "id": "28",
+      "brandId": "22",
       "title": "Be Sun"
     },
     {
       "id": "29",
+      "brandId": "23",
       "title": "C4 Cactus"
     },
     {
       "id": "30",
+      "brandId": "21",
       "title": "Niva"
     },
     {
       "id": "31",
+      "brandId": "25",
       "title": "Twizy"
     },
     {
       "id": "32",
+      "brandId": "24",
       "title": "Charger"
     },
     {
       "id": "33",
+      "brandId": "26",
       "title": "Model 3"
     },
     {
       "id": "34",
+      "brandId": "27",
       "title": "Beetle"
     },
     {
       "id": "35",
+      "brandId": "28",
       "title": "100"
     },
     {
       "id": "36",
+      "brandId": "1",
       "title": "Ascona"
     },
     {
       "id": "37",
+      "brandId": "11",
       "title": "230"
     },
     {
       "id": "38",
+      "brandId": "12",
       "title": "535"
     },
     {
       "id": "39",
+      "brandId": "12",
       "title": "GT 86"
     },
     {
       "id": "40",
-      "title": "Spider"
+      "brandId": "29",
+      "title": "Spyder"
     },
     {
       "id": "41",
+      "brandId": "31",
       "title": "RX-7"
     },
     {
       "id": "42",
+      "brandId": "32",
       "title": "Eclipse"
     },
     {
       "id": "43",
+      "brandId": "10",
       "title": "WRX STI"
     },
     {
       "id": "44",
+      "brandId": "32",
       "title": "Lancer Evolution X"
     },
     {
       "id": "45",
+      "brandId": "29",
       "title": "AE86"
     },
     {
       "id": "46",
+      "brandId": "32",
       "title": "Lancer Evolution III GSR"
     },
     {
       "id": "47",
+      "brandId": "33",
       "title": "180SX"
     },
     {
       "id": "48",
+      "brandId": "29",
       "title": "MR2"
     },
     {
       "id": "49",
+      "brandId": "11",
       "title": "GLE53 AMG"
     },
     {
       "id": "50",
+      "brandId": "34",
       "title": "R50"
     },
     {
       "id": "51",
+      "brandId": "34",
       "title": "R52"
     },
     {
       "id": "52",
+      "brandId": "34",
       "title": "F56"
     },
     {
       "id": "53",
+      "brandId": "34",
       "title": "F60"
     },
     {
       "id": "54",
+      "brandId": "34",
       "title": "R59"
     },
     {
       "id": "55",
+      "brandId": "35",
       "title": "Range Rover Sport"
     },
     {
       "id": "56",
+      "brandId": "29",
       "title": "Camry"
     },
     {
       "id": "57",
+      "brandId": "12",
       "title": "5 series"
     },
     {
       "id": "58",
+      "brandId": "36",
       "title": "ForTwo"
     },
     {
       "id": "59",
+      "brandId": "34",
       "title": "Cooper"
     },
     {
       "id": "60",
+      "brandId": "37",
       "title": "B2"
     },
     {
       "id": "61",
+      "brandId": "38",
       "title": "Maybach 62"
     },
     {
       "id": "62",
+      "brandId": "39",
       "title": "910 AG"
     },
     {
       "id": "63",
+      "brandId": "40",
       "title": "Veyron 16.4 Super Sport"
     },
     {
       "id": "64",
+      "brandId": "16",
       "title": "SA Aperta"
-    },
-    {
-      "id": "65",
-      "title": "910 AG"
-    },
-    {
-      "id": "66",
-      "title": "910 AG"
     }
-  ],
-  "fuelTypes": [
-    {
-      "id": "1",
-      "title": "petrol"
-    },
-    {
-      "id": "2",
-      "title": "electric"
-    },
-    {
-      "id": "3",
-      "title": "diesel"
-    }
-  ],
+  ],	
+    "fuelTypes": [
+        { "id": "1", "title": "petrol" },
+        { "id": "2", "title": "electric" },
+              { "id": "3", "title": "diesel" }
+    ],
   "carFuelTypes": [
-    {
-      "carId": "6",
-      "fuelTypeId": [
-        "1",
-        "2"
-      ]
-    },
-    {
-      "carId": "32",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "33",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "34",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "35",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "36",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "77",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "78",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "79",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "80",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "81",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "27",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "28",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "29",
-      "fuelTypeId": [
-        "3"
-      ]
-    },
-    {
-      "carId": "30",
-      "fuelTypeId": [
-        "3"
-      ]
-    },
-    {
-      "carId": "31",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "12",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "13",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "14",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "15",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "16",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "57",
-      "fuelTypeId": [
-        "3"
-      ]
-    },
-    {
-      "carId": "58",
-      "fuelTypeId": [
-        "1",
-        "2"
-      ]
-    },
-    {
-      "carId": "59",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "60",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "61",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "62",
-      "fuelTypeId": [
-        "3"
-      ]
-    },
-    {
-      "carId": "63",
-      "fuelTypeId": [
-        "2"
-      ]
-    },
-    {
-      "carId": "64",
-      "fuelTypeId": [
-        "3"
-      ]
-    },
-    {
-      "carId": "65",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "66",
-      "fuelTypeId": [
-        "2"
-      ]
-    },
-    {
-      "carId": "72",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "52",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "53",
-      "fuelTypeId": [
-        "1",
-        "3"
-      ]
-    },
-    {
-      "carId": "82",
-      "fuelTypeId": [
-        "3"
-      ]
-    },
-    {
-      "carId": "83",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "84",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "85",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "86",
-      "fuelTypeId": [
-        "3"
-      ]
-    },
-    {
-      "carId": "54",
-      "fuelTypeId": [
-        "3"
-      ]
-    },
-    {
-      "carId": "55",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "56",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "73",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "74",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "75",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "76",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "7",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "8",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "9",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "10",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "11",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "42",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "22",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "23",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "24",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "25",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "26",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "43",
-      "fuelTypeId": [
-        "3"
-      ]
-    },
-    {
-      "carId": "44",
-      "fuelTypeId": [
-        "3"
-      ]
-    },
-    {
-      "carId": "45",
-      "fuelTypeId": [
-        "1",
-        "2"
-      ]
-    },
-    {
-      "carId": "46",
-      "fuelTypeId": [
-        "1",
-        "2"
-      ]
-    },
-    {
-      "carId": "47",
-      "fuelTypeId": [
-        "3"
-      ]
-    },
-    {
-      "carId": "48",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "49",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "50",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "51",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "87",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "88",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "89",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "90",
-      "fuelTypeId": [
-        "1"
-      ]
-    },
-    {
-      "carId": "91",
-      "fuelTypeId": [
-        "1",
-        "2"
-      ]
-    }
-  ],
+    { "carId": "6", "fuelTypeId": "1" },
+    { "carId": "6", "fuelTypeId": "2" },
+    { "carId": "32", "fuelTypeId": "1" },
+    { "carId": "33", "fuelTypeId": "1" },
+    { "carId": "34", "fuelTypeId": "1" },
+    { "carId": "35", "fuelTypeId": "1" },
+    { "carId": "36", "fuelTypeId": "1" },
+    { "carId": "77", "fuelTypeId": "1" },
+    { "carId": "78", "fuelTypeId": "1" },
+    { "carId": "79", "fuelTypeId": "1" },
+    { "carId": "80", "fuelTypeId": "1" },
+    { "carId": "81", "fuelTypeId": "1" },
+    { "carId": "27", "fuelTypeId": "1" },
+    { "carId": "28", "fuelTypeId": "1" },
+    { "carId": "29", "fuelTypeId": "3" },
+    { "carId": "30", "fuelTypeId": "3" },
+    { "carId": "31", "fuelTypeId": "1" },
+    { "carId": "12", "fuelTypeId": "1" },
+    { "carId": "13", "fuelTypeId": "1" },
+    { "carId": "14", "fuelTypeId": "1" },
+    { "carId": "15", "fuelTypeId": "1" },
+    { "carId": "16", "fuelTypeId": "1" },
+    { "carId": "57", "fuelTypeId": "3" },
+    { "carId": "58", "fuelTypeId": "1" },
+    { "carId": "58", "fuelTypeId": "2" },
+    { "carId": "59", "fuelTypeId": "1" },
+    { "carId": "60", "fuelTypeId": "1" },
+    { "carId": "61", "fuelTypeId": "1" },
+    { "carId": "62", "fuelTypeId": "3" },
+    { "carId": "63", "fuelTypeId": "2" },
+    { "carId": "64", "fuelTypeId": "3" },
+    { "carId": "65", "fuelTypeId": "1" },
+    { "carId": "66", "fuelTypeId": "2" },
+    { "carId": "72", "fuelTypeId": "1" },
+    { "carId": "52", "fuelTypeId": "1" },
+    { "carId": "53", "fuelTypeId": "1" },
+    { "carId": "53", "fuelTypeId": "3" },
+    { "carId": "82", "fuelTypeId": "3" },
+    { "carId": "83", "fuelTypeId": "1" },
+    { "carId": "84", "fuelTypeId": "1" },
+    { "carId": "85", "fuelTypeId": "1" },
+    { "carId": "86", "fuelTypeId": "3" },
+    { "carId": "54", "fuelTypeId": "3" },
+    { "carId": "55", "fuelTypeId": "1" },
+    { "carId": "56", "fuelTypeId": "1" },
+    { "carId": "73", "fuelTypeId": "1" },
+    { "carId": "74", "fuelTypeId": "1" },
+    { "carId": "75", "fuelTypeId": "1" },
+    { "carId": "76", "fuelTypeId": "1" },
+    { "carId": "7", "fuelTypeId": "1" },
+    { "carId": "8", "fuelTypeId": "1" },
+    { "carId": "9", "fuelTypeId": "1" },
+    { "carId": "10", "fuelTypeId": "1" },
+    { "carId": "11", "fuelTypeId": "1" },
+    { "carId": "42", "fuelTypeId": "1" },
+    { "carId": "22", "fuelTypeId": "1" },
+    { "carId": "23", "fuelTypeId": "1" },
+    { "carId": "24", "fuelTypeId": "1" },
+    { "carId": "25", "fuelTypeId": "1" },
+    { "carId": "26", "fuelTypeId": "1" },
+    { "carId": "43", "fuelTypeId": "3" },
+    { "carId": "44", "fuelTypeId": "3" },
+    { "carId": "45", "fuelTypeId": "1" },
+    { "carId": "45", "fuelTypeId": "2" },
+    { "carId": "46", "fuelTypeId": "1" },
+    { "carId": "46", "fuelTypeId": "2" },
+    { "carId": "47", "fuelTypeId": "3" },
+    { "carId": "48", "fuelTypeId": "1" },
+    { "carId": "49", "fuelTypeId": "1" },
+    { "carId": "50", "fuelTypeId": "1" },
+    { "carId": "51", "fuelTypeId": "1" },
+    { "carId": "87", "fuelTypeId": "1" },
+    { "carId": "88", "fuelTypeId": "1" },
+    { "carId": "89", "fuelTypeId": "1" },
+    { "carId": "90", "fuelTypeId": "1" },
+    { "carId": "91", "fuelTypeId": "1" },
+    { "carId": "91", "fuelTypeId": "2" }
+],	
   "transmissions": [
-    {
-      "id": "1",
-      "title": "automatic"
-    },
-    {
-      "id": "2",
-      "title": "manual"
-    }
+    { "id": "1", "title": "automatic" },
+    { "id": "2", "title": "manual" }
   ]
 }
