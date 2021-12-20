@@ -16,6 +16,13 @@ const fetchCars = async (params) => {
 
 			requestUrl += '&' + modelFilters;
 		}
+		if (params.transmissions) {
+			const transmissionsFilters = params.transmissions
+				.map((transmission) => `transmissionId=${transmission}`)
+				.join('&');
+		
+			requestUrl += '&' + transmissionsFilters;
+		}
 
 		const response = await fetch(requestUrl);
 		const data = await response.json();
