@@ -1,0 +1,10 @@
+* visi failų pavadinimai: kebab-case
+* stiliai aprašomi arba naudojant Mui bibliotekos styled funkciją, arba naudojant komponentų prop'sus
+* jeigu komponenetas kompleksinis, jis turi būti aplanke, ir pirminis failas vadiniasi index.jsx
+  * kompleksinį komponentą sudarantys vaikiniai komopnentai, turi prasidėti taip, kaip vadinasi komponentas(aplankas)
+* programininis kodas turi būti išligiuotas
+* funkciniai kompenentai aprašomi lambda išraiškomis
+* papildomi turinio failai (nuotraukos, v. įraš. ir t.t. laikomi aplanke src/assets/...)
+* Pakeisti HTML elementus Mui komponentais: Box, Typography, Link ir t.t.
+  * vienintelė iššimtis, media failai - <img />, <image>, <source/>, <audio/>  
+* Nenaudojami komponentai,funkcijos turi būti pašalinti

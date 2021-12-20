@@ -1,6 +1,7 @@
 const fetchCars = async (params) => {
 	try {
-		let requestUrl = 'http://localhost:5000/cars?_expand=user&_expand=brand&_expand=model&_expand=transmission';
+		let requestUrl =
+			'http://localhost:5000/cars?_expand=user&_expand=brand&_expand=model&_expand=transmission';
 
 		if (params.brand) {
 			const brandFilters = params.brand
@@ -20,7 +21,7 @@ const fetchCars = async (params) => {
 			const transmissionsFilters = params.transmissions
 				.map((transmission) => `transmissionId=${transmission}`)
 				.join('&');
-		
+
 			requestUrl += '&' + transmissionsFilters;
 		}
 
@@ -34,7 +35,9 @@ const fetchCars = async (params) => {
 
 const fetchCar = async (id) => {
 	try {
-		const response = await fetch(`http://localhost:5000/cars/${id}?_expand=user&_expand=brand&_expand=model&_expand=transmission`);
+		const response = await fetch(
+			`http://localhost:5000/cars/${id}?_expand=user&_expand=brand&_expand=model&_expand=transmission`,
+		);
 		const data = await response.json();
 		return data;
 	} catch (error) {
@@ -88,7 +91,7 @@ const API = {
 	fetchBrands,
 	fetchModels,
 	fetchTransmissions,
-	fetchFuels
+	fetchFuels,
 };
 
 export default API;

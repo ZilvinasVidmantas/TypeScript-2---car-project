@@ -1764,87 +1764,463 @@
       "id": "66",
       "title": "910 AG"
     }
-  ],	
-	"fuelTypes": [
-		{ "id": "1", "title": "petrol" },
-		{ "id": "2", "title": "electric" },
-		{ "id": "3", "title": "diesel" }
-	],
-	"carFuelTypes": [
-		{ "carId": "6", "fuelTypeId": ["1", "2"] },
-		{ "carId": "32", "fuelTypeId": ["1"] },
-		{ "carId": "33", "fuelTypeId": ["1"] },
-		{ "carId": "34", "fuelTypeId": ["1"] },
-		{ "carId": "35", "fuelTypeId": ["1"] },
-		{ "carId": "36", "fuelTypeId": ["1"] },
-		{ "carId": "77", "fuelTypeId": ["1"] },
-		{ "carId": "78", "fuelTypeId": ["1"] },
-		{ "carId": "79", "fuelTypeId": ["1"] },
-		{ "carId": "80", "fuelTypeId": ["1"] },
-		{ "carId": "81", "fuelTypeId": ["1"] },
-		{ "carId": "27", "fuelTypeId": ["1"] },
-		{ "carId": "28", "fuelTypeId": ["1"] },
-		{ "carId": "29", "fuelTypeId": ["3"] },
-		{ "carId": "30", "fuelTypeId": ["3"] },
-		{ "carId": "31", "fuelTypeId": ["1"] },
-		{ "carId": "12", "fuelTypeId": ["1"] },
-		{ "carId": "13", "fuelTypeId": ["1"] },
-		{ "carId": "14", "fuelTypeId": ["1"] },
-		{ "carId": "15", "fuelTypeId": ["1"] },
-		{ "carId": "16", "fuelTypeId": ["1"] },
-		{ "carId": "57", "fuelTypeId": ["3"] },
-		{ "carId": "58", "fuelTypeId": ["1", "2"] },
-		{ "carId": "59", "fuelTypeId": ["1"] },
-		{ "carId": "60", "fuelTypeId": ["1"] },
-		{ "carId": "61", "fuelTypeId": ["1"] },
-		{ "carId": "62", "fuelTypeId": ["3"] },
-		{ "carId": "63", "fuelTypeId": ["2"] },
-		{ "carId": "64", "fuelTypeId": ["3"] },
-		{ "carId": "65", "fuelTypeId": ["1"] },
-		{ "carId": "66", "fuelTypeId": ["2"] },
-		{ "carId": "72", "fuelTypeId": ["1"] },
-		{ "carId": "52", "fuelTypeId": ["1"] },
-		{ "carId": "53", "fuelTypeId": ["1", "3"] },
-		{ "carId": "82", "fuelTypeId": ["3"] },
-		{ "carId": "83", "fuelTypeId": ["1"] },
-		{ "carId": "84", "fuelTypeId": ["1"] },
-		{ "carId": "85", "fuelTypeId": ["1"] },
-		{ "carId": "86", "fuelTypeId": ["3"] },
-		{ "carId": "54", "fuelTypeId": ["3"] },
-		{ "carId": "55", "fuelTypeId": ["1"] },
-		{ "carId": "56", "fuelTypeId": ["1"] },
-		{ "carId": "73", "fuelTypeId": ["1"] },
-		{ "carId": "74", "fuelTypeId": ["1"] },
-		{ "carId": "75", "fuelTypeId": ["1"] },
-		{ "carId": "76", "fuelTypeId": ["1"] },
-		{ "carId": "7", "fuelTypeId": ["1"] },
-		{ "carId": "8", "fuelTypeId": ["1"] },
-		{ "carId": "9", "fuelTypeId": ["1"] },
-		{ "carId": "10", "fuelTypeId": ["1"] },
-		{ "carId": "11", "fuelTypeId": ["1"] },
-		{ "carId": "42", "fuelTypeId": ["1"] },
-		{ "carId": "22", "fuelTypeId": ["1"] },
-		{ "carId": "23", "fuelTypeId": ["1"] },
-		{ "carId": "24", "fuelTypeId": ["1"] },
-		{ "carId": "25", "fuelTypeId": ["1"] },
-		{ "carId": "26", "fuelTypeId": ["1"] },
-		{ "carId": "43", "fuelTypeId": ["3"] },
-		{ "carId": "44", "fuelTypeId": ["3"] },
-		{ "carId": "45", "fuelTypeId": ["1", "2"] },
-		{ "carId": "46", "fuelTypeId": ["1", "2"] },
-		{ "carId": "47", "fuelTypeId": ["3"] },
-		{ "carId": "48", "fuelTypeId": ["1"] },
-		{ "carId": "49", "fuelTypeId": ["1"] },
-		{ "carId": "50", "fuelTypeId": ["1"] },
-		{ "carId": "51", "fuelTypeId": ["1"] },
-		{ "carId": "87", "fuelTypeId": ["1"] },
-		{ "carId": "88", "fuelTypeId": ["1"] },
-		{ "carId": "89", "fuelTypeId": ["1"] },
-		{ "carId": "90", "fuelTypeId": ["1"] },
-		{ "carId": "91", "fuelTypeId": ["1", "2"] }
-	],	
-	"transmissions": [
-		{ "id": "1", "title": "automatic" },
-		{ "id": "2", "title": "manual" }
-	]
+  ],
+  "fuelTypes": [
+    {
+      "id": "1",
+      "title": "petrol"
+    },
+    {
+      "id": "2",
+      "title": "electric"
+    },
+    {
+      "id": "3",
+      "title": "diesel"
+    }
+  ],
+  "carFuelTypes": [
+    {
+      "carId": "6",
+      "fuelTypeId": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "carId": "32",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "33",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "34",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "35",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "36",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "77",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "78",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "79",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "80",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "81",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "27",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "28",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "29",
+      "fuelTypeId": [
+        "3"
+      ]
+    },
+    {
+      "carId": "30",
+      "fuelTypeId": [
+        "3"
+      ]
+    },
+    {
+      "carId": "31",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "12",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "13",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "14",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "15",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "16",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "57",
+      "fuelTypeId": [
+        "3"
+      ]
+    },
+    {
+      "carId": "58",
+      "fuelTypeId": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "carId": "59",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "60",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "61",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "62",
+      "fuelTypeId": [
+        "3"
+      ]
+    },
+    {
+      "carId": "63",
+      "fuelTypeId": [
+        "2"
+      ]
+    },
+    {
+      "carId": "64",
+      "fuelTypeId": [
+        "3"
+      ]
+    },
+    {
+      "carId": "65",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "66",
+      "fuelTypeId": [
+        "2"
+      ]
+    },
+    {
+      "carId": "72",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "52",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "53",
+      "fuelTypeId": [
+        "1",
+        "3"
+      ]
+    },
+    {
+      "carId": "82",
+      "fuelTypeId": [
+        "3"
+      ]
+    },
+    {
+      "carId": "83",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "84",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "85",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "86",
+      "fuelTypeId": [
+        "3"
+      ]
+    },
+    {
+      "carId": "54",
+      "fuelTypeId": [
+        "3"
+      ]
+    },
+    {
+      "carId": "55",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "56",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "73",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "74",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "75",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "76",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "7",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "8",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "9",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "10",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "11",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "42",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "22",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "23",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "24",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "25",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "26",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "43",
+      "fuelTypeId": [
+        "3"
+      ]
+    },
+    {
+      "carId": "44",
+      "fuelTypeId": [
+        "3"
+      ]
+    },
+    {
+      "carId": "45",
+      "fuelTypeId": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "carId": "46",
+      "fuelTypeId": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "carId": "47",
+      "fuelTypeId": [
+        "3"
+      ]
+    },
+    {
+      "carId": "48",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "49",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "50",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "51",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "87",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "88",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "89",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "90",
+      "fuelTypeId": [
+        "1"
+      ]
+    },
+    {
+      "carId": "91",
+      "fuelTypeId": [
+        "1",
+        "2"
+      ]
+    }
+  ],
+  "transmissions": [
+    {
+      "id": "1",
+      "title": "automatic"
+    },
+    {
+      "id": "2",
+      "title": "manual"
+    }
+  ]
 }

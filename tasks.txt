@@ -1,0 +1,128 @@
+----------------------------------------------------------------------------------------------
+Serverio pusė:
+  * išimti iš mašinų brandId
+  * carFuelTypes, negali būti masyvų, perdaryti su dvieM įrašais:
+    { 
+      "carId": "6", 
+      "fuelTypeId": ["1","2"] 
+    },  
+    ->>>>
+    { 
+      "carId": "6", 
+      "fuelTypeId": "1" 
+    },  
+    { 
+      "carId": "6", 
+      "fuelTypeId": "2" 
+    },  
+
+----------------------------------------------------------------------------------------------
+
+APIService:
+  * Visuose užklausuose naudojami adresasi, prasidedantys 'http://localhost:5000'
+    * Panaudokite kintamajį pasikartojančiam adresui išsaugoti į kintamajį
+  * Panaudokite šią biblioteką, kad sukurti užklausoms daryti skirtą objektą, su bendrais užklausų nustatymais:
+    * bibliotekos nuoroda: https://www.npmjs.com/package/axios
+    * objekto (su vieningais nustatymais) kūrimas: https://axios-http.com/docs/instance
+  * Kartais, suformuoti duomenims reikia daryti kelias užklausas, tam kad jas incijuoti, naudojamas metodas:
+    * const <atsakymųMasyvas> = await Promise.all(<promisųMasyvas>), pvz:
+        const [fetchedCars, fetchedBrands, fetchedModels] = await Promise.all([
+          fetchCars,
+          fetchBrands,
+          fetchModels
+        ]);
+  * Klaidos pranešimas kartojasi, sugalvokite sprendimą, jog nebūtų dubliuojamas kodas.
+  * fetchCars metode, dubliuojasi URL filtrų generavimo logika
+    * Sukurkite helperį appendUrlParam(url, name, values) - prijungia vieno parametro reikšmes
+        * url - esamas adresas
+        * name - url parametro pavadinimas
+        * value - masyvas su url parametro reikšmėmis
+        return -> atnaujintą url adresą
+    * Sukurkite helperį appendUrlParams(url, params) - prijungia parametrų objektą
+        (ši funkcija užsirašytų paprastai jeigu jos viduje naudotume viršuje aprašytą funkciją 'appendUrlParam');
+        * url - esamas adresas
+        * params - objektas, aprašantis urlParametrų reikšmes:
+          {
+            brand: [1, 2, 3]
+            mode: [17, 223],
+            price_min: [1500],
+            price_max: [1900],
+          }
+      return -> atnaujintą url adresą
+  
+  APIService.fetchCars
+    * įgalinti duomenų parsiuntimą su rėžiais, vienu metu parsiunčiama tik 20 automobilių
+      * pakeitus, matomų mašinų puslapį car-search-page komponente, turėtų būti įgalintas parsiuntimas nuo...iki
+        * https://github.com/typicode/json-server#paginate
+    * įgalinti filtravimo parametrų priimimą:
+      * https://github.com/typicode/json-server#sort
+    
+
+----------------------------------------------------------------------------------------------
+Pagrindinis puslapis:
+  * įgalinti dizainą ant visų ekrano dydžių       
+  * Pakeisti klases, stiliais aprašytais 'styled' funkcija, arba MUI komponenetų parametrais
+  * Pašalinti nenaudojamus elementus
+  * Naudoti temos spalvas ir kitus bendrinius kintamuosius.
+    * Jeigu spalvų ar kintamųjų trūksta, papildyti temą.
+  * Mob. Nr. turi iškarto skambinti tuo numeriu paspaudus:
+  * Padintinti nuotrauką užvedus ant paslaugos
+  * Nuotraukos ir kiti pagalbiniai failai, turi būti saugomi src/assets aplanke, pvz:
+    * src/pages/car-home-page/heroImageNew.jpg -> src/assets/img/hero-page-cover.jpg
+  * Funkciniai komponentai turi būti aprašyti lambda išraiškomis
+  * Cards.jsx -> home-page-service-card.jsx
+    * Šiame komponenete sukurkite vienos kortelės vaizdą, priimdami duomenis per props
+    * Pašalinti beprasmius pločio nustatymus grid item'ui.
+      * ekrano dydžių nustatymai galioja tokiu principu:
+        * <... xs={12}  sm={4} ...>
+            * PRADEDANT xs dydžiu, visiems ekrano dydžiams pritaikyti 12/12 = 100% plotį
+            * PRADEDANT sm dydžiu, visiems ekrano dydžiams pritaikyti 4/12 = 33.3(3)% plotį
+  * CardComponents.jsx -> home-page-services.jsx
+    * visa Grid informacija šiame komponente
+    * Iteruoti per kortelių duomenis ir kurti home-page-service-card.jsx komponentus
+
+------------------------------------------------------------------------------------------------------
+car-page
+  * swiper
+    * ant didesnių ekranų swiper'is turi persijunginėti su fade animacija:
+      * https://swiperjs.com/demos#effect-fade      
+    * Nuotraukos turi užimti visą laisvą vietą:
+      * https://www.tesla.com/modelx/design#overview
+    * Pakeisti mygtukų stilius:
+      * https://swiperjs.com/swiper-api#navigation
+    * įgalinti begalinį swipe'inimą:
+      * https://swiperjs.com/swiper-api#param-loop
+    * pašalinti apačioje esančius nuotraukų indikatorius
+    * swipe'inimas turi būti aktyvus tik tų ekrano dydžių, kuomet meniu atsiranda dešinėje pusėje
+  
+    index.jsx
+      * raktas-key negali būti indeksas ar index'o atmaina, turite naudoti iteruojamo masyvo unikalią reikšmę
+      * naudojant ImageFluid komponenetą, naudoti specialiai tam sukurtą direction objektą
+    * Swiper komponentą sukurti atskirai, ir naudoti priklausomai nuo ekrano dydžio.
+      * ekrano dydžiui gauti galite naudoti useTheme hook'są, taip pat kaip:
+        * src/components/animations/slide-on-mount/index.jsx
+      * Atlikus darbus pašalinti fono spalvas 
+
+------------------------------------------------------------------------------------------------------
+
+car-search-page
+  * filtrų meniu, turėtų būti viršuje ant mažų ekrano dydžių/arba naudoti MUI Drawer
+
+  * lentelė
+    * įgalinti rikiavimą paspaudus ant lentelės savybės pavadinimo
+      * https://github.com/typicode/json-server#sort
+    * įdėti daugiau savybių į lentelę
+    * padaryti jog lentelės eilutės būtų mažesnio aukščio
+
+  Viršuje, virš Grid/lentelės
+    * Rastų įrašų kiekį
+
+-----------------------------------------------------------------------------------------------------------
+login-page
+  * Sukurti prisijungimo puslapio formą
+
+-----------------------------------------------------------------------------------------------------------
+register-page
+  * Sukurti registracijos puslapio formą
+
+        
