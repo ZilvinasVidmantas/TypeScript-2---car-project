@@ -114,6 +114,9 @@ car-search-page
     * įdėti daugiau savybių į lentelę
     * padaryti jog lentelės eilutės būtų mažesnio aukščio
 
+  Darant puslapiavimą, bus reikalingas visų įrašų kiekis, jį gauti galite taip:
+    * https://stackoverflow.com/questions/42460181/getting-number-of-records-from-json-server-end-point/52133513
+
   Viršuje, virš Grid/lentelės
     * Rastų įrašų kiekį
 
