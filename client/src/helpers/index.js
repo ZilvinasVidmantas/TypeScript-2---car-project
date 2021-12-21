@@ -35,3 +35,11 @@ export const createUrlParamObj = (searchParams, additionParams) => {
 
   return paramObj;
 };
+export const appendUrlParam = (requestUrl, name, values) => {
+  let url = requestUrl;
+  if (values.name) {
+    const filters = values.map((filterName) => `${filterName}Id=${name}`).join('&');
+    url += `&${filters}`;
+  }
+  return url;
+};
