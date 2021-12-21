@@ -11,7 +11,6 @@ import HomePage from './pages/car-home-page/';
 import CarSearch from './pages/car-search-page';
 import CarPage from './pages/car-page';
 import Navbar from './components/partials/navbar';
-import Footer from '././components/partials/footer';
 
 const App = () => {
 	return (
@@ -24,7 +23,6 @@ const App = () => {
 						<Route path="/search" element={<CarSearch />} />
 						<Route path="/car/:id" element={<CarPage />} />
 					</Routes>
-					<Footer/>
 				</RouterProvider>
 			</CssBaseline>
 		</ThemeProvider>
