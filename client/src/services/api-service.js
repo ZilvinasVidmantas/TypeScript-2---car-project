@@ -1,7 +1,13 @@
-const fetchCars = async (params) => {
+const appendBrandToCar = (car, brands) => {
+	car.brand = brands.find((brand) => brand.id === car.model.brandId);
+	car.brandId = car.model.brandId;
+	return car;
+};
+
+const fetchJoinedCars = async (params) => {
 	try {
 		let requestUrl =
-			'http://localhost:5000/cars?_expand=user&_expand=brand&_expand=model&_expand=transmission';
+			'http://localhost:5000/cars?_expand=user&_expand=model&_expand=transmission';
 
 		if (params.brand) {
 			const brandFilters = params.brand
@@ -25,21 +31,34 @@ const fetchCars = async (params) => {
 			requestUrl += '&' + transmissionsFilters;
 		}
 
-		const response = await fetch(requestUrl);
-		const data = await response.json();
-		return data;
+		const [cars, brands] = await Promise.all([
+			(async () => {
+				const response = await fetch(requestUrl);
+				return await response.json();
+			})(),
+			fetchBrands(),
+		]);
+		const joinedCars = cars.map((car) => appendBrandToCar(car, brands));
+
+		return joinedCars;
 	} catch (error) {
-		throw new Error('Aprašyta klaida: Serverio klaida');
+		throw error;
 	}
 };
 
-const fetchCar = async (id) => {
+const fetchJoinedCar = async (id) => {
 	try {
-		const response = await fetch(
-			`http://localhost:5000/cars/${id}?_expand=user&_expand=brand&_expand=model&_expand=transmission`,
-		);
-		const data = await response.json();
-		return data;
+		const [car, brands] = await Promise.all([
+			(async () => {
+				const response = await fetch(
+					`http://localhost:5000/cars/${id}?_expand=user&_expand=model&_expand=transmission`,
+				);
+				return await response.json();
+			})(),
+			fetchBrands(),
+		]);
+		const joinedCar = appendBrandToCar(car, brands);
+		return joinedCar;
 	} catch (error) {
 		throw new Error('Aprašyta klaida: Serverio klaida');
 	}
@@ -86,8 +105,8 @@ const fetchFuels = async () => {
 };
 
 const API = {
-	fetchCars,
-	fetchCar,
+	fetchJoinedCars,
+	fetchJoinedCar,
 	fetchBrands,
 	fetchModels,
 	fetchTransmissions,

@@ -24,14 +24,16 @@ const CarPage = () => {
 	const [car, setCar] = useState(null);
 	const { id } = useParams();
 
-	useEffect(() => {
-		(async () => {
-			const fetchedCar = await ApiService.fetchCar(id);
-			const singleCar = new CarModel(fetchedCar);
-			setCar(singleCar);
-		})();
-	}, [id]);
-
+	useEffect(
+		() => {
+			(async () => {
+				const fetchedCar = await ApiService.fetchJoinedCar(id);
+				const singleCar = new CarModel(fetchedCar);
+				setCar(singleCar);
+			})();
+		},
+		[id],
+	);
 
 	const carProps = [
 		{ value: `${car?.price}$`, name: 'Kaina' },
@@ -70,7 +72,10 @@ const CarPage = () => {
 			}}
 		>
 			{car !== undefined ? (
-				<Grid container sx={{alignItems: {lg: 'center'}, paddingTop: {lg: '120px'}}}>
+				<Grid
+					container
+					sx={{ alignItems: { lg: 'center' }, paddingTop: { lg: '120px' } }}
+				>
 					<Grid item xs={12} lg={9}>
 						<Swiper
 							sx={{
@@ -95,9 +100,9 @@ const CarPage = () => {
 						<Container>
 							<Grid
 								container
-								sx={{ mt: { sm: 2 }, flexDirection: { lg: 'column' }}}
+								sx={{ mt: { sm: 2 }, flexDirection: { lg: 'column' } }}
 							>
-								<Grid item xs={12} sm={true} sx={{ maxHeight: '250px'}}>
+								<Grid item xs={12} sm={true} sx={{ maxHeight: '250px' }}>
 									<CarPageAnimatedCarPropsContainer
 										delayProgress={animationDelayProgress}
 									>
