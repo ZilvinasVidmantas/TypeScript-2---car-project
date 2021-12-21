@@ -1,7 +1,13 @@
 import React from 'react';
-import { Box, Button, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
-import HeroImage from './heroImageNew.jpg';
+import {
+  Link,
+  Box,
+  Button,
+  Typography,
+} from '@mui/material';
+import { NavLink } from 'react-router-dom';
+import PhoneEnabledRoundedIcon from '@mui/icons-material/PhoneEnabledRounded';
+import HeroImage from './hero-image-new.jpg';
 
 const Hero = () => (
   <Box sx={{ height: '70vh' }}>
@@ -21,54 +27,63 @@ const Hero = () => (
       <Box
         sx={{
           backgroundColor: 'rgba(255, 255, 255, 0.6)',
-          padding: '20px',
+          padding: '10px',
+          // width: {
+          //   xs: '90%',
+          //   sm: 'auto',
+          // },
         }}
       >
         <Box>
           <Typography
+            variant="h3"
+            component="h1"
+            color="primary.light"
             sx={{
-              fontSize: '48px',
-              fontWeight: '500',
-              lineHeight: '1.1',
-              textAlign: 'left',
-              color: '#424242',
               textTransform: 'uppercase',
+              fontSize: {
+                xs: '2rem',
+                md: '3rem',
+              },
             }}
           >
             Automobilių pardavimas
           </Typography>
           <Typography
+            variant="h6"
+            component="h2"
+            color="primary.light"
             sx={{
-              fontSize: '18px',
-              fontWeight: '500',
-              lineHeight: '1.1',
-              color: '#424242',
+              fontSize: {
+                xs: '0.9rem',
+                md: '1.25rem',
+              },
             }}
           >
             Parduodame automobilius už gerą kainą visoje Lietuvoje!
           </Typography>
+          <Link href="tel:+37066356777" style={{ textDecoration: 'none' }}>
+            <Button>
+              <Typography
+                variant="h4"
+                color="secondary"
+              >
+                +370 663 56777
+              </Typography>
+              <PhoneEnabledRoundedIcon fontSize="large" color="secondary" />
+            </Button>
+          </Link>
+
           <Typography
-            sx={{
-              fontSize: '40px',
-              fontWeight: '500',
-              color: '#d2583e',
-              textTransform: 'uppercase',
-            }}
-          >
-            +370 663 56777
-          </Typography>
-          <Typography
-            sx={{
-              color: '#424242',
-              fontSize: '16px',
-              fontWeight: '400',
-            }}
+            variant="h6"
+            component="h2"
+            color="primary.light"
           >
             Paskambinkite mums dabar
           </Typography>
         </Box>
       </Box>
-      <Link to="/search">
+      <NavLink to="/search" style={{ textDecoration: 'none' }}>
         <Button
           sx={{
             height: '50px',
@@ -82,7 +97,7 @@ const Hero = () => (
         >
           Rinktis automobilį
         </Button>
-      </Link>
+      </NavLink>
     </Box>
   </Box>
 );

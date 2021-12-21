@@ -1,6 +1,6 @@
 import { Container, Grid } from '@mui/material';
 import React from 'react';
-import Cards from './Cards';
+import Cards from './cards';
 
 const CardItems = [
   { title: 'Paprasta susisiekti', imgSrc: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.anandgroupindia.com%2Fwp-content%2Fuploads%2F2019%2F05%2Fcontactus.jpg&f=1&nofb=1' },

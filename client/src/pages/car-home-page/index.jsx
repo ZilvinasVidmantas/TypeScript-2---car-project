@@ -1,6 +1,6 @@
 import React from 'react';
-import Hero from './Hero';
-import CardComponents from './CardComponents';
+import Hero from './hero';
+import CardComponents from './card-components';
 
 const HomePage = () => (
   <div>
