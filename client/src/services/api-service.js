@@ -1,4 +1,4 @@
-import { appendUrlParam } from '../helpers/index';
+import { appendUrlParams } from '../helpers/index';
 
 const appendBrandToCar = (car, brands) => ({
   ...car,
@@ -49,9 +49,7 @@ const fetchFuelTypes = async () => {
 const fetchJoinedCars = async (params) => {
   const requestUrl = 'http://localhost:5000/cars?_expand=user&_expand=model&_expand=transmission';
 
-  appendUrlParam(requestUrl, 'brand', params);
-  appendUrlParam(requestUrl, 'model', params);
-  appendUrlParam(requestUrl, 'transmissions', params);
+  appendUrlParams(requestUrl, params);
 
   const [cars, brands] = await Promise.all([
     (async () => {
