@@ -36,7 +36,7 @@ const fetchTransmissions = async () => {
   }
 };
 
-const fetchFuels = async () => {
+const fetchFuelTypes = async () => {
   try {
     const response = await fetch('http://localhost:5000/fuelTypes');
     const data = await response.json();
@@ -87,7 +87,7 @@ const API = {
   fetchBrands,
   fetchModels,
   fetchTransmissions,
-  fetchFuels,
+  fetchFuelTypes,
 };
 
 export default API;
