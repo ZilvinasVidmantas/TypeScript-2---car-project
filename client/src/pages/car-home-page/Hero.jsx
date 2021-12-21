@@ -28,10 +28,10 @@ const Hero = () => (
         sx={{
           backgroundColor: 'rgba(255, 255, 255, 0.6)',
           padding: '10px',
-          // width: {
-          //   xs: '90%',
-          //   sm: 'auto',
-          // },
+          width: {
+            xs: '90%',
+            sm: 'auto',
+          },
         }}
       >
         <Box>
