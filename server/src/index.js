@@ -7,6 +7,7 @@ const DATABASE_FILE = 'database.json';
 const server = jsonServer.create();
 const router = jsonServer.router(DATABASE_FILE);
 const middlewares = jsonServer.defaults();
+server.use(middlewares);
 
 // custom route's should be added before server.use(router);
 const database = require(path.join("..", DATABASE_FILE));
@@ -45,6 +46,12 @@ server.get('/cars/joined/:id', (req, res) => {
 	res.json(car)
 });
 
+const paginate = (collection, page, pageSize) => {
+	const startIndex = (page -1) * pageSize;
+	const endIndex = page * pageSize;
+	return collection.slice(startIndex, endIndex);
+}
+
 server.get('/cars/joined', (req, res) => {
 	const {cars} = database;
 	const joinedCars = cars.map(getJoinedCar);
@@ -57,6 +64,10 @@ server.get('/cars/joined', (req, res) => {
 					const possibleBrandIds = paramValue instanceof Array ?  paramValue : [paramValue];
 					filteredCars = filteredCars.filter(car => possibleBrandIds.includes(car.brandId))
 				break;
+			case '_page':
+				const pageSize = queryParams.hasOwnProperty('_limit') ? Number(queryParams._limit) : 10;
+				filteredCars = paginate(filteredCars, paramValue, pageSize);
+			break;
 
 			default:
 				break;
@@ -66,7 +77,7 @@ server.get('/cars/joined', (req, res) => {
   res.json(filteredCars)
 })
 
-server.use(middlewares);
+
 server.use(router);
 server.listen(PORT, () => {
 	console.log(`JSON Server is running on:\nhttp://localhost:${PORT}`);
