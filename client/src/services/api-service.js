@@ -1,3 +1,5 @@
+import { appendUrlParam } from '../helpers/index';
+
 const appendBrandToCar = (car, brands) => ({
   ...car,
   brandId: brands.find((brand) => brand.id === car.model.brandId),
@@ -45,29 +47,11 @@ const fetchFuels = async () => {
 };
 
 const fetchJoinedCars = async (params) => {
-  let requestUrl = 'http://localhost:5000/cars?_expand=user&_expand=model&_expand=transmission';
+  const requestUrl = 'http://localhost:5000/cars?_expand=user&_expand=model&_expand=transmission';
 
-  if (params.brand) {
-    const brandFilters = params.brand
-      .map((brand) => `brandId=${brand}`)
-      .join('&');
-
-    requestUrl += `&${brandFilters}`;
-  }
-  if (params.model) {
-    const modelFilters = params.model
-      .map((model) => `modelId=${model}`)
-      .join('&');
-
-    requestUrl += `&${modelFilters}`;
-  }
-  if (params.transmissions) {
-    const transmissionsFilters = params.transmissions
-      .map((transmission) => `transmissionId=${transmission}`)
-      .join('&');
-
-    requestUrl += `&${transmissionsFilters}`;
-  }
+  appendUrlParam(requestUrl, 'brand', params);
+  appendUrlParam(requestUrl, 'model', params);
+  appendUrlParam(requestUrl, 'transmissions', params);
 
   const [cars, brands] = await Promise.all([
     (async () => {
