@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Typography, Grid } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
-import CarTable from './car-table';
-import CarFilters from './car-filters';
+import CarTable from './car-search-page-table';
+import CarFilters from './car-search-page-filters';
 import ApiService from '../../services/api-service';
 import CarModel from '../../models/car-model';
 import { createUrlParamObj } from '../../helpers';
-import CarOptions from './car-options';
-import CarGrid from './car-grid';
+import CarOptions from './car-search-page-options';
+import CarGrid from './car-search-page-grid';
 
 const CarSearch = () => {
   const [cars, setCars] = useState([]);
