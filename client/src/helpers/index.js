@@ -43,3 +43,13 @@ export const appendUrlParam = (requestUrl, name, values) => {
   }
   return url;
 };
+
+export const appendUrlParams = (url, params) => {
+  const paramsArray = Object.entries(params);
+  const buildedUrl = paramsArray.map((x) => {
+    const name = Object.keys(x);
+    appendUrlParam(url, name, params);
+    return name;
+  });
+  return buildedUrl;
+};
