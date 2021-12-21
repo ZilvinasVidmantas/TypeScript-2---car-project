@@ -920,7 +920,7 @@
     {
       "id": "24",
       "modelId": "52",
-      "price": "7000",
+      "price": 7000,
       "year": 2012,
       "images": [
         "https://img.drivemag.net/media/default/0001/48/Mulgari-F56-SV-Mini-Cooper-S-0-1220-default-large.jpeg",
