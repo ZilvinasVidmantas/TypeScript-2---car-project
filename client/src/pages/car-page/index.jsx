@@ -46,7 +46,7 @@ const CarPage = () => {
 
   const fullname = `${car?.user.name} ${car?.user.surname[0]}.`;
   let userInitials;
-  if (car.user) {
+  if (car?.user) {
     userInitials = car.user.name[0] + car.user.surname[0];
   }
 
