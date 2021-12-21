@@ -78,7 +78,7 @@ const CarFilters = () => {
         brands: await APIService.fetchBrands(),
         models: await APIService.fetchModels(),
         transmissions: await APIService.fetchTransmissions(),
-        fuelTypes: await APIService.fetchFuels(),
+        fuelTypes: await APIService.fetchFuelTypes(),
       };
       const formatedFilters = formatFilters(fetchedFilters);
       setFilters(formatedFilters);
