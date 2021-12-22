@@ -7,7 +7,7 @@ import {
 } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import PhoneEnabledRoundedIcon from '@mui/icons-material/PhoneEnabledRounded';
-import HeroImage from './hero-image-new.jpg';
+import HeroImage from '../../assets/home-page-hero-image.jpg';
 
 const Hero = () => (
   <Box sx={{ height: '70vh' }}>
@@ -34,34 +34,46 @@ const Hero = () => (
           },
         }}
       >
-        <Box>
-          <Typography
-            variant="h3"
-            component="h1"
-            color="primary.light"
-            sx={{
-              textTransform: 'uppercase',
-              fontSize: {
-                xs: '2rem',
-                md: '3rem',
-              },
-            }}
-          >
-            Automobilių pardavimas
-          </Typography>
-          <Typography
-            variant="h6"
-            component="h2"
-            color="primary.light"
-            sx={{
-              fontSize: {
-                xs: '0.9rem',
-                md: '1.25rem',
-              },
-            }}
-          >
-            Parduodame automobilius už gerą kainą visoje Lietuvoje!
-          </Typography>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        >
+          <Box>
+            <Typography
+              variant="h3"
+              component="h1"
+              color="primary.light"
+              sx={{
+                textTransform: 'uppercase',
+                fontSize: {
+                  xs: '2rem',
+                  md: '3rem',
+                },
+                textAlign: 'center',
+              }}
+            >
+              Automobilių pardavimas
+            </Typography>
+          </Box>
+          <Box>
+            <Typography
+              variant="h6"
+              component="h2"
+              color="primary.light"
+              sx={{
+                fontSize: {
+                  xs: '0.9rem',
+                  md: '1.25rem',
+                },
+                textAlign: 'center',
+              }}
+            >
+              Parduodame automobilius už gerą kainą visoje Lietuvoje!
+            </Typography>
+          </Box>
           <Link href="tel:+37066356777" style={{ textDecoration: 'none' }}>
             <Button>
               <Typography
