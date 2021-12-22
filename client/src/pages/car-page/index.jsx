@@ -35,10 +35,10 @@ const CarPage = () => {
   }, [id]);
 
   const carProps = [
-    { value: `${car?.price}$`, name: "Kaina" },
-    { value: car?.fuelType, name: "Kuro tipas" },
-    { value: car?.transmission, name: "Pavarų dėžė" },
-    { value: `${car?.engineVolume} l`, name: "Variklio tūris" },
+    { value: `${car?.price}$`, name: 'Kaina' },
+    { value: car?.fuelType, name: 'Kuro tipas' },
+    { value: car?.transmission, name: 'Pavarų dėžė' },
+    { value: `${car?.engineVolume} l`, name: 'Variklio tūris' },
   ];
 
   const fullname = `${car?.user.name} ${car?.user.surname[0]}.`;
@@ -48,19 +48,19 @@ const CarPage = () => {
   }
 
   const actions = [
-    { href: car?.user.mobile, type: "tel", btnText: "Skambinti" },
-    { href: car?.user.email, type: "mailto", btnText: "Siųsti el. laišką" },
+    { href: car?.user.mobile, type: 'tel', btnText: 'Skambinti' },
+    { href: car?.user.email, type: 'mailto', btnText: 'Siųsti el. laišką' },
   ];
 
   SwiperCore.use([Navigation, Pagination]);
 
   const mainImageSrc = car?.images.map((pic) => (
-    <SwiperSlide className="swiper-slide" style={{ height: "30rem" }}>
+    <SwiperSlide className="swiper-slide" style={{ height: '30rem' }}>
       <ImageFluid
         key={pic}
         src={pic}
         width="auto"
-        style={{ objectFit: "contain", minHeight: "100%" }}
+        style={{ objectFit: 'contain', minHeight: '100%' }}
       />
     </SwiperSlide>
   ));
@@ -70,26 +70,26 @@ const CarPage = () => {
       component="main"
       sx={{
         bgcolor: {
-          xs: "#eeffee",
-          sm: "#ffeeee",
-          md: "#eeffff",
-          lg: "#ffffee",
+          xs: '#eeffee',
+          sm: '#ffeeee',
+          md: '#eeffff',
+          lg: '#ffffee',
         },
-        minHeight: "90vh",
+        minHeight: '90vh',
       }}
     >
       {car !== undefined ? (
         <Grid
           container
-          sx={{ alignItems: { lg: "center" }, paddingTop: { lg: "120px" } }}
+          sx={{ alignItems: { lg: 'center' }, paddingTop: { lg: '120px' } }}
         >
           <Grid item xs={12} lg={9}>
             <Swiper
               sx={{
-                width: "200px",
-                height: "200px",
-                objectFit: "cover",
-                objectPosition: "center",
+                width: '200px',
+                height: '200px',
+                objectFit: 'cover',
+                objectPosition: 'center',
               }}
               slidesPerView={1}
               navigation
@@ -107,9 +107,9 @@ const CarPage = () => {
             <Container>
               <Grid
                 container
-                sx={{ mt: { sm: 2 }, flexDirection: { lg: "column" } }}
+                sx={{ mt: { sm: 2 }, flexDirection: { lg: 'column' } }}
               >
-                <Grid item xs={12} sm sx={{ maxHeight: "250px" }}>
+                <Grid item xs={12} sm sx={{ maxHeight: '250px' }}>
                   <CarPageAnimatedCarPropsContainer
                     delayProgress={animationDelayProgress}
                   >
@@ -119,7 +119,7 @@ const CarPage = () => {
                   </CarPageAnimatedCarPropsContainer>
                 </Grid>
 
-                <Grid item xs={12} sx={{ display: { sm: "none" } }}>
+                <Grid item xs={12} sx={{ display: { sm: 'none' } }}>
                   <Divider sx={{ my: 2 }} />
                 </Grid>
 
