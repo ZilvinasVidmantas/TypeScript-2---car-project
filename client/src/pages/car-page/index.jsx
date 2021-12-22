@@ -26,16 +26,13 @@ const CarPage = () => {
   const [car, setCar] = useState(null);
   const { id } = useParams();
 
-  useEffect(
-    () => {
-      (async () => {
-        const fetchedCar = await ApiService.fetchJoinedCar(id);
-        const singleCar = new CarModel(fetchedCar);
-        setCar(singleCar);
-      })();
-    },
-    [id],
-  );
+  useEffect(() => {
+    (async () => {
+      const fetchedCar = await ApiService.getJoinedCar(id);
+      const singleCar = new CarModel(fetchedCar);
+      setCar(singleCar);
+    })();
+  }, [id]);
 
   const carProps = [
     { value: `${car?.price}$`, name: 'Kaina' },
@@ -73,7 +70,10 @@ const CarPage = () => {
       component="main"
       sx={{
         bgcolor: {
-          xs: '#eeffee', sm: '#ffeeee', md: '#eeffff', lg: '#ffffee',
+          xs: '#eeffee',
+          sm: '#ffeeee',
+          md: '#eeffff',
+          lg: '#ffffee',
         },
         minHeight: '90vh',
       }}
