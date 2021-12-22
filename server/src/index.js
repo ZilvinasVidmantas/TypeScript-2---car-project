@@ -56,29 +56,38 @@ const paginate = (collection, page, pageSize) => {
   return collection.slice(startIndex, endIndex);
 };
 
+const filterNames = ['brand', 'model'];
+const formatFilters = (queryParams) => {
+  const filterParamsArr = Object.entries(queryParams).filter(([name, value]) => filterNames.includes(name));
+  return filterParamsArr.map(([name, value]) => ({
+    name,
+    values: value instanceof Array ? [...new Set(value)] : [value],
+  }));
+};
+
+
 server.get('/cars/joined', (req, res) => {
   const { cars } = database;
   const joinedCars = cars.map(getJoinedCar);
 
   const queryParams = req.query;
+  const filterParamsArr = formatFilters(queryParams);
   let filteredCars = joinedCars;
-  Object.entries(queryParams).forEach(([paramName, paramValue]) => {
-    switch (paramName) {
-      case 'brand': {
-        const possibleBrandIds = paramValue instanceof Array ? paramValue : [paramValue];
-        filteredCars = filteredCars.filter((car) => possibleBrandIds.includes(car.brandId));
-        break;
-      }
-      case '_page': {
-        const pageSize = queryParams._limit ? Number(queryParams._limit) : 10;
-        filteredCars = paginate(filteredCars, paramValue, pageSize);
-        break;
-      }
+  //   switch (paramName) {
+  //     case 'brand': {
+  //       const possibleBrandIds = paramValue instanceof Array ? paramValue : [paramValue];
+  //       filteredCars = filteredCars.filter((car) => possibleBrandIds.includes(car.brandId));
+  //       break;
+  //     }
+  //     case '_page': {
+  //       const pageSize = queryParams._limit ? Number(queryParams._limit) : 10;
+  //       filteredCars = paginate(filteredCars, paramValue, pageSize);
+  //       break;
+  //     }
 
-      default:
-        break;
-    }
-  });
+  //     default:
+  //       break;
+  //   }
 
   res.json(filteredCars);
 });
