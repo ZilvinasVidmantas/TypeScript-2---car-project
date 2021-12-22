@@ -22,5 +22,6 @@ module.exports = {
     'react/prop-types': 0,
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
     'react/jsx-props-no-spreading': 0,
+    'quote-props': [2, 'as-needed'],
   },
 };

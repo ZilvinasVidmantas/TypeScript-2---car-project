@@ -75,10 +75,10 @@ const CarFilters = () => {
     //  Immediatly invoked function expression
     (async () => {
       const fetchedFilters = {
-        brands: await APIService.fetchBrands(),
-        models: await APIService.fetchModels(),
-        transmissions: await APIService.fetchTransmissions(),
-        fuelTypes: await APIService.fetchFuels(),
+        brands: await APIService.getBrands(),
+        models: await APIService.getModels(),
+        transmissions: await APIService.getTransmissions(),
+        fuelTypes: await APIService.getFuelTypes(),
       };
       const formatedFilters = formatFilters(fetchedFilters);
       setFilters(formatedFilters);
