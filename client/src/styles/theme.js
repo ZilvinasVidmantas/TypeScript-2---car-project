@@ -7,6 +7,9 @@ const theme = createTheme({
       light: '#454545',
       dark: '#000000',
     },
+    secondary: {
+      main: '#d2583e',
+    },
   },
   typography: {
     fontFamily: [
