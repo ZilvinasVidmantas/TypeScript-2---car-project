@@ -37,12 +37,8 @@ const getFuelTypes = async () => {
 };
 
 const getCarFuelTypes = async () => {
-  try {
-    const response = await instance.get('/carFuelTypes');
-    return response.data;
-  } catch (error) {
-    throw new Error('Aprašyta klaida: Serverio klaida');
-  }
+  const response = await instance.get('/carFuelTypes').then((resp) => resp.data).catch(handleErrors);
+  return response;
 };
 
 const getJoinedCars = async (params) => {
