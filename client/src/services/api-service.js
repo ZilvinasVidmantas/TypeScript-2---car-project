@@ -49,12 +49,11 @@ const getFuelTypes = async () => {
 
 const getJoinedCars = async (params) => {
   const requestUrl = 'http://localhost:5000/cars?_expand=user&_expand=model&_expand=transmission';
-
-  appendUrlParams(requestUrl, params);
+  const geratedUrl = appendUrlParams(requestUrl, params);
 
   const [cars, brands] = await Promise.all([
     (async () => {
-      const response = await axios.get(requestUrl);
+      const response = await axios.get(geratedUrl);
       return response.data;
     })(),
     getBrands(),

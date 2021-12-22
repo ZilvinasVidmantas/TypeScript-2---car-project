@@ -17,21 +17,22 @@ export const createUrlParamObj = (searchParams, additionParams) => {
   return paramObj;
 };
 
-export const appendUrlParam = (requestUrl, name, values) => {
-  let url = requestUrl;
-  if (values.name) {
-    const filters = values.map((filterName) => `${filterName}Id=${name}`).join('&');
-    url += `&${filters}`;
+export const appendUrlParam = (name, params) => {
+  let filters;
+  const idArray = params[name];
+  if (idArray) {
+    filters = idArray.map((id) => `${name}Id=${id}`).join('&');
   }
-  return url;
+  return filters;
 };
-
-export const appendUrlParams = (url, params) => {
+export const appendUrlParams = (requestUrl, params) => {
+  const url = requestUrl;
   const paramsArray = Object.entries(params);
-  const buildedUrl = paramsArray.map((x) => {
-    const name = Object.keys(x);
-    appendUrlParam(url, name, params);
-    return name;
-  });
+  const buildeFilters = paramsArray.reduce((prevVal, currVal) => {
+    let previous = prevVal;
+    previous += `&${appendUrlParam(currVal[0], params)}`;
+    return previous;
+  }, '');
+  const buildedUrl = `${url}${buildeFilters}`;
   return buildedUrl;
 };
