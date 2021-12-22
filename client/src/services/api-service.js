@@ -49,13 +49,12 @@ const getFuelTypes = async () => {
 
 const getJoinedCars = async (params) => {
   const requestUrl = 'http://localhost:5000/cars?_expand=user&_expand=model&_expand=transmission';
-  // reikia sugalvoti requestUrl, kaip perduoti, kad nesidubliuotų kodas
 
   appendUrlParams(requestUrl, params);
 
   const [cars, brands] = await Promise.all([
     (async () => {
-      const response = await instance.get('/cars?_expand=user&_expand=model&_expand=transmission');
+      const response = await axios.get(requestUrl);
       return response.data;
     })(),
     getBrands(),
