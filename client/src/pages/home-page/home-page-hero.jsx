@@ -101,8 +101,8 @@ const Hero = () => (
             height: '50px',
             width: '300px',
             fontWeight: 'bold',
-            color: '#fff',
-            borderColor: '#fff',
+            color: 'common.white',
+            borderColor: 'common.white',
             marginBottom: '20px',
           }}
           variant="outlined"
