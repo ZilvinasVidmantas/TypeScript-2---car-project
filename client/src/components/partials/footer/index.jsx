@@ -3,12 +3,12 @@ import Box from '@mui/material/Box';
 
 const Footer = () => (
   <Box
-    bgcolor="#252525"
+    bgcolor="primary.main"
     textAlign="center"
     pt={{ xs: 1 }}
     pb={{ xs: 1 }}
     sx={{
-      color: '#fff',
+      color: 'common.white',
       paddingRight: '10px',
       paddingLeft: '10px',
       position: 'relative',

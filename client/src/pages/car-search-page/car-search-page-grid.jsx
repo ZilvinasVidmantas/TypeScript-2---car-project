@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 
 const StyledCardLink = styled(Link)({
   textDecoration: 'none',
-  color: 'black',
+  color: 'common.black',
   '& .textCollapse div': {
     overflow: 'hidden',
     whiteSpace: 'nowrap',
