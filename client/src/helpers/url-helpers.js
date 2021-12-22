@@ -36,3 +36,13 @@ export const appendUrlParams = (requestUrl, params) => {
   const buildedUrl = `${url}${buildeFilters}`;
   return buildedUrl;
 };
+
+export const handleErrors = (err) => {
+  if (err.response) {
+    throw new Error('Server Error: Problems With Response', err.response.status);
+  } else if (err.request) {
+    throw new Error('Server Error: Problems With Request: ', err.response.status);
+  } else {
+    throw new Error('Error', err.message);
+  }
+};
