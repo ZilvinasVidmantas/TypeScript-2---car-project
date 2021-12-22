@@ -66,6 +66,24 @@ const Mobile = ({
               Search Cars
             </StyledNavLink>
           </MenuItem>
+          <MenuItem>
+            <StyledNavLink
+              to="/sign-in"
+              onClick={handleCloseNavMenu}
+              breakPoint={breakPoint}
+            >
+              Sign In
+            </StyledNavLink>
+          </MenuItem>
+          <MenuItem>
+            <StyledNavLink
+              to="/sign-up"
+              onClick={handleCloseNavMenu}
+              breakPoint={breakPoint}
+            >
+              Sign Up
+            </StyledNavLink>
+          </MenuItem>
         </Menu>
       </Box>
       <Logo sx={mobileStyles} />

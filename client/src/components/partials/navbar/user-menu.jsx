@@ -7,9 +7,7 @@ import {
   Avatar,
   Tooltip,
   MenuItem,
-  Button,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
 
 const UserMenu = ({ handleCloseNavMenu }) => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -26,31 +24,6 @@ const UserMenu = ({ handleCloseNavMenu }) => {
 
   return (
     <Box sx={{ flexGrow: 0 }}>
-      <Link to="/sign-in">
-        <Button
-          sx={{
-            height: '50px',
-            width: '100px',
-            fontWeight: 'bold',
-            mr: 1,
-          }}
-          variant="contained"
-        >
-          Sign in
-        </Button>
-      </Link>
-      <Link to="/sign-up">
-        <Button
-          sx={{
-            height: '50px',
-            width: '100px',
-            fontWeight: 'bold',
-          }}
-          variant="contained"
-        >
-          Sign up
-        </Button>
-      </Link>
       <Tooltip title="Open settings">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
           <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
