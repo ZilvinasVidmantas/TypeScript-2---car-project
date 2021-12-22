@@ -30,34 +30,30 @@ const CarSearch = () => {
   // return { min, max };
   // };
 
-  useEffect(
-    () => {
-      (async () => {
-        const params = createUrlParamObj(searchParams);
-        const fetchedCars = await ApiService.fetchJoinedCars(params);
-        const modeledCars = fetchedCars.map((carData) => new CarModel(carData));
-        setCars(modeledCars);
-      })();
-      // setYear(getMinMax('year'));
-      // setPrice(getMinMax('price'));
-      // console.log(year);
-    },
-    [searchParams],
-  );
+  useEffect(() => {
+    (async () => {
+      const params = createUrlParamObj(searchParams);
+      const fetchedCars = await ApiService.getJoinedCars(params);
+      const modeledCars = fetchedCars.map((carData) => new CarModel(carData));
+      setCars(modeledCars);
+    })();
+    // setYear(getMinMax('year'));
+    // setPrice(getMinMax('price'));
+    // console.log(year);
+  }, [searchParams]);
 
   // Keiciamas atvaizdavimo tipas
   const handleViewChange = (_, nextView) => {
     setCarSearchViewType(nextView);
   };
 
-  const dataView = carSearchViewType === 'table'
-    // Jei atvaizdavimo tipas lentele
-    ? (
-      <CarTable cars={cars} />
-    ) : (
-    // Jei atvaizdavimo tipas ne lentele
-      <CarGrid cars={cars} />
-    );
+  const dataView = carSearchViewType === 'table' ? (
+  // Jei atvaizdavimo tipas lentele
+    <CarTable cars={cars} />
+  ) : (
+  // Jei atvaizdavimo tipas ne lentele
+    <CarGrid cars={cars} />
+  );
   return (
     <Container maxWidth="xl" sx={{ mt: 3 }}>
       {cars.length > 0 ? (

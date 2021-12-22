@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { appendUrlParams } from '../helpers/index';
 
 const appendBrandToCar = (car, brands) => ({
@@ -6,73 +7,74 @@ const appendBrandToCar = (car, brands) => ({
   brand: brands.find((brand) => brand.id === car.model.brandId),
 });
 
-const fetchBrands = async () => {
+const instance = axios.create({
+  baseURL: 'http://localhost:5000',
+});
+
+const getBrands = async () => {
   try {
-    const response = await fetch('http://localhost:5000/brands');
-    const data = await response.json();
-    return data;
+    const response = await instance.get('/brands');
+    return response.data;
   } catch (error) {
     throw new Error('Aprašyta klaida: Serverio klaida');
   }
 };
 
-const fetchModels = async () => {
+const getModels = async () => {
   try {
-    const response = await fetch('http://localhost:5000/models');
-    const data = await response.json();
-    return data;
+    const response = await instance.get('/models');
+    return response.data;
   } catch (error) {
     throw new Error('Aprašyta klaida: Serverio klaida');
   }
 };
 
-const fetchTransmissions = async () => {
+const getTransmissions = async () => {
   try {
-    const response = await fetch('http://localhost:5000/transmissions');
-    const data = await response.json();
-    return data;
+    const response = await instance.get('/transmissions');
+    return response.data;
   } catch (error) {
     throw new Error('Aprašyta klaida: Serverio klaida');
   }
 };
 
-const fetchFuelTypes = async () => {
+const getFuelTypes = async () => {
   try {
-    const response = await fetch('http://localhost:5000/fuelTypes');
-    const data = await response.json();
-    return data;
+    const response = await instance.get('/fuelTypes');
+    return response.data;
   } catch (error) {
     throw new Error('Aprašyta klaida: Serverio klaida');
   }
 };
 
-const fetchJoinedCars = async (params) => {
+const getJoinedCars = async (params) => {
   const requestUrl = 'http://localhost:5000/cars?_expand=user&_expand=model&_expand=transmission';
+  // reikia sugalvoti requestUrl, kaip perduoti, kad nesidubliuotų kodas
 
   appendUrlParams(requestUrl, params);
 
   const [cars, brands] = await Promise.all([
     (async () => {
-      const response = await fetch(requestUrl);
-      return response.json();
+      const response = await instance.get('/cars?_expand=user&_expand=model&_expand=transmission');
+      return response.data;
     })(),
-    fetchBrands(),
+    getBrands(),
   ]);
   const joinedCars = cars.map((car) => appendBrandToCar(car, brands));
 
   return joinedCars;
 };
 
-const fetchJoinedCar = async (id) => {
+const getJoinedCar = async (id) => {
   try {
     const [car, brands] = await Promise.all([
       (async () => {
-        const response = await fetch(
-          `http://localhost:5000/cars/${id}?_expand=user&_expand=model&_expand=transmission`,
+        const response = await instance.get(
+          `/cars/${id}?_expand=user&_expand=model&_expand=transmission`,
         );
-        return response.json();
+        return response.data;
       })(),
-      fetchBrands(),
+      getBrands(),
     ]);
     const joinedCar = appendBrandToCar(car, brands);
     return joinedCar;
@@ -82,12 +84,12 @@ const fetchJoinedCar = async (id) => {
 };
 
 const API = {
-  fetchJoinedCars,
-  fetchJoinedCar,
-  fetchBrands,
-  fetchModels,
-  fetchTransmissions,
-  fetchFuelTypes,
+  getJoinedCars,
+  getJoinedCar,
+  getBrands,
+  getModels,
+  getTransmissions,
+  getFuelTypes,
 };
 
 export default API;
