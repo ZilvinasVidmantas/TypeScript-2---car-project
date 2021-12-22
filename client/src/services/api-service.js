@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { appendUrlParams } from '../helpers/index';
+import { appendUrlParams, handleErrors } from '../helpers/index';
 
 const appendBrandToCar = (car, brands) => ({
   ...car,
@@ -12,39 +12,23 @@ const instance = axios.create({
 });
 
 const getBrands = async () => {
-  try {
-    const response = await instance.get('/brands');
-    return response.data;
-  } catch (error) {
-    throw new Error('Aprašyta klaida: Serverio klaida');
-  }
+  const response = await instance.get('/brands').then((resp) => resp.data).catch(handleErrors);
+  return response;
 };
 
 const getModels = async () => {
-  try {
-    const response = await instance.get('/models');
-    return response.data;
-  } catch (error) {
-    throw new Error('Aprašyta klaida: Serverio klaida');
-  }
+  const response = await instance.get('/models').then((resp) => resp.data).catch(handleErrors);
+  return response;
 };
 
 const getTransmissions = async () => {
-  try {
-    const response = await instance.get('/transmissions');
-    return response.data;
-  } catch (error) {
-    throw new Error('Aprašyta klaida: Serverio klaida');
-  }
+  const response = await instance.get('/transmissions').then((resp) => resp.data).catch(handleErrors);
+  return response;
 };
 
 const getFuelTypes = async () => {
-  try {
-    const response = await instance.get('/fuelTypes');
-    return response.data;
-  } catch (error) {
-    throw new Error('Aprašyta klaida: Serverio klaida');
-  }
+  const response = await instance.get('/fuelTypes').then((resp) => resp.data).catch(handleErrors);
+  return response;
 };
 
 const getJoinedCars = async (params) => {
