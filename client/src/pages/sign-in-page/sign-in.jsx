@@ -4,11 +4,11 @@ import {
   Avatar,
   Button,
   TextField,
-  Link,
   Grid,
   Box,
   Typography,
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
@@ -91,7 +91,7 @@ const SignIn = () => {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/sign-up" variant="body2">
+                <Link to="/sign-up">
                   Don&apos;t have an account? Sign Up
                 </Link>
               </Grid>
