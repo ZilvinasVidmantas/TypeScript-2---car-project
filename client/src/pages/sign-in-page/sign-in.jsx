@@ -65,6 +65,7 @@ const SignIn = () => {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  autoFocus
                 />
               </Grid>
               <Grid item xs={12} sx={{ mb: 5 }}>
