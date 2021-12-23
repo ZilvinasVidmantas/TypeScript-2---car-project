@@ -438,7 +438,7 @@
     },
     {
       "id": "62",
-      "modelId": "27",
+      "modelId": "15",
       "price": 500,
       "year": 1999,
       "images": [
@@ -574,7 +574,7 @@
     },
     {
       "id": "82",
-      "modelId": "27",
+      "modelId": "15",
       "price": 900,
       "year": 1999,
       "images": [
@@ -1622,11 +1622,6 @@
       "id": "26",
       "brandId": "8",
       "title": "Mustang"
-    },
-    {
-      "id": "27",
-      "brandId": "15",
-      "title": "Multipla"
     },
     {
       "id": "28",
