@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Box } from '@mui/material';
 import StyledNavLink from './styled-nav-link';
 import Logo from './logo';
 
@@ -37,36 +36,26 @@ const Desktop = ({ handleCloseNavMenu, breakPoint }) => {
       </Box>
       <Box
         sx={{
+          height: '100%',
+          alignItems: 'stretch',
+          mr: 2,
           ...desktopStyles,
         }}
       >
-        <Link to="/sign-in">
-          <Button
-            sx={{
-              height: '50px',
-              width: '100px',
-              fontWeight: 'bold',
-              mr: 1,
-            }}
-            variant="contained"
-            size="small"
-          >
-            Sign in
-          </Button>
-        </Link>
-        <Link to="/sign-up">
-          <Button
-            sx={{
-              height: '50px',
-              width: '100px',
-              fontWeight: 'bold',
-            }}
-            variant="contained"
-            size="small"
-          >
-            Sign up
-          </Button>
-        </Link>
+        <StyledNavLink
+          to="/sign-in"
+          onClick={handleCloseNavMenu}
+          breakPoint={breakPoint}
+        >
+          Sign in
+        </StyledNavLink>
+        <StyledNavLink
+          to="/sign-up"
+          onClick={handleCloseNavMenu}
+          breakPoint={breakPoint}
+        >
+          Sign up
+        </StyledNavLink>
       </Box>
     </>
   );
