@@ -154,7 +154,7 @@ const CarFilters = () => {
         <RangeFilter
           key="asd"
           filterName="bablo"
-          onChange={(param) => console.log(param)}
+          // onChange={(param) => console.log(param)}
           selectedMin={0}
           selectedMax={10}
           min={0}
@@ -168,7 +168,7 @@ const CarFilters = () => {
         <RangeFilter
           key="asds"
           filterName="YEAR"
-          onChange={(param) => console.log(param)}
+          // onChange={(param) => console.log(param)}
           selectedMin={2000}
           selectedMax={2021}
           min={2000}
