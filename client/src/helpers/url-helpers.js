@@ -17,24 +17,15 @@ export const createUrlParamObj = (searchParams, additionParams) => {
   return paramObj;
 };
 
-export const appendUrlParam = (name, params) => {
-  let filters;
-  const idArray = params[name];
-  if (idArray) {
-    filters = idArray.map((id) => `${name}Id=${id}`).join('&');
-  }
-  return filters;
-};
+export const appendUrlParam = (name, values) => values.map((id) => `${name}Id=${id}`).join('&');
+
 export const appendUrlParams = (requestUrl, params) => {
-  const url = requestUrl;
   const paramsArray = Object.entries(params);
-  const buildeFilters = paramsArray.reduce((prevVal, currVal) => {
+  return paramsArray.reduce((prevVal, [name, values]) => {
     let previous = prevVal;
-    previous += `&${appendUrlParam(currVal[0], params)}`;
+    previous += `&${appendUrlParam(name, values)}`;
     return previous;
-  }, '');
-  const buildedUrl = `${url}${buildeFilters}`;
-  return buildedUrl;
+  }, requestUrl);
 };
 
 export const handleErrors = (err) => {
