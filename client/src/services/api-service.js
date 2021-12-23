@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { appendUrlParams, handleErrors } from '../helpers/index';
+import { appendUrlParams, dataFetchError } from '../helpers/index';
 
 const appendProps = (car, brands, fuelTypes, carFuelTypes) => ({
   ...car,
@@ -17,27 +17,27 @@ const instance = axios.create({
 });
 
 const getBrands = async () => {
-  const response = await instance.get('/brands').then((resp) => resp.data).catch(handleErrors);
+  const response = await instance.get('/brands').then((resp) => resp.data).catch(dataFetchError);
   return response;
 };
 
 const getModels = async () => {
-  const response = await instance.get('/models').then((resp) => resp.data).catch(handleErrors);
+  const response = await instance.get('/models').then((resp) => resp.data).catch(dataFetchError);
   return response;
 };
 
 const getTransmissions = async () => {
-  const response = await instance.get('/transmissions').then((resp) => resp.data).catch(handleErrors);
+  const response = await instance.get('/transmissions').then((resp) => resp.data).catch(dataFetchError);
   return response;
 };
 
 const getFuelTypes = async () => {
-  const response = await instance.get('/fuelTypes').then((resp) => resp.data).catch(handleErrors);
+  const response = await instance.get('/fuelTypes').then((resp) => resp.data).catch(dataFetchError);
   return response;
 };
 
 const getCarFuelTypes = async () => {
-  const response = await instance.get('/carFuelTypes').then((resp) => resp.data).catch(handleErrors);
+  const response = await instance.get('/carFuelTypes').then((resp) => resp.data).catch(dataFetchError);
   return response;
 };
 
