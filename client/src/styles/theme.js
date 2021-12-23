@@ -39,6 +39,9 @@ export const lightTheme = createTheme(theme, {
         minHeight: 0,
       },
     },
+    footer: {
+      height: 64,
+    },
   },
 });
 

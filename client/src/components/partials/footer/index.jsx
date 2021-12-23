@@ -3,18 +3,15 @@ import Box from '@mui/material/Box';
 
 const Footer = () => (
   <Box
-    bgcolor="primary.main"
-    textAlign="center"
-    pt={{ xs: 1 }}
-    pb={{ xs: 1 }}
-    sx={{
+    sx={(theme) => ({
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: theme.mixins.footer.height,
+      px: 2,
+      bgcolor: 'primary.main',
       color: 'common.white',
-      paddingRight: '10px',
-      paddingLeft: '10px',
-      position: 'relative',
-      width: '100%',
-      bottom: '0',
-    }}
+    })}
   >
     Automobilių supirkimas &reg; 2021 Visos teisės saugomos.
   </Box>
