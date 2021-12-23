@@ -3,7 +3,6 @@ import {
   Container,
   Avatar,
   Button,
-  CssBaseline,
   TextField,
   Link,
   Grid,
@@ -25,7 +24,7 @@ const useStyles = styled((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -39,7 +38,6 @@ const SignIn = () => {
   return (
     <Grid item xs={12}>
       <Container component="main" maxWidth="xs" sx={{ mt: 20, height: '85vh' }}>
-        <CssBaseline />
         <div className={classes.paper}>
           <Box sx={{
             mb: 3,
@@ -92,11 +90,6 @@ const SignIn = () => {
               Sign In
             </Button>
             <Grid container>
-              {/* <Grid item xs>
-              <Link href="/#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid> */}
               <Grid item>
                 <Link href="/sign-up" variant="body2">
                   Don&apos;t have an account? Sign Up
