@@ -200,7 +200,7 @@ const CarFilters = () => {
           renderInput={(params) => (
             <TextField {...params} placeholder="Pasirinkti" />
           )}
-          onChange={(_, selectedFilterOptions) => handleFilterChange(selectedFilterOptions, 'transmissions')}
+          onChange={(_, selectedFilterOptions) => handleFilterChange(selectedFilterOptions, 'transmission')}
         />
       </FilterContainer>
       {/* TRANSMISSION ------------------------------------------------------------------ */}
