@@ -29,8 +29,8 @@ const StyledCardMedia = styled('div')({
   },
 });
 
-const Cards = ({ cards }) => cards.map(({ title, imgSrc }) => (
-  <Grid key={title} item lg={4} sm={4} xs={12}>
+const Cards = ({ title, imgSrc, action }) => (
+  <Grid key={title} item sm={4} xs={12}>
     <Card>
       <StyledCardMedia>
         <img
@@ -49,12 +49,12 @@ const Cards = ({ cards }) => cards.map(({ title, imgSrc }) => (
 
         <CardActions>
           <Button variant="outlined" size="small">
-            Sužinokite daugiau
+            { action }
           </Button>
         </CardActions>
       </CardContent>
     </Card>
   </Grid>
-));
+);
 
 export default Cards;
