@@ -5,11 +5,11 @@ import {
   Button,
   CssBaseline,
   TextField,
-  Link,
   Grid,
   Box,
   Typography,
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
@@ -92,13 +92,8 @@ const SignIn = () => {
               Sign In
             </Button>
             <Grid container>
-              {/* <Grid item xs>
-              <Link href="/#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid> */}
               <Grid item>
-                <Link href="/sign-up" variant="body2">
+                <Link to="/sign-up">
                   Don&apos;t have an account? Sign Up
                 </Link>
               </Grid>
