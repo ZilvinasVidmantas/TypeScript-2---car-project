@@ -3,15 +3,14 @@ import {
   Container,
   Avatar,
   Button,
-  CssBaseline,
   TextField,
   FormControlLabel,
   Checkbox,
-  Link,
   Grid,
   Box,
   Typography,
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
@@ -27,7 +26,7 @@ const useStyles = styled((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -40,7 +39,6 @@ const SignUp = () => {
   return (
     <Grid item xs={12}>
       <Container component="main" maxWidth="xs" sx={{ mt: 20, height: '85vh' }}>
-        <CssBaseline />
         <div className={classes.paper}>
           <Box sx={{
             mb: 3,
@@ -123,7 +121,7 @@ const SignUp = () => {
             </Button>
             <Grid container justify="flex-end">
               <Grid item>
-                <Link href="/sign-in" variant="body2">
+                <Link to="/sign-in">
                   Already have an account? Sign in
                 </Link>
               </Grid>
