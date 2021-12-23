@@ -1,7 +1,9 @@
+/*  eslint-disable */
 import React, { useState, useEffect } from 'react';
 import {
-  Container, Typography, Grid,
+  Container, Typography, Grid, Fab, Paper
 } from '@mui/material';
+import { styled} from '@mui/material/styles';
 import { useSearchParams } from 'react-router-dom';
 import CarTable from './car-search-page-table';
 import CarFilters from './car-search-page-filters';
@@ -11,10 +13,16 @@ import { createUrlParamObj } from '../../helpers';
 import CarOptions from './car-search-page-options';
 import CarGrid from './car-search-page-grid';
 import LoadingImg from './assets/loading.gif';
+import SettingsInputCompositeIcon from '@mui/icons-material/SettingsInputComposite';
+
+const ScrollableContainer = styled(Paper)(({theme}) => ({
+  overflowY: 'scroll',
+  height: 600
+}))
 
 const CarSearch = () => {
   const [cars, setCars] = useState([]);
-  const [carSearchViewType, setCarSearchViewType] = useState('table'); // Atvaizdavimo tipas
+  const [carSearchViewType, setCarSearchViewType] = useState(''); // Atvaizdavimo tipas
   const [searchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
   // const [year, setYear] = useState({ min: 0, max: 0 });
@@ -70,25 +78,23 @@ const CarSearch = () => {
       <img src={LoadingImg} alt="..." style={{ objectFit: 'cover' }} />
     </Container>
   ) : (
-    <Container maxWidth="xl" sx={{ mt: 3 }}>
-      {cars.length > 0 ? (
-        <Typography component="h1" variant="h3" gutterBottom align="center">
-          Mašinos
-        </Typography>
-      ) : null}
-      <Grid container spacing={2}>
-        <Grid item xs={2}>
-          {/* Atvaizdavimo pasirinkimai */}
-          <CarOptions view={carSearchViewType} onChange={handleViewChange} />
-          <CarFilters />
-        </Grid>
-        <Grid item xs={10}>
-          {/* Jei yra masinu */}
+      <Container maxWidth="xl" sx={{ height: '100%', overflow: 'hidden' }} >
+          {cars.length > 0 ? (
+            <Typography component="h1" variant="h3" gutterBottom align="center">
+              Mašinos
+            </Typography>
+          ) : null}
+        <ScrollableContainer>
           {cars.length > 0 ? dataView : null}
-        </Grid>
-      </Grid>
-    </Container>
+        </ScrollableContainer>
+          <Fab color="primary" aria-label="add">
+            <SettingsInputCompositeIcon />
+          </Fab>
+      </Container>
   );
 };
 
 export default CarSearch;
+
+{/* <CarOptions view={carSearchViewType} onChange={handleViewChange} /> */}
+{/* <CarFilters /> */}

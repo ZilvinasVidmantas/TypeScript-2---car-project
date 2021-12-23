@@ -19,7 +19,7 @@ const StyledCardLink = styled(Link)({
   },
 });
 
-const StyledCardMedia = styled('div')({
+const StyledCardMedia = styled('div')(({ theme }) => ({
   position: 'relative',
   overflow: 'hidden',
   cursor: 'pointer',
@@ -27,7 +27,12 @@ const StyledCardMedia = styled('div')({
     content: '" "',
     display: 'block',
     width: '100%',
-    paddingBottom: '100%',
+    paddingBottom: '50%',
+  },
+  [theme.breakpoints.up('sm')]: {
+    ':after': {
+      paddingBottom: '70%',
+    },
   },
   '>img': {
     position: 'absolute',
@@ -38,7 +43,7 @@ const StyledCardMedia = styled('div')({
     height: '100%',
     objectFit: 'cover',
   },
-});
+}));
 
 const CarGrid = ({ cars }) => {
   console.log(cars);
