@@ -30,6 +30,9 @@ const getJoinedCar = ({
 
   return {
     brandId: model.brandId,
+    fuelTypeId: carFuelTypes
+      .filter((carFuelType) => carFuelType.carId === car.id)
+      .map((fuelTypePivot) => fuelTypes.find((x) => x.id === fuelTypePivot.fuelTypeId).id), ...car,
     ...car,
     modelId,
     userId,
@@ -56,7 +59,7 @@ const paginate = (collection, page, pageSize) => {
   return collection.slice(startIndex, endIndex);
 };
 
-const filterNames = ['brand', 'model'];
+const filterNames = ['brand', 'model', 'transmission', 'fuelType'];
 const formatFilters = (queryParams) => {
   const filterParamsArr = Object.entries(queryParams).filter(([name, value]) => filterNames.includes(name));
   return filterParamsArr.map(([name, value]) => ({
@@ -65,7 +68,6 @@ const formatFilters = (queryParams) => {
   }));
 };
 
-
 server.get('/cars/joined', (req, res) => {
   const { cars } = database;
   const joinedCars = cars.map(getJoinedCar);
@@ -73,21 +75,25 @@ server.get('/cars/joined', (req, res) => {
   const queryParams = req.query;
   const filterParamsArr = formatFilters(queryParams);
   let filteredCars = joinedCars;
-  //   switch (paramName) {
-  //     case 'brand': {
-  //       const possibleBrandIds = paramValue instanceof Array ? paramValue : [paramValue];
-  //       filteredCars = filteredCars.filter((car) => possibleBrandIds.includes(car.brandId));
-  //       break;
-  //     }
-  //     case '_page': {
-  //       const pageSize = queryParams._limit ? Number(queryParams._limit) : 10;
-  //       filteredCars = paginate(filteredCars, paramValue, pageSize);
-  //       break;
-  //     }
-
-  //     default:
-  //       break;
-  //   }
+  filterParamsArr.map(({ name, values }) => {
+    if (name === 'brand') {
+      const brandsIdsArr = values instanceof Array ? values : [values];
+      filteredCars = filteredCars.filter((car) => brandsIdsArr.includes(car.brandId))
+    }
+    if (name === 'model') {
+      const modelsIdsArr = values instanceof Array ? values : [values];
+      filteredCars = filteredCars.filter((car) => modelsIdsArr.includes(car.modelId))
+    }
+    if (name === 'transmission') {
+      const transmissionsIdsArr = values instanceof Array ? values : [values];
+      filteredCars = filteredCars.filter((car) => transmissionsIdsArr.includes(car.transmissionId))
+    }
+    if (name === 'fuelType') {
+      const fuelTypesIdsArr = values instanceof Array ? values : [values];
+      filteredCars = filteredCars.filter((car) => fuelTypesIdsArr.every((el) => car.fuelTypeId.includes(el)))
+    }
+    return filteredCars;
+  })
 
   res.json(filteredCars);
 });
