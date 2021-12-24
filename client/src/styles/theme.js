@@ -7,6 +7,9 @@ const theme = createTheme({
       light: '#454545',
       dark: '#000000',
     },
+    secondary: {
+      main: '#d2583e',
+    },
   },
   typography: {
     fontFamily: [
@@ -35,6 +38,9 @@ export const lightTheme = createTheme(theme, {
       [theme.breakpoints.up('sm')]: {
         minHeight: 0,
       },
+    },
+    footer: {
+      height: 64,
     },
   },
 });

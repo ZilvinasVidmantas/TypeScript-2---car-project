@@ -1,10 +1,15 @@
 import axios from 'axios';
-import { appendUrlParams } from '../helpers/index';
+import { appendUrlParams, dataFetchError } from '../helpers/index';
 
-const appendBrandToCar = (car, brands) => ({
+const appendProps = (car, brands, fuelTypes, carFuelTypes) => ({
   ...car,
   brandId: brands.find((brand) => brand.id === car.model.brandId),
   brand: brands.find((brand) => brand.id === car.model.brandId),
+  fuelTypeId: carFuelTypes.filter((carFuelType) => carFuelType.carId === car.id)
+    .map((fuelTypePivot) => fuelTypes.find((x) => x.id === fuelTypePivot.fuelTypeId).id),
+  fuelType: carFuelTypes.filter((carFuelType) => carFuelType.carId === car.id)
+    .map((fuelTypePivot) => fuelTypes.find((x) => x.id === fuelTypePivot.fuelTypeId).title)
+    .join('/'),
 });
 
 const instance = axios.create({
@@ -16,7 +21,7 @@ const getBrands = async () => {
     const response = await instance.get('/brands');
     return response.data;
   } catch (error) {
-    throw new Error('Aprašyta klaida: Serverio klaida');
+    return dataFetchError(error);
   }
 };
 
@@ -25,7 +30,7 @@ const getModels = async () => {
     const response = await instance.get('/models');
     return response.data;
   } catch (error) {
-    throw new Error('Aprašyta klaida: Serverio klaida');
+    return dataFetchError(error);
   }
 };
 
@@ -34,7 +39,7 @@ const getTransmissions = async () => {
     const response = await instance.get('/transmissions');
     return response.data;
   } catch (error) {
-    throw new Error('Aprašyta klaida: Serverio klaida');
+    return dataFetchError(error);
   }
 };
 
@@ -43,31 +48,41 @@ const getFuelTypes = async () => {
     const response = await instance.get('/fuelTypes');
     return response.data;
   } catch (error) {
-    throw new Error('Aprašyta klaida: Serverio klaida');
+    return dataFetchError(error);
+  }
+};
+
+const getCarFuelTypes = async () => {
+  try {
+    const response = await instance.get('/carFuelTypes');
+    return response.data;
+  } catch (error) {
+    return dataFetchError(error);
   }
 };
 
 const getJoinedCars = async (params) => {
   const requestUrl = 'http://localhost:5000/cars?_expand=user&_expand=model&_expand=transmission';
-  // reikia sugalvoti requestUrl, kaip perduoti, kad nesidubliuotų kodas
+  const generatedUrl = appendUrlParams(requestUrl, params);
 
-  appendUrlParams(requestUrl, params);
-
-  const [cars, brands] = await Promise.all([
+  const [fetchedCars, fetchedBrands, fetchedFuelTypes, fetchedCarFuelTypes] = await Promise.all([
     (async () => {
-      const response = await instance.get('/cars?_expand=user&_expand=model&_expand=transmission');
+      const response = await axios.get(generatedUrl);
       return response.data;
     })(),
     getBrands(),
+    getFuelTypes(),
+    getCarFuelTypes(),
   ]);
-  const joinedCars = cars.map((car) => appendBrandToCar(car, brands));
-
+  const joinedCars = fetchedCars.map((car) => (
+    appendProps(car, fetchedBrands, fetchedFuelTypes, fetchedCarFuelTypes)
+  ));
   return joinedCars;
 };
 
 const getJoinedCar = async (id) => {
   try {
-    const [car, brands] = await Promise.all([
+    const [fetchedCar, fetchedBrands, fetchedFuelTypes, fetchedCarFuelTypes] = await Promise.all([
       (async () => {
         const response = await instance.get(
           `/cars/${id}?_expand=user&_expand=model&_expand=transmission`,
@@ -75,11 +90,13 @@ const getJoinedCar = async (id) => {
         return response.data;
       })(),
       getBrands(),
+      getFuelTypes(),
+      getCarFuelTypes(),
     ]);
-    const joinedCar = appendBrandToCar(car, brands);
+    const joinedCar = appendProps(fetchedCar, fetchedBrands, fetchedFuelTypes, fetchedCarFuelTypes);
     return joinedCar;
   } catch (error) {
-    throw new Error('Aprašyta klaida: Serverio klaida');
+    return dataFetchError(error);
   }
 };
 

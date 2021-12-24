@@ -34,6 +34,29 @@ const Desktop = ({ handleCloseNavMenu, breakPoint }) => {
           Search Cars
         </StyledNavLink>
       </Box>
+      <Box
+        sx={{
+          height: '100%',
+          alignItems: 'stretch',
+          mr: 2,
+          ...desktopStyles,
+        }}
+      >
+        <StyledNavLink
+          to="/sign-in"
+          onClick={handleCloseNavMenu}
+          breakPoint={breakPoint}
+        >
+          Sign in
+        </StyledNavLink>
+        <StyledNavLink
+          to="/sign-up"
+          onClick={handleCloseNavMenu}
+          breakPoint={breakPoint}
+        >
+          Sign up
+        </StyledNavLink>
+      </Box>
     </>
   );
 };

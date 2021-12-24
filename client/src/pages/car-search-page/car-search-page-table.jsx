@@ -11,7 +11,6 @@ import {
   Skeleton,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-// import Pagination from './car-table-pagination';
 
 const CarTable = ({ cars }) => {
   const [page, setPage] = useState(0);
@@ -31,7 +30,6 @@ const CarTable = ({ cars }) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  const emptyRows = rowsPerPage - Math.min(rowsPerPage, cars.length - page * rowsPerPage);
 
   const rows = cars
     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -72,11 +70,9 @@ const CarTable = ({ cars }) => {
           <TableBody>
             {rows}
             {' '}
-            {emptyRows > 0 && (
-            <TableRow style={{ height: 53 * emptyRows }}>
+            <TableRow style={{ height: 53 }}>
               <TableCell colSpan={6} />
             </TableRow>
-            )}
           </TableBody>
         </Table>
         <TablePagination
