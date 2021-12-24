@@ -40,7 +40,7 @@ const StyledCardMedia = styled('div')({
   },
 });
 
-const CarGrid = ({ cars }) => {
+const CarGrid = ({ cars }) => (
   <Grid container spacing={2} sx={{ mb: 2 }}>
     {cars.map(({
       id, brand, model, year, price, images,
@@ -65,7 +65,7 @@ const CarGrid = ({ cars }) => {
         </StyledCardLink>
       </Grid>
     ))}
-  </Grid>;
-};
+  </Grid>
+);
 
 export default CarGrid;
