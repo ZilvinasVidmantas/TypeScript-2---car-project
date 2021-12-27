@@ -1,5 +1,6 @@
 const jsonServer = require('json-server');
 const database = require('../database.json');
+// let formatFilters = require('./helpers/server-helpers')
 
 const DATABASE_FILE = 'database.json';
 
@@ -59,14 +60,26 @@ const paginate = (collection, page, pageSize) => {
   return collection.slice(startIndex, endIndex);
 };
 
-const filterNames = ['brand', 'model', 'transmission', 'fuelType'];
+const filterNames = ['brand', 'model', 'transmission', 'fuelType', '_page'];
+
 const formatFilters = (queryParams) => {
-  const filterParamsArr = Object.entries(queryParams).filter(([name, value]) => filterNames.includes(name));
+  const filterParamsArr = Object.entries(queryParams)
+    .filter(([name]) => filterNames.includes(name));
   return filterParamsArr.map(([name, value]) => ({
     name,
     values: value instanceof Array ? [...new Set(value)] : [value],
   }));
 };
+
+const pageinationNames = ['_page', '_limit'];
+const formatPagination = (queryParams) => {
+  const paginationParamsArr = Object.entries(queryParams)
+    .filter(([name]) => filterNames.includes(name));
+  return paginationParamsArr.map(([name, value]) => ({
+    name,
+    values: value instanceof Array ? [...new Set(value)] : [value],
+  }));
+}
 
 server.get('/cars/joined', (req, res) => {
   const { cars } = database;
@@ -74,28 +87,42 @@ server.get('/cars/joined', (req, res) => {
 
   const queryParams = req.query;
   const filterParamsArr = formatFilters(queryParams);
-  let filteredCars = joinedCars;
+  const paginationParamsArr = formatPagination(queryParams);
+  // 1. Filtravimas
+  // 2. Puslapiavimas
+  // 3. Rikiavimas
+  let filteredArr = joinedCars;
+
   filterParamsArr.map(({ name, values }) => {
-    if (name === 'brand') {
-      const brandsIdsArr = values instanceof Array ? values : [values];
-      filteredCars = filteredCars.filter((car) => brandsIdsArr.includes(car.brandId))
-    }
-    if (name === 'model') {
-      const modelsIdsArr = values instanceof Array ? values : [values];
-      filteredCars = filteredCars.filter((car) => modelsIdsArr.includes(car.modelId))
-    }
-    if (name === 'transmission') {
-      const transmissionsIdsArr = values instanceof Array ? values : [values];
-      filteredCars = filteredCars.filter((car) => transmissionsIdsArr.includes(car.transmissionId))
-    }
-    if (name === 'fuelType') {
-      const fuelTypesIdsArr = values instanceof Array ? values : [values];
-      filteredCars = filteredCars.filter((car) => fuelTypesIdsArr.every((el) => car.fuelTypeId.includes(el)))
-    }
-    return filteredCars;
+    // if (name === '_page') {
+    //   const pageSize = queryParams._limit ? Number(queryParams._limit) : 10;
+    //   filteredArr = paginate(filteredArr, values, pageSize);
+    // } else {
+    const idsArr = values instanceof Array ? values : [values];
+    filteredArr = filteredArr.filter((obj) => idsArr.every((el) => obj[`${name}Id`].includes(el)))
+    // }
+
+    // if (name === 'brand') {
+    //   const brandsIdsArr = values instanceof Array ? values : [values];
+    //   filteredCars = filteredCars.filter((car) => brandsIdsArr.every((el) => car.brandId.includes(el)))
+    // }
+    // if (name === 'model') {
+    //   const modelsIdsArr = values instanceof Array ? values : [values];
+    //   filteredCars = filteredCars.filter((car) => modelsIdsArr.every((el) => car.modelId.includes(el)))
+    // }
+    // if (name === 'transmission') {
+    //   const transmissionsIdsArr = values instanceof Array ? values : [values];
+    //   filteredCars = filteredCars.filter((car) => transmissionsIdsArr.every((el) => car.transmissionId.includes(el)))
+    // }
+    // if (name === 'fuelType') {
+    //   const fuelTypesIdsArr = values instanceof Array ? values : [values];
+    //   filteredCars = filteredCars.filter((car) => fuelTypesIdsArr.every((el) => car.fuelTypeId.includes(el)))
+    // }
+
+    return filteredArr;
   })
 
-  res.json(filteredCars);
+  res.json(filteredArr);
 });
 
 server.use(router);
