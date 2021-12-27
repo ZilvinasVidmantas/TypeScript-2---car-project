@@ -1,6 +1,6 @@
 const jsonServer = require('json-server');
 const database = require('../database.json');
-const { filterFunctionsCreators } = require('./helpers/filters-helpers');
+const { createFilterFunctions } = require('./helpers/filters-helpers');
 const { filterQueryParams } = require('./helpers/query-params-helpers');
 // let formatFilters = require('./helpers/server-helpers')
 
@@ -81,14 +81,9 @@ const filterParamsTypes = [{
 const formatFilterFunctions = (queryParams) => {
   const filterParamsNames = filterParamsTypes.map(x => x.name);
   const filterQueryParamsArr = filterQueryParams(queryParams, filterParamsNames);
+  const filterFunctions = createFilterFunctions(filterQueryParamsArr, filterParamsTypes);
 
-  return filterQueryParamsArr.map(([name, value]) => {
-    const values = value instanceof Array ? [...new Set(value)] : [value];
-    const filterParamType = filterParamsTypes.find(type => type.name === name).type;
-    const filterFunctionCreator = filterFunctionsCreators[filterParamType];
-    const filterFn = filterFunctionCreator(name, values);
-    return filterFn;
-  });
+  return filterFunctions;
 };
 
 const paginationParamsNames = ['_page', '_limit'];
