@@ -7,7 +7,7 @@ import ApiService from '../../services/api-service';
 import CarModel from '../../models/car-model';
 import { createUrlParamObj } from '../../helpers';
 import CarOptions from './car-search-page-options';
-import CarGrid from './car-search-page-grid-rework';
+import CarGrid from './car-search-page-grid';
 
 const CarSearch = () => {
   const [cars, setCars] = useState([]);

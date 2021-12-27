@@ -2,7 +2,7 @@ import { Typography } from '@mui/material';
 import React, {
   useCallback, useEffect, useRef, useState,
 } from 'react';
-import Styles from './styles.module.css';
+import Styles from './styles/car-search-page-card-styles.module.css';
 
 const CarSearchPageGridCard = ({ title, children, ...others }) => {
   const cardWrapRef = useRef(null);
