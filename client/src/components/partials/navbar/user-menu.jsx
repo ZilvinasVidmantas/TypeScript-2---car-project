@@ -20,11 +20,11 @@ const UserMenu = ({ handleCloseNavMenu }) => {
     setAnchorElUser(null);
   };
 
-  const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+  const settings = ['Profilis', 'Nustatymai', 'Pagrindinis', 'Atsijungti'];
 
   return (
     <Box sx={{ flexGrow: 0 }}>
-      <Tooltip title="Open settings">
+      <Tooltip title="Išskleisti">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
           <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
         </IconButton>

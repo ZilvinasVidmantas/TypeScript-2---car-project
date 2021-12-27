@@ -54,7 +54,7 @@ const Mobile = ({
               onClick={handleCloseNavMenu}
               breakPoint={breakPoint}
             >
-              Home
+              Pagrindinis
             </StyledNavLink>
           </MenuItem>
           <MenuItem>
@@ -63,7 +63,7 @@ const Mobile = ({
               onClick={handleCloseNavMenu}
               breakPoint={breakPoint}
             >
-              Search Cars
+              Automobilių paieška
             </StyledNavLink>
           </MenuItem>
           <MenuItem>
@@ -72,7 +72,7 @@ const Mobile = ({
               onClick={handleCloseNavMenu}
               breakPoint={breakPoint}
             >
-              Sign In
+              Prisijungti
             </StyledNavLink>
           </MenuItem>
           <MenuItem>
@@ -81,7 +81,7 @@ const Mobile = ({
               onClick={handleCloseNavMenu}
               breakPoint={breakPoint}
             >
-              Sign Up
+              Registruotis
             </StyledNavLink>
           </MenuItem>
         </Menu>

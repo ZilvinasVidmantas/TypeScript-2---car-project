@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Container, Typography, Grid,
+  Container, Typography, Grid, Fab,
 } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
+import SettingsInputCompositeIcon from '@mui/icons-material/SettingsInputComposite';
 import CarTable from './car-search-page-table';
 import CarFilters from './car-search-page-filters';
 import ApiService from '../../services/api-service';
@@ -17,22 +18,6 @@ const CarSearch = () => {
   const [carSearchViewType, setCarSearchViewType] = useState('table'); // Atvaizdavimo tipas
   const [searchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
-  // const [year, setYear] = useState({ min: 0, max: 0 });
-  // const [price, setPrice] = useState({ min: 0, max: 0 });
-
-  // if (cars[0]) {
-  // console.table(cars[0].brand);
-  // }
-
-  // searchParams.keys((next) => console.log(next));
-
-  // const getMinMax = (from) => {
-  // const values = cars?.map((entity) => entity[from]);
-  // const uniqValues = values.sort((a, b) => a - b);
-  // const min = uniqValues.shift();
-  // const max = uniqValues.pop();
-  // return { min, max };
-  // };
 
   useEffect(() => {
     (async () => {
@@ -41,9 +26,6 @@ const CarSearch = () => {
       const modeledCars = fetchedCars.map((carData) => new CarModel(carData));
       setCars(modeledCars);
     })();
-    // setYear(getMinMax('year'));
-    // setPrice(getMinMax('price'));
-    // console.log(year);
   }, [searchParams]);
 
   useEffect(() => {
@@ -80,11 +62,21 @@ const CarSearch = () => {
         <Grid item xs={2}>
           {/* Atvaizdavimo pasirinkimai */}
           <CarOptions view={carSearchViewType} onChange={handleViewChange} />
-          <CarFilters />
+          <CarFilters cars={cars} />
         </Grid>
         <Grid item xs={10}>
           {/* Jei yra masinu */}
           {cars.length > 0 ? dataView : null}
+          <Fab
+            color="primary"
+            aria-label="add"
+            size="small"
+            sx={{
+              margin: 0, right: 10, bottom: 10, left: 'auto', position: 'fixed',
+            }}
+          >
+            <SettingsInputCompositeIcon fontSize="small" />
+          </Fab>
         </Grid>
       </Grid>
     </Container>
