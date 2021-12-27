@@ -75,10 +75,10 @@ const CarFilters = () => {
     //  Immediatly invoked function expression
     (async () => {
       const fetchedFilters = {
-        brands: await APIService.fetchBrands(),
-        models: await APIService.fetchModels(),
-        transmissions: await APIService.fetchTransmissions(),
-        fuelTypes: await APIService.fetchFuels(),
+        brands: await APIService.getBrands(),
+        models: await APIService.getModels(),
+        transmissions: await APIService.getTransmissions(),
+        fuelTypes: await APIService.getFuelTypes(),
       };
       const formatedFilters = formatFilters(fetchedFilters);
       setFilters(formatedFilters);
@@ -154,7 +154,7 @@ const CarFilters = () => {
         <RangeFilter
           key="asd"
           filterName="bablo"
-          onChange={(param) => console.log(param)}
+          // onChange={(param) => console.log(param)}
           selectedMin={0}
           selectedMax={10}
           min={0}
@@ -168,7 +168,7 @@ const CarFilters = () => {
         <RangeFilter
           key="asds"
           filterName="YEAR"
-          onChange={(param) => console.log(param)}
+          // onChange={(param) => console.log(param)}
           selectedMin={2000}
           selectedMax={2021}
           min={2000}
@@ -200,7 +200,7 @@ const CarFilters = () => {
           renderInput={(params) => (
             <TextField {...params} placeholder="Pasirinkti" />
           )}
-          onChange={(_, selectedFilterOptions) => handleFilterChange(selectedFilterOptions, 'transmissions')}
+          onChange={(_, selectedFilterOptions) => handleFilterChange(selectedFilterOptions, 'transmission')}
         />
       </FilterContainer>
       {/* TRANSMISSION ------------------------------------------------------------------ */}

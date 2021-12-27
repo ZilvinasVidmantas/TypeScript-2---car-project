@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Typography, Grid } from '@mui/material';
+import {
+  Container, Typography, Grid,
+} from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
 import CarTable from './car-search-page-table';
 import CarFilters from './car-search-page-filters';
@@ -8,11 +10,13 @@ import CarModel from '../../models/car-model';
 import { createUrlParamObj } from '../../helpers';
 import CarOptions from './car-search-page-options';
 import CarGrid from './car-search-page-grid';
+import LoadingImg from './assets/loading.gif';
 
 const CarSearch = () => {
   const [cars, setCars] = useState([]);
   const [carSearchViewType, setCarSearchViewType] = useState('table'); // Atvaizdavimo tipas
   const [searchParams] = useSearchParams();
+  const [loading, setLoading] = useState(true);
   // const [year, setYear] = useState({ min: 0, max: 0 });
   // const [price, setPrice] = useState({ min: 0, max: 0 });
 
@@ -30,35 +34,42 @@ const CarSearch = () => {
   // return { min, max };
   // };
 
-  useEffect(
-    () => {
-      (async () => {
-        const params = createUrlParamObj(searchParams);
-        const fetchedCars = await ApiService.fetchJoinedCars(params);
-        const modeledCars = fetchedCars.map((carData) => new CarModel(carData));
-        setCars(modeledCars);
-      })();
-      // setYear(getMinMax('year'));
-      // setPrice(getMinMax('price'));
-      // console.log(year);
-    },
-    [searchParams],
-  );
+  useEffect(() => {
+    (async () => {
+      const params = createUrlParamObj(searchParams);
+      const fetchedCars = await ApiService.getJoinedCars(params);
+      const modeledCars = fetchedCars.map((carData) => new CarModel(carData));
+      setCars(modeledCars);
+    })();
+    // setYear(getMinMax('year'));
+    // setPrice(getMinMax('price'));
+    // console.log(year);
+  }, [searchParams]);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 2000);
+  }, []);
 
   // Keiciamas atvaizdavimo tipas
   const handleViewChange = (_, nextView) => {
     setCarSearchViewType(nextView);
   };
 
-  const dataView = carSearchViewType === 'table'
+  const dataView = carSearchViewType === 'table' ? (
     // Jei atvaizdavimo tipas lentele
-    ? (
-      <CarTable cars={cars} />
-    ) : (
+    <CarTable cars={cars} />
+  ) : (
     // Jei atvaizdavimo tipas ne lentele
-      <CarGrid cars={cars} />
-    );
-  return (
+    <CarGrid cars={cars} />
+  );
+  return loading ? (
+    <Container sx={{
+      height: 'calc(100vh - 128px)', display: 'flex', justifyContent: 'center', alignItems: 'center',
+    }}
+    >
+      <img src={LoadingImg} alt="..." style={{ objectFit: 'cover' }} />
+    </Container>
+  ) : (
     <Container maxWidth="xl" sx={{ mt: 3 }}>
       {cars.length > 0 ? (
         <Typography component="h1" variant="h3" gutterBottom align="center">
