@@ -4,8 +4,7 @@ const filterFunctionsCreators = {
 };
 
 const createFilterFunctions = (paramsArr, types ) => {
-  return paramsArr.map(([name, value]) => {
-    const values = value instanceof Array ? [...new Set(value)] : [value];
+  return paramsArr.map(([name, values]) => {
     const filterParamType = types.find(type => type.name === name).type;
     const filterFunctionCreator = filterFunctionsCreators[filterParamType];
     const filterFn = filterFunctionCreator(name, values);
