@@ -1,5 +1,6 @@
 const jsonServer = require('json-server');
 const database = require('../database.json');
+const { filterFunctionsCreators } = require('./helpers/filters-helpers');
 // let formatFilters = require('./helpers/server-helpers')
 
 const DATABASE_FILE = 'database.json';
@@ -60,11 +61,7 @@ const paginate = (collection, page, pageSize) => {
   return collection.slice(startIndex, endIndex);
 };
 
-const filterFunctionsCreators = {
-  'one-to-many': (name, values) => (car) => values.includes(car[`${name}Id`]),
-  'many-to-many': (name, values) => (car) => values.some((id) => car[`${name}Id`].includes(id)),
-  // sukurti reikiamus filtravimo funkcijų sukūrėjus
-};
+
 
 const filterParamsTypes = [{
   name: 'brand',
@@ -96,15 +93,15 @@ const formatFilterFunctions = (queryParams) => {
   });
 };
 
-// const pageinationNames = ['_page', '_limit'];
-// const formatPagination = (queryParams) => {
-//   const paginationParamsArr = Object.entries(queryParams)
-//     .filter(([name]) => filterParamsTypes.includes(name));
-//   return paginationParamsArr.map(([name, value]) => ({
-//     name,
-//     values: value instanceof Array ? [...new Set(value)] : [value],
-//   }));
-// }
+const pageinationNames = ['_page', '_limit'];
+const formatPagination = (queryParams) => {
+  const paginationParamsArr = Object.entries(queryParams)
+    .filter(([name]) => filterParamsTypes.includes(name));
+  return paginationParamsArr.map(([name, value]) => ({
+    name,
+    values: value instanceof Array ? [...new Set(value)] : [value],
+  }));
+}
 
 server.get('/cars/joined', (req, res) => {
   const { cars } = database;
