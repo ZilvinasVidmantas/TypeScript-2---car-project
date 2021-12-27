@@ -12,8 +12,8 @@ import CarSearch from './pages/car-search-page';
 import CarPage from './pages/car-page';
 import Navbar from './components/partials/navbar';
 import Footer from './components/partials/footer';
-import SignIn from './pages/sign-in-page/sign-in';
-import SignUp from './pages/sign-up-page/sign-up';
+import SignIn from './pages/sign-in-page';
+import SignUp from './pages/sign-up-page';
 
 const App = () => (
   <ThemeProvider theme={lightTheme}>
