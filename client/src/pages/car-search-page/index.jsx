@@ -80,7 +80,7 @@ const CarSearch = () => {
         <Grid item xs={2}>
           {/* Atvaizdavimo pasirinkimai */}
           <CarOptions view={carSearchViewType} onChange={handleViewChange} />
-          <CarFilters />
+          <CarFilters cars={cars} />
         </Grid>
         <Grid item xs={10}>
           {/* Jei yra masinu */}
