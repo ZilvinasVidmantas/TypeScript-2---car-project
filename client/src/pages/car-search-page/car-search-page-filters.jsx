@@ -19,13 +19,21 @@ import FilterContainer from '../../components/containers/filter-container';
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
-const CarFilters = () => {
+const CarFilters = ({ cars }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [filters, setFilters] = useState({
     brands: [],
     models: [],
     transmissions: [],
     fuelTypes: [],
+    year: {
+      min: 0,
+      max: 1,
+    },
+    price: {
+      min: 0,
+      max: 1,
+    },
   });
   const [showModels, setShowModels] = useState(false);
 
@@ -51,7 +59,19 @@ const CarFilters = () => {
     }
   };
 
-  // Sukuria objekta su visais filtrais ir juos suformatuoja
+  // Grazina min ir max reiksmes pagal nurodyta rakta is paduoto objektu masyvo
+  const getMinMax = (data, from) => {
+    const values = data.map((entity) => entity[from]);
+    const uniqValues = values.sort((a, b) => a - b);
+    const min = uniqValues.shift();
+    const max = uniqValues.pop();
+    return { min, max };
+  };
+
+  // Grazina min ir max filtru reiksmes
+  const formatRangeFilters = (carsData) => ({ year: getMinMax(carsData, 'year'), price: getMinMax(carsData, 'price') });
+
+  // Sukuria objekta su visais suformuotais filtrais
   const formatFilters = (fetchedFilters) => {
     const formatedFIlters = Object.entries(fetchedFilters).reduce(
       (result, [name, values]) => ({
@@ -68,7 +88,7 @@ const CarFilters = () => {
         fuelTypes: [],
       },
     );
-    return formatedFIlters;
+    return { ...formatedFIlters, ...formatRangeFilters(cars) };
   };
 
   useEffect(() => {
@@ -153,12 +173,12 @@ const CarFilters = () => {
       <FilterContainer title="Kaina">
         <RangeFilter
           key="asd"
-          filterName="bablo"
-          // onChange={(param) => console.log(param)}
-          selectedMin={0}
-          selectedMax={10}
-          min={0}
-          max={10}
+          filterName="Price"
+          onChange={(param) => console.log(param)}
+          selectedMin={filters.price.min}
+          selectedMax={filters.price.max}
+          min={filters.price.min}
+          max={filters.price.max}
         />
       </FilterContainer>
       {/* PRICE ------------------------------------------------------------------ */}
@@ -167,12 +187,12 @@ const CarFilters = () => {
       <FilterContainer title="Metai">
         <RangeFilter
           key="asds"
-          filterName="YEAR"
-          // onChange={(param) => console.log(param)}
-          selectedMin={2000}
-          selectedMax={2021}
-          min={2000}
-          max={2021}
+          filterName="Year"
+          onChange={(param) => console.log(param)}
+          selectedMin={filters.year.min}
+          selectedMax={filters.year.max}
+          min={filters.year.min}
+          max={filters.year.max}
         />
       </FilterContainer>
       {/* YEAR ------------------------------------------------------------------ */}
