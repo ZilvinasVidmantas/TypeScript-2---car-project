@@ -3,7 +3,7 @@ const filterFunctionsCreators = {
   'many-to-many': (name, values) => (entity) => values.some((id) => entity[`${name}Id`].includes(id)),
 };
 
-const createFilterFunctions = (paramsArr, types ) => {
+const createFilterFunctions = (paramsArr, types) => {
   return paramsArr.map(([name, values]) => {
     const filterParamType = types.find(type => type.name === name).type;
     const filterFunctionCreator = filterFunctionsCreators[filterParamType];
@@ -12,7 +12,15 @@ const createFilterFunctions = (paramsArr, types ) => {
   });
 }
 
+const applyFilters = (collection, filtersFunctions) => {
+  return filtersFunctions.reduce(
+    (filteredCollection, filterFn) => filteredCollection.filter(filterFn),
+    collection
+  );
+}
+
 module.exports = {
   filterFunctionsCreators,
-  createFilterFunctions
+  createFilterFunctions,
+  applyFilters
 }

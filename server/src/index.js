@@ -1,6 +1,6 @@
 const jsonServer = require('json-server');
 const database = require('../database.json');
-const { createFilterFunctions } = require('./helpers/filters-helpers');
+const { createFilterFunctions, applyFilters } = require('./helpers/filters-helpers');
 const { filterQueryParams } = require('./helpers/query-params-helpers');
 // let formatFilters = require('./helpers/server-helpers')
 
@@ -102,10 +102,7 @@ server.get('/cars/joined', (req, res) => {
   const queryParams = req.query;
   const filterFunctions = formatFilterFunctions(queryParams);
   // 1. Filtravimas
-  const filteredCars = filterFunctions.reduce(
-    (carArr, filterFn) => carArr.filter(filterFn),
-    joinedCars
-  );
+  const filteredCars = applyFilters(joinedCars, filterFunctions);
 
   // 2. Puslapiavimas
   // const paginationParamsArr = formatPagination(queryParams);
