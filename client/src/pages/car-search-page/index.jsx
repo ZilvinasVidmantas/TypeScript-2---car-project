@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Container, Typography, Grid,
+  Container, Typography, Grid, Fab,
 } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
+import SettingsInputCompositeIcon from '@mui/icons-material/SettingsInputComposite';
 import CarTable from './car-search-page-table';
 import CarFilters from './car-search-page-filters';
 import ApiService from '../../services/api-service';
@@ -85,6 +86,16 @@ const CarSearch = () => {
         <Grid item xs={10}>
           {/* Jei yra masinu */}
           {cars.length > 0 ? dataView : null}
+          <Fab
+            color="primary"
+            aria-label="add"
+            size="small"
+            sx={{
+              margin: 0, right: 10, bottom: 10, left: 'auto', position: 'fixed',
+            }}
+          >
+            <SettingsInputCompositeIcon fontSize="small" />
+          </Fab>
         </Grid>
       </Grid>
     </Container>
