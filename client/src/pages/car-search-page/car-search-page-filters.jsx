@@ -6,8 +6,6 @@ import {
   TextField,
   Checkbox,
 } from '@mui/material';
-// import CheckboxGroupFilter from '../../components/controls/checkbox-group-filter';
-// import RangeFilter from '../../components/controls/range-filter';
 import { useSearchParams } from 'react-router-dom';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
