@@ -27,13 +27,3 @@ export const appendUrlParams = (requestUrl, params) => {
     return previous;
   }, requestUrl);
 };
-
-export const handleErrors = (err) => {
-  if (err.response) {
-    throw new Error('Server Error: Problems With Response', err.response.status);
-  } else if (err.request) {
-    throw new Error('Server Error: Problems With Request: ', err.response.status);
-  } else {
-    throw new Error('Error', err.message);
-  }
-};

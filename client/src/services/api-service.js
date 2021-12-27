@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { appendUrlParams, handleErrors } from '../helpers/index';
+import { appendUrlParams, dataFetchError } from '../helpers/index';
 
 const appendProps = (car, brands, fuelTypes, carFuelTypes) => ({
   ...car,
@@ -17,28 +17,48 @@ const instance = axios.create({
 });
 
 const getBrands = async () => {
-  const response = await instance.get('/brands').then((resp) => resp.data).catch(handleErrors);
-  return response;
+  try {
+    const response = await instance.get('/brands');
+    return response.data;
+  } catch (error) {
+    return dataFetchError(error);
+  }
 };
 
 const getModels = async () => {
-  const response = await instance.get('/models').then((resp) => resp.data).catch(handleErrors);
-  return response;
+  try {
+    const response = await instance.get('/models');
+    return response.data;
+  } catch (error) {
+    return dataFetchError(error);
+  }
 };
 
 const getTransmissions = async () => {
-  const response = await instance.get('/transmissions').then((resp) => resp.data).catch(handleErrors);
-  return response;
+  try {
+    const response = await instance.get('/transmissions');
+    return response.data;
+  } catch (error) {
+    return dataFetchError(error);
+  }
 };
 
 const getFuelTypes = async () => {
-  const response = await instance.get('/fuelTypes').then((resp) => resp.data).catch(handleErrors);
-  return response;
+  try {
+    const response = await instance.get('/fuelTypes');
+    return response.data;
+  } catch (error) {
+    return dataFetchError(error);
+  }
 };
 
 const getCarFuelTypes = async () => {
-  const response = await instance.get('/carFuelTypes').then((resp) => resp.data).catch(handleErrors);
-  return response;
+  try {
+    const response = await instance.get('/carFuelTypes');
+    return response.data;
+  } catch (error) {
+    return dataFetchError(error);
+  }
 };
 
 const getJoinedCars = async (params) => {
@@ -76,7 +96,7 @@ const getJoinedCar = async (id) => {
     const joinedCar = appendProps(fetchedCar, fetchedBrands, fetchedFuelTypes, fetchedCarFuelTypes);
     return joinedCar;
   } catch (error) {
-    throw new Error('Aprašyta klaida: Serverio klaida');
+    return dataFetchError(error);
   }
 };
 

@@ -3,13 +3,12 @@ import {
   Container,
   Avatar,
   Button,
-  CssBaseline,
   TextField,
-  Link,
   Grid,
   Box,
   Typography,
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
@@ -25,7 +24,7 @@ const useStyles = styled((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -39,7 +38,6 @@ const SignIn = () => {
   return (
     <Grid item xs={12}>
       <Container component="main" maxWidth="xs" sx={{ mt: 20, height: '85vh' }}>
-        <CssBaseline />
         <div className={classes.paper}>
           <Box sx={{
             mb: 3,
@@ -67,6 +65,7 @@ const SignIn = () => {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  autoFocus
                 />
               </Grid>
               <Grid item xs={12} sx={{ mb: 5 }}>
@@ -92,13 +91,8 @@ const SignIn = () => {
               Sign In
             </Button>
             <Grid container>
-              {/* <Grid item xs>
-              <Link href="/#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid> */}
               <Grid item>
-                <Link href="/sign-up" variant="body2">
+                <Link to="/sign-up">
                   Don&apos;t have an account? Sign Up
                 </Link>
               </Grid>
