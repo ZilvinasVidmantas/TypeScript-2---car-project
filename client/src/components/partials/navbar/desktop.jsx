@@ -24,14 +24,14 @@ const Desktop = ({ handleCloseNavMenu, breakPoint }) => {
           onClick={handleCloseNavMenu}
           breakPoint={breakPoint}
         >
-          Home
+          Pagrindinis
         </StyledNavLink>
         <StyledNavLink
           to="/search"
           onClick={handleCloseNavMenu}
           breakPoint={breakPoint}
         >
-          Search Cars
+          Automobilių paieška
         </StyledNavLink>
       </Box>
       <Box
@@ -47,14 +47,14 @@ const Desktop = ({ handleCloseNavMenu, breakPoint }) => {
           onClick={handleCloseNavMenu}
           breakPoint={breakPoint}
         >
-          Sign in
+          Prisijungti
         </StyledNavLink>
         <StyledNavLink
           to="/sign-up"
           onClick={handleCloseNavMenu}
           breakPoint={breakPoint}
         >
-          Sign up
+          Registruotis
         </StyledNavLink>
       </Box>
     </>
