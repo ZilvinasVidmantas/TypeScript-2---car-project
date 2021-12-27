@@ -1,6 +1,7 @@
 const jsonServer = require('json-server');
 const database = require('../database.json');
 const { filterFunctionsCreators } = require('./helpers/filters-helpers');
+const { filterQueryParams } = require('./helpers/query-params-helpers');
 // let formatFilters = require('./helpers/server-helpers')
 
 const DATABASE_FILE = 'database.json';
@@ -61,8 +62,6 @@ const paginate = (collection, page, pageSize) => {
   return collection.slice(startIndex, endIndex);
 };
 
-
-
 const filterParamsTypes = [{
   name: 'brand',
   type: 'one-to-many'
@@ -80,9 +79,8 @@ const filterParamsTypes = [{
 ];
 
 const formatFilterFunctions = (queryParams) => {
-  const filterNames = filterParamsTypes.map(x => x.name);
-  const filterQueryParamsArr = Object.entries(queryParams)
-    .filter(([name]) => filterNames.includes(name));
+  const filterParamsNames = filterParamsTypes.map(x => x.name);
+  const filterQueryParamsArr = filterQueryParams(queryParams, filterParamsNames);
 
   return filterQueryParamsArr.map(([name, value]) => {
     const values = value instanceof Array ? [...new Set(value)] : [value];
@@ -93,10 +91,9 @@ const formatFilterFunctions = (queryParams) => {
   });
 };
 
-const pageinationNames = ['_page', '_limit'];
+const paginationParamsNames = ['_page', '_limit'];
 const formatPagination = (queryParams) => {
-  const paginationParamsArr = Object.entries(queryParams)
-    .filter(([name]) => filterParamsTypes.includes(name));
+  const paginationParamsArr = filterQueryParams(queryParams, paginationParamsNames);
   return paginationParamsArr.map(([name, value]) => ({
     name,
     values: value instanceof Array ? [...new Set(value)] : [value],
