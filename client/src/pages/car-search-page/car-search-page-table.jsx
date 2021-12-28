@@ -69,7 +69,7 @@ const CarTable = ({ cars }) => {
             <TableCell>Modelis</TableCell>
             <TableCell align="right">Kaina €</TableCell>
             <TableCell align="right">Gam. Metai</TableCell>
-            <TableCell />
+            <TableCell>Veiksmai</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
