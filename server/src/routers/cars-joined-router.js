@@ -75,9 +75,7 @@ const filterParamsTypes = [{
 }, {
   name: 'year_lte',
   type: 'gte'
-}
-  // Aprašyti query parametrus, kurie naudoja atitinkamas filterFunctionsCreators objekto filtravimo funkcijas: price_gt, price_lte ir t.t.
-];
+}];
 
 const formatFilterFunctions = (queryParams) => {
   const filterParamsNames = filterParamsTypes.map(x => x.name);
