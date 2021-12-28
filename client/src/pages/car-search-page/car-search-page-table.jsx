@@ -11,7 +11,7 @@ import {
   Skeleton,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { styled } from '@mui/styles';
+import { styled } from '@mui/material/styles';
 
 const CarTable = ({ cars }) => {
   const [page, setPage] = useState(0);
