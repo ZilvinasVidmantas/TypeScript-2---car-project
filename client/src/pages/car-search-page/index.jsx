@@ -4,6 +4,7 @@ import {
 } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
 import SettingsInputCompositeIcon from '@mui/icons-material/SettingsInputComposite';
+import { styled } from '@mui/material/styles';
 import CarTable from './car-search-page-table';
 import CarFilters from './car-search-page-filters';
 import ApiService from '../../services/api-service';
@@ -12,6 +13,27 @@ import { createUrlParamObj } from '../../helpers';
 import CarOptions from './car-search-page-options';
 import CarGrid from './car-search-page-grid';
 import LoadingImg from './assets/loading.gif';
+
+const StyledGridItem = styled(Grid)(({ theme }) => ({
+  [theme.breakpoints.down('md')]: {
+    display: 'none',
+  },
+  [theme.breakpoints.up('md')]: {
+    display: 'block',
+  },
+}));
+
+const StyledFab = styled(Fab)(({ theme }) => ({
+  right: 10,
+  bottom: 10,
+  position: 'fixed',
+  [theme.breakpoints.down('md')]: {
+    display: 'block',
+  },
+  [theme.breakpoints.up('md')]: {
+    display: 'none',
+  },
+}));
 
 const CarSearch = () => {
   const [cars, setCars] = useState([]);
@@ -60,26 +82,23 @@ const CarSearch = () => {
         </Typography>
       ) : null}
       <Grid container spacing={2}>
-        <Grid item xs={2}>
+        <StyledGridItem item md={12} lg={2}>
           {/* Atvaizdavimo pasirinkimai */}
           <CarOptions view={carSearchViewType} onChange={handleViewChange} />
           <CarFilters cars={cars} />
-        </Grid>
-        <Grid item xs={10}>
+        </StyledGridItem>
+        <Grid item xs={12} sm={12} md={12} lg={10}>
           {/* Jei yra masinu */}
           {cars.length > 0 ? dataView : null}
-          <Fab
-            color="primary"
-            aria-label="add"
-            size="small"
-            sx={{
-              margin: 0, right: 10, bottom: 10, left: 'auto', position: 'fixed',
-            }}
-          >
-            <SettingsInputCompositeIcon fontSize="small" />
-          </Fab>
         </Grid>
       </Grid>
+      <StyledFab
+        color="primary"
+        aria-label="add"
+        size="small"
+      >
+        <SettingsInputCompositeIcon fontSize="small" />
+      </StyledFab>
     </Container>
   );
 };
