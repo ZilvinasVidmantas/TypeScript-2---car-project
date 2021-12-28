@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Container, Typography, Grid, Fab,
+  Container, Typography, Grid, Fab, useTheme,
 } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
 import SettingsInputCompositeIcon from '@mui/icons-material/SettingsInputComposite';
@@ -18,6 +18,7 @@ const CarSearch = () => {
   const [carSearchViewType, setCarSearchViewType] = useState('table'); // Atvaizdavimo tipas
   const [searchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
+  const theme = useTheme();
 
   useEffect(() => {
     (async () => {
@@ -46,7 +47,7 @@ const CarSearch = () => {
   );
   return loading ? (
     <Container sx={{
-      height: 'calc(100vh - 128px)', display: 'flex', justifyContent: 'center', alignItems: 'center',
+      height: `calc(100vh - (${theme.mixins.footer.height}px + ${theme.mixins.toolbar.height}px))`, display: 'flex', justifyContent: 'center', alignItems: 'center',
     }}
     >
       <img src={LoadingImg} alt="..." style={{ objectFit: 'cover' }} />
