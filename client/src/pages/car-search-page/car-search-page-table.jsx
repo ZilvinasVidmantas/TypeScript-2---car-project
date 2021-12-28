@@ -11,6 +11,7 @@ import {
   Skeleton,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { styled } from '@mui/styles';
 
 const CarTable = ({ cars }) => {
   const [page, setPage] = useState(0);
@@ -24,6 +25,15 @@ const CarTable = ({ cars }) => {
     }, 1000);
   };
 
+  const StyledTableRow = styled(TableRow)({
+    padding: 0,
+    height: 0,
+  });
+
+  const StyledTableCell = styled(TableCell)({
+    padding: 10,
+  });
+
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
@@ -34,29 +44,29 @@ const CarTable = ({ cars }) => {
     .map(({
       id, brand, model, year, price,
     }) => (
-      <TableRow key={id}>
-        <TableCell>{id}</TableCell>
-        <TableCell>{brand}</TableCell>
-        <TableCell>{model}</TableCell>
-        <TableCell align="right">{price}</TableCell>
-        <TableCell align="right">{year}</TableCell>
-        <TableCell align="right" sx={{ width: 1 / 100, whiteSpace: 'nowrap' }}>
+      <StyledTableRow key={id}>
+        <StyledTableCell>{id}</StyledTableCell>
+        <StyledTableCell>{brand}</StyledTableCell>
+        <StyledTableCell>{model}</StyledTableCell>
+        <StyledTableCell align="right">{price}</StyledTableCell>
+        <StyledTableCell align="right">{year}</StyledTableCell>
+        <StyledTableCell align="right" sx={{ width: 1 / 100, whiteSpace: 'nowrap' }}>
           <Link to={`/car/${id}`}>Peržiūrėti</Link>
-        </TableCell>
-      </TableRow>
+        </StyledTableCell>
+      </StyledTableRow>
     ));
 
   const skeletonRows = Array.from(new Array(rowsPerPage)).map(() => (
-    <TableRow>
-      <TableCell><Skeleton animation="wave" height={45} /></TableCell>
-      <TableCell><Skeleton animation="wave" height={45} /></TableCell>
-      <TableCell><Skeleton animation="wave" height={45} /></TableCell>
-      <TableCell><Skeleton animation="wave" height={45} /></TableCell>
-      <TableCell><Skeleton animation="wave" height={45} /></TableCell>
-      <TableCell>
-        <Skeleton animation="wave" height={45} />
-      </TableCell>
-    </TableRow>
+    <StyledTableRow>
+      <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
+      <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
+      <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
+      <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
+      <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
+      <StyledTableCell>
+        <Skeleton animation="wave" height={20} />
+      </StyledTableCell>
+    </StyledTableRow>
   ));
 
   return (
