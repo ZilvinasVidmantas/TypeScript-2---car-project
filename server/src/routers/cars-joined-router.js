@@ -63,6 +63,18 @@ const filterParamsTypes = [{
 }, {
   name: 'fuelType',
   type: 'many-to-many'
+}, {
+  name: 'price_lte',
+  type: 'lte'
+}, {
+  name: 'price_gte',
+  type: 'gte'
+}, {
+  name: 'year_gte',
+  type: 'lte'
+}, {
+  name: 'year_lte',
+  type: 'gte'
 }
   // Aprašyti query parametrus, kurie naudoja atitinkamas filterFunctionsCreators objekto filtravimo funkcijas: price_gt, price_lte ir t.t.
 ];
