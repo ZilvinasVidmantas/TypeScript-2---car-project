@@ -8,7 +8,11 @@ import {
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 const formContainer = ({ children, title }) => (
-  <Container component="main" maxWidth="xs" sx={{ pt: '5%', minHeight: 'calc(100vh - 128px)' }}>
+  <Container
+    component="main"
+    maxWidth="xs"
+    sx={(theme) => ({ pt: '5%', minHeight: `calc(100vh - (${theme.mixins.footer.height}px + ${theme.mixins.toolbar.height}px))` })}
+  >
     <Box>
       <Box sx={{
         mb: 3,
