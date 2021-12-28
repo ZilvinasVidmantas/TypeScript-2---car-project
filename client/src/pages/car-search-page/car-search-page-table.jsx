@@ -25,11 +25,6 @@ const CarTable = ({ cars }) => {
     }, 1000);
   };
 
-  const StyledTableRow = styled(TableRow)({
-    padding: 0,
-    height: 0,
-  });
-
   const StyledTableCell = styled(TableCell)({
     padding: 10,
   });
@@ -44,7 +39,7 @@ const CarTable = ({ cars }) => {
     .map(({
       id, brand, model, year, price,
     }) => (
-      <StyledTableRow key={id}>
+      <TableRow key={id}>
         <StyledTableCell>{id}</StyledTableCell>
         <StyledTableCell>{brand}</StyledTableCell>
         <StyledTableCell>{model}</StyledTableCell>
@@ -53,11 +48,11 @@ const CarTable = ({ cars }) => {
         <StyledTableCell align="right" sx={{ width: 1 / 100, whiteSpace: 'nowrap' }}>
           <Link to={`/car/${id}`}>Peržiūrėti</Link>
         </StyledTableCell>
-      </StyledTableRow>
+      </TableRow>
     ));
 
   const skeletonRows = Array.from(new Array(rowsPerPage)).map(() => (
-    <StyledTableRow>
+    <TableRow>
       <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
       <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
       <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
@@ -66,7 +61,7 @@ const CarTable = ({ cars }) => {
       <StyledTableCell>
         <Skeleton animation="wave" height={20} />
       </StyledTableCell>
-    </StyledTableRow>
+    </TableRow>
   ));
 
   return (
