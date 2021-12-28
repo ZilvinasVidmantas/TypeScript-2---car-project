@@ -22,9 +22,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<PageLayout />}>
             <Route index element={<HomePage />} />
+            <Route path="/search" element={<CarSearch />} />
           </Route>
           <Route path="/" element={<WindowHeightLayout />}>
-            <Route path="/search" element={<CarSearch />} />
             <Route path="/car/:id" element={<CarPage />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/sign-up" element={<SignUp />} />
