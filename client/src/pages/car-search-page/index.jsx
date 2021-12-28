@@ -23,6 +23,18 @@ const StyledGridItem = styled(Grid)(({ theme }) => ({
   },
 }));
 
+const StyledFab = styled(Fab)(({ theme }) => ({
+  right: 10,
+  bottom: 10,
+  position: 'fixed',
+  [theme.breakpoints.down('md')]: {
+    display: 'block',
+  },
+  [theme.breakpoints.up('md')]: {
+    display: 'none',
+  },
+}));
+
 const CarSearch = () => {
   const [cars, setCars] = useState([]);
   const [carSearchViewType, setCarSearchViewType] = useState('table'); // Atvaizdavimo tipas
@@ -98,16 +110,13 @@ const CarSearch = () => {
           {cars.length > 0 ? dataView : null}
         </Grid>
       </Grid>
-      <Fab
+      <StyledFab
         color="primary"
         aria-label="add"
         size="small"
-        sx={{
-          margin: 0, right: 10, bottom: 10, left: 'auto', position: 'fixed', display: { xs: 'block', sm: 'block', md: 'none' },
-        }}
       >
         <SettingsInputCompositeIcon fontSize="small" />
-      </Fab>
+      </StyledFab>
     </Container>
   );
 };
