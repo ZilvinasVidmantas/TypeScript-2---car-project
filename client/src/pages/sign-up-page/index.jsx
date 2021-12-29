@@ -69,7 +69,7 @@ const SignUp = () => (
           />
         </Grid>
       </Grid>
-      <FormButton title={title} />
+      <FormButton>{title}</FormButton>
       <Link to="/sign-in">
         Already have an account? Sign in
       </Link>

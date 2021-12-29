@@ -3,15 +3,16 @@ import {
   Button,
 } from '@mui/material';
 
-const formButton = ({ title }) => (
+const formButton = ({ children, ...rest }) => (
   <Button
     type="submit"
     fullWidth
     variant="contained"
     color="primary"
-    sx={{ height: 56 }}
+    sx={{ height: 56, mb: 1 }}
+    {...rest}
   >
-    {title}
+    {children}
   </Button>
 );
 
