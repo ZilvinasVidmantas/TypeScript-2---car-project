@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import FormContainer from '../../components/containers/form-container';
 import FormButton from '../../components/buttons/form-button';
 
-const title = ['Sign In'];
+const title = ['Prisijungti'];
 
 const SignIn = () => (
   <FormContainer title={title}>
@@ -20,7 +20,7 @@ const SignIn = () => (
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="El. paštas"
             name="email"
             autoComplete="email"
             autoFocus
@@ -32,7 +32,7 @@ const SignIn = () => (
             required
             fullWidth
             name="password"
-            label="Password"
+            label="Slaptažodis"
             type="password"
             id="password"
             autoComplete="current-password"
@@ -41,7 +41,7 @@ const SignIn = () => (
       </Grid>
       <FormButton>{title}</FormButton>
       <Link to="/sign-up">
-        Don&apos;t have an account? Sign Up
+        Neturite paskyros? Registruokitės
       </Link>
     </Box>
   </FormContainer>
