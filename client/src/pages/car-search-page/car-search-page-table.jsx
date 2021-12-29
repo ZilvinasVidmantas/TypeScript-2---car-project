@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Table,
   TableBody,
@@ -11,20 +11,23 @@ import {
   Skeleton,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { styled } from '@mui/material/styles';
 
 const CarTable = ({ cars }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(20);
+  const [loading, setLoading] = useState(false);
   const handleChangePage = (event, newPage) => {
+    setLoading(true);
     setPage(newPage);
-  };
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 1000);
-  }, []);
+  };
+
+  const StyledTableCell = styled(TableCell)({
+    padding: 10,
+  });
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
@@ -37,56 +40,63 @@ const CarTable = ({ cars }) => {
       id, brand, model, year, price,
     }) => (
       <TableRow key={id}>
-        <TableCell>{id}</TableCell>
-        <TableCell>{brand}</TableCell>
-        <TableCell>{model}</TableCell>
-        <TableCell align="right">{price}</TableCell>
-        <TableCell align="right">{year}</TableCell>
-        <TableCell align="right" sx={{ width: 1 / 100, whiteSpace: 'nowrap' }}>
+        <StyledTableCell>{id}</StyledTableCell>
+        <StyledTableCell>{brand}</StyledTableCell>
+        <StyledTableCell>{model}</StyledTableCell>
+        <StyledTableCell align="right">{price}</StyledTableCell>
+        <StyledTableCell align="right">{year}</StyledTableCell>
+        <StyledTableCell align="right" sx={{ width: 1 / 100, whiteSpace: 'nowrap' }}>
           <Link to={`/car/${id}`}>Peržiūrėti</Link>
-        </TableCell>
+        </StyledTableCell>
       </TableRow>
     ));
-  return loading
-    ? (
-      <>
-        <Skeleton animation="wave" height={60} />
-        <Skeleton animation="wave" height={60} />
-        <Skeleton animation="wave" height={60} />
-      </>
-    ) : (
-      <TableContainer component={Paper} elevation={4} square>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>Markė</TableCell>
-              <TableCell>Modelis</TableCell>
-              <TableCell align="right">Kaina €</TableCell>
-              <TableCell align="right">Gam. Metai</TableCell>
-              <TableCell />
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows}
-            {' '}
-            <TableRow style={{ height: 53 }}>
-              <TableCell colSpan={6} />
-            </TableRow>
-          </TableBody>
-        </Table>
-        <TablePagination
-          rowsPerPageOptions={[10, 20, 25]}
-          component="div"
-          count={cars.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-          labelRowsPerPage="Mašinų skaičius puslapyje:"
-        />
-      </TableContainer>
-    );
+
+  const skeletonRows = Array.from(new Array(rowsPerPage)).map(() => (
+    <TableRow>
+      <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
+      <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
+      <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
+      <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
+      <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
+      <StyledTableCell>
+        <Skeleton animation="wave" height={20} />
+      </StyledTableCell>
+    </TableRow>
+  ));
+
+  return (
+    <TableContainer component={Paper} elevation={4} square>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>ID</TableCell>
+            <TableCell>Markė</TableCell>
+            <TableCell>Modelis</TableCell>
+            <TableCell align="right">Kaina €</TableCell>
+            <TableCell align="right">Gam. Metai</TableCell>
+            <TableCell>Veiksmai</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {
+            loading
+              ? skeletonRows
+              : rows
+          }
+        </TableBody>
+      </Table>
+      <TablePagination
+        rowsPerPageOptions={[10, 20, 25]}
+        component="div"
+        count={cars.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+        labelRowsPerPage="Mašinų skaičius puslapyje:"
+      />
+    </TableContainer>
+  );
 };
 
 export default CarTable;
