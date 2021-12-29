@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import FormContainer from '../../components/containers/form-container';
 import FormButton from '../../components/buttons/form-button';
 
-const title = ['Sign Up'];
+const title = ['Registruotis'];
 
 const SignUp = () => (
   <FormContainer title={title}>
@@ -24,7 +24,7 @@ const SignUp = () => (
             required
             fullWidth
             id="firstName"
-            label="First Name"
+            label="Vardas"
             autoFocus
           />
         </Grid>
@@ -34,7 +34,7 @@ const SignUp = () => (
             required
             fullWidth
             id="lastName"
-            label="Last Name"
+            label="Pavardė"
             name="lastName"
             autoComplete="lname"
           />
@@ -45,7 +45,7 @@ const SignUp = () => (
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="El. paštas"
             name="email"
             autoComplete="email"
           />
@@ -56,7 +56,7 @@ const SignUp = () => (
             required
             fullWidth
             name="password"
-            label="Password"
+            label="Slaptažodis"
             type="password"
             id="password"
             autoComplete="current-password"
@@ -65,13 +65,13 @@ const SignUp = () => (
         <Grid item sx={{ mb: 2 }} xs={12}>
           <FormControlLabel
             control={<Checkbox value="allowExtraEmails" color="primary" />}
-            label="I want to receive inspiration, marketing promotions and updates via email."
+            label="Noriu gauti su rinkodara susijusius pranešimus"
           />
         </Grid>
       </Grid>
       <FormButton>{title}</FormButton>
       <Link to="/sign-in">
-        Already have an account? Sign in
+        Jau turite paskyrą? Prisijunkite
       </Link>
     </Box>
   </FormContainer>

@@ -13,7 +13,7 @@ const Footer = () => (
       color: 'common.white',
     })}
   >
-    Automobilių supirkimas &reg; 2021 Visos teisės saugomos.
+    Automobilių pardavimas &reg; 2021 Visos teisės saugomos.
   </Box>
 );
 
