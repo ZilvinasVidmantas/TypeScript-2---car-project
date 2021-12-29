@@ -27,7 +27,7 @@ const HomePage = () => (
     <CardComponents>
       {
         CardItems.map(({ title, imgSrc, action }) => (
-          <Cards title={title} imgSrc={imgSrc} action={action} />
+          <Cards key={title} title={title} imgSrc={imgSrc} action={action} />
         ))
       }
     </CardComponents>
