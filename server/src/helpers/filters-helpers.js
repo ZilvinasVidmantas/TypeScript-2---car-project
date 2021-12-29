@@ -1,8 +1,16 @@
 const filterFunctionsCreators = {
   'one-to-many': (name, values) => (entity) => values.includes(entity[`${name}Id`]),
   'many-to-many': (name, values) => (entity) => values.some((id) => entity[`${name}Id`].includes(id)),
-  'gte': (name, values) => (entity) => values.map(Number).some(el => el <= entity[name.slice(0, -4)]),
-  'lte': (name, values) => (entity) => values.map(Number).some(el => el >= entity[name.slice(0, -4)])
+  'gte': (name, values) => {
+    const min = Math.min(...values.map(Number));
+    const prop = name.slice(0, -4);
+    return (entity) => min <= entity[prop];
+  },
+  'lte': (name, values) => {
+    const max = Math.max(...values.map(Number));
+    const prop = name.slice(0, -4);
+    return (entity) => max >= entity[prop];
+  }
 };
 
 const createFilterFunctions = (paramsArr, types) => {
