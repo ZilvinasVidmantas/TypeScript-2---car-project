@@ -3,7 +3,7 @@ import {
   Button,
 } from '@mui/material';
 
-const formButton = ({ children, ...rest }) => (
+const FormButton = ({ children, ...rest }) => (
   <Button
     type="submit"
     fullWidth
@@ -16,4 +16,4 @@ const formButton = ({ children, ...rest }) => (
   </Button>
 );
 
-export default formButton;
+export default FormButton;
