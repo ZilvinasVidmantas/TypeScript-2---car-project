@@ -69,14 +69,10 @@ const SignUp = () => (
           />
         </Grid>
       </Grid>
-      <FormButton title={title} />
-      <Grid container justify="flex-end">
-        <Grid item sx={{ mt: 1 }}>
-          <Link to="/sign-in">
-            Already have an account? Sign in
-          </Link>
-        </Grid>
-      </Grid>
+      <FormButton>{title}</FormButton>
+      <Link to="/sign-in">
+        Already have an account? Sign in
+      </Link>
     </Box>
   </FormContainer>
 );

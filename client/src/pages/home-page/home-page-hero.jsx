@@ -7,7 +7,7 @@ import {
 } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import PhoneEnabledRoundedIcon from '@mui/icons-material/PhoneEnabledRounded';
-import HeroImage from '../../assets/home-page-hero-image.jpg';
+import HeroImage from './assets/home-page-hero-image.jpg';
 
 const Hero = () => (
   <Box sx={{ height: '70vh' }}>
