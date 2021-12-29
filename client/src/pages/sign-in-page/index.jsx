@@ -40,13 +40,9 @@ const SignIn = () => (
         </Grid>
       </Grid>
       <FormButton title={title} />
-      <Grid container>
-        <Grid item sx={{ mt: 1 }}>
-          <Link to="/sign-up">
-            Don&apos;t have an account? Sign Up
-          </Link>
-        </Grid>
-      </Grid>
+      <Link to="/sign-up">
+        Don&apos;t have an account? Sign Up
+      </Link>
     </Box>
   </FormContainer>
 );
