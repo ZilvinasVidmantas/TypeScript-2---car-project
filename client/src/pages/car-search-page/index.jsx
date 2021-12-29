@@ -13,6 +13,7 @@ import { createUrlParamObj } from '../../helpers';
 import CarOptions from './car-search-page-options';
 import CarGrid from './car-search-page-grid';
 import LoadingImg from './assets/loading.gif';
+import CarSearchPageDrawer from './car-search-page-drawer';
 
 const StyledGridItem = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
@@ -67,6 +68,9 @@ const CarSearch = () => {
     // Jei atvaizdavimo tipas ne lentele
     <CarGrid cars={cars} />
   );
+
+  const toggleDrawer = () => {};
+
   return loading ? (
     <Container sx={{
       height: `calc(100vh - (${theme.mixins.footer.height}px + ${theme.mixins.toolbar.height}px))`, display: 'flex', justifyContent: 'center', alignItems: 'center',
@@ -96,9 +100,11 @@ const CarSearch = () => {
         color="primary"
         aria-label="add"
         size="small"
+        onClick={toggleDrawer()}
       >
         <SettingsInputCompositeIcon fontSize="small" />
       </StyledFab>
+      <CarSearchPageDrawer />
     </Container>
   );
 };
