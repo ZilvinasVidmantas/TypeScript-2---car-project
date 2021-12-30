@@ -37,6 +37,20 @@ const getJoinedCar = ({
   };
 };
 
+const paginate = (collection, page, pageSize) => {
+  const startIndex = (page - 1) * pageSize;
+  const endIndex = page * pageSize;
+  return collection.slice(startIndex, endIndex);
+};
+
+const formatPagination = (queryParams) => {
+  const paginationParamsArr = filterQueryParams(queryParams, paginationParamsNames);
+  return paginationParamsArr.map(([name, value]) => ({
+    name,
+    values: value instanceof Array ? [...new Set(value)] : [value],
+  }));
+}
+
 const filterParamsTypes = [{
   name: 'brand',
   type: 'one-to-many'
@@ -81,6 +95,8 @@ const formatSorting = (queryParams) => {
   }));
 };
 
+const paginationParamsNames = ['_page', '_limit'];
+
 router.get('/', (req, res) => {
   const { cars } = database;
   const joinedCars = cars.map(getJoinedCar);
@@ -90,7 +106,7 @@ router.get('/', (req, res) => {
   // 1. Filtravimas
   const filteredCars = applyFilters(joinedCars, filterFunctions);
 
-  //2. Rikiavimas
+  // 2. Rikiavimas
   const sortingParamsArr = formatSorting(queryParams);
   let sortedCars = filteredCars;
   sortingParamsArr.map(({ order, name }) => {
@@ -102,6 +118,14 @@ router.get('/', (req, res) => {
     }
     return sortedCars;
   })
+
+  // 3. Puslapiavimas
+  // const paginationParamsArr = formatPagination(queryParams);
+  // if (name === '_page') {
+  //   const pageSize = queryParams._limit ? Number(queryParams._limit) : 10;
+  //   filteredArr = paginate(filteredArr, values, pageSize);
+  // } 
+
 
   res.json(filteredCars);
 });
