@@ -13,6 +13,7 @@ import { createUrlParamObj } from '../../helpers';
 import APIService from '../../services/api-service';
 import RangeFilter from '../../components/controls/range-filter';
 import FilterContainer from '../../components/containers/filter-container';
+import AutocompleteCheckboxFilter from '../../components/controls/autocomplete-checkbox-filter';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
@@ -110,7 +111,12 @@ const CarFilters = ({ cars }) => {
       </Typography>
       {/* BRAND ------------------------------------------------------------------ */}
       <FilterContainer title="Markė">
-        <Autocomplete
+        <AutocompleteCheckboxFilter
+          filterOptions={filters.brands}
+          filterName="brand"
+          onChange={(a, b) => console.log(a, b)}
+        />
+        {/* <Autocomplete
           noOptionsText="Tokių filtrų nėra"
           multiple
           id="checkboxes-tags-demo"
@@ -131,8 +137,9 @@ const CarFilters = ({ cars }) => {
           renderInput={(params) => (
             <TextField {...params} placeholder="Pasirinkti" />
           )}
-          onChange={(_, selectedFilterOptions) => handleFilterChange(selectedFilterOptions, 'brand')}
-        />
+          onChange={(_, selectedFilterOptions) =>
+            handleFilterChange(selectedFilterOptions, 'brand')}
+        /> */}
       </FilterContainer>
       {/* BRAND ------------------------------------------------------------------ */}
 
