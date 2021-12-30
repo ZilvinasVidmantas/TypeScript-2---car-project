@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Container, Typography, Grid, Fab, useTheme, Drawer, Box,
+  Container, Typography, Grid, Fab, useTheme, Drawer,
 } from '@mui/material';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { useSearchParams } from 'react-router-dom';
 import SettingsInputCompositeIcon from '@mui/icons-material/SettingsInputComposite';
 import { styled } from '@mui/material/styles';
@@ -115,19 +116,18 @@ const CarSearch = () => {
       >
         <SettingsInputCompositeIcon fontSize="small" />
       </StyledFab>
-      <Box onClick={toggleDrawer(false)}>
-        <Drawer
-          anchor="left"
-          open={state.left}
-          onClose={toggleDrawer}
-        >
-          <CarSearchPageDrawer
-            onClick={toggleDrawer(true)}
-            onKeyDown={toggleDrawer(true)}
-            cars={cars}
-          />
-        </Drawer>
-      </Box>
+      <Drawer
+        open={state.left}
+        onClose={toggleDrawer}
+        onBackdropClick={toggleDrawer(false)}
+      >
+        <ChevronLeftIcon />
+        <CarSearchPageDrawer
+          onClick={toggleDrawer(true)}
+          onKeyDown={toggleDrawer(true)}
+          cars={cars}
+        />
+      </Drawer>
     </Container>
   );
 };
