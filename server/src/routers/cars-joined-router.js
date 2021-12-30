@@ -85,6 +85,16 @@ const formatFilterFunctions = (queryParams) => {
   return filterFunctions;
 };
 
+const sortingParamsNames = ['_sort_asc', '_sort_desc'];
+
+const formatSorting = (queryParams) => {
+  const sortingParamsArr = Object.entries(queryParams).filter(([name, value]) => sortingParamsNames.includes(name));
+  return sortingParamsArr.map(([name, value]) => ({
+    order: name,
+    name: value instanceof Array ? [...new Set(value)] : [value],
+  }));
+};
+
 const paginationParamsNames = ['_page', '_limit'];
 
 router.get('/', (req, res) => {
@@ -96,13 +106,26 @@ router.get('/', (req, res) => {
   // 1. Filtravimas
   const filteredCars = applyFilters(joinedCars, filterFunctions);
 
-  // 2. Puslapiavimas
+  // 2. Rikiavimas
+  const sortingParamsArr = formatSorting(queryParams);
+  let sortedCars = filteredCars;
+  sortingParamsArr.map(({ order, name }) => {
+    if (order === '_sort_asc') {
+      sortedCars = sortedCars.sort((a, b) => a[name] - b[name]);
+    }
+    if (order === '_sort_desc') {
+      sortedCars = sortedCars.sort((a, b) => b[name] - a[name]);
+    }
+    return sortedCars;
+  })
+
+  // 3. Puslapiavimas
   // const paginationParamsArr = formatPagination(queryParams);
   // if (name === '_page') {
   //   const pageSize = queryParams._limit ? Number(queryParams._limit) : 10;
   //   filteredArr = paginate(filteredArr, values, pageSize);
   // } 
-  // 3. Rikiavimas
+
 
   res.json(filteredCars);
 });
