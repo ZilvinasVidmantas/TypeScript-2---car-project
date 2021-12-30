@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Container, Typography, Grid, Fab, useTheme,
+  Container, Typography, Grid, Fab, useTheme, Drawer, Box,
 } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
 import SettingsInputCompositeIcon from '@mui/icons-material/SettingsInputComposite';
@@ -27,6 +27,7 @@ const StyledGridItem = styled(Grid)(({ theme }) => ({
 const StyledFab = styled(Fab)(({ theme }) => ({
   right: 10,
   bottom: 10,
+  zIndex: 10,
   position: 'fixed',
   [theme.breakpoints.down('md')]: {
     display: 'block',
@@ -42,6 +43,18 @@ const CarSearch = () => {
   const [searchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
   const theme = useTheme();
+
+  const [state, setState] = useState({
+    // top: false,
+    // left: false,
+    // bottom: false,
+    // right: false,
+  });
+
+  const toggleDrawer = (option) => (event) => {
+    console.log(event);
+    setState({ ...state, left: option });
+  };
 
   useEffect(() => {
     (async () => {
@@ -69,8 +82,6 @@ const CarSearch = () => {
     <CarGrid cars={cars} />
   );
 
-  const toggleDrawer = () => {};
-
   return loading ? (
     <Container sx={{
       height: `calc(100vh - (${theme.mixins.footer.height}px + ${theme.mixins.toolbar.height}px))`, display: 'flex', justifyContent: 'center', alignItems: 'center',
@@ -89,7 +100,7 @@ const CarSearch = () => {
         <StyledGridItem item md={12} lg={2}>
           {/* Atvaizdavimo pasirinkimai */}
           <CarOptions view={carSearchViewType} onChange={handleViewChange} />
-          <CarFilters cars={cars} />
+          <CarFilters className="filters" cars={cars} />
         </StyledGridItem>
         <Grid item xs={12} sm={12} md={12} lg={10}>
           {/* Jei yra masinu */}
@@ -100,11 +111,23 @@ const CarSearch = () => {
         color="primary"
         aria-label="add"
         size="small"
-        onClick={toggleDrawer()}
+        onClick={toggleDrawer(true)}
       >
         <SettingsInputCompositeIcon fontSize="small" />
       </StyledFab>
-      <CarSearchPageDrawer />
+      <Box onClick={toggleDrawer(false)}>
+        <Drawer
+          anchor="left"
+          open={state.left}
+          onClose={toggleDrawer}
+        >
+          <CarSearchPageDrawer
+            onClick={toggleDrawer(true)}
+            onKeyDown={toggleDrawer(true)}
+            cars={cars}
+          />
+        </Drawer>
+      </Box>
     </Container>
   );
 };
