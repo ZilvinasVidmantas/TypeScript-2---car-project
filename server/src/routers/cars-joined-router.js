@@ -37,20 +37,6 @@ const getJoinedCar = ({
   };
 };
 
-const paginate = (collection, page, pageSize) => {
-  const startIndex = (page - 1) * pageSize;
-  const endIndex = page * pageSize;
-  return collection.slice(startIndex, endIndex);
-};
-
-const formatPagination = (queryParams) => {
-  const paginationParamsArr = filterQueryParams(queryParams, paginationParamsNames);
-  return paginationParamsArr.map(([name, value]) => ({
-    name,
-    values: value instanceof Array ? [...new Set(value)] : [value],
-  }));
-}
-
 const filterParamsTypes = [{
   name: 'brand',
   type: 'one-to-many'
@@ -95,12 +81,27 @@ const formatSorting = (queryParams) => {
   }));
 };
 
-const paginationParamsNames = ['_page', '_limit'];
+const paginate = (collection, page, pageSize) => {
+  const startIndex = (page - 1) * pageSize;
+  const endIndex = page * pageSize;
+  return collection.slice(startIndex, endIndex);
+};
+
+const applyPagination = (data, queryParams) => {
+  const namesFromUrl = Object.keys(queryParams)
+  let paginatedData;
+  if (namesFromUrl.includes('_page')) {
+    const pageSize = queryParams._limit ? Number(queryParams._limit) : 10;
+    const page = queryParams._page
+    paginatedData = paginate(data, page, pageSize);
+  }  
+  return paginatedData
+}
 
 router.get('/', (req, res) => {
   const { cars } = database;
   const joinedCars = cars.map(getJoinedCar);
-
+  
   const queryParams = req.query;
   const filterFunctions = formatFilterFunctions(queryParams);
   // 1. Filtravimas
@@ -120,14 +121,9 @@ router.get('/', (req, res) => {
   })
 
   // 3. Puslapiavimas
-  // const paginationParamsArr = formatPagination(queryParams);
-  // if (name === '_page') {
-  //   const pageSize = queryParams._limit ? Number(queryParams._limit) : 10;
-  //   filteredArr = paginate(filteredArr, values, pageSize);
-  // } 
+  const paginatedCars = applyPagination(sortedCars, queryParams)
 
-
-  res.json(filteredCars);
+  res.json(paginatedCars);
 });
 
 router.get('/:id', (req, res) => {
