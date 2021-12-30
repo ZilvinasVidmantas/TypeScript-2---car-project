@@ -11,7 +11,7 @@ const AutocompleteCheckboxFilter = ({
   noOptionsText,
   filterName,
   onChange,
-  restProps,
+  ...restProps
 }) => (
   <Autocomplete
     size="small"
