@@ -2,21 +2,13 @@ import React, { useState, useEffect } from 'react';
 import {
   Typography,
   Paper,
-  Autocomplete,
-  TextField,
-  Checkbox,
 } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { createUrlParamObj } from '../../helpers';
 import APIService from '../../services/api-service';
 import RangeFilter from '../../components/controls/range-filter';
 import FilterContainer from '../../components/containers/filter-container';
 import AutocompleteCheckboxFilter from '../../components/controls/autocomplete-checkbox-filter';
-
-const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
-const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 const CarFilters = ({ cars }) => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -114,61 +106,24 @@ const CarFilters = ({ cars }) => {
         <AutocompleteCheckboxFilter
           filterOptions={filters.brands}
           filterName="brand"
-          onChange={(a, b) => console.log(a, b)}
+          onChange={(selectedFilterOptions, filterName) => handleFilterChange(
+            selectedFilterOptions,
+            filterName,
+          )}
         />
-        {/* <Autocomplete
-          noOptionsText="Tokių filtrų nėra"
-          multiple
-          id="checkboxes-tags-demo"
-          options={filters.brands}
-          disableCloseOnSelect
-          getOptionLabel={(option) => option.title}
-          renderOption={(props, option, { selected }) => (
-            <li {...props}>
-              <Checkbox
-                icon={icon}
-                checkedIcon={checkedIcon}
-                style={{ marginRight: 8 }}
-                checked={selected}
-              />
-              {option.title}
-            </li>
-          )}
-          renderInput={(params) => (
-            <TextField {...params} placeholder="Pasirinkti" />
-          )}
-          onChange={(_, selectedFilterOptions) =>
-            handleFilterChange(selectedFilterOptions, 'brand')}
-        /> */}
       </FilterContainer>
       {/* BRAND ------------------------------------------------------------------ */}
 
       {/* MODEL ------------------------------------------------------------------ */}
       {showModels ? (
         <FilterContainer title="Modelis">
-          <Autocomplete
-            noOptionsText="Tokių filtrų nėra"
-            multiple
-            id="checkboxes-tags-demo"
-            options={filters.models}
-            disableCloseOnSelect
-            getOptionLabel={(option) => option.title}
-            renderOption={(props, option, { selected }) => (
-              <li {...props}>
-                <Checkbox
-                  icon={icon}
-                  checkedIcon={checkedIcon}
-                  style={{ marginRight: 8 }}
-                  checked={selected}
-                />
-                {option.title}
-              </li>
+          <AutocompleteCheckboxFilter
+            filterOptions={filters.models}
+            filterName="model"
+            onChange={(selectedFilterOptions, filterName) => handleFilterChange(
+              selectedFilterOptions,
+              filterName,
             )}
-// style={{ width: 500 }}
-            renderInput={(params) => (
-              <TextField {...params} placeholder="Pasirinkti" />
-            )}
-            onChange={(_, selectedBrandOption) => handleFilterChange(selectedBrandOption, 'model')}
           />
         </FilterContainer>
       ) : null}
@@ -179,7 +134,7 @@ const CarFilters = ({ cars }) => {
         <RangeFilter
           key="asd"
           filterName="Price"
-          onChange={(param) => console.log(param)}
+          onChange={() => null}
           selectedMin={filters.price.min}
           selectedMax={filters.price.max}
           min={filters.price.min}
@@ -193,7 +148,7 @@ const CarFilters = ({ cars }) => {
         <RangeFilter
           key="asds"
           filterName="Year"
-          onChange={(param) => console.log(param)}
+          onChange={() => null}
           selectedMin={filters.year.min}
           selectedMax={filters.year.max}
           min={filters.year.min}
@@ -204,56 +159,26 @@ const CarFilters = ({ cars }) => {
 
       {/* TRANSMISSION ------------------------------------------------------------------ */}
       <FilterContainer title="Pavarų dėžė">
-        <Autocomplete
-          noOptionsText="Tokių filtrų nėra"
-          multiple
-          id="checkboxes-tags-demo"
-          options={filters.transmissions}
-          disableCloseOnSelect
-          getOptionLabel={(option) => option.title}
-          renderOption={(props, option, { selected }) => (
-            <li {...props}>
-              <Checkbox
-                icon={icon}
-                checkedIcon={checkedIcon}
-                style={{ marginRight: 8 }}
-                checked={selected}
-              />
-              {option.title}
-            </li>
+        <AutocompleteCheckboxFilter
+          filterOptions={filters.transmissions}
+          filterName="transmission"
+          onChange={(selectedFilterOptions, filterName) => handleFilterChange(
+            selectedFilterOptions,
+            filterName,
           )}
-          renderInput={(params) => (
-            <TextField {...params} placeholder="Pasirinkti" />
-          )}
-          onChange={(_, selectedFilterOptions) => handleFilterChange(selectedFilterOptions, 'transmission')}
         />
       </FilterContainer>
       {/* TRANSMISSION ------------------------------------------------------------------ */}
 
       {/* FUELTYPE ------------------------------------------------------------------ */}
       <FilterContainer title="Kuro tipas">
-        <Autocomplete
-          noOptionsText="Tokių filtrų nėra"
-          multiple
-          id="checkboxes-tags-demo"
-          options={filters.fuelTypes}
-          disableCloseOnSelect
-          getOptionLabel={(option) => option.title}
-          renderOption={(props, option, { selected }) => (
-            <li {...props}>
-              <Checkbox
-                icon={icon}
-                checkedIcon={checkedIcon}
-                style={{ marginRight: 8 }}
-                checked={selected}
-              />
-              {option.title}
-            </li>
+        <AutocompleteCheckboxFilter
+          filterOptions={filters.fuelTypes}
+          filterName="fuelTypes"
+          onChange={(selectedFilterOptions, filterName) => handleFilterChange(
+            selectedFilterOptions,
+            filterName,
           )}
-          renderInput={(params) => (
-            <TextField {...params} placeholder="Pasirinkti" />
-          )}
-          onChange={(_, selectedFilterOptions) => handleFilterChange(selectedFilterOptions, 'fuelTypes')}
         />
       </FilterContainer>
       {/* FUELTYPE ------------------------------------------------------------------ */}
