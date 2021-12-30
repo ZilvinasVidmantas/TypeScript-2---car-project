@@ -14,6 +14,7 @@ const AutocompleteCheckboxFilter = ({
   restProps,
 }) => (
   <Autocomplete
+    size="small"
     options={filterOptions}
     noOptionsText={'Filtrų nėra' ?? noOptionsText}
     multiple
