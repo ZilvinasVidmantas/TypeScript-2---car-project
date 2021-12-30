@@ -13,6 +13,7 @@ import CarPage from './pages/car-page';
 import SignIn from './pages/sign-in-page';
 import SignUp from './pages/sign-up-page';
 import PageLayout from './components/layouts/page-layout';
+import WindowHeightLayout from './components/layouts/window-height-layout';
 
 const App = () => (
   <ThemeProvider theme={lightTheme}>
@@ -22,6 +23,8 @@ const App = () => (
           <Route path="/" element={<PageLayout />}>
             <Route index element={<HomePage />} />
             <Route path="/search" element={<CarSearch />} />
+          </Route>
+          <Route path="/" element={<WindowHeightLayout />}>
             <Route path="/car/:id" element={<CarPage />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/sign-up" element={<SignUp />} />
