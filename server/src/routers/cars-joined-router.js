@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const { createFilterFunctions, applyFilters } = require('../helpers/filters-helpers');
 const { filterQueryParams } = require('../helpers/query-params-helpers');
+const { applySorting } = require('../helpers/sorting-helpers');
 const database = require('../../database.json');
 
 const router = Router();
@@ -74,10 +75,10 @@ const formatFilterFunctions = (queryParams) => {
 const sortingParamsNames = ['_sort_asc', '_sort_desc'];
 
 const formatSorting = (queryParams) => {
-  const sortingParamsArr = Object.entries(queryParams).filter(([name, value]) => sortingParamsNames.includes(name));
-  return sortingParamsArr.map(([name, value]) => ({
-    order: name,
-    name: value instanceof Array ? [...new Set(value)] : [value],
+  const sortingParamsArr = Object.entries(queryParams).filter(([order]) => sortingParamsNames.includes(order));
+  return sortingParamsArr.map(([order, field]) => ({
+    order,
+    field: field instanceof Array ? [...new Set(field)] : [field],
   }));
 };
 
@@ -109,16 +110,7 @@ router.get('/', (req, res) => {
 
   // 2. Rikiavimas
   const sortingParamsArr = formatSorting(queryParams);
-  let sortedCars = filteredCars;
-  sortingParamsArr.map(({ order, name }) => {
-    if (order === '_sort_asc') {
-      sortedCars = sortedCars.sort((a, b) => a[name] - b[name]);
-    }
-    if (order === '_sort_desc') {
-      sortedCars = sortedCars.sort((a, b) => b[name] - a[name]);
-    }
-    return sortedCars;
-  })
+  const sortedCars = applySorting(filteredCars, sortingParamsArr);
 
   // 3. Puslapiavimas
   const paginatedCars = applyPagination(sortedCars, queryParams)
