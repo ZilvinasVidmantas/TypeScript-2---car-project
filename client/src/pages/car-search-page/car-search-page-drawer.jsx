@@ -3,6 +3,7 @@ import {
   Box,
   IconButton,
   Typography,
+  Drawer,
 } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { useSearchParams } from 'react-router-dom';
@@ -12,7 +13,7 @@ import APIService from '../../services/api-service';
 import AutocompleteCheckboxFilter from '../../components/controls/autocomplete-checkbox-filter';
 
 const CarSearchPageDrawer = ({
-  onClick, onKeyDown, cars, onBackdropClick, onClose,
+  drawerOpen, closeDrawer, cars,
 }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [filters, setFilters] = useState({
@@ -100,10 +101,9 @@ const CarSearchPageDrawer = ({
   }, []);
 
   return (
-    <Box
-      onClick={onClick}
-      onKeyDown={onKeyDown}
-      onBackdropClick={onBackdropClick}
+    <Drawer
+      open={drawerOpen}
+      onClose={closeDrawer}
     >
       <Box
         sx={{
@@ -118,7 +118,7 @@ const CarSearchPageDrawer = ({
           }}
         >
           Filtrai
-          <IconButton onClick={onClose}>
+          <IconButton onClick={closeDrawer}>
             <ChevronLeftIcon fontSize="large" />
           </IconButton>
         </Typography>
@@ -193,7 +193,7 @@ const CarSearchPageDrawer = ({
           )}
         />
       </Box>
-    </Box>
+    </Drawer>
   );
 };
 

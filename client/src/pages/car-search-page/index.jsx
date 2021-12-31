@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Container, Typography, Grid, Fab, useTheme, Drawer,
+  Container, Typography, Grid, Fab, useTheme,
 } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
 import SettingsInputCompositeIcon from '@mui/icons-material/SettingsInputComposite';
@@ -44,15 +44,10 @@ const CarSearch = () => {
   const [loading, setLoading] = useState(true);
   const theme = useTheme();
 
-  const [state, setState] = useState({
-    // top: false,
-    left: false,
-    // bottom: false,
-    // right: false,
-  });
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const toggleDrawer = (option) => () => {
-    setState({ ...state, left: option });
+  const createToggleDrawer = (open) => () => {
+    setDrawerOpen(open);
   };
 
   useEffect(() => {
@@ -110,22 +105,15 @@ const CarSearch = () => {
         color="primary"
         aria-label="add"
         size="small"
-        onClick={toggleDrawer(true)}
+        onClick={createToggleDrawer(true)}
       >
         <SettingsInputCompositeIcon fontSize="small" />
       </StyledFab>
-      <Drawer
-        open={state.left}
-        onClose={toggleDrawer(false)}
-        onBackdropClick={toggleDrawer(false)}
-      >
-        <CarSearchPageDrawer
-          onClick={toggleDrawer(true)}
-          onKeyDown={toggleDrawer(true)}
-          cars={cars}
-          onClose={toggleDrawer(false)}
-        />
-      </Drawer>
+      <CarSearchPageDrawer
+        drawerOpen={drawerOpen}
+        closeDrawer={createToggleDrawer(false)}
+        cars={cars}
+      />
     </Container>
   );
 };
