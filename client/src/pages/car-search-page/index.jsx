@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
   Container, Typography, Grid, Fab, useTheme, Drawer,
 } from '@mui/material';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { useSearchParams } from 'react-router-dom';
 import SettingsInputCompositeIcon from '@mui/icons-material/SettingsInputComposite';
 import { styled } from '@mui/material/styles';
@@ -47,13 +46,12 @@ const CarSearch = () => {
 
   const [state, setState] = useState({
     // top: false,
-    // left: false,
+    left: false,
     // bottom: false,
     // right: false,
   });
 
-  const toggleDrawer = (option) => (event) => {
-    console.log(event);
+  const toggleDrawer = (option) => () => {
     setState({ ...state, left: option });
   };
 
@@ -118,14 +116,14 @@ const CarSearch = () => {
       </StyledFab>
       <Drawer
         open={state.left}
-        onClose={toggleDrawer}
+        onClose={toggleDrawer(false)}
         onBackdropClick={toggleDrawer(false)}
       >
-        <ChevronLeftIcon />
         <CarSearchPageDrawer
           onClick={toggleDrawer(true)}
           onKeyDown={toggleDrawer(true)}
           cars={cars}
+          onClose={toggleDrawer(false)}
         />
       </Drawer>
     </Container>

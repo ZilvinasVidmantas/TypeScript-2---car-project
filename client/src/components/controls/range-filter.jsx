@@ -10,6 +10,7 @@ const RangeFilter = ({
   min,
   max,
   onChange,
+  sx,
 }) => {
   const [range, setRange] = useState([selectedMin, selectedMax]);
   const [currMin, currMax] = range;
@@ -64,6 +65,7 @@ const RangeFilter = ({
           min={min}
           max={max}
           value={range}
+          sx={sx}
           onChange={handleSliderOnChange}
           onChangeCommitted={(_, [newMin, newMax]) => onChange(
             { filterName, min: newMin, max: newMax },
