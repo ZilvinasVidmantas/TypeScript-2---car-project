@@ -2,6 +2,7 @@ const { Router } = require('express');
 const { createFilterFunctions, applyFilters } = require('../helpers/filters-helpers');
 const { filterQueryParams } = require('../helpers/query-params-helpers');
 const { applySorting } = require('../helpers/sorting-helpers');
+const { filterParamsTypes, sortingParamsNames } = require('./router-data');
 const database = require('../../database.json');
 
 const router = Router();
@@ -38,32 +39,6 @@ const getJoinedCar = ({
   };
 };
 
-const filterParamsTypes = [{
-  name: 'brand',
-  type: 'one-to-many'
-}, {
-  name: 'model',
-  type: 'one-to-many'
-}, {
-  name: 'transmission',
-  type: 'one-to-many'
-}, {
-  name: 'fuelType',
-  type: 'many-to-many'
-}, {
-  name: 'price_lte',
-  type: 'lte'
-}, {
-  name: 'price_gte',
-  type: 'gte'
-}, {
-  name: 'year_gte',
-  type: 'lte'
-}, {
-  name: 'year_lte',
-  type: 'gte'
-}];
-
 const formatFilterFunctions = (queryParams) => {
   const filterParamsNames = filterParamsTypes.map(x => x.name);
   const filterQueryParamsArr = filterQueryParams(queryParams, filterParamsNames);
@@ -71,8 +46,6 @@ const formatFilterFunctions = (queryParams) => {
 
   return filterFunctions;
 };
-
-const sortingParamsNames = ['_sort_asc', '_sort_desc'];
 
 const formatSorting = (queryParams) => {
   const sortingParamsArr = Object.entries(queryParams).filter(([order]) => sortingParamsNames.includes(order));
@@ -95,14 +68,14 @@ const applyPagination = (data, queryParams) => {
     const pageSize = queryParams._limit ? Number(queryParams._limit) : 10;
     const page = queryParams._page
     paginatedData = paginate(data, page, pageSize);
-  }  
+  }
   return paginatedData
 }
 
 router.get('/', (req, res) => {
   const { cars } = database;
   const joinedCars = cars.map(getJoinedCar);
-  
+
   const queryParams = req.query;
   const filterFunctions = formatFilterFunctions(queryParams);
   // 1. Filtravimas
