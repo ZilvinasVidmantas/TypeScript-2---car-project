@@ -3,6 +3,7 @@ const { createFilterFunctions, applyFilters } = require('../helpers/filters-help
 const { filterQueryParams } = require('../helpers/query-params-helpers');
 const { applySorting } = require('../helpers/sorting-helpers');
 const { filterParamsTypes, sortingParamsNames } = require('./router-data');
+const { applyPagination, formatPagination } = require('../helpers/pagination-helpers');
 const database = require('../../database.json');
 
 const router = Router();
@@ -55,23 +56,6 @@ const formatSorting = (queryParams) => {
   }));
 };
 
-const paginate = (collection, page, pageSize) => {
-  const startIndex = (page - 1) * pageSize;
-  const endIndex = page * pageSize;
-  return collection.slice(startIndex, endIndex);
-};
-
-const applyPagination = (data, queryParams) => {
-  const namesFromUrl = Object.keys(queryParams)
-  let paginatedData;
-  if (namesFromUrl.includes('_page')) {
-    const pageSize = queryParams._limit ? Number(queryParams._limit) : 10;
-    const page = queryParams._page
-    paginatedData = paginate(data, page, pageSize);
-  }
-  return paginatedData
-}
-
 router.get('/', (req, res) => {
   const { cars } = database;
   const joinedCars = cars.map(getJoinedCar);
@@ -86,7 +70,8 @@ router.get('/', (req, res) => {
   const sortedCars = applySorting(filteredCars, sortingParamsArr);
 
   // 3. Puslapiavimas
-  const paginatedCars = applyPagination(sortedCars, queryParams)
+  const paginationParamsArr = formatPagination(queryParams)
+  const paginatedCars = applyPagination(sortedCars, paginationParamsArr)
 
   res.json(paginatedCars);
 });
