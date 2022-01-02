@@ -26,7 +26,10 @@ const filterParamsTypes = [{
 
 const sortingParamsNames = ['_sort_asc', '_sort_desc'];
 
+const paginationParamsNames = ['_page', '_limit']
+
 module.exports = {
   filterParamsTypes,
-  sortingParamsNames
+  sortingParamsNames,
+  paginationParamsNames
 }
