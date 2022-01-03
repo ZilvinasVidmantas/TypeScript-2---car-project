@@ -16,6 +16,7 @@ import PageLayout from './components/layouts/page-layout';
 import WindowHeightLayout from './components/layouts/window-height-layout';
 import UserDashboard from './pages/user-dashboard/index';
 import DashboardLayout from './components/layouts/dashboard-layout';
+import AddCar from './pages/user-dashboard/add-car-page';
 
 const App = () => (
   <ThemeProvider theme={lightTheme}>
@@ -33,6 +34,7 @@ const App = () => (
           </Route>
           <Route path="/" element={<DashboardLayout />}>
             <Route path="/dashboard" element={<UserDashboard />} />
+            <Route path="/add-car" element={<AddCar />} />
           </Route>
         </Routes>
       </RouterProvider>
