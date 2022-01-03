@@ -379,11 +379,11 @@
       "price": 9250,
       "year": 2011,
       "images": [
-        "https://autoplius-img.dgn.lt/ann_2_200182875/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-0.jpg",
-        "https://autoplius-img.dgn.lt/ann_2_200182937/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-2.jpg",
-        "https://autoplius-img.dgn.lt/ann_2_200182963/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-3.jpg",
-        "https://autoplius-img.dgn.lt/ann_2_200183305/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-13.jpg",
-        "https://autoplius-img.dgn.lt/ann_2_200183321/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-16.jpg"
+        "https://autoplius-img.dgn.lt/ann_3_202873332/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-0.jpg",
+        "https://autoplius-img.dgn.lt/ann_3_202873348/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-1.jpg",
+        "https://autoplius-img.dgn.lt/ann_3_202873340/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-4.jpg",
+        "https://autoplius-img.dgn.lt/ann_3_202873388/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-5.jpg",
+        "https://autoplius-img.dgn.lt/ann_3_202873490/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-12.jpg"
       ],
       "engineVolume": 1.8,
       "power": 18,
@@ -999,23 +999,6 @@
       ],
       "engineVolume": 3.0,
       "power": 30,
-      "transmissionId": "1",
-      "userId": "4"
-    },
-    {
-      "id": "45",
-      "modelId": "23",
-      "price": 9250,
-      "year": 2011,
-      "images": [
-        "https://autoplius-img.dgn.lt/ann_3_200182875/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-0.jpg",
-        "https://autoplius-img.dgn.lt/ann_3_200182837/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-1.jpg",
-        "https://autoplius-img.dgn.lt/ann_3_200182937/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-2.jpg",
-        "https://autoplius-img.dgn.lt/ann_3_200183265/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-6.jpg",
-        "https://autoplius-img.dgn.lt/ann_3_200183343/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-18.jpg"
-      ],
-      "engineVolume": 1.8,
-      "power": 18,
       "transmissionId": "1",
       "userId": "4"
     },
