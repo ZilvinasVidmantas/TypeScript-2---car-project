@@ -107,7 +107,7 @@ const CarSearchPageDrawer = ({
     >
       <Box
         sx={{
-          width: 240, display: 'flex', flexDirection: 'column', gap: '10px',
+          width: 270, display: 'flex', flexDirection: 'column', gap: '10px',
         }}
       >
         <Typography
@@ -125,8 +125,9 @@ const CarSearchPageDrawer = ({
         <AutocompleteCheckboxFilter
           filterOptions={filters.brands}
           filterName="brand"
+          label="Markė"
           sx={{
-            width: 200, ml: '15px',
+            width: 240, ml: '15px',
           }}
           onChange={(selectedFilterOptions, filterName) => handleFilterChange(
             selectedFilterOptions,
@@ -137,8 +138,9 @@ const CarSearchPageDrawer = ({
           <AutocompleteCheckboxFilter
             filterOptions={filters.models}
             filterName="model"
+            label="Modelis"
             sx={{
-              width: 200, ml: '15px',
+              width: 240, ml: '15px', mt: '10px',
             }}
             onChange={(selectedFilterOptions, filterName) => handleFilterChange(
               selectedFilterOptions,
@@ -150,7 +152,7 @@ const CarSearchPageDrawer = ({
           key="asd"
           filterName="Price"
           sx={{
-            width: '85%', ml: '15px',
+            width: '70%', ml: '40px',
           }}
           onChange={() => null}
           selectedMin={filters.price.min}
@@ -162,7 +164,7 @@ const CarSearchPageDrawer = ({
           key="asds"
           filterName="Year"
           sx={{
-            width: '85%', ml: '15px',
+            width: '70%', ml: '40px',
           }}
           onChange={() => null}
           selectedMin={filters.year.min}
@@ -173,8 +175,9 @@ const CarSearchPageDrawer = ({
         <AutocompleteCheckboxFilter
           filterOptions={filters.transmissions}
           filterName="transmission"
+          label="Pavarų dėžė"
           sx={{
-            width: 200, ml: '15px',
+            width: 240, ml: '15px',
           }}
           onChange={(selectedFilterOptions, filterName) => handleFilterChange(
             selectedFilterOptions,
@@ -184,8 +187,9 @@ const CarSearchPageDrawer = ({
         <AutocompleteCheckboxFilter
           filterOptions={filters.fuelTypes}
           filterName="fuelTypes"
+          label="Kuro tipas"
           sx={{
-            width: 200, ml: '15px',
+            width: 240, ml: '15px', mt: '10px',
           }}
           onChange={(selectedFilterOptions, filterName) => handleFilterChange(
             selectedFilterOptions,
