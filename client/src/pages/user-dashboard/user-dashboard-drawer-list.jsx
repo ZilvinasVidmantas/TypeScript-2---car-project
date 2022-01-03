@@ -8,6 +8,7 @@ import LayersIcon from '@mui/icons-material/Layers';
 import CarRepairIcon from '@mui/icons-material/CarRepair';
 import AddIcon from '@mui/icons-material/Add';
 import { Box } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const DrawerList = (
   <Box>
@@ -27,7 +28,9 @@ const DrawerList = (
       <ListItemIcon>
         <AddIcon />
       </ListItemIcon>
-      <ListItemText primary="Pridėti automobilį" />
+      <Link to="/add-car">
+        <ListItemText primary="Pridėti automobilį" />
+      </Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
