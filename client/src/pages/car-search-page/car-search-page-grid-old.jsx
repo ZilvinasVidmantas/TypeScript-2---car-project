@@ -40,35 +40,32 @@ const StyledCardMedia = styled('div')({
   },
 });
 
-const CarGrid = ({ cars }) => {
-  console.log(cars);
-  return (
-    <Grid container spacing={2} sx={{ mb: 2 }}>
-      {cars.map(({
-        id, brand, model, year, price, images,
-      }) => (
-        <Grid item key={id} xs={12} md={6} lg={4} xl={3}>
-          <StyledCardLink to={`/car/${id}`}>
-            <Card raised>
-              <CardHeader
-                className="textCollapse"
-                title={`${brand} - ${model}`}
-                subheader={`Metai: ${year} | Kaina: ${price} €`}
-                align="center"
-                sx={{ pb: 1, fontSize: '2.5vw' }}
+const CarGrid = ({ cars }) => (
+  <Grid container spacing={2} sx={{ mb: 2 }}>
+    {cars.map(({
+      id, brand, model, year, price, images,
+    }) => (
+      <Grid item key={id} xs={12} md={6} lg={4} xl={3}>
+        <StyledCardLink to={`/car/${id}`}>
+          <Card raised>
+            <CardHeader
+              className="textCollapse"
+              title={`${brand} - ${model}`}
+              subheader={`Metai: ${year} | Kaina: ${price} €`}
+              align="center"
+              sx={{ pb: 1, fontSize: '2.5vw' }}
+            />
+            <StyledCardMedia>
+              <img
+                src={images[0]}
+                alt="car"
               />
-              <StyledCardMedia>
-                <img
-                  src={images[0]}
-                  alt="car"
-                />
-              </StyledCardMedia>
-            </Card>
-          </StyledCardLink>
-        </Grid>
-      ))}
-    </Grid>
-  );
-};
+            </StyledCardMedia>
+          </Card>
+        </StyledCardLink>
+      </Grid>
+    ))}
+  </Grid>
+);
 
 export default CarGrid;

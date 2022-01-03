@@ -1,110 +1,71 @@
-import { Typography } from '@mui/material';
-import React, {
-  useCallback, useEffect, useRef, useState,
-} from 'react';
-import Styles from './styles/car-search-page-card-styles.module.css';
+import React from 'react';
+import { Box, Typography, useTheme } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import ImageFluid from '../../components/images/image-fluid';
 
-const CarSearchPageGridCard = ({ title, children, ...others }) => {
-  const cardWrapRef = useRef(null);
+const StyledCard = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+  minHeight: theme.spacing(38),
+  borderRadius: theme.spacing(2),
+  color: theme.palette.common.black,
+  margin: theme.spacing(1.25),
+  transition: theme.transitions.easeMe,
+  boxShadow: theme.shadows[26],
+  ':hover': {
+    boxShadow: theme.shadows[25],
+    transform: 'scale(1.05)',
+    transformOrigin: 'center',
+  },
+}));
 
-  const [cardParameters, setCardParameters] = useState({
-    width: 0,
-    height: 0,
-    mouseX: 0,
-    mouseY: 0,
-    mounted: false,
-  });
+const StyledCardContent = styled(Box)({
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  textAlign: 'center',
+  margin: '0',
+  padding: '0',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+});
 
-  let mouseLeaveDelay = null;
-
-  const { backgroundUrl } = others;
-
-  const handleMouseMove = (event) => {
-    if (cardWrapRef.current) {
-      const { width, height } = cardParameters;
-      const newCardParameters = {
-        ...cardParameters,
-        mouseX: event.pageX - cardWrapRef.current.offsetLeft - width / 2,
-        mouseY: event.pageY - cardWrapRef.current.offsetTop - height / 2,
-      };
-
-      setCardParameters(newCardParameters);
-    }
-  };
-
-  const handleMouseEnter = useCallback(() => {
-    if (mouseLeaveDelay) {
-      clearTimeout(mouseLeaveDelay);
-    }
-  }, [mouseLeaveDelay]);
-
-  const handleMouseLeave = useCallback(() => {
-    mouseLeaveDelay = setTimeout(() => {
-      setCardParameters({ ...cardParameters, mouseX: 0, mouseY: 0 });
-    }, 100);
-  }, [mouseLeaveDelay, cardParameters]);
-
-  useEffect(() => {
-    const { mounted } = cardParameters;
-
-    if (
-      !mounted
-      && cardWrapRef?.current
-      && cardParameters.width === 0
-      && cardParameters.height === 0
-    ) {
-      setCardParameters({
-        ...cardParameters,
-        width: cardWrapRef.current.offsetWidth,
-        height: cardWrapRef.current.offsetHeight,
-        mounted: true,
-      });
-    }
-  }, []);
-
-  const mousePX = () => cardParameters.mouseX / cardParameters.width;
-  const mousePY = () => cardParameters.mouseY / cardParameters.height;
-
-  const cardStyle = () => {
-    const rX = mousePX() * 30;
-    const rY = mousePY() * -30;
-    return {
-      transform: `rotateY(${rX}deg) rotateX(${rY}deg)`,
-    };
-  };
-  const cardBgTransform = () => {
-    const tX = mousePX() * -40;
-    const tY = mousePY() * -40;
-    return {
-      transform: `translateX(${tX}px) translateY(${tY}px)`,
-    };
-  };
-
+const CarSearchPageGrindCard = ({ image, title, subtitle }) => {
+  const theme = useTheme();
   return (
-    <div className={Styles['card-container']}>
-      <div
-        className={Styles['card-wrap']}
-        onMouseMove={(event) => handleMouseMove(event)}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        ref={cardWrapRef}
+    <StyledCard>
+      <Box sx={{
+        position: 'relative',
+      }}
       >
-        <div className={Styles.card} style={cardStyle()}>
-          <div
-            className={Styles['card-bg']}
-            style={{
-              ...cardBgTransform(),
-              backgroundImage: `url(${backgroundUrl})`,
-            }}
-          />
-          <div className={Styles['card-info']}>
-            <Typography component="h3" variant="h4" textAlign="center">{title}</Typography>
-            {children}
-          </div>
-        </div>
-      </div>
-    </div>
+        <ImageFluid
+          sx={{
+            height: theme.spacing(28.75),
+            borderTopLeftRadius: theme.spacing(1.875),
+            borderTopRightRadius: theme.spacing(2),
+          }}
+          src={image}
+        />
+      </Box>
+      <StyledCardContent>
+        <Typography
+          component="h3"
+          variant="h5"
+          sx={{
+            textTransform: 'none',
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+          }}
+        >
+          {title}
+        </Typography>
+        <Typography component="h4" variant="subtitle1">
+          {subtitle}
+        </Typography>
+      </StyledCardContent>
+    </StyledCard>
   );
 };
 
-export default CarSearchPageGridCard;
+export default CarSearchPageGrindCard;
