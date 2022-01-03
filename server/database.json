@@ -1003,23 +1003,6 @@
       "userId": "4"
     },
     {
-      "id": "45",
-      "modelId": "23",
-      "price": 9250,
-      "year": 2011,
-      "images": [
-        "https://autoplius-img.dgn.lt/ann_3_200182875/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-0.jpg",
-        "https://autoplius-img.dgn.lt/ann_3_200182837/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-1.jpg",
-        "https://autoplius-img.dgn.lt/ann_3_200182937/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-2.jpg",
-        "https://autoplius-img.dgn.lt/ann_3_200183265/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-6.jpg",
-        "https://autoplius-img.dgn.lt/ann_3_200183343/lexus-ct-200h-1-8-l-hecbekas-2011-benzinas-elektra-18.jpg"
-      ],
-      "engineVolume": 1.8,
-      "power": 18,
-      "transmissionId": "1",
-      "userId": "4"
-    },
-    {
       "id": "46",
       "modelId": "56",
       "price": 26300,
