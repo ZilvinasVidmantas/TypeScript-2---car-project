@@ -102,30 +102,28 @@ const CarFilters = ({ cars }) => {
         Filtrai
       </Typography>
       {/* BRAND ------------------------------------------------------------------ */}
-      <FilterContainer title="Markė">
+      <AutocompleteCheckboxFilter
+        filterOptions={filters.brands}
+        filterName="brand"
+        label="Markė"
+        onChange={(selectedFilterOptions, filterName) => handleFilterChange(
+          selectedFilterOptions,
+          filterName,
+        )}
+      />
+      {/* BRAND ------------------------------------------------------------------ */}
+
+      {/* MODEL ------------------------------------------------------------------ */}
+      {showModels ? (
         <AutocompleteCheckboxFilter
-          filterOptions={filters.brands}
-          filterName="brand"
+          filterOptions={filters.models}
+          filterName="model"
+          label="Modelis"
           onChange={(selectedFilterOptions, filterName) => handleFilterChange(
             selectedFilterOptions,
             filterName,
           )}
         />
-      </FilterContainer>
-      {/* BRAND ------------------------------------------------------------------ */}
-
-      {/* MODEL ------------------------------------------------------------------ */}
-      {showModels ? (
-        <FilterContainer title="Modelis">
-          <AutocompleteCheckboxFilter
-            filterOptions={filters.models}
-            filterName="model"
-            onChange={(selectedFilterOptions, filterName) => handleFilterChange(
-              selectedFilterOptions,
-              filterName,
-            )}
-          />
-        </FilterContainer>
       ) : null}
       {/* MODEL ------------------------------------------------------------------ */}
 
@@ -158,29 +156,27 @@ const CarFilters = ({ cars }) => {
       {/* YEAR ------------------------------------------------------------------ */}
 
       {/* TRANSMISSION ------------------------------------------------------------------ */}
-      <FilterContainer title="Pavarų dėžė">
-        <AutocompleteCheckboxFilter
-          filterOptions={filters.transmissions}
-          filterName="transmission"
-          onChange={(selectedFilterOptions, filterName) => handleFilterChange(
-            selectedFilterOptions,
-            filterName,
-          )}
-        />
-      </FilterContainer>
+      <AutocompleteCheckboxFilter
+        filterOptions={filters.transmissions}
+        filterName="transmission"
+        label="Pavarų dėžė"
+        onChange={(selectedFilterOptions, filterName) => handleFilterChange(
+          selectedFilterOptions,
+          filterName,
+        )}
+      />
       {/* TRANSMISSION ------------------------------------------------------------------ */}
 
       {/* FUELTYPE ------------------------------------------------------------------ */}
-      <FilterContainer title="Kuro tipas">
-        <AutocompleteCheckboxFilter
-          filterOptions={filters.fuelTypes}
-          filterName="fuelTypes"
-          onChange={(selectedFilterOptions, filterName) => handleFilterChange(
-            selectedFilterOptions,
-            filterName,
-          )}
-        />
-      </FilterContainer>
+      <AutocompleteCheckboxFilter
+        filterOptions={filters.fuelTypes}
+        filterName="fuelTypes"
+        label="Kuro tipas"
+        onChange={(selectedFilterOptions, filterName) => handleFilterChange(
+          selectedFilterOptions,
+          filterName,
+        )}
+      />
       {/* FUELTYPE ------------------------------------------------------------------ */}
     </Paper>
   );
