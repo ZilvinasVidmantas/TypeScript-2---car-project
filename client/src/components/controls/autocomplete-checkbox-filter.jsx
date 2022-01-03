@@ -10,8 +10,9 @@ const AutocompleteCheckboxFilter = ({
   filterOptions,
   noOptionsText,
   filterName,
+  label,
   onChange,
-  restProps,
+  ...restProps
 }) => (
   <Autocomplete
     size="small"
@@ -33,7 +34,7 @@ const AutocompleteCheckboxFilter = ({
       </li>
     )}
     renderInput={(params) => (
-      <TextField {...params} placeholder="Pasirinkti" />
+      <TextField {...params} label={label ?? 'Filtras'} />
     )}
     onChange={(_, selectedFilterOptions) => onChange(selectedFilterOptions, filterName)}
   />
