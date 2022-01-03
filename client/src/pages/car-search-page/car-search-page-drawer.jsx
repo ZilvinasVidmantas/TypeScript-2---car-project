@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import {
+  Box,
+  IconButton,
   Typography,
-  Paper,
+  Drawer,
 } from '@mui/material';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { useSearchParams } from 'react-router-dom';
 import { createUrlParamObj } from '../../helpers';
-import APIService from '../../services/api-service';
 import RangeFilter from '../../components/controls/range-filter';
-import FilterContainer from '../../components/containers/filter-container';
+import APIService from '../../services/api-service';
 import AutocompleteCheckboxFilter from '../../components/controls/autocomplete-checkbox-filter';
 
-const CarFilters = ({ cars }) => {
+const CarSearchPageDrawer = ({
+  drawerOpen, closeDrawer, cars,
+}) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [filters, setFilters] = useState({
     brands: [],
@@ -97,89 +101,104 @@ const CarFilters = ({ cars }) => {
   }, []);
 
   return (
-    <Paper elevation={4} sx={{ p: 2 }}>
-      <Typography component="h2" variant="h4">
-        Filtrai
-      </Typography>
-      {/* BRAND ------------------------------------------------------------------ */}
-      <AutocompleteCheckboxFilter
-        filterOptions={filters.brands}
-        filterName="brand"
-        label="Markė"
-        onChange={(selectedFilterOptions, filterName) => handleFilterChange(
-          selectedFilterOptions,
-          filterName,
-        )}
-      />
-      {/* BRAND ------------------------------------------------------------------ */}
-
-      {/* MODEL ------------------------------------------------------------------ */}
-      {showModels ? (
+    <Drawer
+      open={drawerOpen}
+      onClose={closeDrawer}
+    >
+      <Box
+        sx={{
+          width: 270, display: 'flex', flexDirection: 'column', gap: '10px',
+        }}
+      >
+        <Typography
+          component="h2"
+          variant="h5"
+          sx={{
+            display: 'flex', justifyContent: 'space-between', mt: '10px', ml: '15px',
+          }}
+        >
+          Filtrai
+          <IconButton onClick={closeDrawer}>
+            <ChevronLeftIcon fontSize="large" />
+          </IconButton>
+        </Typography>
         <AutocompleteCheckboxFilter
-          filterOptions={filters.models}
-          filterName="model"
-          label="Modelis"
+          filterOptions={filters.brands}
+          filterName="brand"
+          label="Markė"
+          sx={{
+            width: 240, ml: '15px',
+          }}
           onChange={(selectedFilterOptions, filterName) => handleFilterChange(
             selectedFilterOptions,
             filterName,
           )}
         />
-      ) : null}
-      {/* MODEL ------------------------------------------------------------------ */}
-
-      {/* PRICE ------------------------------------------------------------------ */}
-      <FilterContainer title="Kaina">
+        {showModels ? (
+          <AutocompleteCheckboxFilter
+            filterOptions={filters.models}
+            filterName="model"
+            label="Modelis"
+            sx={{
+              width: 240, ml: '15px', mt: '10px',
+            }}
+            onChange={(selectedFilterOptions, filterName) => handleFilterChange(
+              selectedFilterOptions,
+              filterName,
+            )}
+          />
+        ) : null}
         <RangeFilter
           key="asd"
           filterName="Price"
+          sx={{
+            width: '70%', ml: '40px',
+          }}
           onChange={() => null}
           selectedMin={filters.price.min}
           selectedMax={filters.price.max}
           min={filters.price.min}
           max={filters.price.max}
         />
-      </FilterContainer>
-      {/* PRICE ------------------------------------------------------------------ */}
-
-      {/* YEAR ------------------------------------------------------------------ */}
-      <FilterContainer title="Metai">
         <RangeFilter
           key="asds"
           filterName="Year"
+          sx={{
+            width: '70%', ml: '40px',
+          }}
           onChange={() => null}
           selectedMin={filters.year.min}
           selectedMax={filters.year.max}
           min={filters.year.min}
           max={filters.year.max}
         />
-      </FilterContainer>
-      {/* YEAR ------------------------------------------------------------------ */}
-
-      {/* TRANSMISSION ------------------------------------------------------------------ */}
-      <AutocompleteCheckboxFilter
-        filterOptions={filters.transmissions}
-        filterName="transmission"
-        label="Pavarų dėžė"
-        onChange={(selectedFilterOptions, filterName) => handleFilterChange(
-          selectedFilterOptions,
-          filterName,
-        )}
-      />
-      {/* TRANSMISSION ------------------------------------------------------------------ */}
-
-      {/* FUELTYPE ------------------------------------------------------------------ */}
-      <AutocompleteCheckboxFilter
-        filterOptions={filters.fuelTypes}
-        filterName="fuelTypes"
-        label="Kuro tipas"
-        onChange={(selectedFilterOptions, filterName) => handleFilterChange(
-          selectedFilterOptions,
-          filterName,
-        )}
-      />
-      {/* FUELTYPE ------------------------------------------------------------------ */}
-    </Paper>
+        <AutocompleteCheckboxFilter
+          filterOptions={filters.transmissions}
+          filterName="transmission"
+          label="Pavarų dėžė"
+          sx={{
+            width: 240, ml: '15px',
+          }}
+          onChange={(selectedFilterOptions, filterName) => handleFilterChange(
+            selectedFilterOptions,
+            filterName,
+          )}
+        />
+        <AutocompleteCheckboxFilter
+          filterOptions={filters.fuelTypes}
+          filterName="fuelTypes"
+          label="Kuro tipas"
+          sx={{
+            width: 240, ml: '15px', mt: '10px',
+          }}
+          onChange={(selectedFilterOptions, filterName) => handleFilterChange(
+            selectedFilterOptions,
+            filterName,
+          )}
+        />
+      </Box>
+    </Drawer>
   );
 };
 
-export default CarFilters;
+export default CarSearchPageDrawer;

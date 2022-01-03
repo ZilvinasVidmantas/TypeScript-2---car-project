@@ -1,6 +1,9 @@
 const { Router } = require('express');
 const { createFilterFunctions, applyFilters } = require('../helpers/filters-helpers');
 const { filterQueryParams } = require('../helpers/query-params-helpers');
+const { applySorting } = require('../helpers/sorting-helpers');
+const { filterParamsTypes, sortingParamsNames } = require('./router-data');
+const { applyPagination, formatPagination } = require('../helpers/pagination-helpers');
 const database = require('../../database.json');
 
 const router = Router();
@@ -37,46 +40,6 @@ const getJoinedCar = ({
   };
 };
 
-const paginate = (collection, page, pageSize) => {
-  const startIndex = (page - 1) * pageSize;
-  const endIndex = page * pageSize;
-  return collection.slice(startIndex, endIndex);
-};
-
-const formatPagination = (queryParams) => {
-  const paginationParamsArr = filterQueryParams(queryParams, paginationParamsNames);
-  return paginationParamsArr.map(([name, value]) => ({
-    name,
-    values: value instanceof Array ? [...new Set(value)] : [value],
-  }));
-}
-
-const filterParamsTypes = [{
-  name: 'brand',
-  type: 'one-to-many'
-}, {
-  name: 'model',
-  type: 'one-to-many'
-}, {
-  name: 'transmission',
-  type: 'one-to-many'
-}, {
-  name: 'fuelType',
-  type: 'many-to-many'
-}, {
-  name: 'price_lte',
-  type: 'lte'
-}, {
-  name: 'price_gte',
-  type: 'gte'
-}, {
-  name: 'year_gte',
-  type: 'lte'
-}, {
-  name: 'year_lte',
-  type: 'gte'
-}];
-
 const formatFilterFunctions = (queryParams) => {
   const filterParamsNames = filterParamsTypes.map(x => x.name);
   const filterQueryParamsArr = filterQueryParams(queryParams, filterParamsNames);
@@ -85,7 +48,13 @@ const formatFilterFunctions = (queryParams) => {
   return filterFunctions;
 };
 
-const paginationParamsNames = ['_page', '_limit'];
+const formatSorting = (queryParams) => {
+  const sortingParamsArr = Object.entries(queryParams).filter(([order]) => sortingParamsNames.includes(order));
+  return sortingParamsArr.map(([order, field]) => ({
+    order,
+    field: field instanceof Array ? [...new Set(field)] : [field],
+  }));
+};
 
 router.get('/', (req, res) => {
   const { cars } = database;
@@ -96,15 +65,15 @@ router.get('/', (req, res) => {
   // 1. Filtravimas
   const filteredCars = applyFilters(joinedCars, filterFunctions);
 
-  // 2. Puslapiavimas
-  // const paginationParamsArr = formatPagination(queryParams);
-  // if (name === '_page') {
-  //   const pageSize = queryParams._limit ? Number(queryParams._limit) : 10;
-  //   filteredArr = paginate(filteredArr, values, pageSize);
-  // } 
-  // 3. Rikiavimas
+  // 2. Rikiavimas
+  const sortingParamsArr = formatSorting(queryParams);
+  const sortedCars = applySorting(filteredCars, sortingParamsArr);
 
-  res.json(filteredCars);
+  // 3. Puslapiavimas
+  const paginationParamsArr = formatPagination(queryParams)
+  const paginatedCars = applyPagination(sortedCars, paginationParamsArr)
+
+  res.json(paginatedCars);
 });
 
 router.get('/:id', (req, res) => {
