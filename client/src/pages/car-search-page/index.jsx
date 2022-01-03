@@ -13,6 +13,7 @@ import { createUrlParamObj } from '../../helpers';
 import CarOptions from './car-search-page-options';
 import CarGrid from './car-search-page-grid';
 import LoadingImg from './assets/loading.gif';
+import CarSearchPageDrawer from './car-search-page-drawer';
 
 const StyledGridItem = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
@@ -26,6 +27,7 @@ const StyledGridItem = styled(Grid)(({ theme }) => ({
 const StyledFab = styled(Fab)(({ theme }) => ({
   right: 10,
   bottom: 10,
+  zIndex: 10,
   position: 'fixed',
   [theme.breakpoints.down('md')]: {
     display: 'block',
@@ -41,6 +43,12 @@ const CarSearch = () => {
   const [searchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
   const theme = useTheme();
+
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const createToggleDrawer = (open) => () => {
+    setDrawerOpen(open);
+  };
 
   useEffect(() => {
     (async () => {
@@ -67,6 +75,7 @@ const CarSearch = () => {
     // Jei atvaizdavimo tipas ne lentele
     <CarGrid cars={cars} />
   );
+
   return loading ? (
     <Container sx={{
       height: `calc(100vh - (${theme.mixins.footer.height}px + ${theme.mixins.toolbar.height}px))`, display: 'flex', justifyContent: 'center', alignItems: 'center',
@@ -85,7 +94,7 @@ const CarSearch = () => {
         <StyledGridItem item md={12} lg={2}>
           {/* Atvaizdavimo pasirinkimai */}
           <CarOptions view={carSearchViewType} onChange={handleViewChange} />
-          <CarFilters cars={cars} />
+          <CarFilters className="filters" cars={cars} />
         </StyledGridItem>
         <Grid item xs={12} sm={12} md={12} lg={10}>
           {/* Jei yra masinu */}
@@ -96,9 +105,15 @@ const CarSearch = () => {
         color="primary"
         aria-label="add"
         size="small"
+        onClick={createToggleDrawer(true)}
       >
         <SettingsInputCompositeIcon fontSize="small" />
       </StyledFab>
+      <CarSearchPageDrawer
+        drawerOpen={drawerOpen}
+        closeDrawer={createToggleDrawer(false)}
+        cars={cars}
+      />
     </Container>
   );
 };
