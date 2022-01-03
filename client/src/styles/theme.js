@@ -43,6 +43,14 @@ export const lightTheme = createTheme(theme, {
       height: 64,
     },
   },
+  shadows: [
+    ...theme.shadows,
+    '0 0 2em 0px rgba(0, 0, 0, 0.4)',
+    '0 0 0 1px #ddd',
+  ],
+  transitions: {
+    easeMe: 'all 0.2s ease-out',
+  },
 });
 
 export default lightTheme;
