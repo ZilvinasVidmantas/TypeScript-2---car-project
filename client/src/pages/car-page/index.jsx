@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Container, Box, Divider, Grid, styled,
+  Container, Box, Divider, Grid,
 } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, EffectFade } from 'swiper';
 import ImageFluid from '../../components/images/image-fluid';
 import CarPageTitle from './car-page-title';
 import ApiService from '../../services/api-service';
@@ -12,11 +10,7 @@ import CarPageAnimatedCarPropsContainer from './car-page-animated-car-props-cont
 import CarPageCarProp from './car-page-car-prop';
 import CarPageAnimatedContactContainer from './car-page-animated-contact-container';
 import CarModel from '../../models/car-model';
-import { getWindowWidth } from '../../helpers/window-helpers';
-
-import 'swiper/swiper-bundle.min.css';
-import 'swiper/swiper.min.css';
-import './styles/swiperArrow.css';
+import ImageSwiper from '../../components/swiper';
 
 const animationDelayProgress = {
   xs: true,
@@ -54,37 +48,10 @@ const CarPage = () => {
     { href: car?.user.email, type: 'mailto', btnText: 'Siųsti el. laišką' },
   ];
 
-  const screenWidth = getWindowWidth();
-  const CarPageImageContainer = styled('div')(({ theme }) => ({
-    position: 'relative',
-    overflow: 'hidden',
-    [theme.breakpoints.up('xs')]: {
-      height: '47vh',
-    },
-    [theme.breakpoints.up('md')]: {
-      height: '55vh',
-    },
-    [theme.breakpoints.up('lg')]: {
-      height: '86.3vh',
-    },
-    '>img': {
-      position: 'absolute',
-      objectFit: 'cover',
-      objectPosition: 'center',
-    },
-  }));
-
-  const mainImageSrc = [...new Set(car?.images)].map((pic) => (
-    <SwiperSlide className="swiper-slide">
-      <CarPageImageContainer>
-        <ImageFluid key={pic} src={pic} />
-      </CarPageImageContainer>
-    </SwiperSlide>
+  const carImages = [...new Set(car?.images)].map((pic) => (
+    <ImageFluid key={pic} src={pic} />
   ));
 
-  SwiperCore.use([Navigation, Pagination, EffectFade]);
-
-  console.log(carProps);
   return (
     <Box
       component="main"
@@ -100,32 +67,7 @@ const CarPage = () => {
           }}
         >
           <Grid item xs={12} lg={9}>
-            {screenWidth > 370 ? (
-              <Swiper
-                slidesPerView={1}
-                effect="fade"
-                loop
-                navigation={{
-                  navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                  },
-                }}
-              >
-                {mainImageSrc}
-              </Swiper>
-            )
-              : (
-                <Swiper
-                  slidesPerView={1}
-                  effect="fade"
-                  loop
-                  pagination
-                >
-                  {mainImageSrc}
-                </Swiper>
-              )}
-
+            <ImageSwiper images={carImages} />
           </Grid>
           <Grid item xs={12} lg={3}>
             <CarPageTitle

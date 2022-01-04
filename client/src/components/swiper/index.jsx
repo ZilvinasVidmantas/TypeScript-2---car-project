@@ -1,0 +1,49 @@
+import React from 'react';
+import { styled } from '@mui/material';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { EffectFade, Navigation, Pagination } from 'swiper';
+
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.min.css';
+import './styles/swiperArrow.css';
+
+const ImageSwiper = ({ images }) => {
+  const ImageContainer = styled('div')(({ theme }) => ({
+    position: 'relative',
+    overflow: 'hidden',
+    [theme.breakpoints.up('xs')]: {
+      height: '41vh',
+    },
+    [theme.breakpoints.up('md')]: {
+      height: '55vh',
+    },
+    [theme.breakpoints.up('lg')]: {
+      height: '86.3vh',
+    },
+    '>img': {
+      position: 'absolute',
+      objectFit: 'cover',
+      objectPosition: 'center',
+    },
+  }));
+
+  SwiperCore.use([Navigation, Pagination, EffectFade]);
+
+  return (
+    <Swiper
+      slidesPerView={1}
+      effect="fade"
+      loop
+      navigation
+    >
+      {images.map((image) => (
+        <SwiperSlide className="swiper-slide">
+          <ImageContainer>
+            {image}
+          </ImageContainer>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  );
+};
+export default ImageSwiper;
