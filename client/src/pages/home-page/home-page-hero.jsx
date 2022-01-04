@@ -9,18 +9,16 @@ import PhoneEnabledRoundedIcon from '@mui/icons-material/PhoneEnabledRounded';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import SlideOnMount from '../../components/animations/slide-on-mount';
 import pulse from '../../components/animations/pulse';
+import BackgroundImageContainer from '../../components/containers/background-image-container';
 
 const Hero = () => {
   const containerRef = useRef(null);
 
   return (
     <Box sx={(theme) => ({ height: `calc(100vh - ${theme.mixins.toolbar.height}px)` })}>
-      <Box
+      <BackgroundImageContainer
         sx={{
-          backgroundSize: 'cover',
-          height: '100%',
-          backgroundPosition: 'center',
-          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.9)) , url(https://c.tenor.com/aRO-vIeY0MsAAAAd/journey-car.gif)',
+          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.9)) , url(https://c.tenor.com/aRO-vIeY0MsAAAAd/journey-car.gif)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -140,7 +138,7 @@ const Hero = () => {
           },
         }}
         />
-      </Box>
+      </BackgroundImageContainer>
     </Box>
   );
 };
