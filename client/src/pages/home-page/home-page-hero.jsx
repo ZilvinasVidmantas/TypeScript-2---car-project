@@ -1,117 +1,146 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   Link,
   Box,
   Button,
   Typography,
 } from '@mui/material';
-import { NavLink } from 'react-router-dom';
 import PhoneEnabledRoundedIcon from '@mui/icons-material/PhoneEnabledRounded';
-import HeroImage from './assets/home-page-hero-image.jpg';
+import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
+import SlideOnMount from '../../components/animations/slide-on-mount';
+import pulse from '../../components/animations/pulse';
+import BackgroundImageContainer from '../../components/containers/background-image-container';
 
-const Hero = () => (
-  <Box sx={{ height: '70vh' }}>
-    <Box
-      sx={{
-        backgroundSize: 'cover',
-        height: '100%',
-        backgroundPosition: 'center',
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(${HeroImage})`,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: '40px',
-      }}
-    >
-      <Box
+const Hero = () => {
+  const containerRef = useRef(null);
+
+  return (
+    <Box sx={(theme) => ({ height: `calc(100vh - ${theme.mixins.toolbar.height}px)` })}>
+      <BackgroundImageContainer
         sx={{
-          backgroundColor: 'rgba(255, 255, 255, 0.6)',
-          padding: '10px',
-          width: {
-            xs: '90%',
-            sm: 'auto',
-          },
-        }}
-      >
-        <Box sx={{
+          backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.9)) , url(https://c.tenor.com/aRO-vIeY0MsAAAAd/journey-car.gif)',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
           alignItems: 'center',
         }}
-        >
-          <Box>
-            <Typography
-              variant="h3"
-              component="h1"
-              color="primary.light"
-              sx={{
-                textTransform: 'uppercase',
-                fontSize: {
-                  xs: '2rem',
-                  md: '3rem',
-                },
-                textAlign: 'center',
-              }}
-            >
-              Automobilių pardavimas
-            </Typography>
-          </Box>
-          <Box>
-            <Typography
-              variant="h6"
-              component="h2"
-              color="primary.light"
-              sx={{
-                fontSize: {
-                  xs: '0.9rem',
-                  md: '1.25rem',
-                },
-                textAlign: 'center',
-              }}
-            >
-              Parduodame automobilius už gerą kainą visoje Lietuvoje!
-            </Typography>
-          </Box>
-          <Link href="tel:+37066356777" style={{ textDecoration: 'none' }}>
-            <Button>
-              <Typography
-                variant="h4"
-                color="secondary"
-              >
-                +370 663 56777
-              </Typography>
-              <PhoneEnabledRoundedIcon fontSize="large" color="secondary" />
-            </Button>
-          </Link>
-
-          <Typography
-            variant="h6"
-            component="h2"
-            color="primary.light"
-          >
-            Paskambinkite mums dabar
-          </Typography>
-        </Box>
-      </Box>
-      <NavLink to="/search" style={{ textDecoration: 'none' }}>
-        <Button
+      >
+        <Box
           sx={{
-            height: '50px',
-            width: '300px',
-            fontWeight: 'bold',
-            color: 'common.white',
-            borderColor: 'common.white',
-            marginBottom: '20px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexGrow: 1,
           }}
-          variant="outlined"
         >
-          Rinktis automobilį
-        </Button>
-      </NavLink>
+          <SlideOnMount
+            direction="right"
+            ref={containerRef}
+          >
+            <Box sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              color: 'common.white',
+              padding: '10px',
+            }}
+            >
+              <Box>
+                <Typography
+                  variant="h6"
+                  component="h1"
+                  sx={{
+                    width: '100%',
+                    textTransform: 'uppercase',
+                    fontSize: {
+                      xs: '6vw',
+                      sm: '6vw',
+                      md: '5vw',
+                      lg: '4vw',
+                    },
+                  }}
+                >
+                  Automobilių pardavimas
+                </Typography>
+              </Box>
+              <Box>
+                <Typography
+                  variant="h6"
+                  component="h2"
+                  sx={{
+                    fontSize: {
+                      xs: '3.5vw',
+                      sm: '3vw',
+                      md: '2.5vw',
+                      lg: '2vw',
+                    },
+                  }}
+                >
+                  Parduodame automobilius už gerą kainą visoje Lietuvoje!
+                </Typography>
+              </Box>
+              <Link href="tel:+37066356777" style={{ textDecoration: 'none' }}>
+                <Button
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    fontSize: {
+                      xs: '6vw',
+                      sm: '5vw',
+                      md: '4vw',
+                      lg: '3vw',
+                    },
+                  }}
+                >
+                  <Typography
+                    variant="h4"
+                    color="secondary"
+                    fontSize="inherit"
+                  >
+                    +370 663 56777
+                  </Typography>
+                  <PhoneEnabledRoundedIcon fontSize="inherit" color="secondary" />
+                </Button>
+              </Link>
+
+              <Typography
+                variant="h6"
+                component="h2"
+                sx={{
+                  fontSize: {
+                    xs: '5vw',
+                    sm: '4vw',
+                    md: '3vw',
+                    lg: '2vw',
+                  },
+                }}
+              >
+                Paskambinkite mums dabar
+              </Typography>
+            </Box>
+          </SlideOnMount>
+        </Box>
+        <KeyboardDoubleArrowDownIcon sx={{
+          height: {
+            xs: '12vw',
+            sm: '8vw',
+            md: '6vw',
+            lg: '4vw',
+          },
+          width: 'auto',
+          animation: `${pulse} 2s infinite`,
+          color: 'grey.500',
+          '&:hover': {
+            color: 'common.white',
+            transform: 'scale(1.2)',
+            cursor: 'pointer',
+            animation: 'none',
+          },
+        }}
+        />
+      </BackgroundImageContainer>
     </Box>
-  </Box>
-);
+  );
+};
 
 export default Hero;
