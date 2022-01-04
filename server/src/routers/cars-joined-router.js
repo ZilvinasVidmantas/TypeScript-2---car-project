@@ -48,6 +48,15 @@ const formatFilterFunctions = (queryParams) => {
   return filterFunctions;
 };
 
+/*
+  Pasiūlymai:
+    * query-param-helpers.js
+      * filterQueryParams - padaryti kad ši funkcija grąžintų atfiltruotų savyubių objektą, o ne masyvą
+      * Sukurti papildomą funkciją (createQueryParamArray), kuri query parametrų objektą pakeistų masyvų
+    * Atlikus šiuos pakitimus, priderinti logiką, ten kur tai yra logiška
+      *  Filtravimui naudoti queryParam masyvą
+      *  Rikiavimui ir Puslapiavimui naudoti queryParam objektą ir ieškoti savybių objekte
+*/
 router.get('/', (req, res) => {
   const { cars } = database;
   const joinedCars = cars.map(getJoinedCar);
@@ -77,3 +86,4 @@ router.get('/:id', (req, res) => {
 });
 
 module.exports = router;
+
