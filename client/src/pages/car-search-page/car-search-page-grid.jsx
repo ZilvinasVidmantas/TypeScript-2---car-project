@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Grid, Skeleton } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import CarSearchPageGridCard from './car-search-page-grid-card';
+import CarCard from '../../components/cards/car-card';
 
 const CarGrid = ({ cars }) => {
   const [loading, setLoading] = useState(true);
@@ -52,7 +52,7 @@ const CarGrid = ({ cars }) => {
               textDecoration: 'none',
             }}
           >
-            <CarSearchPageGridCard key={uuidv4()} image={images[0]} title={`${brand} - ${model}`} subtitle={`Metai: ${year} | Kaina: ${price} €`} />
+            <CarCard key={uuidv4()} image={images[0]} title={`${brand} - ${model}`} subtitle={`Metai: ${year} | Kaina: ${price} €`} />
           </Link>
         </Grid>
       ))}
