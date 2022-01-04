@@ -2,7 +2,7 @@ const { Router } = require('express');
 const { createFilterFunctions, applyFilters } = require('../helpers/filters-helpers');
 const { filterQueryParams } = require('../helpers/query-params-helpers');
 const { applySorting } = require('../helpers/sorting-helpers');
-const { filterParamsTypes, sortingParamsNames } = require('./router-data');
+const { filterParamsTypes, sortingParamsNames } = require('../data/cars-joined-router-params');
 const { applyPagination, formatPagination } = require('../helpers/pagination-helpers');
 const database = require('../../database.json');
 
