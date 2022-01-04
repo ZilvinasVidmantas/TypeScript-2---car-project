@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import ImageFluid from '../../components/images/image-fluid';
+import ImageFluid from '../images/image-fluid';
 
 const StyledCard = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -31,7 +31,7 @@ const StyledCardContent = styled(Box)({
   whiteSpace: 'nowrap',
 });
 
-const CarSearchPageGrindCard = ({ image, title, subtitle }) => {
+const CarCard = ({ image, title, subtitle }) => {
   const theme = useTheme();
   return (
     <StyledCard>
@@ -68,4 +68,4 @@ const CarSearchPageGrindCard = ({ image, title, subtitle }) => {
   );
 };
 
-export default CarSearchPageGrindCard;
+export default CarCard;
