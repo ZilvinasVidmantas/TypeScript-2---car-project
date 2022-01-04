@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Skeleton } from '@mui/material';
+import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import CarCard from '../../components/cards/car-card';
+import CarCardSkeleton from '../../components/skeletons/car-card-skeleton';
 
 const CarGrid = ({ cars }) => {
   const [loading, setLoading] = useState(true);
@@ -14,13 +15,7 @@ const CarGrid = ({ cars }) => {
   }, []);
 
   return loading ? (
-    <Grid container spacing={2} sx={{ mb: 2 }}>
-      {Array.from(new Array(20)).map(() => (
-        <Grid item xs={12} md={6} lg={4} xl={3}>
-          <Skeleton variant="rectangular" height="260px" />
-        </Grid>
-      ))}
-    </Grid>
+    <CarCardSkeleton skeletonsAmount={20} />
   ) : (
     <Grid
       container
