@@ -6,50 +6,61 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
 import CarRepairIcon from '@mui/icons-material/CarRepair';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddIcon from '@mui/icons-material/Add';
 import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const DrawerList = (
   <Box>
-    <ListItem button>
-      <ListItemIcon>
-        <Link to="/dashboard">
+    <Link to="/dashboard">
+      <ListItem button>
+        <ListItemIcon>
           <DashboardIcon />
-        </Link>
-      </ListItemIcon>
-      <Link to="/dashboard">
+        </ListItemIcon>
         <ListItemText primary="Pagrindinis" />
-      </Link>
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <CarRepairIcon />
-      </ListItemIcon>
-      <ListItemText primary="Mano automobiliai" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <Link to="/add-car">
+      </ListItem>
+    </Link>
+    <Link to="/user-cars">
+      <ListItem button>
+        <ListItemIcon>
+          <CarRepairIcon />
+        </ListItemIcon>
+        <ListItemText primary="Mano automobiliai" />
+      </ListItem>
+    </Link>
+    <Link to="/liked-cars">
+      <ListItem button>
+        <ListItemIcon>
+          <FavoriteBorderIcon />
+        </ListItemIcon>
+        <ListItemText primary="Patinkantys automobiliai" />
+      </ListItem>
+    </Link>
+    <Link to="/add-car">
+      <ListItem button>
+        <ListItemIcon>
           <AddIcon />
-        </Link>
-      </ListItemIcon>
-      <Link to="/add-car">
+        </ListItemIcon>
         <ListItemText primary="Pridėti automobilį" />
-      </Link>
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Profilis" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <LayersIcon />
-      </ListItemIcon>
-      <ListItemText primary="Nustatymai" />
-    </ListItem>
+      </ListItem>
+    </Link>
+    <Link to="/user-profile">
+      <ListItem button>
+        <ListItemIcon>
+          <BarChartIcon />
+        </ListItemIcon>
+        <ListItemText primary="Profilis" />
+      </ListItem>
+    </Link>
+    <Link to="/user-settings">
+      <ListItem button>
+        <ListItemIcon>
+          <LayersIcon />
+        </ListItemIcon>
+        <ListItemText primary="Nustatymai" />
+      </ListItem>
+    </Link>
   </Box>
 );
 
