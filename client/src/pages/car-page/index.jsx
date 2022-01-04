@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Container, Box, Divider, Grid,
+  Container, Box, Divider, Grid, useTheme,
 } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import ImageFluid from '../../components/images/image-fluid';
@@ -11,6 +11,7 @@ import CarPageCarProp from './car-page-car-prop';
 import CarPageAnimatedContactContainer from './car-page-animated-contact-container';
 import CarModel from '../../models/car-model';
 import ImageSwiper from '../../components/swiper';
+import { getWindowWidth } from '../../helpers';
 
 const animationDelayProgress = {
   xs: true,
@@ -52,6 +53,9 @@ const CarPage = () => {
     <ImageFluid key={pic} src={pic} />
   ));
 
+  const theme = useTheme();
+  const isSmallScreen = getWindowWidth() < theme.breakpoints.values.sm && true;
+
   return (
     <Box
       component="main"
@@ -67,7 +71,7 @@ const CarPage = () => {
           }}
         >
           <Grid item xs={12} lg={9}>
-            <ImageSwiper images={carImages} />
+            <ImageSwiper buttons={isSmallScreen} images={carImages} />
           </Grid>
           <Grid item xs={12} lg={3}>
             <CarPageTitle

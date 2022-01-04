@@ -7,7 +7,7 @@ import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 import './styles/swiperArrow.css';
 
-const ImageSwiper = ({ images }) => {
+const ImageSwiper = ({ images, buttons }) => {
   const ImageContainer = styled('div')(({ theme }) => ({
     position: 'relative',
     overflow: 'hidden',
@@ -34,7 +34,8 @@ const ImageSwiper = ({ images }) => {
       slidesPerView={1}
       effect="fade"
       loop
-      navigation
+      navigation={!buttons}
+      pagination={buttons}
     >
       {images.map((image) => (
         <SwiperSlide className="swiper-slide">
