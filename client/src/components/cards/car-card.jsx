@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import IconButton from '@mui/material/IconButton';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { Link } from 'react-router-dom';
 import ImageFluid from '../images/image-fluid';
 
 const StyledCard = styled(Box)(({ theme }) => ({
@@ -31,39 +35,68 @@ const StyledCardContent = styled(Box)({
   whiteSpace: 'nowrap',
 });
 
-const CarCard = ({ image, title, subtitle }) => {
+const CarCard = ({
+  image, title, subtitle, id,
+}) => {
   const theme = useTheme();
+  const [favorite, setFavorite] = useState(false);
   return (
     <StyledCard>
       <Box sx={{
         position: 'relative',
       }}
       >
-        <ImageFluid
-          sx={{
-            height: theme.spacing(28.75),
-            borderTopLeftRadius: theme.spacing(1.875),
-            borderTopRightRadius: theme.spacing(2),
-          }}
-          src={image}
-        />
-      </Box>
-      <StyledCardContent>
-        <Typography
-          component="h3"
-          variant="h5"
-          sx={{
-            textTransform: 'none',
-            textOverflow: 'ellipsis',
-            overflow: 'hidden',
+        <Link
+          to={`/car/${id}`}
+          style={{
+            textDecoration: 'none',
           }}
         >
-          {title}
-        </Typography>
-        <Typography component="h4" variant="subtitle1">
-          {subtitle}
-        </Typography>
-      </StyledCardContent>
+          <ImageFluid
+            sx={{
+              height: theme.spacing(28.75),
+              borderTopLeftRadius: theme.spacing(1.875),
+              borderTopRightRadius: theme.spacing(2),
+            }}
+            src={image}
+          />
+        </Link>
+        <IconButton
+          onClick={() => setFavorite(!favorite)}
+          sx={{
+            position: 'absolute',
+            top: '0',
+            right: '0',
+            color: 'white',
+          }}
+        >
+          {favorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+        </IconButton>
+      </Box>
+      <Link
+        to={`/car/${id}`}
+        style={{
+          textDecoration: 'none',
+          color: theme.palette.common.black,
+        }}
+      >
+        <StyledCardContent>
+          <Typography
+            component="h3"
+            variant="h5"
+            sx={{
+              textTransform: 'none',
+              textOverflow: 'ellipsis',
+              overflow: 'hidden',
+            }}
+          >
+            {title}
+          </Typography>
+          <Typography component="h4" variant="subtitle1">
+            {subtitle}
+          </Typography>
+        </StyledCardContent>
+      </Link>
     </StyledCard>
   );
 };

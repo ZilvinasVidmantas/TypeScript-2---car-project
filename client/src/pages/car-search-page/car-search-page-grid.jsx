@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Grid } from '@mui/material';
-import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import CarCard from '../../components/cards/car-card';
 import CarCardSkeleton from '../../components/skeletons/car-card-skeleton';
@@ -41,14 +40,7 @@ const CarGrid = ({ cars }) => {
             padding: '0',
           }}
         >
-          <Link
-            to={`/car/${id}`}
-            style={{
-              textDecoration: 'none',
-            }}
-          >
-            <CarCard key={uuidv4()} image={images[0]} title={`${brand} - ${model}`} subtitle={`Metai: ${year} | Kaina: ${price} €`} />
-          </Link>
+          <CarCard key={uuidv4()} image={images[0]} title={`${brand} - ${model}`} subtitle={`Metai: ${year} | Kaina: ${price} €`} id={id} />
         </Grid>
       ))}
     </Grid>
