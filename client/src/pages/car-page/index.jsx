@@ -3,6 +3,7 @@ import {
   Container, Box, Divider, Grid, useTheme,
 } from '@mui/material';
 import { useParams } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import ImageFluid from '../../components/images/image-fluid';
 import CarPageTitle from './car-page-title';
 import ApiService from '../../services/api-service';
@@ -50,7 +51,7 @@ const CarPage = () => {
   ];
 
   const carImages = [...new Set(car?.images)].map((pic) => (
-    <ImageFluid key={pic} src={pic} />
+    <ImageFluid key={uuidv4()} src={pic} />
   ));
 
   const theme = useTheme();
@@ -89,7 +90,7 @@ const CarPage = () => {
                     delayProgress={animationDelayProgress}
                   >
                     {carProps.map(({ name, value }) => (
-                      <CarPageCarProp key={name} name={name} value={value} />
+                      <CarPageCarProp name={name} value={value} />
                     ))}
                   </CarPageAnimatedCarPropsContainer>
                 </Grid>

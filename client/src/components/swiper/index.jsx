@@ -2,6 +2,7 @@ import React from 'react';
 import { styled } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { EffectFade, Navigation, Pagination } from 'swiper';
+import { v4 as uuidv4 } from 'uuid';
 
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
@@ -38,7 +39,7 @@ const ImageSwiper = ({ images, buttons }) => {
       pagination={buttons}
     >
       {images.map((image) => (
-        <SwiperSlide className="swiper-slide">
+        <SwiperSlide key={uuidv4()} className="swiper-slide">
           <ImageContainer>
             {image}
           </ImageContainer>
