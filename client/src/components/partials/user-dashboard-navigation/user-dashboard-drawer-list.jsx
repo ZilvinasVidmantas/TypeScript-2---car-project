@@ -14,9 +14,13 @@ const DrawerList = (
   <Box>
     <ListItem button>
       <ListItemIcon>
-        <DashboardIcon />
+        <Link to="/dashboard">
+          <DashboardIcon />
+        </Link>
       </ListItemIcon>
-      <ListItemText primary="Pagrindinis" />
+      <Link to="/dashboard">
+        <ListItemText primary="Pagrindinis" />
+      </Link>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
@@ -26,7 +30,9 @@ const DrawerList = (
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AddIcon />
+        <Link to="/add-car">
+          <AddIcon />
+        </Link>
       </ListItemIcon>
       <Link to="/add-car">
         <ListItemText primary="Pridėti automobilį" />
