@@ -2,8 +2,8 @@ const { Router } = require('express');
 const { createFilterFunctions, applyFilters } = require('../helpers/filters-helpers');
 const { filterQueryParams } = require('../helpers/query-params-helpers');
 const { applySorting } = require('../helpers/sorting-helpers');
-const { filterParamsTypes, sortingParamsNames } = require('./router-data');
-const { applyPagination, formatPagination } = require('../helpers/pagination-helpers');
+const { filterParamsTypes, sortingParamsNames, paginationParamsNames } = require('./router-data');
+const { applyPagination } = require('../helpers/pagination-helpers');
 const database = require('../../database.json');
 
 const router = Router();
@@ -48,29 +48,21 @@ const formatFilterFunctions = (queryParams) => {
   return filterFunctions;
 };
 
-const formatSorting = (queryParams) => {
-  const sortingParamsArr = Object.entries(queryParams).filter(([order]) => sortingParamsNames.includes(order));
-  return sortingParamsArr.map(([order, field]) => ({
-    order,
-    field: field instanceof Array ? [...new Set(field)] : [field],
-  }));
-};
-
 router.get('/', (req, res) => {
   const { cars } = database;
   const joinedCars = cars.map(getJoinedCar);
-
   const queryParams = req.query;
-  const filterFunctions = formatFilterFunctions(queryParams);
+
   // 1. Filtravimas
+  const filterFunctions = formatFilterFunctions(queryParams);
   const filteredCars = applyFilters(joinedCars, filterFunctions);
 
   // 2. Rikiavimas
-  const sortingParamsArr = formatSorting(queryParams);
+  const sortingParamsArr = filterQueryParams(queryParams, sortingParamsNames);
   const sortedCars = applySorting(filteredCars, sortingParamsArr);
 
   // 3. Puslapiavimas
-  const paginationParamsArr = formatPagination(queryParams)
+  const paginationParamsArr = filterQueryParams(queryParams, paginationParamsNames);
   const paginatedCars = applyPagination(sortedCars, paginationParamsArr)
 
   res.json(paginatedCars);
