@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { styled } from '@mui/material/styles';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -11,56 +12,61 @@ import AddIcon from '@mui/icons-material/Add';
 import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
+const StyledLink = styled(Link)({
+  textDecoration: 'none',
+  color: 'inherit',
+});
+
 const DrawerList = (
   <Box>
-    <Link to="/dashboard">
+    <StyledLink to="/dashboard">
       <ListItem button>
         <ListItemIcon>
           <DashboardIcon />
         </ListItemIcon>
         <ListItemText primary="Pagrindinis" />
       </ListItem>
-    </Link>
-    <Link to="/user-cars">
+    </StyledLink>
+    <StyledLink to="/user-cars">
       <ListItem button>
         <ListItemIcon>
           <CarRepairIcon />
         </ListItemIcon>
         <ListItemText primary="Mano automobiliai" />
       </ListItem>
-    </Link>
-    <Link to="/liked-cars">
+    </StyledLink>
+    <StyledLink to="/liked-cars">
       <ListItem button>
         <ListItemIcon>
           <FavoriteBorderIcon />
         </ListItemIcon>
         <ListItemText primary="Patinkantys automobiliai" />
       </ListItem>
-    </Link>
-    <Link to="/add-car">
+    </StyledLink>
+    <StyledLink to="/add-car">
       <ListItem button>
         <ListItemIcon>
           <AddIcon />
         </ListItemIcon>
         <ListItemText primary="Pridėti automobilį" />
       </ListItem>
-    </Link>
-    <Link to="/user-profile">
+    </StyledLink>
+    <StyledLink to="/user-profile">
       <ListItem button>
         <ListItemIcon>
           <BarChartIcon />
         </ListItemIcon>
         <ListItemText primary="Profilis" />
       </ListItem>
-    </Link>
-    <Link to="/user-settings">
+    </StyledLink>
+    <StyledLink to="/user-settings">
       <ListItem button>
         <ListItemIcon>
           <LayersIcon />
         </ListItemIcon>
         <ListItemText primary="Nustatymai" />
       </ListItem>
-    </Link>
+    </StyledLink>
   </Box>
 );
 
