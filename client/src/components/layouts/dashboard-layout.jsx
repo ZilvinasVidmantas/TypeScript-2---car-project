@@ -4,6 +4,7 @@ import {
 } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import Footer from '../partials/footer';
+import DasboardNavigation from '../partials/user-dashboard-navigation';
 
 const DashboardLayout = () => (
   <Box>
@@ -15,6 +16,7 @@ const DashboardLayout = () => (
         overflowY: 'auto',
       })}
     >
+      <DasboardNavigation />
       <Outlet />
     </Box>
     <Footer />
