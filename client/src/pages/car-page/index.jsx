@@ -88,14 +88,6 @@ const CarPage = () => {
   return (
     <Box
       component="main"
-      sx={{
-        bgcolor: {
-          xs: '#eeffee',
-          sm: '#ffeeee',
-          md: '#eeffff',
-          lg: '#ffffee',
-        },
-      }}
     >
       {car !== undefined ? (
         <Grid
