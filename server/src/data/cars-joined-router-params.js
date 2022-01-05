@@ -18,18 +18,15 @@ const filterParamsTypes = [{
   type: 'gte'
 }, {
   name: 'year_gte',
-  type: 'lte'
+  type: 'gte'
 }, {
   name: 'year_lte',
-  type: 'gte'
+  type: 'lte'
 }];
 
 const sortingParamsNames = ['_sort_asc', '_sort_desc'];
 
-const paginationParamsNames = ['_page', '_limit']
-
 module.exports = {
   filterParamsTypes,
-  sortingParamsNames,
-  paginationParamsNames
+  sortingParamsNames
 }
