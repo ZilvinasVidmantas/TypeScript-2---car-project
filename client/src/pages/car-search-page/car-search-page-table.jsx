@@ -37,12 +37,14 @@ const CarTable = ({ cars }) => {
   const rows = cars
     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
     .map(({
-      id, brand, model, year, price,
+      id, brand, model, year, price, transmission, fuelType,
     }) => (
       <TableRow key={id}>
         <StyledTableCell>{id}</StyledTableCell>
         <StyledTableCell>{brand}</StyledTableCell>
         <StyledTableCell>{model}</StyledTableCell>
+        <StyledTableCell>{transmission}</StyledTableCell>
+        <StyledTableCell>{fuelType}</StyledTableCell>
         <StyledTableCell align="right">{price}</StyledTableCell>
         <StyledTableCell align="right">{year}</StyledTableCell>
         <StyledTableCell align="right" sx={{ width: 1 / 100, whiteSpace: 'nowrap' }}>
@@ -72,6 +74,8 @@ const CarTable = ({ cars }) => {
             <TableCell>ID</TableCell>
             <TableCell>Markė</TableCell>
             <TableCell>Modelis</TableCell>
+            <TableCell>Pavarų dėžė</TableCell>
+            <TableCell>Kuro tipas</TableCell>
             <TableCell align="right">Kaina €</TableCell>
             <TableCell align="right">Gam. Metai</TableCell>
             <TableCell>Veiksmai</TableCell>

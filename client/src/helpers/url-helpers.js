@@ -17,7 +17,7 @@ export const createUrlParamObj = (searchParams, additionParams) => {
   return paramObj;
 };
 
-export const appendUrlParam = (name, values) => values.map((id) => `${name}Id=${id}`).join('&');
+export const appendUrlParam = (name, values) => values.map((id) => `${name}=${id}`).join('&');
 
 export const appendUrlParams = (requestUrl, params) => {
   const paramsArray = Object.entries(params);

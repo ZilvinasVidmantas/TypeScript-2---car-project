@@ -12,14 +12,14 @@ class CarModel {
     user,
   }) {
     this.id = id;
-    this.brand = brand.title; // brandas turės būti surandamas iš modelio
-    this.model = model.title; // model.title
+    this.brand = brand; // brandas turės būti surandamas iš modelio
+    this.model = model; // model.title
     this.price = price;
     this.year = year;
     this.images = images;
     this.engineVolume = engineVolume;
     this.fuelType = fuelType; // ['a', 'b'] -> [...].join('/')
-    this.transmission = transmission.title; // transition.title
+    this.transmission = transmission; // transition.title
     this.user = user;
   }
 }
