@@ -7,7 +7,7 @@ import { useSearchParams } from 'react-router-dom';
 import { createUrlParamObj } from '../../helpers';
 import APIService from '../../services/api-service';
 import RangeFilter from '../../components/controls/range-filter';
-import FilterContainer from '../../components/containers/filter-container';
+// import FilterContainer from '../../components/containers/filter-container';
 import AutocompleteCheckboxFilter from '../../components/controls/autocomplete-checkbox-filter';
 
 const CarFilters = ({ cars }) => {
@@ -128,31 +128,27 @@ const CarFilters = ({ cars }) => {
       {/* MODEL ------------------------------------------------------------------ */}
 
       {/* PRICE ------------------------------------------------------------------ */}
-      <FilterContainer title="Kaina">
-        <RangeFilter
-          key="asd"
-          filterName="Price"
-          onChange={() => null}
-          selectedMin={filters.price.min}
-          selectedMax={filters.price.max}
-          min={filters.price.min}
-          max={filters.price.max}
-        />
-      </FilterContainer>
+      <RangeFilter
+        title="Kaina"
+        filterName="Price"
+        onChange={() => null}
+        selectedMin={filters.price.min}
+        selectedMax={filters.price.max}
+        min={filters.price.min}
+        max={filters.price.max}
+      />
       {/* PRICE ------------------------------------------------------------------ */}
 
       {/* YEAR ------------------------------------------------------------------ */}
-      <FilterContainer title="Metai">
-        <RangeFilter
-          key="asds"
-          filterName="Year"
-          onChange={() => null}
-          selectedMin={filters.year.min}
-          selectedMax={filters.year.max}
-          min={filters.year.min}
-          max={filters.year.max}
-        />
-      </FilterContainer>
+      <RangeFilter
+        title="Metai"
+        filterName="Year"
+        onChange={() => null}
+        selectedMin={filters.year.min}
+        selectedMax={filters.year.max}
+        min={filters.year.min}
+        max={filters.year.max}
+      />
       {/* YEAR ------------------------------------------------------------------ */}
 
       {/* TRANSMISSION ------------------------------------------------------------------ */}
