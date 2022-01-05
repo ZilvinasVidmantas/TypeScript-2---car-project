@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 
 const AddCarPageSelectItems = ({
-  title, menuItemValue, onChange, value, name,
+  title, options, onChange, value, name,
 }) => (
   <Grid item xs={12} md={4}>
     <FormControl sx={{ m: 1, minWidth: 200 }}>
@@ -20,8 +20,8 @@ const AddCarPageSelectItems = ({
         value={value ?? ''}
         onChange={(event) => onChange(event, name)}
       >
-        {menuItemValue.map((menuItem) => (
-          <MenuItem key={uuidv4()} value={menuItem}>{menuItem}</MenuItem>
+        {options.map(({ id, label }) => (
+          <MenuItem key={uuidv4()} value={id}>{label}</MenuItem>
         ))}
       </Select>
     </FormControl>
