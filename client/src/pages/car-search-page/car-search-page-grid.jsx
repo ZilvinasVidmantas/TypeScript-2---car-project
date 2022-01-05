@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { Grid } from '@mui/material';
-import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import CarCard from '../../components/cards/car-card';
 import CarCardSkeleton from '../../components/skeletons/car-card-skeleton';
 
 const CarGrid = ({ cars }) => {
   const [loading, setLoading] = useState(true);
+  const [carsToLoad, setCarsToLoad] = useState(20);
+  const [hasMore, setHasMore] = useState(true);
+
+  const fetchMoreData = () => {
+    setTimeout(() => {
+      const carCount = carsToLoad + 20;
+      if (cars.length <= carCount) {
+        setHasMore(false);
+      }
+      setCarsToLoad(carCount);
+    }, 1000);
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -17,41 +29,42 @@ const CarGrid = ({ cars }) => {
   return loading ? (
     <CarCardSkeleton skeletonsAmount={20} />
   ) : (
-    <Grid
-      container
-      spacing={2}
-      sx={{
-        width: '100%',
-      }}
-
+    <InfiniteScroll
+      dataLength={carsToLoad}
+      next={fetchMoreData}
+      hasMore={hasMore}
+      loader={<h4>Kraunama...</h4>}
+      endMessage={<p>Peržiūrėjote visus automobilius</p>}
     >
-      {cars.map((
-        {
-          id, images, brand, model, year, price,
-        },
-      ) => (
-        <Grid
-          item
-          key={id}
-          xs={12}
-          md={6}
-          lg={4}
-          xl={4}
-          sx={{
-            padding: '0',
-          }}
-        >
-          <Link
-            to={`/car/${id}`}
-            style={{
-              textDecoration: 'none',
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          width: '100%',
+        }}
+
+      >
+        {cars.slice(0, carsToLoad).map((
+          {
+            id, images, brand, model, year, price,
+          },
+        ) => (
+          <Grid
+            item
+            key={id}
+            xs={12}
+            md={6}
+            lg={4}
+            xl={4}
+            sx={{
+              padding: '0',
             }}
           >
-            <CarCard key={uuidv4()} image={images[0]} title={`${brand} - ${model}`} subtitle={`Metai: ${year} | Kaina: ${price} €`} />
-          </Link>
-        </Grid>
-      ))}
-    </Grid>
+            <CarCard key={uuidv4()} image={images[0]} title={`${brand} - ${model}`} subtitle={`Metai: ${year} | Kaina: ${price} €`} id={id} />
+          </Grid>
+        ))}
+      </Grid>
+    </InfiniteScroll>
   );
 };
 export default CarGrid;
