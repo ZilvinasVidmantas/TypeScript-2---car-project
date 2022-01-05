@@ -1,16 +1,6 @@
 import axios from 'axios';
-import { appendUrlParams, dataFetchError } from '../helpers/index';
-
-const appendProps = (car, brands, fuelTypes, carFuelTypes) => ({
-  ...car,
-  brandId: brands.find((brand) => brand.id === car.model.brandId),
-  brand: brands.find((brand) => brand.id === car.model.brandId),
-  fuelTypeId: carFuelTypes.filter((carFuelType) => carFuelType.carId === car.id)
-    .map((fuelTypePivot) => fuelTypes.find((x) => x.id === fuelTypePivot.fuelTypeId).id),
-  fuelType: carFuelTypes.filter((carFuelType) => carFuelType.carId === car.id)
-    .map((fuelTypePivot) => fuelTypes.find((x) => x.id === fuelTypePivot.fuelTypeId).title)
-    .join('/'),
-});
+import { dataFetchError } from '../helpers/index';
+import { appendUrlParams } from '../helpers/url-helpers';
 
 const instance = axios.create({
   baseURL: 'http://localhost:5000',
@@ -52,49 +42,21 @@ const getFuelTypes = async () => {
   }
 };
 
-const getCarFuelTypes = async () => {
+const getJoinedCars = async (params) => {
+  const requestUrl = 'http://localhost:5000/cars/joined?';
+  const generatedParams = appendUrlParams(requestUrl, params);
   try {
-    const response = await instance.get('/carFuelTypes');
-    return response.data;
+    const joinedCars = await instance.get(generatedParams);
+    return joinedCars.data;
   } catch (error) {
     return dataFetchError(error);
   }
 };
 
-const getJoinedCars = async (params) => {
-  const requestUrl = 'http://localhost:5000/cars?_expand=user&_expand=model&_expand=transmission';
-  const generatedUrl = appendUrlParams(requestUrl, params);
-
-  const [fetchedCars, fetchedBrands, fetchedFuelTypes, fetchedCarFuelTypes] = await Promise.all([
-    (async () => {
-      const response = await axios.get(generatedUrl);
-      return response.data;
-    })(),
-    getBrands(),
-    getFuelTypes(),
-    getCarFuelTypes(),
-  ]);
-  const joinedCars = fetchedCars.map((car) => (
-    appendProps(car, fetchedBrands, fetchedFuelTypes, fetchedCarFuelTypes)
-  ));
-  return joinedCars;
-};
-
 const getJoinedCar = async (id) => {
   try {
-    const [fetchedCar, fetchedBrands, fetchedFuelTypes, fetchedCarFuelTypes] = await Promise.all([
-      (async () => {
-        const response = await instance.get(
-          `/cars/${id}?_expand=user&_expand=model&_expand=transmission`,
-        );
-        return response.data;
-      })(),
-      getBrands(),
-      getFuelTypes(),
-      getCarFuelTypes(),
-    ]);
-    const joinedCar = appendProps(fetchedCar, fetchedBrands, fetchedFuelTypes, fetchedCarFuelTypes);
-    return joinedCar;
+    const joinedCar = await instance.get(`/cars/joined/${id}`);
+    return joinedCar.data;
   } catch (error) {
     return dataFetchError(error);
   }

@@ -73,7 +73,10 @@ router.get('/', (req, res) => {
   const paginationParamsArr = formatPagination(queryParams)
   const paginatedCars = applyPagination(sortedCars, paginationParamsArr)
 
-  res.json(paginatedCars);
+  res.json({
+    data: paginatedCars,
+    dataLength:cars.length
+  });
 });
 
 router.get('/:id', (req, res) => {
