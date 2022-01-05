@@ -33,7 +33,7 @@ const CarGrid = ({ cars }) => {
       dataLength={carsToLoad}
       next={fetchMoreData}
       hasMore={hasMore}
-      loader={<h4>Kraunama...</h4>}
+      loader={<CarCardSkeleton skeletonsAmount={20} />}
       endMessage={<p>Peržiūrėjote visus automobilius</p>}
     >
       <Grid
@@ -42,7 +42,6 @@ const CarGrid = ({ cars }) => {
         sx={{
           width: '100%',
         }}
-
       >
         {cars.slice(0, carsToLoad).map((
           {
