@@ -6,6 +6,7 @@ import {
   Typography,
 } from '@mui/material';
 import PhoneEnabledRoundedIcon from '@mui/icons-material/PhoneEnabledRounded';
+import { Link as ScrollLink } from 'react-scroll';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import SlideOnMount from '../../components/animations/slide-on-mount';
 import pulse from '../../components/animations/pulse';
@@ -120,24 +121,26 @@ const Hero = () => {
             </Box>
           </SlideOnMount>
         </Box>
-        <KeyboardDoubleArrowDownIcon sx={{
-          height: {
-            xs: '12vw',
-            sm: '8vw',
-            md: '6vw',
-            lg: '4vw',
-          },
-          width: 'auto',
-          animation: `${pulse} 2s infinite`,
-          color: 'grey.500',
-          '&:hover': {
-            color: 'common.white',
-            transform: 'scale(1.2)',
-            cursor: 'pointer',
-            animation: 'none',
-          },
-        }}
-        />
+        <ScrollLink to="home-page-content" smooth="true" duration="600">
+          <KeyboardDoubleArrowDownIcon sx={{
+            height: {
+              xs: '12vw',
+              sm: '8vw',
+              md: '6vw',
+              lg: '4vw',
+            },
+            width: 'auto',
+            animation: `${pulse} 2s infinite`,
+            color: 'grey.500',
+            '&:hover': {
+              color: 'common.white',
+              transform: 'scale(1.2)',
+              cursor: 'pointer',
+              animation: 'none',
+            },
+          }}
+          />
+        </ScrollLink>
       </BackgroundImageContainer>
     </Box>
   );
