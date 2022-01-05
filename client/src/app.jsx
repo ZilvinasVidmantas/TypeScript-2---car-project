@@ -14,6 +14,10 @@ import SignIn from './pages/sign-in-page';
 import SignUp from './pages/sign-up-page';
 import PageLayout from './components/layouts/page-layout';
 import WindowHeightLayout from './components/layouts/window-height-layout';
+import UserDashboard from './pages/user-dashboard/index';
+import DashboardLayout from './components/layouts/dashboard-layout';
+import AddCar from './pages/user-dashboard/add-car-page';
+import NotFound from './pages/not-found-page';
 
 const App = () => (
   <ThemeProvider theme={lightTheme}>
@@ -28,6 +32,11 @@ const App = () => (
             <Route path="/car/:id" element={<CarPage />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/sign-up" element={<SignUp />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+          <Route path="/" element={<DashboardLayout />}>
+            <Route path="/dashboard" element={<UserDashboard />} />
+            <Route path="/add-car" element={<AddCar />} />
           </Route>
         </Routes>
       </RouterProvider>
