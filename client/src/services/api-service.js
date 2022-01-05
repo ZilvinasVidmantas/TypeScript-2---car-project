@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { dataFetchError } from '../helpers/index';
+import { appendUrlParams } from '../helpers/url-helpers';
 
 const instance = axios.create({
   baseURL: 'http://localhost:5000',
@@ -41,9 +42,11 @@ const getFuelTypes = async () => {
   }
 };
 
-const getJoinedCars = async () => {
+const getJoinedCars = async (params) => {
+  const requestUrl = 'http://localhost:5000/cars/joined?';
+  const generatedParams = appendUrlParams(requestUrl, params);
   try {
-    const joinedCars = await instance.get('/cars/joined');
+    const joinedCars = await instance.get(generatedParams);
     return joinedCars.data;
   } catch (error) {
     return dataFetchError(error);

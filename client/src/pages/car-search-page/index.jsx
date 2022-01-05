@@ -54,7 +54,7 @@ const CarSearch = () => {
     (async () => {
       const params = createUrlParamObj(searchParams);
       const fetchedCars = await ApiService.getJoinedCars(params);
-      const modeledCars = fetchedCars.map((carData) => new CarModel(carData));
+      const modeledCars = fetchedCars.data.map((carData) => new CarModel(carData));
       setCars(modeledCars);
     })();
   }, [searchParams]);

@@ -9,7 +9,7 @@ const paginate = (collection, page, pageSize) => {
 
 const applyPagination = (data, paginationParamsArr) => {
   let pageNumber = 1;
-  let pageSize = 20;
+  let pageSize = data.length;
   paginationParamsArr.forEach(({ name, values }) => {
     const lastArrayItem = Number(values.slice(-1));
     if (name ==='_page') {

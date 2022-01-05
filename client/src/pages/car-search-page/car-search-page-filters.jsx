@@ -170,7 +170,7 @@ const CarFilters = ({ cars }) => {
       {/* FUELTYPE ------------------------------------------------------------------ */}
       <AutocompleteCheckboxFilter
         filterOptions={filters.fuelTypes}
-        filterName="fuelTypes"
+        filterName="fuelType"
         label="Kuro tipas"
         onChange={(selectedFilterOptions, filterName) => handleFilterChange(
           selectedFilterOptions,
