@@ -51,7 +51,6 @@ const Hero = () => {
                   variant="h6"
                   component="h1"
                   sx={{
-                    width: '100%',
                     textTransform: 'uppercase',
                     fontSize: {
                       xs: '6vw',
