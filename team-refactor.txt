@@ -12,9 +12,8 @@ Justas Komanda
   Viktorija
 
 Server side
-  Justė
-  Rūta
-  Miglė
+Rūta
+Miglė
 
 * Pabaigti esamus darbus iki savaitės galo (pirmadienio) ir pasiruošti juos pristatyti visiems:
 * Turi paaiškinti visiems kodo susaistymą (kaip susiję atskiros programinio kodo dalys)
@@ -23,6 +22,7 @@ Server side
 * Pasiūlyti tolmesnė darbų eigą
 
 ------------ Individualus projektas - Nuo 01-05
+Justė
 Anna
 Titas
 Artūras
