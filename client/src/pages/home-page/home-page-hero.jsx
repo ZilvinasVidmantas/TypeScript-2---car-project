@@ -51,7 +51,6 @@ const Hero = () => {
                   variant="h6"
                   component="h1"
                   sx={{
-                    width: '100%',
                     textTransform: 'uppercase',
                     fontSize: {
                       xs: '6vw',
@@ -121,7 +120,7 @@ const Hero = () => {
             </Box>
           </SlideOnMount>
         </Box>
-        <ScrollLink to="home-page-content" smooth="true" duration="600">
+        <ScrollLink to="home-page-content" smooth="true" duration={800}>
           <KeyboardDoubleArrowDownIcon sx={{
             height: {
               xs: '12vw',
