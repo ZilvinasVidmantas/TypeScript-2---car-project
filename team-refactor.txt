@@ -1,19 +1,14 @@
------------- Cars projektas - Nuo 01-10
-Miroslav komanda
-  Miroslav
-  Aivaras
-  Nojus
-  Greta
-  Darius
-
-Justas Komanda
-  Justas
-  Mindaugas
-  Viktorija
-
-Server side
+------------ Cars projektas
+Nojus
+Mindaugas
+Darius
 Rūta
+Justas
+Viktorija
+Aivaras
 Miglė
+Miroslav
+Greta
 
 * Pabaigti esamus darbus iki savaitės galo (pirmadienio) ir pasiruošti juos pristatyti visiems:
 * Turi paaiškinti visiems kodo susaistymą (kaip susiję atskiros programinio kodo dalys)
@@ -21,7 +16,7 @@ Miglė
 * Supažindinti su jūsų kodo trūkumais
 * Pasiūlyti tolmesnė darbų eigą
 
------------- Individualus projektas - Nuo 01-05
+------------ Individualus projektas
 Justė
 Anna
 Titas
@@ -44,5 +39,7 @@ Vitalius
     * Kuom ji skirsis nuo darbalaukio versijos?
   
   * Nusibraižyti ant popieriaus/ar su programa apytikslį puslapio vaizdą
+
+
 
 
