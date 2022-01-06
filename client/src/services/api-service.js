@@ -42,6 +42,32 @@ const getFuelTypes = async () => {
   }
 };
 
+const getMinMax = (data, from) => {
+  const values = data?.map((entity) => entity[from]);
+  const uniqValues = values.sort((a, b) => a - b);
+  const min = uniqValues.shift();
+  const max = uniqValues.pop();
+  return { min, max };
+};
+
+const getYears = async () => {
+  try {
+    const response = await instance.get('/cars');
+    return getMinMax(response.data, 'year');
+  } catch (error) {
+    return dataFetchError(error);
+  }
+};
+
+const getPrice = async () => {
+  try {
+    const response = await instance.get('/cars');
+    return getMinMax(response.data, 'price');
+  } catch (error) {
+    return dataFetchError(error);
+  }
+};
+
 const getJoinedCars = async (params) => {
   const requestUrl = 'http://localhost:5000/cars/joined?';
   const generatedParams = appendUrlParams(requestUrl, params);
@@ -69,6 +95,8 @@ const API = {
   getModels,
   getTransmissions,
   getFuelTypes,
+  getYears,
+  getPrice,
 };
 
 export default API;
