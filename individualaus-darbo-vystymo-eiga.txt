@@ -1,29 +1,3 @@
------------- Cars projektas
-Nojus
-Mindaugas
-Darius
-Rūta
-Justas
-Viktorija
-Aivaras
-Miglė
-Miroslav
-Greta
-
-* Pabaigti esamus darbus iki savaitės galo (pirmadienio) ir pasiruošti juos pristatyti visiems:
-* Turi paaiškinti visiems kodo susaistymą (kaip susiję atskiros programinio kodo dalys)
-* Jeigu yra sudėtingesni algoritmai, pasiruošti papasakoti kaip jie veikia
-* Supažindinti su jūsų kodo trūkumais
-* Pasiūlyti tolmesnė darbų eigą
-
------------- Individualus projektas
-Justė
-Anna
-Titas
-Artūras
-Maxim
-Vitalius
-
 * Puslapio idėja - sprendžia realią problemą / uždirba pinigus
   * apimtis, 1-2 puslapiai, su 2-4 sekcijomis
 
@@ -40,6 +14,6 @@ Vitalius
   
   * Nusibraižyti ant popieriaus/ar su programa apytikslį puslapio vaizdą
 
-
-
-
+* Duomenų bazės schema ir ryšiai tarp esybių
+  * Išsivardinti visas esybes, su strukrūtomos, kurios bus naudojamos puslapyje
+  
