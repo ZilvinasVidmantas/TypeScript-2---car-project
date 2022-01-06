@@ -87,13 +87,13 @@ const CarSearch = () => {
     <Container maxWidth="xl" sx={{ mt: 3 }}>
       {cars.length > 0 ? (
         <Typography component="h1" variant="h3" gutterBottom align="center">
-          Mašinos
+          Automobiliai
         </Typography>
       ) : null}
+      {/* Atvaizdavimo pasirinkimai */}
+      <CarOptions view={carSearchViewType} onChange={handleViewChange} />
       <Grid container spacing={2}>
         <StyledGridItem item md={12} lg={2}>
-          {/* Atvaizdavimo pasirinkimai */}
-          <CarOptions view={carSearchViewType} onChange={handleViewChange} />
           <CarFilters className="filters" cars={cars} />
         </StyledGridItem>
         <Grid item xs={12} sm={12} md={12} lg={10}>
