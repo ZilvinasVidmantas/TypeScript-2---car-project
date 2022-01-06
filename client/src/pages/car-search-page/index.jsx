@@ -87,7 +87,7 @@ const CarSearch = () => {
     <Container maxWidth="xl" sx={{ mt: 3 }}>
       {cars.length > 0 ? (
         <Typography component="h1" variant="h3" gutterBottom align="center">
-          Mašinos
+          Automobiliai
         </Typography>
       ) : null}
       <Grid container spacing={2}>
