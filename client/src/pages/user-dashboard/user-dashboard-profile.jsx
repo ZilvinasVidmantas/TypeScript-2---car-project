@@ -26,16 +26,16 @@ const UserDashboardProfile = () => (
     <Typography component="h3" variant="h6" sx={{ my: 3, alignSelf: 'center' }}> VartojoVardas </Typography>
     <Box>
       <Typography sx={{ display: 'flex' }}>
-        <span style={{ width: '120px' }}>El. paštas :</span>
-        <span style={{ width: 'calc(100% - 120px)' }}>abc@abc.lt</span>
+        <Typography display="inline" style={{ width: '120px' }}>El. paštas :</Typography>
+        <Typography display="inline" style={{ width: 'calc(100% - 120px)' }}>abc@abc.lt</Typography>
       </Typography>
       <Typography sx={{ display: 'flex' }}>
-        <span style={{ width: '120px' }}>Telefonas :</span>
-        <span style={{ width: 'calc(100% - 120px)' }}>86 123-456</span>
+        <Typography display="inline" style={{ width: '120px' }}>Telefonas :</Typography>
+        <Typography display="inline" style={{ width: 'calc(100% - 120px)' }}>86 123-456</Typography>
       </Typography>
       <Typography sx={{ display: 'flex' }}>
-        <span style={{ width: '120px' }}>Miestas :</span>
-        <span style={{ width: 'calc(100% - 120px)' }}>Vilniava</span>
+        <Typography display="inline" style={{ width: '120px' }}>Miestas :</Typography>
+        <Typography display="inline" style={{ width: 'calc(100% - 120px)' }}>Vilniava</Typography>
       </Typography>
     </Box>
     <StyledLink to="/add-car">

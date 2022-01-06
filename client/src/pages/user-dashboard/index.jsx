@@ -9,7 +9,7 @@ import LikedCars from './user-dashboard-liked-cars';
 import Profile from './user-dashboard-profile';
 
 const UserDashboard = () => (
-  <Container sx={{ mt: 4, mb: 4, width: '100%' }}>
+  <Container sx={{ my: 4, width: '100%', overflowX: 'hidden' }}>
     <Toolbar />
     <Typography component="h3" variant="h6" sx={{ mb: 4 }}>
       Labas, vartojoVardas
