@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import CarCard from '../../components/cards/car-card';
 import CarCardSkeleton from '../../components/skeletons/car-card-skeleton';
+import GridEndMessage from './car-search-page-grid-end-message';
 
 const CarGrid = ({ cars }) => {
   const [loading, setLoading] = useState(true);
@@ -34,7 +35,7 @@ const CarGrid = ({ cars }) => {
       next={fetchMoreData}
       hasMore={hasMore}
       loader={<CarCardSkeleton skeletonsAmount={20} />}
-      endMessage={<p>Peržiūrėjote visus automobilius</p>}
+      endMessage={<GridEndMessage />}
     >
       <Grid
         container
@@ -42,6 +43,7 @@ const CarGrid = ({ cars }) => {
         sx={{
           width: '100%',
         }}
+        id="car-cards-container-top"
       >
         {cars.slice(0, carsToLoad).map((
           {
