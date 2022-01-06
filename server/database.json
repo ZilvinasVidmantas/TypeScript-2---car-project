@@ -1668,7 +1668,7 @@
     },
     {
       "id": "39",
-      "brandId": "12",
+      "brandId": "29",
       "title": "GT 86"
     },
     {
@@ -1800,15 +1800,15 @@
   "fuelTypes": [
     {
       "id": "1",
-      "title": "petrol"
+      "title": "benzinas"
     },
     {
       "id": "2",
-      "title": "electric"
+      "title": "elektra"
     },
     {
       "id": "3",
-      "title": "diesel"
+      "title": "dyzelis"
     }
   ],
   "carFuelTypes": [
@@ -2124,11 +2124,11 @@
   "transmissions": [
     {
       "id": "1",
-      "title": "automatic"
+      "title": "automatinė"
     },
     {
       "id": "2",
-      "title": "manual"
+      "title": "mechaninė"
     }
   ]
 }
