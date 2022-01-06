@@ -1,15 +1,10 @@
-const applySorting = (data, sortingParamsArr) => {
+const applySorting = (data, queryParams) => {
   let sortedData = data;
-  sortingParamsArr.forEach(([ order, field ]) => {
-    if (order === '_sort_asc') {
-      sortedData = data.sort((a, b) => a[field] - b[field]);
-    }
-    if (order === '_sort_desc') {
-      sortedData = data.sort((a, b) => b[field] - a[field]);
-    }
-  })
+  sortedData = data.sort((a, b) => a[queryParams._sort_asc] - b[queryParams._sort_asc]);
+  sortedData = data.sort((a, b) => b[queryParams._sort_desc] - a[queryParams._sort_desc]);
+
   return sortedData;
-};
+}
 
 module.exports = {
   applySorting
