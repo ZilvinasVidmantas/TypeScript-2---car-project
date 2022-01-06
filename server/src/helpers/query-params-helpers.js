@@ -1,19 +1,31 @@
-const createQueryParamsArr = (queryParams) => { 
+const createQueryParamsArr = (queryParams) => {
   const queryParamsArray = Object.entries(queryParams);
 
   return queryParamsArray.map(([name, value]) => ([
     name,
     value instanceof Array ? [...new Set(value)] : [value]
-   ]))
+  ]))
 };
 
 const filterQueryParams = (queryParams, names) => {
-  const paramArray = createQueryParamsArr(queryParams);
+  const paramsArray = createQueryParamsArr(queryParams);
+  const filteredObj = paramsArray.filter(([name]) => names.includes(name));
 
-  return paramArray.filter(([name]) => names.includes(name));
+  return filteredObj.reduce((result, [name, value]) => {
+    result[name] = value;
+
+    return result;
+  }, {});
+};
+
+const createQueryParamArray = (queryParams, names) => {
+  const filteredArr = filterQueryParams(queryParams, names);
+
+  return Object.entries(filteredArr);
 }
 
 module.exports = {
   createQueryParamsArr,
-  filterQueryParams
+  filterQueryParams,
+  createQueryParamArray,
 };
