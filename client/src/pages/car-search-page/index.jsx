@@ -90,10 +90,10 @@ const CarSearch = () => {
           Automobiliai
         </Typography>
       ) : null}
+      {/* Atvaizdavimo pasirinkimai */}
+      <CarOptions view={carSearchViewType} onChange={handleViewChange} />
       <Grid container spacing={2}>
         <StyledGridItem item md={12} lg={2}>
-          {/* Atvaizdavimo pasirinkimai */}
-          <CarOptions view={carSearchViewType} onChange={handleViewChange} />
           <CarFilters className="filters" cars={cars} />
         </StyledGridItem>
         <Grid item xs={12} sm={12} md={12} lg={10}>
