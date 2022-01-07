@@ -7,12 +7,12 @@ import {
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import ViewListIcon from '@mui/icons-material/ViewList';
 
-const CarOptions = ({ view, onChange }) => (
+const CarOptions = ({ view, changeView }) => (
   <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
     <ToggleButtonGroup
       value={view}
       exclusive
-      onChange={onChange}
+      onChange={changeView}
       size="small"
       sx={{ my: 1 }}
     >

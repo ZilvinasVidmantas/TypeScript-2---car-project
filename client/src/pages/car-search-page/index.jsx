@@ -10,17 +10,17 @@ import CarFilters from './car-search-page-filters';
 import ApiService from '../../services/api-service';
 import CarModel from '../../models/car-model';
 import { createUrlParamObj } from '../../helpers';
-import CarOptions from './car-search-page-options';
 import CarGrid from './car-search-page-grid';
 import LoadingImg from './assets/loading.gif';
 import CarSearchPageDrawer from './car-search-page-drawer';
 import useFiltersAndSearchParams from '../../hooks/useFiltersAndSearchParams';
+import CarSearchPageMenu from './car-search-page-menu';
 
 const StyledGridItem = styled(Grid)(({ theme }) => ({
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints.down('lg')]: {
     display: 'none',
   },
-  [theme.breakpoints.up('md')]: {
+  [theme.breakpoints.up('lg')]: {
     display: 'block',
   },
 }));
@@ -92,7 +92,11 @@ const CarSearch = () => {
         </Typography>
       ) : null}
       {/* Atvaizdavimo pasirinkimai */}
-      <CarOptions view={carSearchViewType} onChange={handleViewChange} />
+      <CarSearchPageMenu
+        view={carSearchViewType}
+        changeView={handleViewChange}
+        openDrawer={createToggleDrawer(true)}
+      />
       <Grid container spacing={2}>
         <StyledGridItem item md={12} lg={2}>
           <CarFilters className="filters" filters={filters} />
