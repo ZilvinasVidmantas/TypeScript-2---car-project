@@ -1196,126 +1196,144 @@
       "name": "Kleopatra",
       "surname": "Pamukalė",
       "email": "kleo@google.com",
-      "mobile": "+370 68912121"
+      "mobile": "+370 68912121",
+      "city" : "Vilnius"
     },
     {
       "id": "13",
       "name": "Mindaugas",
       "surname": "Juodvalkis",
       "email": "labasmindaugai@gmail.com",
-      "mobile": "+370 61111111"
+      "mobile": "+370 61111111",
+      "city" : "Kaunas"
     },
     {
       "id": "12",
       "name": "Karina",
       "surname": "Stalaitė",
       "email": "karkar@google.com",
-      "mobile": "+370 51111112"
+      "mobile": "+370 51111112",
+      "city" : "Panevėžys"
     },
     {
       "id": "5",
       "name": "Takumis",
       "surname": "Fujiwara",
       "email": "drift@king.com",
-      "mobile": "+370 6666666"
+      "mobile": "+370 6666666",
+      "city" : "Utena"
     },
     {
       "id": "14",
       "name": "Maskovskij",
       "surname": "Kent",
       "email": "triPaloski@yandex.ru",
-      "mobile": "+7 58784512"
+      "mobile": "+7 58784512",
+      "city" : "Ukmergė"
     },
     {
       "id": "18",
       "name": "Dominikas",
       "surname": "Toretto",
       "email": "Dominic.Toretto@family.com",
-      "mobile": "+370 64021999"
+      "mobile": "+370 64021999",
+      "city" : "Alytus"
     },
     {
       "id": "16",
       "name": "Pavelas",
       "surname": "Smidras",
       "email": "paskaog@google.com",
-      "mobile": "+370 66600666"
+      "mobile": "+370 66600666",
+      "city" : "Telšiai"
     },
     {
       "id": "15",
       "name": "Katažina",
       "surname": "Nesvarbu",
       "email": "katazinka.netavo@gmail.com",
-      "mobile": "+370 59248354"
+      "mobile": "+370 59248354",
+      "city" : "Trakai"
     },
     {
       "id": "8",
       "name": "Jonas",
       "surname": "Jonaitis",
       "email": "jonasjonaitis@gmail.com",
-      "mobile": "+370 61312225"
+      "mobile": "+370 61312225",
+      "city" : "Šiauliai"
     },
     {
       "id": "20",
       "name": "Stepas",
       "surname": "Bestepis",
       "email": "stepiux@one.lt",
-      "mobile": "+370 66666666"
+      "mobile": "+370 66666666",
+      "city" : "Pasvalys"
     },
     {
       "id": "6",
       "name": "Briedis",
       "surname": "Ragauskas",
       "email": "horny@forest.com",
-      "mobile": "+370 4666666"
+      "mobile": "+370 4666666",
+      "city" : "Biržai"
     },
     {
       "id": "9",
       "name": "Velynas",
       "surname": "Kreivauskas",
       "email": "velynaskrei@autominus.com",
-      "mobile": "+370 62718372"
+      "mobile": "+370 62718372",
+      "city" : "Pabradė"
     },
     {
       "id": "1",
       "name": "Kentas",
       "surname": "Stoteletausktas",
       "email": "parkavimas@stotele.lt",
-      "mobile": "+370 68974856"
+      "mobile": "+370 68974856",
+      "city" : "Plungė"
     },
     {
       "id": "2",
       "name": "Pinigas",
       "surname": "Kupinaitis",
       "email": "perekup@blaga.ua",
-      "mobile": "+379 68974856"
+      "mobile": "+379 68974856",
+      "city" : "Daugai"
     },
     {
       "id": "3",
       "name": "Simonas",
       "surname": "Saulius",
       "email": "kamta@pavarde.lt",
-      "mobile": "+370 55555555"
+      "mobile": "+370 55555555",
+      "city" : "Molėtai"
     },
     {
       "id": "4",
       "name": "Violeta",
       "surname": "Purpuraitė",
       "email": "violet@google.com",
-      "mobile": "+370 58784512"
+      "mobile": "+370 58784512",
+      "city" : "Klaipėda"
     },
     {
       "id": "10",
       "name": "Monika",
       "surname": "Liliak",
       "email": "monikaliliac@gmail.com",
-      "mobile": "+370 61946488"
+      "mobile": "+370 61946488",
+      "city" : "Palanga"
     },
     {
       "id": "19",
       "name": "Jeremy",
       "surname": "Clarkson",
       "email": "jeremy@topgear.com",
-      "mobile": "+1 917 6666666"
+      "mobile": "+1 917 6666666",
+      "city" : "Tauragė"
     }
   ],
   "brands": [
