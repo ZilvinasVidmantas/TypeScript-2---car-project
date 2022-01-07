@@ -30,7 +30,7 @@ const CarSearchPageDrawer = ({
       max: 1,
     },
   });
-  const [showModels, setShowModels] = useState(false);
+  const [showModels, setShowModels] = useState(true);
 
   const changeUrlFilters = (urlFilters) => {
     const newParams = createUrlParamObj(searchParams, urlFilters);
@@ -40,9 +40,9 @@ const CarSearchPageDrawer = ({
   const handleFilterChange = (selectedBrandOption, filter) => {
     searchParams.delete(filter);
     if (filter === 'brand' && selectedBrandOption.length > 0) {
-      setShowModels(true);
-    } else if (filter === 'brand' && selectedBrandOption.length <= 0) {
       setShowModels(false);
+    } else if (filter === 'brand' && selectedBrandOption.length <= 0) {
+      setShowModels(true);
       searchParams.delete('model');
     }
     if (selectedBrandOption) {
@@ -114,7 +114,7 @@ const CarSearchPageDrawer = ({
           component="h2"
           variant="h5"
           sx={{
-            display: 'flex', justifyContent: 'space-between', mt: '10px', ml: '15px',
+            display: 'flex', justifyContent: 'space-between', ml: '15px',
           }}
         >
           Filtrai
@@ -134,43 +134,18 @@ const CarSearchPageDrawer = ({
             filterName,
           )}
         />
-        {showModels ? (
-          <AutocompleteCheckboxFilter
-            filterOptions={filters.models}
-            filterName="model"
-            label="Modelis"
-            sx={{
-              width: 240, ml: '15px', mt: '10px',
-            }}
-            onChange={(selectedFilterOptions, filterName) => handleFilterChange(
-              selectedFilterOptions,
-              filterName,
-            )}
-          />
-        ) : null}
-        <RangeFilter
-          key="asd"
-          filterName="Price"
+        <AutocompleteCheckboxFilter
+          filterOptions={filters.models}
+          filterName="model"
+          label="Modelis"
+          disabled={showModels}
           sx={{
-            width: '70%', ml: '40px',
+            width: 240, ml: '15px',
           }}
-          onChange={() => null}
-          selectedMin={filters.price.min}
-          selectedMax={filters.price.max}
-          min={filters.price.min}
-          max={filters.price.max}
-        />
-        <RangeFilter
-          key="asds"
-          filterName="Year"
-          sx={{
-            width: '70%', ml: '40px',
-          }}
-          onChange={() => null}
-          selectedMin={filters.year.min}
-          selectedMax={filters.year.max}
-          min={filters.year.min}
-          max={filters.year.max}
+          onChange={(selectedFilterOptions, filterName) => handleFilterChange(
+            selectedFilterOptions,
+            filterName,
+          )}
         />
         <AutocompleteCheckboxFilter
           filterOptions={filters.transmissions}
@@ -189,12 +164,38 @@ const CarSearchPageDrawer = ({
           filterName="fuelTypes"
           label="Kuro tipas"
           sx={{
-            width: 240, ml: '15px', mt: '10px',
+            width: 240, ml: '15px',
           }}
           onChange={(selectedFilterOptions, filterName) => handleFilterChange(
             selectedFilterOptions,
             filterName,
           )}
+        />
+        <RangeFilter
+          title="Kaina"
+          key="asd"
+          filterName="Price"
+          sx={{
+            width: '70%', ml: '40px',
+          }}
+          onChange={() => null}
+          selectedMin={filters.price.min}
+          selectedMax={filters.price.max}
+          min={filters.price.min}
+          max={filters.price.max}
+        />
+        <RangeFilter
+          title="Metai"
+          key="asds"
+          filterName="Year"
+          sx={{
+            width: '70%', ml: '40px',
+          }}
+          onChange={() => null}
+          selectedMin={filters.year.min}
+          selectedMax={filters.year.max}
+          min={filters.year.min}
+          max={filters.year.max}
         />
       </Box>
     </Drawer>
