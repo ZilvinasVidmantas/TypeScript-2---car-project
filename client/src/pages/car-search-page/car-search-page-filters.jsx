@@ -8,7 +8,6 @@ import AutocompleteCheckboxFilter from '../../components/controls/autocomplete-c
 import useFiltersAndSearchParams from '../../hooks/useFiltersAndSearchParams';
 
 const CarFilters = ({ filters }) => {
-  const [filterss] = useState(filters);
   const [showModels, setShowModels] = useState(false);
   const { changeSearchParams } = useFiltersAndSearchParams();
 
@@ -28,7 +27,7 @@ const CarFilters = ({ filters }) => {
       </Typography>
       {/* BRAND ------------------------------------------------------------------ */}
       <AutocompleteCheckboxFilter
-        filterOptions={filterss.brands}
+        filterOptions={filters.brands}
         filterName="brand"
         label="Markė"
         onChange={(selectedOptions, filterName) => handleFilterChange(
@@ -41,7 +40,7 @@ const CarFilters = ({ filters }) => {
       {/* MODEL ------------------------------------------------------------------ */}
       {showModels ? (
         <AutocompleteCheckboxFilter
-          filterOptions={filterss.models}
+          filterOptions={filters.models}
           filterName="model"
           label="Modelis"
           onChange={(selectedOptions, filterName) => handleFilterChange(
@@ -57,10 +56,10 @@ const CarFilters = ({ filters }) => {
         title="Kaina"
         filterName="Price"
         onChange={() => null}
-        selectedMin={filterss.price.min}
-        selectedMax={filterss.price.max}
-        min={filterss.price.min}
-        max={filterss.price.max}
+        selectedMin={filters.price.min}
+        selectedMax={filters.price.max}
+        min={filters.price.min}
+        max={filters.price.max}
       />
       {/* PRICE ------------------------------------------------------------------ */}
 
@@ -69,16 +68,16 @@ const CarFilters = ({ filters }) => {
         title="Metai"
         filterName="Year"
         onChange={() => null}
-        selectedMin={filterss.year.min}
-        selectedMax={filterss.year.max}
-        min={filterss.year.min}
-        max={filterss.year.max}
+        selectedMin={filters.year.min}
+        selectedMax={filters.year.max}
+        min={filters.year.min}
+        max={filters.year.max}
       />
       {/* YEAR ------------------------------------------------------------------ */}
 
       {/* TRANSMISSION ------------------------------------------------------------------ */}
       <AutocompleteCheckboxFilter
-        filterOptions={filterss.transmissions}
+        filterOptions={filters.transmissions}
         filterName="transmission"
         label="Pavarų dėžė"
         onChange={(selectedOptions, filterName) => handleFilterChange(
@@ -90,7 +89,7 @@ const CarFilters = ({ filters }) => {
 
       {/* FUELTYPE ------------------------------------------------------------------ */}
       <AutocompleteCheckboxFilter
-        filterOptions={filterss.fuelTypes}
+        filterOptions={filters.fuelTypes}
         filterName="fuelType"
         label="Kuro tipas"
         onChange={(selectedOptions, filterName) => handleFilterChange(

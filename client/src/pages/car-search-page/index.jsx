@@ -95,7 +95,7 @@ const CarSearch = () => {
       <CarOptions view={carSearchViewType} onChange={handleViewChange} />
       <Grid container spacing={2}>
         <StyledGridItem item md={12} lg={2}>
-          <CarFilters className="filters" cars={filters} />
+          <CarFilters className="filters" filters={filters} />
         </StyledGridItem>
         <Grid item xs={12} sm={12} md={12} lg={10}>
           {/* Jei yra masinu */}
