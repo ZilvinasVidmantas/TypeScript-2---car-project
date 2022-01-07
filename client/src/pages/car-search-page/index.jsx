@@ -14,6 +14,7 @@ import CarOptions from './car-search-page-options';
 import CarGrid from './car-search-page-grid';
 import LoadingImg from './assets/loading.gif';
 import CarSearchPageDrawer from './car-search-page-drawer';
+import useFiltersAndSearchParams from '../../hooks/useFiltersAndSearchParams';
 
 const StyledGridItem = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
@@ -43,8 +44,8 @@ const CarSearch = () => {
   const [searchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
   const theme = useTheme();
-
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const { filters } = useFiltersAndSearchParams();
 
   const createToggleDrawer = (open) => () => {
     setDrawerOpen(open);
@@ -60,7 +61,7 @@ const CarSearch = () => {
   }, [searchParams]);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 2000);
+    setTimeout(() => setLoading(false), 1000);
   }, []);
 
   // Keiciamas atvaizdavimo tipas
@@ -94,7 +95,7 @@ const CarSearch = () => {
       <CarOptions view={carSearchViewType} onChange={handleViewChange} />
       <Grid container spacing={2}>
         <StyledGridItem item md={12} lg={2}>
-          <CarFilters className="filters" cars={cars} />
+          <CarFilters className="filters" filters={filters} />
         </StyledGridItem>
         <Grid item xs={12} sm={12} md={12} lg={10}>
           {/* Jei yra masinu */}
