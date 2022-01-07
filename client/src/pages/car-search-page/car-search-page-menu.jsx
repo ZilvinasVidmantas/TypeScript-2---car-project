@@ -4,7 +4,10 @@ import { styled } from '@mui/material/styles';
 import CarOptions from './car-search-page-menu-options';
 
 const StyledButton = styled(Button)(({ theme }) => ({
-  [theme.breakpoints.down('lg')]: {
+  [theme.breakpoints.down('md')]: {
+    display: 'none',
+  },
+  [theme.breakpoints.up('md')]: {
     display: 'flex',
   },
   [theme.breakpoints.up('lg')]: {
