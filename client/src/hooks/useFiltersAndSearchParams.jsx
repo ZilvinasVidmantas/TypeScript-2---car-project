@@ -32,12 +32,11 @@ const useFiltersAndSearchParams = () => {
 
   useEffect(() => {
     (async () => {
-      const params = createUrlParamObj(searchParams);
       const [
         fetchedCars,
         ...fetchedFilters
       ] = await Promise.all([
-        ApiService.getJoinedCars(params),
+        ApiService.getJoinedCars({}),
         ApiService.getBrands(),
         ApiService.getModels(),
         ApiService.getTransmissions(),
@@ -47,21 +46,29 @@ const useFiltersAndSearchParams = () => {
         const modeledCars = fetchedCars.data.map((carData) => new CarModel(carData));
         const formatedFilters = formatFilters([...fetchedFilters], modeledCars);
         setFilters(formatedFilters);
-      } catch (e) {
-        console.log(e);
+      } catch (err) {
+        throw new Error('Error', err.message);
       }
     })();
   }, []);
 
-  const changeSearchParams = (selectedOptions, filterName) => {
+  const changeSearchParams = (selectedOptions, filterName, limit, page) => {
     let params = [];
-    searchParams.delete(filterName);
+    const keys = ['filterName', '_limit', '_page'];
+    keys.forEach((key) => {
+      if (key === 'filterName') searchParams.delete(filterName);
+      searchParams.delete(key);
+    });
     if (selectedOptions) {
       params = selectedOptions.map(({ id }) => ({
         key: filterName,
         value: id,
       }));
     }
+    params.push(
+      { key: '_limit', value: limit ?? 20 },
+      { key: '_page', value: page ?? 1 },
+    );
     const newParams = createUrlParamObj(searchParams, params);
     setSearchParams(newParams);
   };
