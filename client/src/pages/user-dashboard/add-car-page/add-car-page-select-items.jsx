@@ -1,29 +1,25 @@
 import React from 'react';
-import MenuItem from '@mui/material/MenuItem';
-import { v4 as uuidv4 } from 'uuid';
 import {
-  Grid,
   FormControl,
-  InputLabel,
-  Select,
+  TextField,
+  Grid,
 } from '@mui/material';
+import Autocomplete from '@mui/material/Autocomplete';
 
 const AddCarPageSelectItems = ({
   title, options, onChange, value, name,
 }) => (
   <Grid item xs={12} md={4}>
     <FormControl sx={{ m: 1, minWidth: 200 }}>
-      <InputLabel>{title}</InputLabel>
-      <Select
+      <Autocomplete
+        disablePortal
         name={name}
         label={title}
-        value={value ?? ''}
-        onChange={(event) => onChange(event, name)}
-      >
-        {options.map(({ id, label }) => (
-          <MenuItem key={uuidv4()} value={id}>{label}</MenuItem>
-        ))}
-      </Select>
+        options={options}
+        value={value}
+        onChange={(event, option) => onChange(event, option, name)}
+        renderInput={(params) => <TextField {...params} label={title} />} // teksto rašymui
+      />
     </FormControl>
   </Grid>
 );
