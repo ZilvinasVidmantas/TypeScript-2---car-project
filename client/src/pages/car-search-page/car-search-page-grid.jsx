@@ -18,23 +18,23 @@ const CarGrid = ({ cars }) => {
         setHasMore(false);
       }
       setCarsToLoad(carCount);
-    }, 1000);
+    }, 800);
   };
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 800);
   }, []);
 
   return loading ? (
-    <CarCardSkeleton skeletonsAmount={20} />
+    <CarCardSkeleton skeletonsAmount={9} />
   ) : (
     <InfiniteScroll
       dataLength={carsToLoad}
       next={fetchMoreData}
       hasMore={hasMore}
-      loader={<CarCardSkeleton skeletonsAmount={20} />}
+      loader={<CarCardSkeleton skeletonsAmount={6} />}
       endMessage={<GridEndMessage />}
     >
       <Grid
