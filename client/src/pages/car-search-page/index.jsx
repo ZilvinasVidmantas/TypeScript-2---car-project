@@ -40,13 +40,13 @@ const StyledFab = styled(Fab)(({ theme }) => ({
 
 const CarSearch = () => {
   const [cars, setCars] = useState([]);
+  const [dataLength, setdataLength] = useState(-1);
   const [carSearchViewType, setCarSearchViewType] = useState('table'); // Atvaizdavimo tipas
   const [searchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
   const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { filters } = useFiltersAndSearchParams();
-  let dataLength = 0;
 
   useEffect(() => {
     if (!searchParams.get('_limit')) {
@@ -61,9 +61,9 @@ const CarSearch = () => {
     (async () => {
       const params = createUrlParamObj(searchParams);
       const fetchedCars = await ApiService.getJoinedCars(params);
-      dataLength = fetchedCars.dataLength;
       const modeledCars = fetchedCars.data.map((carData) => new CarModel(carData));
       setCars(modeledCars);
+      setdataLength(fetchedCars.dataLength);
       setLoading(false);
     })();
   }, [searchParams]);

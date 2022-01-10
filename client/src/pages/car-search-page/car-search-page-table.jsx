@@ -18,7 +18,7 @@ const StyledTableCell = styled(TableCell)({
   padding: 10,
 });
 
-const CarTable = ({ cars }) => {
+const CarTable = ({ cars, dataLength }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const [loading, setLoading] = useState(false);
@@ -108,7 +108,7 @@ const CarTable = ({ cars }) => {
       <TablePagination
         rowsPerPageOptions={[10, 20, 25]}
         component="div"
-        count={70}
+        count={dataLength}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
