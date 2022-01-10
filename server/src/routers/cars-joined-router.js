@@ -77,7 +77,7 @@ router.get('/', (req, res) => {
 
   res.json({
     data: paginatedCars,
-    dataLength: cars.length
+    dataLength: filteredCars.length,
   });
 });
 
