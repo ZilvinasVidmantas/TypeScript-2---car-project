@@ -40,6 +40,7 @@ const StyledFab = styled(Fab)(({ theme }) => ({
 
 const CarSearch = () => {
   const [cars, setCars] = useState([]);
+  const [allCarsCount, setAllCarsCount] = useState(0);
   const [carSearchViewType, setCarSearchViewType] = useState('grid'); // Atvaizdavimo tipas
   const [searchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
@@ -56,7 +57,9 @@ const CarSearch = () => {
       const params = createUrlParamObj(searchParams);
       const fetchedCars = await ApiService.getJoinedCars(params);
       const modeledCars = fetchedCars.data.map((carData) => new CarModel(carData));
+      const allCarsLength = fetchedCars.dataLength;
       setCars(modeledCars);
+      setAllCarsCount(allCarsLength);
     })();
   }, [searchParams]);
 
@@ -71,7 +74,7 @@ const CarSearch = () => {
 
   const dataView = carSearchViewType === 'table' ? (
     // Jei atvaizdavimo tipas lentele
-    <CarTable cars={cars} />
+    <CarTable cars={cars} count={allCarsCount} />
   ) : (
     // Jei atvaizdavimo tipas ne lentele
     <CarGrid cars={cars} />
