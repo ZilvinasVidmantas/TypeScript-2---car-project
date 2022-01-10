@@ -1196,6 +1196,9 @@
       "name": "Kleopatra",
       "surname": "Pamukalė",
       "email": "kleo@google.com",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+370 68912121",
       "city" : "Vilnius"
     },
@@ -1204,6 +1207,9 @@
       "name": "Mindaugas",
       "surname": "Juodvalkis",
       "email": "labasmindaugai@gmail.com",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+370 61111111",
       "city" : "Kaunas"
     },
@@ -1212,6 +1218,9 @@
       "name": "Karina",
       "surname": "Stalaitė",
       "email": "karkar@google.com",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+370 51111112",
       "city" : "Panevėžys"
     },
@@ -1220,6 +1229,9 @@
       "name": "Takumis",
       "surname": "Fujiwara",
       "email": "drift@king.com",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+370 6666666",
       "city" : "Utena"
     },
@@ -1228,6 +1240,9 @@
       "name": "Maskovskij",
       "surname": "Kent",
       "email": "triPaloski@yandex.ru",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+7 58784512",
       "city" : "Ukmergė"
     },
@@ -1236,6 +1251,9 @@
       "name": "Dominikas",
       "surname": "Toretto",
       "email": "Dominic.Toretto@family.com",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+370 64021999",
       "city" : "Alytus"
     },
@@ -1244,6 +1262,9 @@
       "name": "Pavelas",
       "surname": "Smidras",
       "email": "paskaog@google.com",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+370 66600666",
       "city" : "Telšiai"
     },
@@ -1252,6 +1273,9 @@
       "name": "Katažina",
       "surname": "Nesvarbu",
       "email": "katazinka.netavo@gmail.com",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+370 59248354",
       "city" : "Trakai"
     },
@@ -1260,6 +1284,9 @@
       "name": "Jonas",
       "surname": "Jonaitis",
       "email": "jonasjonaitis@gmail.com",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+370 61312225",
       "city" : "Šiauliai"
     },
@@ -1268,6 +1295,9 @@
       "name": "Stepas",
       "surname": "Bestepis",
       "email": "stepiux@one.lt",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+370 66666666",
       "city" : "Pasvalys"
     },
@@ -1276,6 +1306,9 @@
       "name": "Briedis",
       "surname": "Ragauskas",
       "email": "horny@forest.com",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+370 4666666",
       "city" : "Biržai"
     },
@@ -1284,6 +1317,9 @@
       "name": "Velynas",
       "surname": "Kreivauskas",
       "email": "velynaskrei@autominus.com",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+370 62718372",
       "city" : "Pabradė"
     },
@@ -1292,6 +1328,9 @@
       "name": "Kentas",
       "surname": "Stoteletausktas",
       "email": "parkavimas@stotele.lt",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+370 68974856",
       "city" : "Plungė"
     },
@@ -1300,6 +1339,9 @@
       "name": "Pinigas",
       "surname": "Kupinaitis",
       "email": "perekup@blaga.ua",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+379 68974856",
       "city" : "Daugai"
     },
@@ -1308,6 +1350,9 @@
       "name": "Simonas",
       "surname": "Saulius",
       "email": "kamta@pavarde.lt",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+370 55555555",
       "city" : "Molėtai"
     },
@@ -1316,6 +1361,9 @@
       "name": "Violeta",
       "surname": "Purpuraitė",
       "email": "violet@google.com",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+370 58784512",
       "city" : "Klaipėda"
     },
@@ -1324,6 +1372,9 @@
       "name": "Monika",
       "surname": "Liliak",
       "email": "monikaliliac@gmail.com",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+370 61946488",
       "city" : "Palanga"
     },
@@ -1332,6 +1383,9 @@
       "name": "Jeremy",
       "surname": "Clarkson",
       "email": "jeremy@topgear.com",
+      "password": "perekup",
+      "role": "user",
+      "subscribed": false,
       "mobile": "+1 917 6666666",
       "city" : "Tauragė"
     }

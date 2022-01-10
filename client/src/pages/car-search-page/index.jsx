@@ -41,7 +41,7 @@ const StyledFab = styled(Fab)(({ theme }) => ({
 const CarSearch = () => {
   const [cars, setCars] = useState([]);
   const [dataLength, setdataLength] = useState(-1);
-  const [carSearchViewType, setCarSearchViewType] = useState('table'); // Atvaizdavimo tipas
+  const [carSearchViewType, setCarSearchViewType] = useState('grid'); // Atvaizdavimo tipas
   const [searchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
   const theme = useTheme();
@@ -93,7 +93,13 @@ const CarSearch = () => {
       <img src={LoadingImg} alt="..." style={{ objectFit: 'cover' }} />
     </Container>
   ) : (
-    <Container maxWidth="xl" sx={{ mt: 3 }}>
+    <Container
+      maxWidth="xl"
+      sx={{
+        my: 3,
+        minHeight: `calc(100vh - (${theme.mixins.footer.height}px + ${theme.mixins.toolbar.height}px))`,
+      }}
+    >
       {cars.length > 0 ? (
         <Typography component="h1" variant="h3" gutterBottom align="center">
           Automobiliai
