@@ -14,12 +14,10 @@ const StyledCard = styled(Box)(({ theme }) => ({
   minHeight: theme.spacing(38),
   borderRadius: theme.spacing(2),
   color: theme.palette.common.black,
-  margin: theme.spacing(1.25),
   transition: theme.transitions.easeMe,
   boxShadow: theme.shadows[26],
   ':hover': {
-    boxShadow: theme.shadows[25],
-    transform: 'scale(1.05)',
+    transform: 'scale(1.02)',
     transformOrigin: 'center',
   },
 }));

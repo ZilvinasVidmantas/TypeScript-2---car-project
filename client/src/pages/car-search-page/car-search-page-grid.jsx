@@ -42,6 +42,7 @@ const CarGrid = ({ cars }) => {
         spacing={2}
         sx={{
           width: '100%',
+          p: 2,
         }}
         id="car-cards-container-top"
       >
