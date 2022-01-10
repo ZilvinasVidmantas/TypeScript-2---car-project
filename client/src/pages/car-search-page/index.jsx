@@ -40,7 +40,8 @@ const StyledFab = styled(Fab)(({ theme }) => ({
 
 const CarSearch = () => {
   const [cars, setCars] = useState([]);
-  const [carSearchViewType, setCarSearchViewType] = useState('table'); // Atvaizdavimo tipas
+  const [allCarsCount, setAllCarsCount] = useState(-1);
+  const [carSearchViewType, setCarSearchViewType] = useState('grid'); // Atvaizdavimo tipas
   const [searchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
   const theme = useTheme();
@@ -56,7 +57,9 @@ const CarSearch = () => {
       const params = createUrlParamObj(searchParams);
       const fetchedCars = await ApiService.getJoinedCars(params);
       const modeledCars = fetchedCars.data.map((carData) => new CarModel(carData));
+      const allCarsLength = fetchedCars.dataLength;
       setCars(modeledCars);
+      setAllCarsCount(allCarsLength);
     })();
   }, [searchParams]);
 
@@ -71,7 +74,7 @@ const CarSearch = () => {
 
   const dataView = carSearchViewType === 'table' ? (
     // Jei atvaizdavimo tipas lentele
-    <CarTable cars={cars} />
+    <CarTable cars={cars} count={allCarsCount} />
   ) : (
     // Jei atvaizdavimo tipas ne lentele
     <CarGrid cars={cars} />
@@ -85,7 +88,13 @@ const CarSearch = () => {
       <img src={LoadingImg} alt="..." style={{ objectFit: 'cover' }} />
     </Container>
   ) : (
-    <Container maxWidth="xl" sx={{ mt: 3 }}>
+    <Container
+      maxWidth="xl"
+      sx={{
+        my: 3,
+        minHeight: `calc(100vh - (${theme.mixins.footer.height}px + ${theme.mixins.toolbar.height}px))`,
+      }}
+    >
       {cars.length > 0 ? (
         <Typography component="h1" variant="h3" gutterBottom align="center">
           Automobiliai

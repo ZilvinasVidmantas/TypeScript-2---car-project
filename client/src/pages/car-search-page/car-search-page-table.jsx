@@ -16,7 +16,7 @@ import { styled } from '@mui/material/styles';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
-const CarTable = ({ cars }) => {
+const CarTable = ({ cars, count }) => {
   const [page, setPage] = useState(0);
   const [priceOrder, setPriceOrder] = useState({ field: 'price', order: '' });
   const [yearsOrder, setYearsOrder] = useState({ field: 'year', order: '' });
@@ -133,7 +133,7 @@ const CarTable = ({ cars }) => {
       <TablePagination
         rowsPerPageOptions={[10, 20, 25]}
         component="div"
-        count={cars.length}
+        count={count}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

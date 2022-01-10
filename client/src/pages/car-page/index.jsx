@@ -12,7 +12,7 @@ import CarPageAnimatedCarPropsContainer from './car-page-animated-car-props-cont
 import CarPageCarProp from './car-page-car-prop';
 import CarPageAnimatedContactContainer from './car-page-animated-contact-container';
 import CarModel from '../../models/car-model';
-import ImageSwiper from '../../components/swiper';
+import ImageSwiper from '../../components/swiper/image-swiper';
 import { getWindowWidth } from '../../helpers';
 
 const animationDelayProgress = {
