@@ -40,7 +40,7 @@ const StyledFab = styled(Fab)(({ theme }) => ({
 
 const CarSearch = () => {
   const [cars, setCars] = useState([]);
-  const [allCarsCount, setAllCarsCount] = useState(0);
+  const [allCarsCount, setAllCarsCount] = useState(-1);
   const [carSearchViewType, setCarSearchViewType] = useState('grid'); // Atvaizdavimo tipas
   const [searchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
