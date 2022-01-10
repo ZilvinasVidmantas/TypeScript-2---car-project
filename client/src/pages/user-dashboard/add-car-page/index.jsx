@@ -14,13 +14,13 @@ import AddCarPageSelectItems from './add-car-page-select-items';
 
 const AddCar = () => {
   const [selectedValue, setSelectedValue] = React.useState({
-    brand: '',
-    model: '',
-    year: '',
-    fuelType: '',
-    transmission: '',
-    engingeVolume: '',
-    city: '',
+    brand: null,
+    model: null,
+    year: null,
+    fuelType: null,
+    transmission: null,
+    engingeVolume: null,
+    city: null,
   });
 
   const data = [
@@ -96,10 +96,10 @@ const AddCar = () => {
     },
   ];
 
-  const handleChange = (event, name) => {
+  const handleChange = (event, option, name) => {
     setSelectedValue({
       ...selectedValue,
-      [name]: event.target.value,
+      [name]: option,
     });
   };
   return (
