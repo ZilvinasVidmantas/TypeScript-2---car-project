@@ -17,6 +17,7 @@ import WindowHeightLayout from './components/layouts/window-height-layout';
 import UserDashboard from './pages/user-dashboard/index';
 import DashboardLayout from './components/layouts/dashboard-layout';
 import AddCar from './pages/user-dashboard/add-car-page';
+import ProfilePage from './pages/user-dashboard/profile-page';
 import NotFound from './pages/not-found-page';
 
 const App = () => (
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/" element={<DashboardLayout />}>
             <Route path="/dashboard" element={<UserDashboard />} />
             <Route path="/add-car" element={<AddCar />} />
+            <Route path="/user-profile" element={<ProfilePage />} />
           </Route>
         </Routes>
       </RouterProvider>

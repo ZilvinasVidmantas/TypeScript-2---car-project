@@ -41,6 +41,9 @@ const UserDashboardProfile = () => (
     <StyledLink to="/add-car">
       <Button variant="outlined" sx={{ mt: 4 }}> Pridėti automobilį </Button>
     </StyledLink>
+    <StyledLink to="/user-profile">
+      <Button variant="outlined" sx={{ mt: 4 }}> Mano profilis </Button>
+    </StyledLink>
   </Paper>
 );
 

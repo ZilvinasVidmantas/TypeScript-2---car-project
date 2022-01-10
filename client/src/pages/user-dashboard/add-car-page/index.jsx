@@ -144,10 +144,7 @@ const AddCar = () => {
       <Typography variant="h6" component="h3" sx={{ mb: 1 }}>Kontaktai</Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} md={4}>
-          <FormControl sx={{ m: 1, minWidth: 200 }}>
-            <InputLabel>Telefonas</InputLabel>
-            <TextField id="outlined-size-normal" />
-          </FormControl>
+          v
         </Grid>
         <Grid item xs={12} md={4}>
           <FormControl sx={{ m: 1, minWidth: 200 }}>
