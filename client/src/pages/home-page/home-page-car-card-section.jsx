@@ -29,7 +29,20 @@ const CarCardSection = () => {
 
   return (
     <Box sx={{ width: '100%', p: 1 }} id="home-page-content">
-      <Typography component="h2" variant="h4" sx={{ p: 2 }}>Naujausi automobiliai</Typography>
+      <Typography
+        component="h2"
+        sx={{
+          fontSize: {
+            xs: '5vw',
+            sm: '3.5vw',
+            md: '3vw',
+            lg: '2vw',
+          },
+          p: 2,
+        }}
+      >
+        Naujausi automobiliai
+      </Typography>
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <CardSwiper style={{ padding: '10px' }}>
           {cars.map((
