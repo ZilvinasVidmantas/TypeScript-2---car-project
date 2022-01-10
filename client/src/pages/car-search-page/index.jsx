@@ -46,23 +46,31 @@ const CarSearch = () => {
   const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { filters } = useFiltersAndSearchParams();
+  let dataLength = 0;
 
-  const createToggleDrawer = (open) => () => {
-    setDrawerOpen(open);
-  };
+  useEffect(() => {
+    if (!searchParams.get('_limit')) {
+      searchParams.set('_limit', 20);
+    }
+    if (!searchParams.get('_page')) {
+      searchParams.set('_page', 1);
+    }
+  }, []);
 
   useEffect(() => {
     (async () => {
       const params = createUrlParamObj(searchParams);
       const fetchedCars = await ApiService.getJoinedCars(params);
+      dataLength = fetchedCars.dataLength;
       const modeledCars = fetchedCars.data.map((carData) => new CarModel(carData));
       setCars(modeledCars);
+      setLoading(false);
     })();
   }, [searchParams]);
 
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
+  const createToggleDrawer = (open) => () => {
+    setDrawerOpen(open);
+  };
 
   // Keiciamas atvaizdavimo tipas
   const handleViewChange = (_, nextView) => {
@@ -71,7 +79,7 @@ const CarSearch = () => {
 
   const dataView = carSearchViewType === 'table' ? (
     // Jei atvaizdavimo tipas lentele
-    <CarTable cars={cars} />
+    <CarTable cars={cars} dataLength={dataLength} />
   ) : (
     // Jei atvaizdavimo tipas ne lentele
     <CarGrid cars={cars} />
