@@ -5,7 +5,14 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { Typography, Button } from '@mui/material';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import {
+  Typography,
+  Button,
+  TableContainer,
+  styled,
+} from '@mui/material';
+import { Link } from 'react-router-dom';
 
 // Generate liked cars
 function createData(id, brand, model, year, price) {
@@ -56,6 +63,11 @@ const rows = [
   ),
 ];
 
+const StyledLink = styled(Link)({
+  textDecoration: 'none',
+  color: 'inherit',
+});
+
 const preventDefault = (event) => {
   event.preventDefault();
 };
@@ -63,30 +75,38 @@ const preventDefault = (event) => {
 const LikedCars = () => (
   <>
     <Typography component="h2" variant="h6">Patinkantys automobiliai</Typography>
-    <Table size="small">
-      <TableHead>
-        <TableRow>
-          <TableCell>Markė</TableCell>
-          <TableCell>Modelis</TableCell>
-          <TableCell>metai</TableCell>
-          <TableCell align="right">Kaina</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {rows.map((row) => (
-          <TableRow key={row.id}>
-            <TableCell>{row.brand}</TableCell>
-            <TableCell>{row.model}</TableCell>
-            <TableCell>{row.year}</TableCell>
-            <TableCell align="right">{`${row.price}`}</TableCell>
+    <TableContainer>
+      <Table size="small">
+        <TableHead>
+          <TableRow>
+            <TableCell>Markė</TableCell>
+            <TableCell>Modelis</TableCell>
+            <TableCell>metai</TableCell>
+            <TableCell align="right">Kaina</TableCell>
+            <TableCell align="right">Veiksmai</TableCell>
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow key={row.id}>
+              <TableCell>{row.brand}</TableCell>
+              <TableCell>{row.model}</TableCell>
+              <TableCell>{row.year}</TableCell>
+              <TableCell align="right">{`${row.price}`}</TableCell>
+              <TableCell align="right">
+                <StyledLink to="">
+                  <VisibilityIcon />
+                </StyledLink>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
     <Button onClick={preventDefault}>
-      {/* <Link color="primary" href="#"  sx={{ mt: 3 }}> */}
-      Daugiau
-      {/* </Link> */}
+      <StyledLink to="">
+        Daugiau
+      </StyledLink>
     </Button>
   </>
 );

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Container, Box, Divider, Grid, useTheme,
+  Container, Box, Divider, Grid, useTheme, Typography,
 } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ImageFluid from '../../components/images/image-fluid';
 import CarPageTitle from './car-page-title';
 import ApiService from '../../services/api-service';
@@ -48,6 +49,7 @@ const CarPage = () => {
   const actions = [
     { href: car?.user.mobile, type: 'tel', btnText: 'Skambinti' },
     { href: car?.user.email, type: 'mailto', btnText: 'Siųsti el. laišką' },
+
   ];
 
   const carImages = [...new Set(car?.images)].map((pic) => (
@@ -109,6 +111,25 @@ const CarPage = () => {
                 </Grid>
               </Grid>
             </Container>
+            <Box sx={{
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+            >
+              <Link
+                to="/search"
+                style={{
+                  display: 'flex',
+                  paddingRight: '20px',
+                  paddingTop: '20px',
+                  textDecoration: 'none',
+                  color: 'black',
+                }}
+              >
+                <ArrowBackIosIcon />
+                <Typography>Grįžti į paiešką</Typography>
+              </Link>
+            </Box>
           </Grid>
         </Grid>
       ) : null}
