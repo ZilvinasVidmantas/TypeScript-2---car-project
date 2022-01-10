@@ -18,7 +18,8 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 const CarTable = ({ cars }) => {
   const [page, setPage] = useState(0);
-  const [order, setOrder] = useState({ field: '', order: '' });
+  const [priceOrder, setPriceOrder] = useState({ field: 'price', order: '' });
+  const [yearsOrder, setYearsOrder] = useState({ field: 'year', order: '' });
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const [loading, setLoading] = useState(false);
   const handleChangePage = (event, newPage) => {
@@ -39,18 +40,18 @@ const CarTable = ({ cars }) => {
   };
 
   const handleYearsOrderChange = () => {
-    if (order.order === 'asc') {
-      setOrder({ field: 'year', order: 'desc' });
+    if (yearsOrder.order === 'asc') {
+      setYearsOrder({ field: 'year', order: 'desc' });
     } else {
-      setOrder({ field: 'year', order: 'asc' });
+      setYearsOrder({ field: 'year', order: 'asc' });
     }
   };
 
   const handlePriceOrderChange = () => {
-    if (order.order === 'asc') {
-      setOrder({ field: 'price', order: 'desc' });
+    if (priceOrder.order === 'asc') {
+      setPriceOrder({ field: 'price', order: 'desc' });
     } else {
-      setOrder({ field: 'price', order: 'asc' });
+      setPriceOrder({ field: 'price', order: 'asc' });
     }
   };
 
@@ -102,7 +103,7 @@ const CarTable = ({ cars }) => {
               Kaina €
               <IconButton onClick={handlePriceOrderChange}>
                 {
-                  order.order === 'asc'
+                  priceOrder.order === 'asc'
                     ? <ArrowDropUpIcon />
                     : <ArrowDropDownIcon />
                 }
@@ -112,7 +113,7 @@ const CarTable = ({ cars }) => {
               Gam. Metai
               <IconButton onClick={handleYearsOrderChange}>
                 {
-                  order.order === 'asc'
+                  yearsOrder.order === 'asc'
                     ? <ArrowDropUpIcon />
                     : <ArrowDropDownIcon />
                 }
