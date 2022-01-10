@@ -9,12 +9,16 @@ import {
   Paper,
   TablePagination,
   Skeleton,
+  IconButton,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 const CarTable = ({ cars }) => {
   const [page, setPage] = useState(0);
+  const [order, setOrder] = useState({ field: '', order: '' });
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const [loading, setLoading] = useState(false);
   const handleChangePage = (event, newPage) => {
@@ -32,6 +36,22 @@ const CarTable = ({ cars }) => {
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
+  };
+
+  const handleYearsOrderChange = () => {
+    if (order.order === 'asc') {
+      setOrder({ field: 'year', order: 'desc' });
+    } else {
+      setOrder({ field: 'year', order: 'asc' });
+    }
+  };
+
+  const handlePriceOrderChange = () => {
+    if (order.order === 'asc') {
+      setOrder({ field: 'price', order: 'desc' });
+    } else {
+      setOrder({ field: 'price', order: 'asc' });
+    }
   };
 
   const rows = cars
@@ -78,8 +98,26 @@ const CarTable = ({ cars }) => {
             <TableCell>Modelis</TableCell>
             <TableCell>Pavarų dėžė</TableCell>
             <TableCell>Kuro tipas</TableCell>
-            <TableCell align="right">Kaina €</TableCell>
-            <TableCell align="right">Gam. Metai</TableCell>
+            <TableCell align="right">
+              Kaina €
+              <IconButton onClick={handlePriceOrderChange}>
+                {
+                  order.order === 'asc'
+                    ? <ArrowDropUpIcon />
+                    : <ArrowDropDownIcon />
+                }
+              </IconButton>
+            </TableCell>
+            <TableCell align="right">
+              Gam. Metai
+              <IconButton onClick={handleYearsOrderChange}>
+                {
+                  order.order === 'asc'
+                    ? <ArrowDropUpIcon />
+                    : <ArrowDropDownIcon />
+                }
+              </IconButton>
+            </TableCell>
             <TableCell>Veiksmai</TableCell>
           </TableRow>
         </TableHead>
