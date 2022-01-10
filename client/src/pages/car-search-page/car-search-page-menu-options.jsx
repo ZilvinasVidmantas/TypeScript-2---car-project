@@ -19,7 +19,7 @@ const CarOptions = ({ view, changeView }) => (
       <ToggleButton value="table" aria-label="table">
         <ViewListIcon />
       </ToggleButton>
-      <ToggleButton value="card" aria-label="card">
+      <ToggleButton value="grid" aria-label="grid">
         <ViewModuleIcon />
       </ToggleButton>
     </ToggleButtonGroup>
