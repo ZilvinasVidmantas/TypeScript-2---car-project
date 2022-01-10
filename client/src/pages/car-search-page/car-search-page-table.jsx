@@ -60,6 +60,8 @@ const CarTable = ({ cars }) => {
       <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
       <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
       <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
+      <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
+      <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
       <StyledTableCell>
         <Skeleton animation="wave" height={20} />
       </StyledTableCell>

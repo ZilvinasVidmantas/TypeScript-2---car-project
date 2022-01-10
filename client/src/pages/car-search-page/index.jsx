@@ -10,16 +10,17 @@ import CarFilters from './car-search-page-filters';
 import ApiService from '../../services/api-service';
 import CarModel from '../../models/car-model';
 import { createUrlParamObj } from '../../helpers';
-import CarOptions from './car-search-page-options';
 import CarGrid from './car-search-page-grid';
 import LoadingImg from './assets/loading.gif';
 import CarSearchPageDrawer from './car-search-page-drawer';
+import useFiltersAndSearchParams from '../../hooks/useFiltersAndSearchParams';
+import CarSearchPageMenu from './car-search-page-menu';
 
 const StyledGridItem = styled(Grid)(({ theme }) => ({
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints.down('lg')]: {
     display: 'none',
   },
-  [theme.breakpoints.up('md')]: {
+  [theme.breakpoints.up('lg')]: {
     display: 'block',
   },
 }));
@@ -43,8 +44,8 @@ const CarSearch = () => {
   const [searchParams] = useSearchParams();
   const [loading, setLoading] = useState(true);
   const theme = useTheme();
-
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const { filters } = useFiltersAndSearchParams();
 
   const createToggleDrawer = (open) => () => {
     setDrawerOpen(open);
@@ -60,7 +61,7 @@ const CarSearch = () => {
   }, [searchParams]);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 2000);
+    setTimeout(() => setLoading(false), 1000);
   }, []);
 
   // Keiciamas atvaizdavimo tipas
@@ -87,14 +88,18 @@ const CarSearch = () => {
     <Container maxWidth="xl" sx={{ mt: 3 }}>
       {cars.length > 0 ? (
         <Typography component="h1" variant="h3" gutterBottom align="center">
-          Mašinos
+          Automobiliai
         </Typography>
       ) : null}
+      {/* Atvaizdavimo pasirinkimai */}
+      <CarSearchPageMenu
+        view={carSearchViewType}
+        changeView={handleViewChange}
+        openDrawer={createToggleDrawer(true)}
+      />
       <Grid container spacing={2}>
         <StyledGridItem item md={12} lg={2}>
-          {/* Atvaizdavimo pasirinkimai */}
-          <CarOptions view={carSearchViewType} onChange={handleViewChange} />
-          <CarFilters className="filters" cars={cars} />
+          <CarFilters className="filters" filters={filters} />
         </StyledGridItem>
         <Grid item xs={12} sm={12} md={12} lg={10}>
           {/* Jei yra masinu */}

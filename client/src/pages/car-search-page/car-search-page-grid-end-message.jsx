@@ -7,9 +7,10 @@ import pulse from '../../components/animations/pulse';
 const GridEndMessage = () => (
   <Alert
     severity="success"
-    color="info"
+    variant="outlined"
+    color="success"
     sx={{
-      height: '70px', position: 'relative', display: 'flex', alignItems: 'center',
+      height: '70px', position: 'relative', display: 'flex', alignItems: 'center', border: 'none',
     }}
   >
     <p>Peržiūrėjote visus automobilius</p>
