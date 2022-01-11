@@ -42,7 +42,7 @@ const CarSearch = () => {
   const [cars, setCars] = useState([]);
   const [allCarsCount, setAllCarsCount] = useState(-1);
   const [carSearchViewType, setCarSearchViewType] = useState('grid'); // Atvaizdavimo tipas
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -54,6 +54,7 @@ const CarSearch = () => {
     if (!searchParams.get('_page')) {
       searchParams.set('_page', 1);
     }
+    setSearchParams(searchParams);
   }, []);
 
   useEffect(() => {
