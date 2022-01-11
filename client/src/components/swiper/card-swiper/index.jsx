@@ -1,8 +1,8 @@
 import React from 'react';
 import { Swiper } from 'swiper/react';
-import SwiperCore, { EffectFade, Pagination } from 'swiper';
+import SwiperCore, { Pagination } from 'swiper';
 
-SwiperCore.use([Pagination, EffectFade]);
+SwiperCore.use([Pagination]);
 
 const CardSwiper = ({ children, ...props }) => (
 
@@ -24,10 +24,6 @@ const CardSwiper = ({ children, ...props }) => (
       },
       1020: {
         slidesPerView: 4,
-        spaceBetween: 20,
-      },
-      1536: {
-        slidesPerView: 5,
         spaceBetween: 20,
       },
     }}
