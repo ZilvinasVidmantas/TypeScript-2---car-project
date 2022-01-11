@@ -9,13 +9,15 @@ const useFiltersAndSearchParams = () => {
   const [filters, setFilters] = useState([]);
 
   // Sukuria objekta su visais suformuotais filtrais
-  const formatFilters = (fetchedFilters) => ({
-    brands: fetchedFilters[0],
-    models: fetchedFilters[1],
-    transmissions: fetchedFilters[2],
-    fuelTypes: fetchedFilters[3],
-    year: fetchedFilters[4],
-    price: fetchedFilters[5],
+  const formatFilters = ([
+    brands, models, transmissions, fuelTypes, year, price,
+  ]) => ({
+    brands,
+    models,
+    transmissions,
+    fuelTypes,
+    year,
+    price,
   });
 
   useEffect(() => {
