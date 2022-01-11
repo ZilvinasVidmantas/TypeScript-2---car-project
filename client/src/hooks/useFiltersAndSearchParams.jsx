@@ -5,6 +5,7 @@ import { createUrlParamObj } from '../helpers';
 
 const useFiltersAndSearchParams = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState([]);
 
   // Sukuria objekta su visais suformuotais filtrais
@@ -19,6 +20,7 @@ const useFiltersAndSearchParams = () => {
 
   useEffect(() => {
     (async () => {
+      setLoading(true);
       const fetchedFilters = await Promise.all([
         ApiService.getBrands(),
         ApiService.getModels(),
@@ -32,6 +34,8 @@ const useFiltersAndSearchParams = () => {
         setFilters(formatedFilters);
       } catch (err) {
         throw new Error('Error', err.message);
+      } finally {
+        setLoading(false);
       }
     })();
   }, []);
@@ -58,6 +62,7 @@ const useFiltersAndSearchParams = () => {
   };
 
   return {
+    loading,
     filters,
     changeSearchParams,
   };
