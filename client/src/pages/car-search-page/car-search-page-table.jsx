@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Table,
   TableBody,
@@ -16,6 +16,10 @@ import { styled } from '@mui/material/styles';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
+const StyledTableCell = styled(TableCell)({
+  padding: 10,
+});
+
 const CarTable = ({ cars, count }) => {
   const [page, setPage] = useState(0);
   const [priceOrder, setPriceOrder] = useState('');
@@ -24,20 +28,33 @@ const CarTable = ({ cars, count }) => {
   const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const handleChangePage = (event, newPage) => {
-    setLoading(true);
-    setPage(newPage);
+  useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
-  };
+    }, 300);
+  }, [cars]);
 
-  const StyledTableCell = styled(TableCell)({
-    padding: 10,
-  });
+  const handleChangePage = (_, newPage) => {
+    setLoading(true);
+    setPage(newPage);
+    if (searchParams.get('_limit')) {
+      searchParams.set('_limit', rowsPerPage);
+    }
+    if (searchParams.get('_page')) {
+      searchParams.set('_page', newPage + 1);
+    }
+    setSearchParams(searchParams);
+  };
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
+    if (searchParams.get('_limit')) {
+      searchParams.set('_limit', parseInt(event.target.value, 10));
+    }
+    if (searchParams.get('_page')) {
+      searchParams.set('_page', 1);
+    }
+    setSearchParams(searchParams);
     setPage(0);
   };
 
