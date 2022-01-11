@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { Link, useSearchParams } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
-import { createUrlParamObj } from '../../helpers';
+// import { createUrlParamObj } from '../../helpers';
 
 const StyledTableCell = styled(TableCell)({
   padding: 10,
@@ -33,20 +33,33 @@ const CarTable = ({ cars, count }) => {
   const handleChangePage = (_, newPage) => {
     setLoading(true);
     setPage(newPage);
-    const keys = ['_limit', '_page'];
-    keys.forEach((key) => {
-      searchParams.delete(key);
-    });
-    const params = [
-      { key: '_page', value: newPage + 1 },
-      { key: '_limit', value: rowsPerPage },
-    ];
-    const newParams = createUrlParamObj(searchParams, params);
-    setSearchParams(newParams);
+    // const keys = ['_limit', '_page'];
+    // keys.forEach((key) => {
+    //   searchParams.delete(key);
+    // });
+    // const params = [
+    //   { key: '_page', value: newPage + 1 },
+    //   { key: '_limit', value: rowsPerPage },
+    // ];
+    // const newParams = createUrlParamObj(searchParams, params);
+    if (searchParams.get('_limit')) {
+      searchParams.set('_limit', rowsPerPage);
+    }
+    if (searchParams.get('_page')) {
+      searchParams.set('_page', newPage + 1);
+    }
+    setSearchParams(searchParams);
   };
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
+    if (searchParams.get('_limit')) {
+      searchParams.set('_limit', parseInt(event.target.value, 10));
+    }
+    if (searchParams.get('_page')) {
+      searchParams.set('_page', 1);
+    }
+    setSearchParams(searchParams);
     setPage(0);
   };
 
