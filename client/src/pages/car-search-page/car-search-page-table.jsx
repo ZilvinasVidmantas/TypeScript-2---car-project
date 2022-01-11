@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Table,
   TableBody,
@@ -10,48 +10,65 @@ import {
   TablePagination,
   Skeleton,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
+
+const StyledTableCell = styled(TableCell)({
+  padding: 10,
+});
 
 const CarTable = ({ cars, count }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const [loading, setLoading] = useState(false);
-  const handleChangePage = (event, newPage) => {
-    setLoading(true);
-    setPage(newPage);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
-  };
+    }, 300);
+  }, [cars]);
 
-  const StyledTableCell = styled(TableCell)({
-    padding: 10,
-  });
+  const handleChangePage = (_, newPage) => {
+    setLoading(true);
+    setPage(newPage);
+    if (searchParams.get('_limit')) {
+      searchParams.set('_limit', rowsPerPage);
+    }
+    if (searchParams.get('_page')) {
+      searchParams.set('_page', newPage + 1);
+    }
+    setSearchParams(searchParams);
+  };
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
+    if (searchParams.get('_limit')) {
+      searchParams.set('_limit', parseInt(event.target.value, 10));
+    }
+    if (searchParams.get('_page')) {
+      searchParams.set('_page', 1);
+    }
+    setSearchParams(searchParams);
     setPage(0);
   };
 
-  const rows = cars
-    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-    .map(({
-      id, brand, model, year, price, transmission, fuelType,
-    }) => (
-      <TableRow key={id}>
-        <StyledTableCell>{id}</StyledTableCell>
-        <StyledTableCell>{brand}</StyledTableCell>
-        <StyledTableCell>{model}</StyledTableCell>
-        <StyledTableCell>{transmission}</StyledTableCell>
-        <StyledTableCell>{fuelType}</StyledTableCell>
-        <StyledTableCell align="right">{price}</StyledTableCell>
-        <StyledTableCell align="right">{year}</StyledTableCell>
-        <StyledTableCell align="right" sx={{ width: 1 / 100, whiteSpace: 'nowrap' }}>
-          <Link to={`/car/${id}`}>Peržiūrėti</Link>
-        </StyledTableCell>
-      </TableRow>
-    ));
+  const rows = cars.map(({
+    id, brand, model, year, price, transmission, fuelType,
+  }) => (
+    <TableRow key={id}>
+      <StyledTableCell>{id}</StyledTableCell>
+      <StyledTableCell>{brand}</StyledTableCell>
+      <StyledTableCell>{model}</StyledTableCell>
+      <StyledTableCell>{transmission}</StyledTableCell>
+      <StyledTableCell>{fuelType}</StyledTableCell>
+      <StyledTableCell align="right">{price}</StyledTableCell>
+      <StyledTableCell align="right">{year}</StyledTableCell>
+      <StyledTableCell align="right" sx={{ width: 1 / 100, whiteSpace: 'nowrap' }}>
+        <Link to={`/car/${id}`}>Peržiūrėti</Link>
+      </StyledTableCell>
+    </TableRow>
+  ));
 
   const skeletonRows = Array.from(new Array(rowsPerPage)).map(() => (
     <TableRow>

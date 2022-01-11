@@ -47,9 +47,14 @@ const CarSearch = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  const createToggleDrawer = (open) => () => {
-    setDrawerOpen(open);
-  };
+  useEffect(() => {
+    if (!searchParams.get('_limit')) {
+      searchParams.set('_limit', 20);
+    }
+    if (!searchParams.get('_page')) {
+      searchParams.set('_page', 1);
+    }
+  }, []);
 
   useEffect(() => {
     (async () => {
@@ -62,6 +67,10 @@ const CarSearch = () => {
       setLoading(false);
     })();
   }, [searchParams]);
+
+  const createToggleDrawer = (open) => () => {
+    setDrawerOpen(open);
+  };
 
   // Keiciamas atvaizdavimo tipas
   const handleViewChange = (_, nextView) => {
