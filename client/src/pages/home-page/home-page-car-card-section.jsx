@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import { v4 as uuidv4 } from 'uuid';
 import { useSearchParams } from 'react-router-dom';
 import { SwiperSlide } from 'swiper/react';
@@ -28,7 +28,13 @@ const CarCardSection = () => {
   }, []);
 
   return (
-    <Box sx={{ width: '100%', p: 1 }} id="home-page-content">
+    <Box
+      sx={{
+        width: '100%',
+        p: 1,
+      }}
+      id="home-page-content"
+    >
       <Typography
         component="h2"
         sx={{
@@ -43,7 +49,7 @@ const CarCardSection = () => {
       >
         Naujausi automobiliai
       </Typography>
-      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+      <Box sx={{ display: { xs: 'flex', xl: 'none' }, justifyContent: 'center' }}>
         <CardSwiper style={{ padding: '10px' }}>
           {cars.map((
             {
@@ -55,36 +61,30 @@ const CarCardSection = () => {
             </SwiperSlide>
           ))}
         </CardSwiper>
-
-        {/* <Grid
-          container
-          spacing={2}
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            width: '100%',
-          }}
-        >
-          {cars.map((
-            {
-              id, images, brand, model, year, price,
-            },
-          ) => (
-            <Grid
-              item
-              key={id}
-              xs={12}
-              md={6}
-              lg={3}
-              xl={3}
-            >
-              <CarCard key={uuidv4()} image={images[0]}
-              title={`${brand} - ${model}`} subtitle={`Meta
-              i: ${year} | Kaina: ${price} €`} id={id} />
-            </Grid>
-          ))}
-        </Grid> */}
       </Box>
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          display: { xs: 'none', xl: 'flex' },
+          justifyContent: 'center',
+          width: '100%',
+        }}
+      >
+        {cars.map((
+          {
+            id, images, brand, model, year, price,
+          },
+        ) => (
+          <Grid
+            item
+            key={id}
+            xl={2.3}
+          >
+            <CarCard image={images[0]} title={`${brand} - ${model}`} subtitle={`Metai: ${year} | Kaina: ${price} €`} id={id} />
+          </Grid>
+        ))}
+      </Grid>
     </Box>
   );
 };
