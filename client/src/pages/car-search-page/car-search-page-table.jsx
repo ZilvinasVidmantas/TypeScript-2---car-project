@@ -9,9 +9,12 @@ import {
   Paper,
   TablePagination,
   Skeleton,
+  IconButton,
 } from '@mui/material';
 import { Link, useSearchParams } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 const StyledTableCell = styled(TableCell)({
   padding: 10,
@@ -19,6 +22,8 @@ const StyledTableCell = styled(TableCell)({
 
 const CarTable = ({ cars, count }) => {
   const [page, setPage] = useState(0);
+  const [priceOrder, setPriceOrder] = useState('');
+  const [yearsOrder, setYearsOrder] = useState('_sort_desc=year');
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -53,22 +58,49 @@ const CarTable = ({ cars, count }) => {
     setPage(0);
   };
 
-  const rows = cars.map(({
-    id, brand, model, year, price, transmission, fuelType,
-  }) => (
-    <TableRow key={id}>
-      <StyledTableCell>{id}</StyledTableCell>
-      <StyledTableCell>{brand}</StyledTableCell>
-      <StyledTableCell>{model}</StyledTableCell>
-      <StyledTableCell>{transmission}</StyledTableCell>
-      <StyledTableCell>{fuelType}</StyledTableCell>
-      <StyledTableCell align="right">{price}</StyledTableCell>
-      <StyledTableCell align="right">{year}</StyledTableCell>
-      <StyledTableCell align="right" sx={{ width: 1 / 100, whiteSpace: 'nowrap' }}>
-        <Link to={`/car/${id}`}>Peržiūrėti</Link>
-      </StyledTableCell>
-    </TableRow>
-  ));
+  const handleYearsOrderChange = () => {
+    if (yearsOrder === '_sort_asc=year') {
+      setYearsOrder('_sort_desc=year');
+      searchParams.delete('_sort_asc');
+      searchParams.set('_sort_desc', 'year');
+    } else {
+      setYearsOrder('_sort_asc=year');
+      searchParams.delete('_sort_desc');
+      searchParams.set('_sort_asc', 'year');
+    }
+    setSearchParams(searchParams);
+  };
+
+  const handlePriceOrderChange = () => {
+    if (priceOrder === '_sort_asc=price') {
+      setPriceOrder('_sort_desc=price');
+      searchParams.delete('_sort_asc');
+      searchParams.set('_sort_desc', 'price');
+    } else {
+      setPriceOrder('_sort_asc=price');
+      searchParams.delete('_sort_desc');
+      searchParams.set('_sort_asc', 'price');
+    }
+    setSearchParams(searchParams);
+  };
+
+  const rows = cars
+    .map(({
+      id, brand, model, year, price, transmission, fuelType,
+    }) => (
+      <TableRow key={id}>
+        <StyledTableCell>{id}</StyledTableCell>
+        <StyledTableCell>{brand}</StyledTableCell>
+        <StyledTableCell>{model}</StyledTableCell>
+        <StyledTableCell>{transmission}</StyledTableCell>
+        <StyledTableCell>{fuelType}</StyledTableCell>
+        <StyledTableCell align="right">{price}</StyledTableCell>
+        <StyledTableCell align="right">{year}</StyledTableCell>
+        <StyledTableCell align="right" sx={{ width: 1 / 100, whiteSpace: 'nowrap' }}>
+          <Link to={`/car/${id}`}>Peržiūrėti</Link>
+        </StyledTableCell>
+      </TableRow>
+    ));
 
   const skeletonRows = Array.from(new Array(rowsPerPage)).map(() => (
     <TableRow>
@@ -95,8 +127,26 @@ const CarTable = ({ cars, count }) => {
             <TableCell>Modelis</TableCell>
             <TableCell>Pavarų dėžė</TableCell>
             <TableCell>Kuro tipas</TableCell>
-            <TableCell align="right">Kaina €</TableCell>
-            <TableCell align="right">Gam. Metai</TableCell>
+            <TableCell align="right">
+              Kaina €
+              <IconButton onClick={handlePriceOrderChange}>
+                {
+                  priceOrder === '_sort_asc=price'
+                    ? <ArrowDropUpIcon />
+                    : <ArrowDropDownIcon />
+                }
+              </IconButton>
+            </TableCell>
+            <TableCell align="right">
+              Gam. Metai
+              <IconButton onClick={handleYearsOrderChange}>
+                {
+                  yearsOrder === '_sort_asc=year'
+                    ? <ArrowDropUpIcon />
+                    : <ArrowDropDownIcon />
+                }
+              </IconButton>
+            </TableCell>
             <TableCell>Veiksmai</TableCell>
           </TableRow>
         </TableHead>
