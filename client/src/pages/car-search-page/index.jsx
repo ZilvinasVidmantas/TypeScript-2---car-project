@@ -54,6 +54,8 @@ const CarSearch = () => {
     if (!searchParams.get('_page')) {
       searchParams.set('_page', 1);
     }
+    searchParams.delete('_sort_desc');
+    searchParams.delete('_sort_asc');
     setSearchParams(searchParams);
   }, []);
 

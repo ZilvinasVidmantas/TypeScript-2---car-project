@@ -23,7 +23,7 @@ const StyledTableCell = styled(TableCell)({
 const CarTable = ({ cars, count }) => {
   const [page, setPage] = useState(0);
   const [priceOrder, setPriceOrder] = useState('');
-  const [yearsOrder, setYearsOrder] = useState('');
+  const [yearsOrder, setYearsOrder] = useState('_sort_desc=year');
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -61,9 +61,11 @@ const CarTable = ({ cars, count }) => {
   const handleYearsOrderChange = () => {
     if (yearsOrder === '_sort_asc=year') {
       setYearsOrder('_sort_desc=year');
+      searchParams.delete('_sort_asc');
       searchParams.set('_sort_desc', 'year');
     } else {
       setYearsOrder('_sort_asc=year');
+      searchParams.delete('_sort_desc');
       searchParams.set('_sort_asc', 'year');
     }
     setSearchParams(searchParams);
@@ -72,13 +74,17 @@ const CarTable = ({ cars, count }) => {
   const handlePriceOrderChange = () => {
     if (priceOrder === '_sort_asc=price') {
       setPriceOrder('_sort_desc=price');
+      searchParams.delete('_sort_asc');
+      searchParams.set('_sort_desc', 'price');
     } else {
       setPriceOrder('_sort_asc=price');
+      searchParams.delete('_sort_desc');
+      searchParams.set('_sort_asc', 'price');
     }
+    setSearchParams(searchParams);
   };
 
   const rows = cars
-    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
     .map(({
       id, brand, model, year, price, transmission, fuelType,
     }) => (
