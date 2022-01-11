@@ -11,17 +11,19 @@ import {
   Skeleton,
   IconButton,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 const CarTable = ({ cars, count }) => {
   const [page, setPage] = useState(0);
-  const [priceOrder, setPriceOrder] = useState({ field: 'price', order: '' });
-  const [yearsOrder, setYearsOrder] = useState({ field: 'year', order: '' });
+  const [priceOrder, setPriceOrder] = useState('');
+  const [yearsOrder, setYearsOrder] = useState('');
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const [loading, setLoading] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const handleChangePage = (event, newPage) => {
     setLoading(true);
     setPage(newPage);
@@ -40,18 +42,21 @@ const CarTable = ({ cars, count }) => {
   };
 
   const handleYearsOrderChange = () => {
-    if (yearsOrder.order === 'asc') {
-      setYearsOrder({ field: 'year', order: 'desc' });
+    if (yearsOrder === '_sort_asc=year') {
+      setYearsOrder('_sort_desc=year');
+      searchParams.set('_sort_desc', 'year');
     } else {
-      setYearsOrder({ field: 'year', order: 'asc' });
+      setYearsOrder('_sort_asc=year');
+      searchParams.set('_sort_asc', 'year');
     }
+    setSearchParams(searchParams);
   };
 
   const handlePriceOrderChange = () => {
-    if (priceOrder.order === 'asc') {
-      setPriceOrder({ field: 'price', order: 'desc' });
+    if (priceOrder === '_sort_asc=price') {
+      setPriceOrder('_sort_desc=price');
     } else {
-      setPriceOrder({ field: 'price', order: 'asc' });
+      setPriceOrder('_sort_asc=price');
     }
   };
 
@@ -103,7 +108,7 @@ const CarTable = ({ cars, count }) => {
               Kaina €
               <IconButton onClick={handlePriceOrderChange}>
                 {
-                  priceOrder.order === 'asc'
+                  priceOrder === '_sort_asc=price'
                     ? <ArrowDropUpIcon />
                     : <ArrowDropDownIcon />
                 }
@@ -113,7 +118,7 @@ const CarTable = ({ cars, count }) => {
               Gam. Metai
               <IconButton onClick={handleYearsOrderChange}>
                 {
-                  yearsOrder.order === 'asc'
+                  yearsOrder === '_sort_asc=year'
                     ? <ArrowDropUpIcon />
                     : <ArrowDropDownIcon />
                 }
