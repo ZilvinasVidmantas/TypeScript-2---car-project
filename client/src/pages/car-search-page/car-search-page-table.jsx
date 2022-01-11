@@ -13,7 +13,7 @@ import {
 import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 
-const CarTable = ({ cars }) => {
+const CarTable = ({ cars, count }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const [loading, setLoading] = useState(false);
@@ -94,7 +94,7 @@ const CarTable = ({ cars }) => {
       <TablePagination
         rowsPerPageOptions={[10, 20, 25]}
         component="div"
-        count={cars.length}
+        count={count}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

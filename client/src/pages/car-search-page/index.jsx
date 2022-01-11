@@ -13,7 +13,7 @@ import { createUrlParamObj } from '../../helpers';
 import CarGrid from './car-search-page-grid';
 import LoadingImg from './assets/loading.gif';
 import CarSearchPageDrawer from './car-search-page-drawer';
-import useFiltersAndSearchParams from '../../hooks/useFiltersAndSearchParams';
+// import useFiltersAndSearchParams from '../../hooks/useFiltersAndSearchParams';
 import CarSearchPageMenu from './car-search-page-menu';
 
 const StyledGridItem = styled(Grid)(({ theme }) => ({
@@ -40,12 +40,12 @@ const StyledFab = styled(Fab)(({ theme }) => ({
 
 const CarSearch = () => {
   const [cars, setCars] = useState([]);
+  const [allCarsCount, setAllCarsCount] = useState(-1);
   const [carSearchViewType, setCarSearchViewType] = useState('grid'); // Atvaizdavimo tipas
   const [searchParams] = useSearchParams();
-  const [loading, setLoading] = useState(true);
   const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const { filters } = useFiltersAndSearchParams();
+  const [loading, setLoading] = useState(true);
 
   const createToggleDrawer = (open) => () => {
     setDrawerOpen(open);
@@ -56,13 +56,12 @@ const CarSearch = () => {
       const params = createUrlParamObj(searchParams);
       const fetchedCars = await ApiService.getJoinedCars(params);
       const modeledCars = fetchedCars.data.map((carData) => new CarModel(carData));
+      const allCarsLength = fetchedCars.dataLength;
       setCars(modeledCars);
+      setAllCarsCount(allCarsLength);
+      setLoading(false);
     })();
   }, [searchParams]);
-
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
 
   // Keiciamas atvaizdavimo tipas
   const handleViewChange = (_, nextView) => {
@@ -71,7 +70,7 @@ const CarSearch = () => {
 
   const dataView = carSearchViewType === 'table' ? (
     // Jei atvaizdavimo tipas lentele
-    <CarTable cars={cars} />
+    <CarTable cars={cars} count={allCarsCount} />
   ) : (
     // Jei atvaizdavimo tipas ne lentele
     <CarGrid cars={cars} />
@@ -105,7 +104,7 @@ const CarSearch = () => {
       />
       <Grid container spacing={2}>
         <StyledGridItem item md={12} lg={2}>
-          <CarFilters className="filters" filters={filters} />
+          <CarFilters className="filters" />
         </StyledGridItem>
         <Grid item xs={12} sm={12} md={12} lg={10}>
           {/* Jei yra masinu */}
