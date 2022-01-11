@@ -7,7 +7,7 @@ const paginate = (collection, page, pageSize) => {
 
 const applyPagination = (data, queryParams) => {
   const pageNumber = queryParams._page ?? 1;
-  const pageSize = queryParams._limit ?? data.length;
+  const pageSize = queryParams._limit ?? 20;
 
   return paginate(data, pageNumber, pageSize);
 }
