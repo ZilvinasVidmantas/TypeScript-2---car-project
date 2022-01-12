@@ -10,10 +10,10 @@ import ProfilePageUserInfo from './profile-page-user-info';
 const ProfilePage = () => (
   <Container
     component="main"
-    maxWidth="md"
-    sx={(theme) => ({ pt: '10%', minHeight: `calc(100vh - (${theme.mixins.footer.height}px + ${theme.mixins.toolbar.height}px))` })}
+    maxWidth="lg"
+    sx={(theme) => ({ minHeight: `calc(100vh - (${theme.mixins.footer.height}px + ${theme.mixins.toolbar.height}px))` })}
   >
-    <Box sx={{ pb: '40px' }}>
+    <Box sx={(theme) => ({ my: 5, pt: `${theme.mixins.toolbar.height}px` })}>
       <Typography variant="h6">Profilis</Typography>
     </Box>
     <ProfilePagePhoto />

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+// import { useParams } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -6,55 +7,66 @@ import {
   Button,
   TextField,
 } from '@mui/material';
+import ApiService from '../../../services/api-service';
 
-const ProfilePageUserInfo = () => (
-  <Box>
-    <Box sx={{ py: '40px' }}>
-      <Typography variant="h6">Vartotojo informacija</Typography>
-    </Box>
-    <Box sx={{
-      display: 'flex',
-      gap: 3,
-      flexDirection: 'column',
-    }}
-    >
-      <Grid container rowSpacing={4} columnSpacing={6} sx={{ px: 2 }}>
-        <Grid item xs={12} md={6}>
-          <TextField
-            disabled
-            fullWidth
-            id="outlined-size-small"
-            label="El. paštas"
-            defaultValue="pastas@rastas.lt"
-            size="small"
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
+const ProfilePageUserInfo = () => {
+  const [user, setUser] = useState(null);
+  // const { id } = useParams();
+  const id = 16;
+
+  const userFieldsData = [
+    { name: 'El. paštas', value: user?.email },
+    { name: 'Vartotojo vardas', value: `${user?.name} ${user?.surname[0]}.` },
+    { name: 'Vardas', value: user?.name },
+    { name: 'Pavardė', value: user?.surname },
+    { name: 'Miestas', value: user?.city },
+    { name: 'Telefono numeris', value: user?.mobile },
+  ];
+
+  useEffect(() => {
+    (async () => {
+      const fetchedUser = await ApiService.getUser(id);
+      setUser(fetchedUser);
+    })();
+  }, [id]);
+
+  return (
+    <Box>
+      <Box sx={{ py: 5 }}>
+        <Typography variant="h6">Vartotojo informacija</Typography>
+      </Box>
+      <Box sx={{
+        display: 'flex',
+        gap: 3,
+        flexDirection: 'column',
+      }}
+      >
+        <Grid container rowSpacing={4} columnSpacing={6} sx={{ py: 1 }}>
+          {userFieldsData.map(({ name, value }) => (
+            <Grid item xs={12} sm={6} key={name}>
+              <TextField
+                disabled={name === 'El. paštas' || name === 'Vartotojo vardas'}
+                fullWidth
+                id="outlined-size-small"
+                label={name}
+                value={value}
+                // onChange={(e) => handleFieldChange(e.target.value)}
+                size="small"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+            </Grid>
+          ))}
         </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField disabled fullWidth id="outlined-size-small" size="small" defaultValue="Paštetas R." label="Vartotojo vardas" />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField fullWidth id="outlined-size-small" size="small" defaultValue="Paštetas" label="Vardas" />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField fullWidth id="outlined-size-small" size="small" defaultValue="Raštauskas" label="Pavardė" />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField fullWidth id="outlined-size-small" size="small" defaultValue="Vilnius" label="Miestas" />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField fullWidth id="outlined-size-small" size="small" defaultValue="+370 646 58977" label="Telefono numeris" />
-        </Grid>
-      </Grid>
-      <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <Button variant="outlined" sx={{ textTransform: 'none' }}>
-          Išsaugoti
-        </Button>
+        <Box sx={{ pb: 3, display: 'flex', justifyContent: 'flex-end' }}>
+          <Button variant="outlined" sx={{ textTransform: 'none' }}>
+            Išsaugoti
+          </Button>
+        </Box>
       </Box>
     </Box>
-  </Box>
-);
+  );
+};
 
 export default ProfilePageUserInfo;

@@ -88,6 +88,15 @@ const getJoinedCar = async (id) => {
   }
 };
 
+const getUser = async (id) => {
+  try {
+    const response = await instance.get(`/users/${id}`);
+    return response.data;
+  } catch (error) {
+    return dataFetchError(error);
+  }
+};
+
 const API = {
   getJoinedCars,
   getJoinedCar,
@@ -97,6 +106,7 @@ const API = {
   getFuelTypes,
   getYears,
   getPrice,
+  getUser,
 };
 
 export default API;
