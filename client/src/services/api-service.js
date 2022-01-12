@@ -4,7 +4,19 @@ import { appendUrlParams } from '../helpers/url-helpers';
 
 const instance = axios.create({
   baseURL: 'http://localhost:5000',
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
+
+export const login = async ({ email, password }) => {
+  try {
+    const { data } = await instance.post('/auth/sign-in', { email, password });
+    return data;
+  } catch (error) {
+    throw new Error(error.response.data.message);
+  }
+};
 
 const getBrands = async () => {
   try {
@@ -107,6 +119,7 @@ const API = {
   getYears,
   getPrice,
   getUser,
+  login,
 };
 
 export default API;

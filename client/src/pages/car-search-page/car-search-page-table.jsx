@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Table,
   TableBody,
@@ -9,33 +9,82 @@ import {
   Paper,
   TablePagination,
   Skeleton,
+  IconButton,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+
+const StyledTableCell = styled(TableCell)({
+  padding: 10,
+});
 
 const CarTable = ({ cars, count }) => {
   const [page, setPage] = useState(0);
+  const [priceOrder, setPriceOrder] = useState('');
+  const [yearsOrder, setYearsOrder] = useState('_sort_desc=year');
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const [loading, setLoading] = useState(false);
-  const handleChangePage = (event, newPage) => {
-    setLoading(true);
-    setPage(newPage);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
-  };
+    }, 300);
+  }, [cars]);
 
-  const StyledTableCell = styled(TableCell)({
-    padding: 10,
-  });
+  const handleChangePage = (_, newPage) => {
+    setLoading(true);
+    setPage(newPage);
+    if (searchParams.get('_limit')) {
+      searchParams.set('_limit', rowsPerPage);
+    }
+    if (searchParams.get('_page')) {
+      searchParams.set('_page', newPage + 1);
+    }
+    setSearchParams(searchParams);
+  };
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
+    if (searchParams.get('_limit')) {
+      searchParams.set('_limit', parseInt(event.target.value, 10));
+    }
+    if (searchParams.get('_page')) {
+      searchParams.set('_page', 1);
+    }
+    setSearchParams(searchParams);
     setPage(0);
   };
 
+  const handleYearsOrderChange = () => {
+    if (yearsOrder === '_sort_asc=year') {
+      setYearsOrder('_sort_desc=year');
+      searchParams.delete('_sort_asc');
+      searchParams.set('_sort_desc', 'year');
+    } else {
+      setYearsOrder('_sort_asc=year');
+      searchParams.delete('_sort_desc');
+      searchParams.set('_sort_asc', 'year');
+    }
+    setSearchParams(searchParams);
+  };
+
+  const handlePriceOrderChange = () => {
+    if (priceOrder === '_sort_asc=price') {
+      setPriceOrder('_sort_desc=price');
+      searchParams.delete('_sort_asc');
+      searchParams.set('_sort_desc', 'price');
+    } else {
+      setPriceOrder('_sort_asc=price');
+      searchParams.delete('_sort_desc');
+      searchParams.set('_sort_asc', 'price');
+    }
+    setSearchParams(searchParams);
+  };
+
   const rows = cars
-    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
     .map(({
       id, brand, model, year, price, transmission, fuelType,
     }) => (
@@ -78,8 +127,26 @@ const CarTable = ({ cars, count }) => {
             <TableCell>Modelis</TableCell>
             <TableCell>Pavarų dėžė</TableCell>
             <TableCell>Kuro tipas</TableCell>
-            <TableCell align="right">Kaina €</TableCell>
-            <TableCell align="right">Gam. Metai</TableCell>
+            <TableCell align="right">
+              Kaina €
+              <IconButton onClick={handlePriceOrderChange}>
+                {
+                  priceOrder === '_sort_asc=price'
+                    ? <ArrowDropUpIcon />
+                    : <ArrowDropDownIcon />
+                }
+              </IconButton>
+            </TableCell>
+            <TableCell align="right">
+              Gam. Metai
+              <IconButton onClick={handleYearsOrderChange}>
+                {
+                  yearsOrder === '_sort_asc=year'
+                    ? <ArrowDropUpIcon />
+                    : <ArrowDropDownIcon />
+                }
+              </IconButton>
+            </TableCell>
             <TableCell>Veiksmai</TableCell>
           </TableRow>
         </TableHead>
