@@ -5,23 +5,30 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import CarCard from '../../components/cards/car-card';
 import CarCardSkeleton from '../../components/skeletons/car-card-skeleton';
 import GridEndMessage from './car-search-page-grid-end-message';
+import useCarSearchPageSearchParams from '../../hooks/useCarSearchPageSearchParams';
 
-const CarGrid = ({ cars }) => {
+const CarGrid = ({ cars, count }) => {
   const [loading, setLoading] = useState(true);
   const [carsToLoad, setCarsToLoad] = useState(20);
   const [hasMore, setHasMore] = useState(true);
+  const { getInitialSearchParams, setNewSearchParams } = useCarSearchPageSearchParams();
 
   const fetchMoreData = () => {
     setTimeout(() => {
       const carCount = carsToLoad + 20;
-      if (cars.length <= carCount) {
+      if (carCount >= count) {
         setHasMore(false);
       }
+      setNewSearchParams([
+        { key: '_limit', value: carCount },
+      ]);
       setCarsToLoad(carCount);
     }, 800);
   };
 
   useEffect(() => {
+    const { limit } = getInitialSearchParams();
+    setCarsToLoad(limit);
     setTimeout(() => {
       setLoading(false);
     }, 800);
@@ -46,7 +53,7 @@ const CarGrid = ({ cars }) => {
         }}
         id="car-cards-container-top"
       >
-        {cars.slice(0, carsToLoad).map((
+        {cars.map((
           {
             id, images, brand, model, year, price,
           },
