@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import {
   Container, Typography, Grid, Fab, useTheme,
@@ -15,6 +16,7 @@ import LoadingImg from './assets/loading.gif';
 import CarSearchPageDrawer from './car-search-page-drawer';
 // import useFiltersAndSearchParams from '../../hooks/useFiltersAndSearchParams';
 import CarSearchPageMenu from './car-search-page-menu';
+import useCarSearchPageSearchParams from '../../hooks/useCarSearchPageSearchParams';
 
 const StyledGridItem = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down('lg')]: {
@@ -42,22 +44,10 @@ const CarSearch = () => {
   const [cars, setCars] = useState([]);
   const [allCarsCount, setAllCarsCount] = useState(-1);
   const [carSearchViewType, setCarSearchViewType] = useState('grid'); // Atvaizdavimo tipas
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (!searchParams.get('_limit')) {
-      searchParams.set('_limit', 20);
-    }
-    if (!searchParams.get('_page')) {
-      searchParams.set('_page', 1);
-    }
-    searchParams.delete('_sort_desc');
-    searchParams.delete('_sort_asc');
-    setSearchParams(searchParams);
-  }, []);
 
   useEffect(() => {
     (async () => {
@@ -85,7 +75,7 @@ const CarSearch = () => {
     <CarTable cars={cars} count={allCarsCount} />
   ) : (
     // Jei atvaizdavimo tipas ne lentele
-    <CarGrid cars={cars} />
+    <CarGrid cars={cars} count={allCarsCount} />
   );
 
   return loading ? (
