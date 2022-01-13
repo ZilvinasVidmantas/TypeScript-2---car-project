@@ -11,22 +11,30 @@ import {
   Skeleton,
   IconButton,
 } from '@mui/material';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
+import { v4 as uuidv4 } from 'uuid';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import useCarSearchPageSearchParams from '../../hooks/useCarSearchPageSearchParams';
 
 const StyledTableCell = styled(TableCell)({
   padding: 10,
 });
 
 const CarTable = ({ cars, count }) => {
-  const [page, setPage] = useState(0);
+  const [tablePage, setTablePage] = useState(0);
   const [priceOrder, setPriceOrder] = useState('');
   const [yearsOrder, setYearsOrder] = useState('_sort_desc=year');
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const [loading, setLoading] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { getInitialSearchParams, setNewSearchParams } = useCarSearchPageSearchParams();
+
+  useEffect(() => {
+    const { page, limit } = getInitialSearchParams();
+    setTablePage(page - 1);
+    setRowsPerPage(limit);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -36,52 +44,57 @@ const CarTable = ({ cars, count }) => {
 
   const handleChangePage = (_, newPage) => {
     setLoading(true);
-    setPage(newPage);
-    if (searchParams.get('_limit')) {
-      searchParams.set('_limit', rowsPerPage);
-    }
-    if (searchParams.get('_page')) {
-      searchParams.set('_page', newPage + 1);
-    }
-    setSearchParams(searchParams);
+    setTablePage(newPage);
+    setNewSearchParams([
+      { key: '_limit', value: rowsPerPage },
+      { key: '_page', value: newPage + 1 },
+    ]);
   };
 
   const handleChangeRowsPerPage = (event) => {
+    setLoading(true);
+    setTablePage(0);
     setRowsPerPage(parseInt(event.target.value, 10));
-    if (searchParams.get('_limit')) {
-      searchParams.set('_limit', parseInt(event.target.value, 10));
-    }
-    if (searchParams.get('_page')) {
-      searchParams.set('_page', 1);
-    }
-    setSearchParams(searchParams);
-    setPage(0);
+    setNewSearchParams([
+      { key: '_limit', value: rowsPerPage },
+      { key: '_page', value: 1 },
+    ]);
   };
 
   const handleYearsOrderChange = () => {
     if (yearsOrder === '_sort_asc=year') {
       setYearsOrder('_sort_desc=year');
-      searchParams.delete('_sort_asc');
-      searchParams.set('_sort_desc', 'year');
+      setNewSearchParams([{
+        keyToDelete: '_sort_asc',
+        key: '_sort_desc',
+        value: 'year',
+      }]);
     } else {
       setYearsOrder('_sort_asc=year');
-      searchParams.delete('_sort_desc');
-      searchParams.set('_sort_asc', 'year');
+      setNewSearchParams([{
+        keyToDelete: '_sort_desc',
+        key: '_sort_asc',
+        value: 'year',
+      }]);
     }
-    setSearchParams(searchParams);
   };
 
   const handlePriceOrderChange = () => {
     if (priceOrder === '_sort_asc=price') {
       setPriceOrder('_sort_desc=price');
-      searchParams.delete('_sort_asc');
-      searchParams.set('_sort_desc', 'price');
+      setNewSearchParams([{
+        keyToDelete: '_sort_asc',
+        key: '_sort_desc',
+        value: 'price',
+      }]);
     } else {
       setPriceOrder('_sort_asc=price');
-      searchParams.delete('_sort_desc');
-      searchParams.set('_sort_asc', 'price');
+      setNewSearchParams([{
+        keyToDelete: '_sort_desc',
+        key: '_sort_asc',
+        value: 'price',
+      }]);
     }
-    setSearchParams(searchParams);
   };
 
   const rows = cars
@@ -103,7 +116,7 @@ const CarTable = ({ cars, count }) => {
     ));
 
   const skeletonRows = Array.from(new Array(rowsPerPage)).map(() => (
-    <TableRow>
+    <TableRow key={uuidv4()}>
       <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
       <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
       <StyledTableCell><Skeleton animation="wave" height={20} /></StyledTableCell>
@@ -163,7 +176,7 @@ const CarTable = ({ cars, count }) => {
         component="div"
         count={count}
         rowsPerPage={rowsPerPage}
-        page={page}
+        page={tablePage}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
         labelRowsPerPage="Mašinų skaičius puslapyje:"
